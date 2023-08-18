@@ -7,13 +7,14 @@
 - [[#outputs][OUTPUTS]]
 - [[#machines][MACHINES]]
   - [[#laptop--home-manager-as-module][LAPTOP (+ HOME MANAGER AS MODULE)]]
-  - [[#android-nix-on-droid][ANDROID (NIX-ON-DROID)]]
   - [[#macbook][MACBOOK]]
   - [[#home-manager][HOME MANAGER]]
+  - [[#android-nix-on-droid][ANDROID (NIX-ON-DROID)]]
 - [[#inputs][INPUTS]]
   - [[#main-1][MAIN]]
-  - [[#repos][REPOS]]
   - [[#nix-darwin][NIX-DARWIN]]
+  - [[#nix-on-droid][NIX-ON-DROID]]
+  - [[#repos][REPOS]]
 - [[#nix-config][NIX CONFIG]]
 
 * MAIN
@@ -38,7 +39,7 @@ outputs = inputs @ {
   ...
 	}: lett
   username = "asynthe";
-  username_mac = "ben";
+  username_mac = "benjamindunstan";
   hostname = "genkai";
   hostname_mac = "192-168-1-123"
 
@@ -56,27 +57,34 @@ outputs = inputs @ {
 ** LAPTOP (+ HOME MANAGER AS MODULE)
 
 #+begin_src nix
-    nixosConfigurations = {
-      genkai = nixpkgs.lib.nixosSystem {
-        system = "genkai";
-        specialArgs = {inherit username inputs;};
+nixosConfigurations = {
+  genkai = nixpkgs.lib.nixosSystem {
+    system = "genkai";
+    specialArgs = {inherit username inputs;};
 
-        modules = [
-          ./nix/system/laptop
-          # HARDWARE-CONFIGURATION.NIX HERE?
+    modules = [
+      ./nix/system/laptop
+      # HARDWARE-CONFIGURATION.NIX HERE?
+      # Home Manager as a Module goes here !!!      
+    ];
+    };
+  };
+#+end_src
 
-          # Home Manager as a Module
-          #home-manager.nixosModules.home-manager
-          #{
-          #home-manager = {
-          #useGlobalPkgs = true;
-          #useUserPackages = true;
-          #users.${username} = import ./nix/home/linux/home.nix;
-          #};
-          #}
-        ];
-        };
-      };
+*** Home Manager as module
+
+Disabled for now, but you can play around with it.
+
+#+begin_src nix
+      # Home Manager as a Module
+      #home-manager.nixosModules.home-manager
+      #{
+      #home-manager = {
+      #useGlobalPkgs = true;
+      #useUserPackages = true;
+      #users.${username} = import ./nix/home/linux/home.nix;
+      #};
+      #}
 
       # Testing Specialargs on Home Manager Module
       #nixosConfigurations.${hostname} = { nixpkgs.lib.nixosSystem rec {
@@ -89,14 +97,13 @@ outputs = inputs @ {
       #})
 #+end_src
 
-
 ** MACBOOK
 
 #+begin_src nix
     darwinConfigurations = {
-      192-168-1-123 = nix-darwin.lib.darwinSystem {
+      ${hostname_mac} = nix-darwin.lib.darwinSystem {
         specialArgs = {inherit username_mac inputs;};
-        modules = [ ./darwin/configuration.nix ];
+        modules = [ ./nix/darwin/configuration.nix ];
         };
       };
 #+end_src
@@ -134,7 +141,7 @@ outputs = inputs @ {
         ${username} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {inherit username inputs;};
-          modules = [./home/linux/home.nix];
+          modules = [ ./home/linux/home.nix ];
         };
       };
 #+end_src
@@ -150,18 +157,16 @@ outputs = inputs @ {
 * INPUTS
 ** MAIN
 
+*NIXPKGS AND NIXPKGS STABLE*
 #+begin_src nix
       }; 
   inputs = {
     # Main
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
-    nix-on-droid = {
-      url = "github:t184256/nix-on-droid/release-23.05";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
-      };
 #+end_src
 
+*HOME MANAGER*
 #+begin_src nix
     # Home
     home-manager = {
@@ -170,15 +175,6 @@ outputs = inputs @ {
       # Follows the nixpkgs channel defined before, 
       # to avoid different versions of nixpkgs deps problems.
     };
-#+end_src
-
-** REPOS
-
-#+begin_src nix
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    nix-gaming.url = "github:fufexan/nix-gaming";
-    hyprland.url = "github:hyprwm/Hyprland";
-    #helix.url = "github:helix-editor/helix/23.05";
 #+end_src
 
 ** NIX-DARWIN
@@ -191,6 +187,24 @@ outputs = inputs @ {
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
   };
+#+end_src
+
+** NIX-ON-DROID
+
+#+begin_src nix
+    nix-on-droid = {
+      url = "github:t184256/nix-on-droid/release-23.05";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+      };
+#+end_src
+
+** REPOS
+
+#+begin_src nix
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    hyprland.url = "github:hyprwm/Hyprland";
+    #helix.url = "github:helix-editor/helix/23.05";
 #+end_src
 
 * NIX CONFIG

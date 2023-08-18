@@ -10,13 +10,14 @@ outputs = inputs @ {
   home-manager,
   nix-gaming,
   ...
-}: let
+	}: lett
   username = "asynthe";
-  username_mac = "ben";
+  username_mac = "benjamindunstan";
   hostname = "genkai";
+  hostname_mac = "192-168-1-123"
 
   x64_system = "x86_64-linux";
-  x64_darwin = "x86_64-darwin";
+  x64_darwin = "aarch64-darwin";
 
   pkgs = nixpkgs.legacyPackages.x86_64-linux;
   
@@ -30,66 +31,49 @@ nixosConfigurations = {
     modules = [
       ./nix/system/laptop
       # HARDWARE-CONFIGURATION.NIX HERE?
-
-      # Home Manager as a Module
-      #home-manager.nixosModules.home-manager
-      #{
-      #home-manager = {
-      #useGlobalPkgs = true;
-      #useUserPackages = true;
-      #users.${username} = import ./nix/home/linux/home.nix;
-      #};
-      #}
+      # Home Manager as a Module goes here !!!      
     ];
     };
   };
 
-  # Testing Specialargs on Home Manager Module
-  #nixosConfigurations.${hostname} = { nixpkgs.lib.nixosSystem rec {
-  #({ config, lib, ... }: {
-  #options.home-manager.users = lib.mkOption {
-  #type = with lib.types; attrsOf (submoduleWith {
-  #specialArgs = { super = config; inherit helix; };
-  #});
-  #};
-  #})
-
-nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-  modules = [./nix/nix-on-droid];
-};
-
-# macOS configuration
-#darwinConfigurations =
-#let
-#system = x64_darwin;
-#specialArgs =
+# Home Manager as a Module
+#home-manager.nixosModules.home-manager
 #{
-#inherit username_mac;
-#nixpkgs = import nixpkgs {
-#inherit system;
-#config.allowUnfree = true;
+#home-manager = {
+#useGlobalPkgs = true;
+#useUserPackages = true;
+#users.${username} = import ./nix/home/linux/home.nix;
 #};
 #}
-#// inputs;
-#base_args = {
-#inherit nix-darwin home-manager system specialArgs nixpkgs;
-#};
-#in {
-#macos = macosSystem (base_args // {
-#darwin-modules = [
-#./system/macos
-#];
-#home-module = import ./home/darwin;
+
+# Testing Specialargs on Home Manager Module
+#nixosConfigurations.${hostname} = { nixpkgs.lib.nixosSystem rec {
+#({ config, lib, ... }: {
+#options.home-manager.users = lib.mkOption {
+#type = with lib.types; attrsOf (submoduleWith {
+#specialArgs = { super = config; inherit helix; };
 #});
 #};
+#})
+
+darwinConfigurations = {
+  ${hostname_mac} = nix-darwin.lib.darwinSystem {
+    specialArgs = {inherit username_mac inputs;};
+    modules = [ ./nix/darwin/configuration.nix ];
+    };
+  };
 
 # Home Manager as a Standalone
 homeConfigurations = {
   ${username} = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = {inherit username inputs;};
-    modules = [./home/linux/home.nix];
+    modules = [ ./home/linux/home.nix ];
   };
+};
+
+nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+  modules = [./nix/nix-on-droid];
 };
 
 }; 
@@ -97,10 +81,6 @@ inputs = {
   # Main
   nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
-  nix-on-droid = {
-    url = "github:t184256/nix-on-droid/release-23.05";
-    inputs.nixpkgs.follows = "nixpkgs-stable";
-    };
 
 # Home
 home-manager = {
@@ -110,11 +90,6 @@ home-manager = {
   # to avoid different versions of nixpkgs deps problems.
 };
 
-nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-nix-gaming.url = "github:fufexan/nix-gaming";
-hyprland.url = "github:hyprwm/Hyprland";
-#helix.url = "github:helix-editor/helix/23.05";
-
 # For MacOS
   nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
   nix-darwin = {
@@ -122,6 +97,16 @@ hyprland.url = "github:hyprwm/Hyprland";
     inputs.nixpkgs.follows = "nixpkgs-darwin";
   };
 };
+
+nix-on-droid = {
+  url = "github:t184256/nix-on-droid/release-23.05";
+  inputs.nixpkgs.follows = "nixpkgs-stable";
+  };
+
+nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+nix-gaming.url = "github:fufexan/nix-gaming";
+hyprland.url = "github:hyprwm/Hyprland";
+#helix.url = "github:helix-editor/helix/23.05";
 
 nixConfig = {
       experimental-features = [ "nix-command" "flakes" "recursive-nix" ]; # Enable flakes.
