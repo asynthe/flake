@@ -140,11 +140,6 @@ outputs = inputs @ {
 
 * INPUTS
 ** MAIN
-** REPOS
-** NIX-DARWIN
-* NIX CONFIG
-
-The closing bracket is from OUTPUTs, i put it here to have more flexibility moving the configurations around.
 
 #+begin_src nix
       }; 
@@ -156,7 +151,9 @@ The closing bracket is from OUTPUTs, i put it here to have more flexibility movi
       url = "github:t184256/nix-on-droid/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
       };
+#+end_src
 
+#+begin_src nix
     # Home
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -164,13 +161,20 @@ The closing bracket is from OUTPUTs, i put it here to have more flexibility movi
       # Follows the nixpkgs channel defined before, 
       # to avoid different versions of nixpkgs deps problems.
     };
+#+end_src
 
-    # Repos
+** REPOS
+
+#+begin_src nix
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nix-gaming.url = "github:fufexan/nix-gaming";
     hyprland.url = "github:hyprwm/Hyprland";
     #helix.url = "github:helix-editor/helix/23.05";
+#+end_src
 
+** NIX-DARWIN
+
+#+begin_src nix
     # For MacOS
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
     nix-darwin = {
@@ -178,7 +182,13 @@ The closing bracket is from OUTPUTs, i put it here to have more flexibility movi
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
   };
+#+end_src
 
+* NIX CONFIG
+
+The closing bracket is from OUTPUTs, i put it here to have more flexibility moving the configurations around.
+
+#+begin_src nix
   nixConfig = {
       experimental-features = [ "nix-command" "flakes" "recursive-nix" ]; # Enable flakes.
       systemFeatures = [ "recursive-nix" ];

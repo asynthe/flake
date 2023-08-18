@@ -93,38 +93,37 @@ homeConfigurations = {
 };
 
 }; 
-  inputs = {
-    # Main
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
-    nix-on-droid = {
-      url = "github:t184256/nix-on-droid/release-23.05";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
-      };
-
-    # Home
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs"; 
-      # Follows the nixpkgs channel defined before, 
-      # to avoid different versions of nixpkgs deps problems.
+inputs = {
+  # Main
+  nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
+  nix-on-droid = {
+    url = "github:t184256/nix-on-droid/release-23.05";
+    inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
-    # Repos
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    nix-gaming.url = "github:fufexan/nix-gaming";
-    hyprland.url = "github:hyprwm/Hyprland";
-    #helix.url = "github:helix-editor/helix/23.05";
+# Home
+home-manager = {
+  url = "github:nix-community/home-manager";
+  inputs.nixpkgs.follows = "nixpkgs"; 
+  # Follows the nixpkgs channel defined before, 
+  # to avoid different versions of nixpkgs deps problems.
+};
 
-    # For MacOS
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
-    nix-darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
-    };
+nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+nix-gaming.url = "github:fufexan/nix-gaming";
+hyprland.url = "github:hyprwm/Hyprland";
+#helix.url = "github:helix-editor/helix/23.05";
+
+# For MacOS
+  nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
+  nix-darwin = {
+    url = "github:lnl7/nix-darwin";
+    inputs.nixpkgs.follows = "nixpkgs-darwin";
   };
+};
 
-  nixConfig = {
+nixConfig = {
       experimental-features = [ "nix-command" "flakes" "recursive-nix" ]; # Enable flakes.
       systemFeatures = [ "recursive-nix" ];
       substituters = [
