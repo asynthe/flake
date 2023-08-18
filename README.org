@@ -36,13 +36,14 @@ outputs = inputs @ {
   home-manager,
   nix-gaming,
   ...
-}: let
+	}: lett
   username = "asynthe";
   username_mac = "ben";
   hostname = "genkai";
+  hostname_mac = "192-168-1-123"
 
   x64_system = "x86_64-linux";
-  x64_darwin = "x86_64-darwin";
+  x64_darwin = "aarch64-darwin";
 
   pkgs = nixpkgs.legacyPackages.x86_64-linux;
   
@@ -88,42 +89,42 @@ outputs = inputs @ {
       #})
 #+end_src
 
-** ANDROID (NIX-ON-DROID)
-
-#+begin_src nix
-      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-        modules = [./nix/nix-on-droid];
-      };
-#+end_src
 
 ** MACBOOK
 
 #+begin_src nix
-      # macOS configuration
-      #darwinConfigurations =
-      #let
-      #system = x64_darwin;
-      #specialArgs =
-      #{
-      #inherit username_mac;
-      #nixpkgs = import nixpkgs {
-      #inherit system;
-      #config.allowUnfree = true;
-      #};
-      #}
-      #// inputs;
-      #base_args = {
-      #inherit nix-darwin home-manager system specialArgs nixpkgs;
-      #};
-      #in {
-      #macos = macosSystem (base_args // {
-      #darwin-modules = [
-      #./system/macos
-      #];
-      #home-module = import ./home/darwin;
-      #});
-      #};
+    darwinConfigurations = {
+      192-168-1-123 = nix-darwin.lib.darwinSystem {
+        specialArgs = {inherit username_mac inputs;};
+        modules = [ ./darwin/configuration.nix ];
+        };
+      };
 #+end_src
+
+111#+begin_src nix
+  macOS configuration
+    darwinConfigurations =
+      let
+        system = x64_darwin;
+        specialArgs =
+        {
+          inherit username_mac;
+          nixpkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+            };
+        }
+        // inputs;
+       base_args = {
+       inherit nix-darwin home-manager system specialArgs nixpkgs;
+      };
+      in {
+      macos = macosSystem (base_args // {
+      darwin-modules = [ ./system/macos ];
+      home-module = import ./home/darwin;
+      });
+      };
+111#+end_src
 
 ** HOME MANAGER
 
@@ -135,6 +136,14 @@ outputs = inputs @ {
           extraSpecialArgs = {inherit username inputs;};
           modules = [./home/linux/home.nix];
         };
+      };
+#+end_src
+
+** ANDROID (NIX-ON-DROID)
+
+#+begin_src nix
+      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+        modules = [./nix/nix-on-droid];
       };
 #+end_src
 
