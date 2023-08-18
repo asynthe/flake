@@ -2,8 +2,6 @@
 #+property: header-args :tangle flake.nix
 #+auto_tangle: t
 
-test push
-
 * TABLE OF CONTENTS :toc:
 - [[#main][MAIN]]
 - [[#outputs][OUTPUTS]]
