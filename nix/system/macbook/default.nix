@@ -1,23 +1,61 @@
-{ username, ... } @ args:
+{ config, pkgs-darwin, ... }:
+{
 
-# MacBook Pro
+  #imports = [
+    #./shell.nix # ZSH configuration
+    #./sys.nix # System configuration
+    #../../wm/yabai # Yabai configuration
+    #./pkgs.nix
+  #];
 
-let
-  username = "ben";
-  #hostname = "macbook"; (?)
-in {
-  imports = [
-    ../../modules/darwin
-    ../../secrets/darwin.nix
-  ];
+  # Auto upgrade nix package and the daemon service.
+  services.nix-daemon.enable = true; # Make sure it always runs.
+  system.defaults.dock.autohide = true;
 
-  nixpkgs.overlays = import ../../overlays args;
+  #services.nix-daemon.package = pkgs.nixFlakes; # Installs a version of nix, that doesn't need "experimental-features = nix-command flakes"
+  # in /etc/nix/nix.conf
 
-  networking.hostname = hostname;
+  # SHELL.NIX --------
+  # Enable this so nix-darwin creates a zshrc sourcing needed environment changes.
+  # If not used, bash is enabled by default.
+  programs.zsh.enable = true;
+  # SHELL.NIX - END -------
 
-
+  # YABAI CONFIG FILE -------
+  services.yabai = {
+    enable = true;
+    #enableScriptingAddition = ; # false by default
+    #config = {
+    #extraConfig
   };
 
-  nix.settings.trusted-users = [username];
+  #homebrew.brews = [
+  #];
+  # YABAI CONFIG FILE - END -------
+
+  # Homebrew
+  homebrew = {
+    enable = true;
+    onActivation = {
+      # Updates homebrew packages on activation
+      # Can make darwin-rebuild much slower
+      autoUpdate = true;
+      upgrade = true;
+      };
+    brews = [
+      "neovim"
+      "tmux"
+      "lf"
+      #"koekeishiya/formulae/yabai" # enabled by service?
+      #"koekeishiya/formulae/shkd"
+    ];
+    casks = [
+      "alacritty"
+      "amethyst"
+      "logseq"
+      "discord"
+      "iina"
+    ];
+  };
 
 }
