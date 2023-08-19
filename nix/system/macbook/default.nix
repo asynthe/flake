@@ -18,7 +18,13 @@
   # SHELL.NIX --------
   # Enable this so nix-darwin creates a zshrc sourcing needed environment changes.
   # If not used, bash is enabled by default.
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableBashCompletion = true;
+    enableSyntaxHighlighting = true;
+  };
+
   # SHELL.NIX - END -------
 
   # YABAI CONFIG FILE -------
@@ -43,9 +49,23 @@
       upgrade = true;
       };
     brews = [
+
+      # SHELL
       "neovim"
       "tmux"
       "lf"
+      "skim" #"fzf"
+
+      # Rust replacements
+      "bat"
+      "exa"
+      "zoxide"
+      "fd"
+
+      # CLI
+      "yt-dlp"
+      "weechat"
+
       #"koekeishiya/formulae/yabai" # enabled by service?
       #"koekeishiya/formulae/shkd"
     ];
