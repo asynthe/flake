@@ -10,6 +10,8 @@
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true; # Make sure it always runs.
+
+  # System
   system.defaults.dock.autohide = true;
 
   #services.nix-daemon.package = pkgs.nixFlakes; # Installs a version of nix, that doesn't need "experimental-features = nix-command flakes"
@@ -34,10 +36,18 @@
     #config = {
     #extraConfig
   };
-
+  
   #homebrew.brews = [
   #];
   # YABAI CONFIG FILE - END -------
+
+  # PKGS.NIX ----------------
+
+  # Emacs
+  services.emacs = {
+    enable = true;
+    #package = ;
+  };
 
   # Homebrew
   homebrew = {
@@ -54,7 +64,7 @@
       "neovim"
       "tmux"
       "lf"
-      "skim" #"fzf"
+      "sk" #"fzf"
 
       # Rust replacements
       "bat"
@@ -70,11 +80,23 @@
       #"koekeishiya/formulae/shkd"
     ];
     casks = [
-      "alacritty"
+
+      # WM
       "amethyst"
+
+      # TERM
+      "alacritty"
+      "kitty"
+
+      # NOTES
+      "obsidian"
       "logseq"
+
+      # GUI
+      "emacs"
+      "spotify"
       "discord"
-      "iina"
+
     ];
   };
 
