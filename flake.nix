@@ -4,11 +4,12 @@
 outputs = inputs @ {
   self,
   nixpkgs,
-  nixpkgs-stable,
-  nix-on-droid,
+  #nixpkgs-stable,
+  #nixpkgs-wayland,
+  #nix-on-droid,
   nix-darwin,
+  #nix-gaming,
   home-manager,
-  nix-gaming,
   ...
 	}: let
   username = "asynthe";
@@ -30,7 +31,6 @@ nixosConfigurations = {
 
     modules = [
       ./nix/system/laptop
-      # HARDWARE-CONFIGURATION.NIX HERE?
       # Home Manager as a Module goes here !!!      
     ];
     };
@@ -72,9 +72,9 @@ homeConfigurations = {
   };
 };
 
-nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-  modules = [./nix/nix-on-droid];
-};
+#nixOnDroidConfigurations.default = #nix-on-droid.lib.nixOnDroidConfiguration {
+  #modules = [./nix/nix-on-droid];
+#};
 
 }; 
 inputs = {
@@ -103,9 +103,9 @@ home-manager = {
   #inputs.nixpkgs.follows = "nixpkgs-stable";
   #};
 
-nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+#nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 #nix-gaming.url = "github:fufexan/nix-gaming";
-hyprland.url = "github:hyprwm/Hyprland";
+#hyprland.url = "github:hyprwm/Hyprland";
 #helix.url = "github:helix-editor/helix/23.05";
 
 nixConfig = {

@@ -3,33 +3,56 @@
 #+auto_tangle: t
 
 * TABLE OF CONTENTS :toc:
-- [[#what-is-a-flake][What is a Flake]]
-  - [[#how-to-build-a-specific-machine][How to build a specific machine]]
-  - [[#how-to-update-a-flake][How to update a flake]]
-- [[#main][MAIN]]
+- [[#about-flakes][About Flakes]]
+  - [[#what-is-a-flake][What is a flake]]
+  - [[#resources][Resources]]
+  - [[#how-to-update][How to update]]
+  - [[#how-to-rebuild][How to rebuild]]
+  - [[#list-of-commands][List of commands]]
+- [[#first-block][First block]]
 - [[#outputs][Outputs]]
 - [[#machines][MACHINES]]
-  - [[#laptop--home-manager-as-module][LAPTOP (+ HOME MANAGER AS MODULE)]]
-  - [[#macbook][MACBOOK]]
+  - [[#laptop][Laptop]]
+  - [[#macbook][Macbook]]
   - [[#home-manager][Home Manager]]
-  - [[#android-nix-on-droid][ANDROID (NIX-ON-DROID)]]
+  - [[#android-nix-on-droid][Android (Nix On Droid)]]
 - [[#inputs][Inputs]]
-  - [[#main-1][Main]]
+  - [[#main][Main]]
   - [[#nix-darwin][Nix Darwin]]
   - [[#nix-on-droid][Nix On Droid]]
   - [[#repos][Repos]]
 - [[#nix-configuration][Nix Configuration]]
 
-* What is a Flake
-** How to build a specific machine
+* About Flakes
+** What is a flake
+** Resources
+** How to update
 
+To update, we must update the *flake.lock* file, which is done by the next command: (from flake directory)
+*$ nix flake update*
+
+** How to rebuild
+
+You may
 .#genkai
 
-** How to update a flake
+Now, change the *hostname* attribute with your own
+
+This way you can just do it like this: (from flake directory)
 
 
+*$ nixos-rebuild switch --flake .*
 
-* MAIN
+** List of commands
+
+|---------+-------------|
+| Command | Explanation |
+|---------+-------------|
+| IN      | PROGRESS    |
+| ...     | ...         |
+|---------+-------------|
+
+* First block
 
 Start!
 #+begin_src nix
@@ -43,11 +66,12 @@ Start!
 outputs = inputs @ {
   self,
   nixpkgs,
-  nixpkgs-stable,
-  nix-on-droid,
+  #nixpkgs-stable,
+  #nixpkgs-wayland,
+  #nix-on-droid,
   nix-darwin,
+  #nix-gaming,
   home-manager,
-  nix-gaming,
   ...
 	}: let
   username = "asynthe";
@@ -66,7 +90,7 @@ outputs = inputs @ {
 *In {* is here as it gives me more flexibility for moving the org boxes.
 
 * MACHINES
-** LAPTOP (+ HOME MANAGER AS MODULE)
+** Laptop
 
 #+begin_src nix
 nixosConfigurations = {
@@ -76,7 +100,6 @@ nixosConfigurations = {
 
     modules = [
       ./nix/system/laptop
-      # HARDWARE-CONFIGURATION.NIX HERE?
       # Home Manager as a Module goes here !!!      
     ];
     };
@@ -109,7 +132,7 @@ Disabled for now, but you can play around with it.
       #})
 #+end_src
 
-** MACBOOK
+** Macbook
 
 #+begin_src nix
     darwinConfigurations = {
@@ -158,12 +181,12 @@ Disabled for now, but you can play around with it.
       };
 #+end_src
 
-** ANDROID (NIX-ON-DROID)
+** Android (Nix On Droid)
 
 #+begin_src nix
-      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-        modules = [./nix/nix-on-droid];
-      };
+      #nixOnDroidConfigurations.default = #nix-on-droid.lib.nixOnDroidConfiguration {
+        #modules = [./nix/nix-on-droid];
+      #};
 #+end_src
 
 * Inputs
@@ -213,9 +236,9 @@ Disabled for now, but you can play around with it.
 ** Repos
 
 #+begin_src nix
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     #nix-gaming.url = "github:fufexan/nix-gaming";
-    hyprland.url = "github:hyprwm/Hyprland";
+    #hyprland.url = "github:hyprwm/Hyprland";
     #helix.url = "github:helix-editor/helix/23.05";
 #+end_src
 

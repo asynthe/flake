@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, username, ... }:
 
 { 
 
@@ -16,7 +16,7 @@
   };
 
   # Gamemode - better performance on games. Use with gamemoderun.
-  users.users.asynthe.extraGroups = [ "gamemode" ];
+  users.users.${username}.extraGroups = [ "gamemode" ];
   #programs.gamemode = {
     #enable = true;
     #enableRenice = true;
@@ -47,6 +47,7 @@
     xboxdrv
 
     # GAMES
+    minecraft #minecraft-server
     #osu-lazer osu-lazer-bin
     stepmania
     gzdoom

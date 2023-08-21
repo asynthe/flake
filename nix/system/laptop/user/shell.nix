@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 
 {
  
@@ -10,7 +10,7 @@
   security.doas = {
     enable = true;
     extraRules = [{
-      users = [ "${user}" ];
+      users = [ "${username}" ];
       keepEnv = true;
       #persist = true; # no auth every 5 mins.
       noPass = true;
