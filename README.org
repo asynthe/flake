@@ -2,7 +2,7 @@
 #+property: header-args :tangle flake.nix
 #+auto_tangle: t
 
-* TABLE OF CONTENTS :toc:
+* Table of Contents :toc:
 - [[#about-flakes][About Flakes]]
   - [[#what-is-a-flake][What is a flake]]
   - [[#resources][Resources]]
@@ -24,6 +24,9 @@
 - [[#nix-configuration][Nix Configuration]]
 
 * About Flakes
+
+[INSERT COOL IMAGE HERE]
+
 ** What is a flake
 ** Resources
 ** How to update
