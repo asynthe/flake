@@ -2,6 +2,10 @@
 #+property: header-args :tangle flake.nix
 #+auto_tangle: t
 
+[INSERT COOL IMAGE HERE]
+
+GITHUB-LINK][Espanol / GITHUB-LINK][日本語
+
 * Table of Contents :toc:
 - [[#about-flakes][About Flakes]]
   - [[#what-is-a-flake][What is a flake]]
@@ -24,11 +28,6 @@
 - [[#nix-configuration][Nix Configuration]]
 
 * About Flakes
-
-[INSERT COOL IMAGE HERE]
-
-GITHUB-LINK][Espanol / GITHUB-LINK][日本語
-
 ** What is a flake
 ** Resources
 ** How to update
