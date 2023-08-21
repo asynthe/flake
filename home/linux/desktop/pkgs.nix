@@ -41,8 +41,11 @@
 
   home.packages = with pkgs; [
     # Move to
+
+    # Hyprland file
     waybar # Hyprland file (not home-manager)
     swww # Hyprland file (not home-manager)
+    wpaperd
 
     # GPG -> Most of it is specified on configuration, test without packages
     #gnupg
