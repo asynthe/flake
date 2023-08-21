@@ -11,7 +11,7 @@
   - [[#list-of-commands][List of commands]]
 - [[#first-block][First block]]
 - [[#outputs][Outputs]]
-- [[#machines][MACHINES]]
+- [[#machines][Machines]]
   - [[#laptop][Laptop]]
   - [[#macbook][Macbook]]
   - [[#home-manager][Home Manager]]
@@ -92,7 +92,7 @@ outputs = inputs @ {
 
 *In {* is here as it gives me more flexibility for moving the org boxes.
 
-* MACHINES
+* Machines
 ** Laptop
 
 #+begin_src nix
