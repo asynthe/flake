@@ -17,9 +17,10 @@ in {
     ./extra
     ./service
     ./sys
+    ./user
     #./timer
-    ./nvidia.nix # Nvidia drivers
     
+    ./nvidia.nix # Nvidia drivers
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
@@ -79,7 +80,7 @@ in {
     "ext4"
     "btrfs"
     "xfs"
-    #"zfs"
+    "zfs"
     "ntfs"
     "fat"
     "vfat"
@@ -126,119 +127,6 @@ in {
   #boot.initrd.luks.devices."crypt".preLVM = true;
   boot.initrd.availableKernelModules = [ "aesni_intel" "cryptd" ];
   #boot.initrd.cryptoModules = [ "aes" "aes_generic" "blowfish" "twofish" "serpent" "cbc" "xts" "lrw" "sha1" "sha256" "sha512" "af_alg" "algif_skcipher" ];
-
- 
-  # USER
-  users.users.asynthe = {
-    isNormalUser = true;
-    description = "asynthe";
-    extraGroups = [ "docker" "wheel" "video" "audio" "networkmanager" "lp" "scanner" ];
-    #openssh.authorizedKeys.keys = [
-      #""
-    #];
-    #packages = with pkgs; [
-    #];
-    shell = pkgs.zsh;
-    initialPassword = "password";
-  };
-  #users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
-
-  # Change sudo -> doas 
-  security.sudo.enable = false;
-  security.doas = {
-    enable = true;
-    extraRules = [{
-      users = [ "${user}" ];
-      keepEnv = true;
-      #persist = true; # no auth every 5 mins.
-      noPass = true;
-    }];
-  };
-
-  # ENVIRONMENT
-  environment = {
-    shells = with pkgs; [ zsh ];
-    binsh = "${pkgs.dash}/bin/dash"; # change sh for dash.
-    variables = {
-      TERMINAL = "Alacritty";
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-      };
-
-    sessionVariables = rec {
-      # XDG SPECIFICATIONS
-      XDG_CACHE_HOME = "\${HOME}/.cache";
-      XDG_CONFIG_HOME = "\${HOME}/.config";
-      XDG_BIN_HOME = "\${HOME}/.local/bin";
-      XDG_DATA_HOME = "\${HOME}/.local/share";
-      XDG_STATE_HOME = "\${HOME}/.local/state";
-
-      # IME
-      # I use Fcitx5 and mozc to write in Japanese.
-      XMODIFIERS="@im=fcitx";
-      GTK_IM_MODULE="fcitx";
-      QT_IM_MODULE="fcitx";
-      SDL_IM_MODULE="fcitx";
-      GLFW_IM_MODULE="ibus";
- 
-      PATH = [
-        "\${XDG_BIN_HOME}"
-	];
-      };
-  };
-
-  # Console / TTY configuration
-  console = {
-    earlySetup = true;
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
-    packages = with pkgs; [ terminus_font ];
-    keyMap = "us"; # or us/dvous/dvorak/etc
-    #useXkbConfig = true; # use xkbOptions in tty.
-  };
-  # MOUSE ON TTY
-  services.gpm = {
-    enable = true;
-    protocol = "ps/2";
-  };
-
-  time.timeZone = "Australia/Perth"; # Timezone.
-
-  # Internationalisation properties.
-  # Find japanese, japanese.nix?
-  #i18n = {
-    #defaultLocale = "en_US.UTF-8";
-    #extraLocaleSettings = {
-      #LC_ADDRESS = "zh_CN.UTF-8";
-      #LC_IDENTIFICATION = "zh_CN.UTF-8";
-      #LC_MEASUREMENT = "zh_CN.UTF-8";
-      #LC_MONETARY = "zh_CN.UTF-8";
-      #LC_NAME = "zh_CN.UTF-8";
-      #LC_NUMERIC = "zh_CN.UTF-8";
-      #LC_PAPER = "zh_CN.UTF-8";
-      #LC_TELEPHONE = "zh_CN.UTF-8";
-      #LC_TIME = "zh_CN.UTF-8";
-  #};
-
-
-  # Fonts
-  fonts = {
-    packages = with pkgs; [
-      source-code-pro
-      font-awesome
-      iosevka-comfy.comfy
-      corefonts
-      nerdfonts
-      # Japanese
-      ipafont
-      kochi-substitute
-      ];
-    fontconfig.defaultFonts = {
-      monospace = [ "DejaVu Sans Mono" "IPAGothic" ];
-      sansSerif = [ "DejaVu Sans" "IPAPGothic" ];
-      serif = [ "DejaVu Serif" "IPAPMincho" ];
-      };
-  };
 
   # GTK - QT -> Seems to be working better in Home Manager
   # GTK

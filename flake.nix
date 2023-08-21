@@ -3,10 +3,8 @@
 
 outputs = inputs @ {
   self,
-  darwin,
   nixpkgs,
   nixpkgs-stable,
-  nixpkgs-darwin,
   nix-on-droid,
   nix-darwin,
   home-manager,
@@ -16,8 +14,7 @@ outputs = inputs @ {
   username = "asynthe";
   username_mac = "benjamindunstan";
   hostname = "genkai";
-  hostname_mac = "macbook";
-  hostname_mac1 = "192-168-1-123";
+  hostname_mac = "192-168-1-123";
 
   x64_system = "x86_64-linux";
   x64_darwin = "aarch64-darwin";
@@ -60,10 +57,9 @@ nixosConfigurations = {
 #})
 
 darwinConfigurations = {
-  ${hostname_mac1} = nix-darwin.lib.darwinSystem {
-    system = "aarch64-darwin";
-    specialArgs = {inherit hostname_mac username_mac inputs;};
-    modules = [ ./nix/system/macbook ];
+  ${hostname_mac} = nix-darwin.lib.darwinSystem {
+    specialArgs = {inherit username_mac inputs;};
+    modules = [ ./nix/darwin/configuration.nix ];
     };
   };
 
@@ -76,16 +72,15 @@ homeConfigurations = {
   };
 };
 
-#nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-  #modules = [ ./nix/nix-on-droid ];
-#};
+nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+  modules = [./nix/nix-on-droid];
+};
 
 }; 
 inputs = {
   # Main
   nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
-  nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
 
 # Home
 home-manager = {
@@ -96,22 +91,23 @@ home-manager = {
 };
 
 # For MacOS
-darwin = {
-  url = "github:lnl7/nix-darwin";
-  inputs.nixpkgs.follows = "nixpkgs-darwin";
+  nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
+  nix-darwin = {
+    url = "github:lnl7/nix-darwin";
+    inputs.nixpkgs.follows = "nixpkgs-darwin";
+  };
 };
 
-nix-on-droid = {
-  url = "github:t184256/nix-on-droid/release-23.05";
-  inputs.nixpkgs.follows = "nixpkgs-stable";
-};
+#nix-on-droid = {
+  #url = "github:t184256/nix-on-droid/release-23.05";
+  #inputs.nixpkgs.follows = "nixpkgs-stable";
+  #};
 
 nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-nix-gaming.url = "github:fufexan/nix-gaming";
+#nix-gaming.url = "github:fufexan/nix-gaming";
 hyprland.url = "github:hyprwm/Hyprland";
 #helix.url = "github:helix-editor/helix/23.05";
 
-};
 nixConfig = {
       experimental-features = [ "nix-command" "flakes" "recursive-nix" ]; # Enable flakes.
       systemFeatures = [ "recursive-nix" ];

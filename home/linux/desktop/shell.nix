@@ -16,6 +16,7 @@
 
     # shell
     zsh
+    dash
     fish
     starship
     powershell

@@ -3,19 +3,31 @@
 #+auto_tangle: t
 
 * TABLE OF CONTENTS :toc:
+- [[#what-is-a-flake][What is a Flake]]
+  - [[#how-to-build-a-specific-machine][How to build a specific machine]]
+  - [[#how-to-update-a-flake][How to update a flake]]
 - [[#main][MAIN]]
-- [[#outputs][OUTPUTS]]
+- [[#outputs][Outputs]]
 - [[#machines][MACHINES]]
   - [[#laptop--home-manager-as-module][LAPTOP (+ HOME MANAGER AS MODULE)]]
   - [[#macbook][MACBOOK]]
-  - [[#home-manager][HOME MANAGER]]
+  - [[#home-manager][Home Manager]]
   - [[#android-nix-on-droid][ANDROID (NIX-ON-DROID)]]
-- [[#inputs][INPUTS]]
-  - [[#main-1][MAIN]]
-  - [[#nix-darwin][NIX-DARWIN]]
-  - [[#nix-on-droid][NIX-ON-DROID]]
-  - [[#repos][REPOS]]
-- [[#nix-config][NIX CONFIG]]
+- [[#inputs][Inputs]]
+  - [[#main-1][Main]]
+  - [[#nix-darwin][Nix Darwin]]
+  - [[#nix-on-droid][Nix On Droid]]
+  - [[#repos][Repos]]
+- [[#nix-configuration][Nix Configuration]]
+
+* What is a Flake
+** How to build a specific machine
+
+.#genkai
+
+** How to update a flake
+
+
 
 * MAIN
 
@@ -25,7 +37,7 @@ Start!
   description = "asynthe's system flake";
 #+end_src
 
-* OUTPUTS
+* Outputs
 
 #+begin_src nix
 outputs = inputs @ {
@@ -37,11 +49,11 @@ outputs = inputs @ {
   home-manager,
   nix-gaming,
   ...
-	}: lett
+	}: let
   username = "asynthe";
   username_mac = "benjamindunstan";
   hostname = "genkai";
-  hostname_mac = "192-168-1-123"
+  hostname_mac = "192-168-1-123";
 
   x64_system = "x86_64-linux";
   x64_darwin = "aarch64-darwin";
@@ -133,7 +145,7 @@ Disabled for now, but you can play around with it.
       };
 111#+end_src
 
-** HOME MANAGER
+** Home Manager
 
 #+begin_src nix
       # Home Manager as a Standalone
@@ -154,8 +166,8 @@ Disabled for now, but you can play around with it.
       };
 #+end_src
 
-* INPUTS
-** MAIN
+* Inputs
+** Main
 
 *NIXPKGS AND NIXPKGS STABLE*
 #+begin_src nix
@@ -177,7 +189,7 @@ Disabled for now, but you can play around with it.
     };
 #+end_src
 
-** NIX-DARWIN
+** Nix Darwin
 
 #+begin_src nix
     # For MacOS
@@ -189,27 +201,29 @@ Disabled for now, but you can play around with it.
   };
 #+end_src
 
-** NIX-ON-DROID
+** Nix On Droid
 
 #+begin_src nix
-    nix-on-droid = {
-      url = "github:t184256/nix-on-droid/release-23.05";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
-      };
+    #nix-on-droid = {
+      #url = "github:t184256/nix-on-droid/release-23.05";
+      #inputs.nixpkgs.follows = "nixpkgs-stable";
+      #};
 #+end_src
 
-** REPOS
+** Repos
 
 #+begin_src nix
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    #nix-gaming.url = "github:fufexan/nix-gaming";
     hyprland.url = "github:hyprwm/Hyprland";
     #helix.url = "github:helix-editor/helix/23.05";
 #+end_src
 
-* NIX CONFIG
+* Nix Configuration
 
 The closing bracket is from OUTPUTs, i put it here to have more flexibility moving the configurations around.
+
+*nixConfig* should be put inside the configurations, but this will work for now.
 
 #+begin_src nix
   nixConfig = {
