@@ -7,6 +7,15 @@
     skim = {
       enable = true;
       #package = ;
+      #defaultCommand = ;
+      #defaultOptions = ;
+    };
+    fzf = {
+      enable = true;
+      #package = ;
+      #colors = ;
+      #tmux.enableShellIntegration = true;
+      #tmux.ShellIntegrationOptions = ;
     };
 
     git = {
@@ -50,6 +59,9 @@
     gamemode
     clamav
     clamsmtp # antivirus
+
+    # Bluetooth
+    blueman
 
     pdftk #pdfchain # Latex file?
     hplip # -> cups.nix / printer.nix
@@ -144,10 +156,10 @@
 
     # Task management
     taskwarrior
-    taskserver
-    taskell # command-line kanban board/task manager
-    vit
-    todo-txt-cli
+    #taskserver
+    #taskell # command-line kanban board/task manager
+    #vit
+    #todo-txt-cli
 
     # File managers
     pcmanfm
