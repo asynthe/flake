@@ -1,12 +1,12 @@
 { config, pkgs-darwin, ... }:
 {
 
-  #imports = [
+  imports = [
+    ./pkgs.nix
     #./shell.nix # ZSH configuration
     #./sys.nix # System configuration
     #../../wm/yabai # Yabai configuration
-    #./pkgs.nix
-  #];
+  ];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true; # Make sure it always runs.
@@ -44,60 +44,60 @@
   # PKGS.NIX ----------------
 
   # Emacs
-  services.emacs = {
-    enable = true;
+  #services.emacs = {
+    #enable = true;
     #package = ;
-  };
+  #};
 
-  # Homebrew
-  homebrew = {
-    enable = true;
-    onActivation = {
-      # Updates homebrew packages on activation
-      # Can make darwin-rebuild much slower
-      autoUpdate = true;
-      upgrade = true;
-      };
-    brews = [
-
-      # SHELL
-      "neovim"
-      "tmux"
-      "lf"
-      "sk" #"fzf"
-
-      # Rust replacements
-      "bat"
-      "exa"
-      "zoxide"
-      "fd"
-
-      # CLI
-      "yt-dlp"
-      "weechat"
-
-      #"koekeishiya/formulae/yabai" # enabled by service?
-      #"koekeishiya/formulae/shkd"
-    ];
-    casks = [
-
-      # WM
-      "amethyst"
-
-      # TERM
-      "alacritty"
-      "kitty"
-
-      # NOTES
-      "obsidian"
-      "logseq"
-
-      # GUI
-      "emacs"
-      "spotify"
-      "discord"
-
-    ];
-  };
+# # Homebrew
+# homebrew = {
+#   enable = true;
+#   onActivation = {
+#     # Updates homebrew packages on activation
+#     # Can make darwin-rebuild much slower
+#     autoUpdate = true;
+#     upgrade = true;
+#     };
+#   brews = [
+#
+#     # SHELL
+#     "neovim"
+#     "tmux"
+#     "lf"
+#     "sk" #"fzf"
+#
+#     # Rust replacements
+#     "bat"
+#     "exa"
+#     "zoxide"
+#     "fd"
+#
+#     # CLI
+#     "yt-dlp"
+#     "weechat"
+#
+#     #"koekeishiya/formulae/yabai" # enabled by service?
+#     #"koekeishiya/formulae/shkd"
+#   ];
+#   casks = [
+#
+#     # WM
+#     "amethyst"
+#
+#     # TERM
+#     "alacritty"
+#     "kitty"
+#
+#     # NOTES
+#     "obsidian"
+#     "logseq"
+#
+#     # GUI
+#     "emacs"
+#     "spotify"
+#     "discord"
+#
+#   ];
+# };
 
 }
