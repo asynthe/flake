@@ -31,6 +31,7 @@
     };
   };
 
+  # Packages to install
   environment.systemPackages = with pkgs; [
 
     # Hyprland related
@@ -62,5 +63,8 @@
     #waybar
     #swaylock-effects
   ];
+
+  # Extra programs
+  programs.wshowkeys.enable = true; # Show keystrokes in wayland.
 
 }

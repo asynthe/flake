@@ -17,8 +17,8 @@ outputs = inputs @ {
   hostname = "genkai";
   hostname_mac = "192-168-1-123";
 
-  x64_system = "x86_64-linux";
-  x64_darwin = "aarch64-darwin";
+  linux_64 = "x86_64-linux";
+  apple_silicon = "aarch64-darwin";
 
   pkgs = nixpkgs.legacyPackages.x86_64-linux;
   
@@ -58,6 +58,7 @@ nixosConfigurations = {
 
 darwinConfigurations = {
   ${hostname_mac} = nix-darwin.lib.darwinSystem {
+    system = "${apple_silicon}";
     specialArgs = {inherit username_mac inputs;};
     modules = [ ./nix/system/macbook ];
     };

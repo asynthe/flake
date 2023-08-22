@@ -21,4 +21,7 @@
   systemd.services.NetworkManager-wait-online.enable = false; # Temporary fix for bug
   services.dnsmasq.enable = true;
 
+  # Hacking note?
+  programs.wireshark.enable = true;
+
 }

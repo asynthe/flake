@@ -4,12 +4,10 @@
 
   environment.systemPackages = with pkgs; [
 
-
       #plocate #mlocate # just one of the two. # -> service.nix?
 
       # NIX
       cachix # necessary? if yes add to configuration.nix (default.nix)
-
       playerctl # -> audio.nix (home? not-home?)
       (pkgs.uutils-coreutils.override { prefix = ""; }) # Replace coreutils with uutils. # Is this already on home-manager?
 
@@ -181,26 +179,6 @@
     #package = ;
     #extraPlugins = ;
   #};
-
-  # Wshowkeys - A wayland keystrokes show
-  # MOVE TO HYPRLAND FILE
-  programs.wshowkeys.enable = true;
-
-  # Wireshark
-  # MOVE TO NETWORKING
-  programs.wireshark = {
-    enable = true;
-    #package = [];
-  }; 
-
-  # CUPS 
-  # MOVE TO PRINTER FILE
-  # Linux printer drivers + hp.
-  services.printing.enable = true;
-
-  # Flatpak
-  # FLATPAK SERVICE OR FLATPAK FILE
-  services.flatpak.enable = true;
 
   # OPENRGB
   # IDFK

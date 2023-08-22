@@ -9,6 +9,7 @@
 
 {
 
+  # CUPS
   services.printing = {
     enable = true;
     #drivers = ...;
@@ -17,5 +18,8 @@
   services.avahi.nssmdns = true;
   # for a WiFi printer
   services.avahi.openFirewall = true;
+
+  #environment.systemPackages = with pkgs; [
+  #]; 
 
 }
