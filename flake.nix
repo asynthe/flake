@@ -57,6 +57,7 @@ nixosConfigurations = {
 #})
 
 darwinConfigurations = {
+    system = "aarch64-darwin";
   ${hostname_mac} = nix-darwin.lib.darwinSystem {
     specialArgs = {inherit username_mac inputs;};
     modules = [ ./nix/system/macbook ];

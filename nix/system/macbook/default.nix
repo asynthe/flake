@@ -1,4 +1,4 @@
-{ config, pkgs-darwin, ... }:
+{ config, pkgs-darwin, username_mac, ... }:
 {
 
   imports = [
@@ -7,6 +7,20 @@
     #./sys.nix # System configuration
     #../../wm/yabai # Yabai configuration
   ];
+
+  nix.settings.trusted-users = [ "${username_mac}" ];
+
+  nixpkgs = {
+    hostPlatform = {
+      config = "aarch64-darwin";
+      system = "aarch64-darwin";
+      };
+    # Cross-compilation
+    #buildPlatform = {
+      #config = "aarch64-darwin";
+      #system = "aarch64-darwin";
+    #}
+  };
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true; # Make sure it always runs.
