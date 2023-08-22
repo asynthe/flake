@@ -1,6 +1,12 @@
 { config, pkgs-darwin, ... }:
 {
 
+  # Emacs
+  #services.emacs = {
+    #enable = true;
+    #package = ;
+  #};
+
   # Homebrew
   # Installation of homebrew is not included.
   homebrew = {
