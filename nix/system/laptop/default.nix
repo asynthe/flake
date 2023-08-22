@@ -1,18 +1,14 @@
-{ inputs, config, pkgs, lib, helix, username, hostname, ... }:
+{ config, pkgs, lib, username, hostname, inputs, ... }:
 {
 
-# genkai - Laptop
-# i7-10750H / 6 Cores, 12 Threads
-# NVIDIA RTX 3060 6GB
-
   imports = [
-    ./sys.nix
     ../../wm/hyprland # hyprland's default.nix from nix/system/laptop/default.nix
+    ./sys.nix
+    ./nvidia.nix # Nvidia drivers
     ./extra
     ./service
     ./sys
     ./user
-    ./nvidia.nix # Nvidia drivers
     ./hardware-configuration.nix # Include the results of the hardware scan.
     #./timer
   ];

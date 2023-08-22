@@ -7,7 +7,6 @@
   #./boot_grub.nix
   ./fcitx5.nix
   ./networking.nix
-  ./nvidia_drivers.nix
   ./pkgs.nix
   ./sound.nix
   ./vm.nix
