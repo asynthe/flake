@@ -182,4 +182,33 @@
     #extraPlugins = ;
   #};
 
+  # Wshowkeys - A wayland keystrokes show
+  # MOVE TO HYPRLAND FILE
+  programs.wshowkeys.enable = true;
+
+  # Wireshark
+  # MOVE TO NETWORKING
+  programs.wireshark = {
+    enable = true;
+    #package = [];
+  }; 
+
+  # CUPS 
+  # MOVE TO PRINTER FILE
+  # Linux printer drivers + hp.
+  services.printing.enable = true;
+
+  # Flatpak
+  # FLATPAK SERVICE OR FLATPAK FILE
+  services.flatpak.enable = true;
+
+  # OPENRGB
+  # IDFK
+  services.hardware.openrgb = {
+    enable = true;
+    #server.port = ....; # from 0 to 65535, default 6742
+    #package = with pkgs; [ ];
+    motherboard = "intel"; # CPU family of motherboard, amd, intel or null.
+  };
+
 }

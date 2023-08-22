@@ -10,6 +10,11 @@
     #};
   };
 
+  # Environment variables for Hyprland
+  environment.variables = {
+    NIXOS_OZONE_WL = "1";
+  };
+
   xdg = {
     #sounds.enable = true;
     #icons.enable = true;

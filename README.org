@@ -25,7 +25,8 @@ GITHUB-LINK][Espanol / GITHUB-LINK][日本語
   - [[#nix-darwin][Nix Darwin]]
   - [[#nix-on-droid][Nix On Droid]]
   - [[#repos][Repos]]
-- [[#nix-configuration][Nix Configuration]]
+- [[#nix-configuration-not-added][Nix Configuration (Not added)]]
+- [[#closing-bracked][Closing bracked]]
 
 * About Flakes
 ** What is a flake
@@ -246,21 +247,18 @@ Disabled for now, but you can play around with it.
     #helix.url = "github:helix-editor/helix/23.05";
 #+end_src
 
-* Nix Configuration
+* Nix Configuration (Not added)
 
 The closing bracket is from OUTPUTs, i put it here to have more flexibility moving the configurations around.
 
 *nixConfig* should be put inside the configurations, but this will work for now.
 
-#+begin_src nix
+##+begin_src nix
   nixConfig = {
-      experimental-features = [ "nix-command" "flakes" "recursive-nix" ]; # Enable flakes.
-      systemFeatures = [ "recursive-nix" ];
-      substituters = [
+      extra-experimental-features = [ "recursive-nix" ];
+      extra-subtituters = [
         "https://cache.nixos.org/" # The main cache, you can replace w one closer to you.
         "https://hyprland.cachix.org"
-      ];
-      extra-subtituters = [
         # Nix community's cache server
         "https://nix-community.cachix.org"
         "https://nixpkgs-wayland.cachix.org"
@@ -274,5 +272,11 @@ The closing bracket is from OUTPUTs, i put it here to have more flexibility movi
         "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E=" # Cuda Maintaners, nvidia
       ];
   };
+}
+##+end_src
+
+* Closing bracked
+
+#+begin_src nix
 }
 #+end_src
