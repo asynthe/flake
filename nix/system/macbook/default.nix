@@ -8,4 +8,9 @@
     #../../wm/yabai # Yabai configuration
   ];
 
+  system.activationScripts.postUserActivation.text = ''
+    echo "what is my CPU?"
+    uname -m
+  '';
+
 }
