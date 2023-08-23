@@ -1,4 +1,4 @@
-#+title: Asynthe's flake
+#+title: Asynthe's systems flake
 #+property: header-args :tangle flake.nix
 #+auto_tangle: t
 
@@ -13,7 +13,7 @@ GITHUB-LINK][Espanol / GITHUB-LINK][日本語
   - [[#how-to-update][How to update]]
   - [[#how-to-rebuild][How to rebuild]]
   - [[#list-of-commands][List of commands]]
-- [[#first-block][First block]]
+- [[#start---opening-bracket][Start - opening bracket]]
 - [[#outputs][Outputs]]
 - [[#machines][Machines]]
   - [[#laptop][Laptop]]
@@ -21,12 +21,8 @@ GITHUB-LINK][Espanol / GITHUB-LINK][日本語
   - [[#home-manager][Home Manager]]
   - [[#android-nix-on-droid][Android (Nix On Droid)]]
 - [[#inputs][Inputs]]
-  - [[#main][Main]]
-  - [[#nix-darwin][Nix Darwin]]
-  - [[#nix-on-droid][Nix On Droid]]
-  - [[#repos][Repos]]
 - [[#nix-configuration-not-added][Nix Configuration (Not added)]]
-- [[#closing-bracked][Closing bracked]]
+- [[#end---closing-bracket][End - Closing bracket]]
 
 * About Flakes
 ** What is a flake
@@ -57,7 +53,7 @@ This way you can just do it like this: (from flake directory)
 | ...     | ...         |
 |---------+-------------|
 
-* First block
+* Start - opening bracket
 
 Start!
 #+begin_src nix
@@ -196,7 +192,6 @@ darwinConfigurations = {
 #+end_src
 
 * Inputs
-** Main
 
 *NIXPKGS AND NIXPKGS STABLE*
 #+begin_src nix
@@ -218,8 +213,7 @@ darwinConfigurations = {
     };
 #+end_src
 
-** Nix Darwin
-
+*NIX DARWIN*
 #+begin_src nix
     # For MacOS
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
@@ -230,8 +224,7 @@ darwinConfigurations = {
   };
 #+end_src
 
-** Nix On Droid
-
+*NIX ON DROID*
 #+begin_src nix
     #nix-on-droid = {
       #url = "github:t184256/nix-on-droid/release-23.05";
@@ -239,8 +232,7 @@ darwinConfigurations = {
       #};
 #+end_src
 
-** Repos
-
+*APPS AND REPOS*
 #+begin_src nix
     #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     #nix-gaming.url = "github:fufexan/nix-gaming";
@@ -276,7 +268,7 @@ The closing bracket is from OUTPUTs, i put it here to have more flexibility movi
 }
 ##+end_src
 
-* Closing bracked
+* End - Closing bracket
 
 #+begin_src nix
 }
