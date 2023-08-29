@@ -19,13 +19,16 @@
     #sounds.enable = true;
     #icons.enable = true;
     #autostart.enable = true;
+
     portal = {
       enable = true;
-      #xdgOpenUsePortal = true;
       extraPortals = with pkgs; [
-      #xdg-desktop-portal-hyprland
+      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk # GTK portal needed to make gtk apps happy.
       ];
+
+      # REMOVE?
+      #xdgOpenUsePortal = true;
       #wlr.enable = true; # Adds xdg-desktop-portal-wlr into extraPortals.
       #wlr.settings = ;
     };

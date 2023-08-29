@@ -135,6 +135,10 @@ Disabled for now, but you can play around with it.
 
 ** Macbook
 
+Resources
+- [[https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050][Setup nix, nix-darwin and home-manager from scratch on an M1 Macbook Pro - gist.github.com]]
+- [[https://github.com/MatthiasBenaets/nixos-config#nix-darwin-installation-guide][nixos-config / MatthiasBenaets - github]]
+
 #+begin_src nix
 darwinConfigurations = {
   ${hostname_mac} = nix-darwin.lib.darwinSystem {
@@ -270,6 +274,7 @@ The closing bracket is from OUTPUTs, i put it here to have more flexibility movi
 
 * End - Closing bracket
 
+Thanks for Reading!
 #+begin_src nix
 }
 #+end_src
