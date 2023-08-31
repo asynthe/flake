@@ -20,6 +20,7 @@
     signal-desktop #signal-desktop-beta
     telegram-desktop
     discord
+    webcord
 
     weechat #weechat-unwrapped
     #irssi

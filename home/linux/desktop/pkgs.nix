@@ -148,7 +148,7 @@
     # OCR
     tesseract
     qt-box-editor # OCR engine
-    easyocr
+    #easyocr
 
     # Officematics
     libreoffice
