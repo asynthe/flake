@@ -1,7 +1,9 @@
-{ config, pkgs, lib, username, ... }:
-
-{ 
-
+{
+  config,
+  pkgs,
+  username,
+  ...
+}: {
   # STEAM
 
   programs.steam = {
@@ -16,16 +18,15 @@
   };
 
   # Gamemode - better performance on games. Use with gamemoderun.
-  users.users.${username}.extraGroups = [ "gamemode" ];
+  users.users.${username}.extraGroups = ["gamemode"];
   #programs.gamemode = {
-    #enable = true;
-    #enableRenice = true;
-    #settings = ;
+  #enable = true;
+  #enableRenice = true;
+  #settings = ;
   #};
 
   # Install necessary packages
   environment.systemPackages = with pkgs; [
-
     mangohud # Vulkan and OpenGL overlay for monitoring
 
     # FRONTENDS
@@ -39,7 +40,7 @@
     #steamPackages.steamcmd
     #steamPackages.steam-runtime
     #steamPackages.steam-runtime-wrapped
-    
+
     # PROTON
     protontricks
     protonup-qt
@@ -52,6 +53,5 @@
     stepmania
     gzdoom
     #clonehero # NOT WORKING (22-05-2023)
-    
   ];
 }

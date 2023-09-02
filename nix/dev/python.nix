@@ -5,6 +5,9 @@ let
     pandas
     requests
     scapy
+
+    openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
+    defusedxml # defusing XML bombs and other exploits
   ];
 
 in {

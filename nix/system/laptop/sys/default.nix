@@ -1,17 +1,10 @@
-{ config, pkgs, ... }:
-
-{
-
+{config, ...}: {
   imports = [
-  #./bluetooth.nix
-  #./boot_grub.nix
-  ./fcitx5.nix
-  ./networking.nix
-  ./pkgs.nix
-  ./sound.nix
-  ./vm.nix
-  ./windows_mount.nix
-  ./zfs.nix
+    ./audio.nix
+    ./boot.nix
+    ./fs.nix
+    ./network.nix
+    ./nix_settings.nix
+    ./win_mount.nix
   ];
-
 }

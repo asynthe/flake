@@ -1,11 +1,11 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    hypnotix # tv
 
     # Video
     kdenlive #davinci-resolve
     obs-studio
     mpv # video player
+    hypnotix # tv
     ffmpeg
     mediainfo # video/audio metadata
 
@@ -25,7 +25,10 @@
     imagemagick # image editing
     exif # image metadata
 
-    # Audio
+    # CD / DVD Tools
+    #cdemu-client
+    #cdemu-daemon
+    #gcdemu
 
     # DAWs - Digital Audio Workstation
     ardour
@@ -47,7 +50,18 @@
     qpwgraph
     mp3gain
 
+    # Audio visualizers
+    cli-visualizer
+    cava
+
+    # Sound volume
+    alsamixer
+    pavucontrol
+    pulsemixer
+    ncpamixer
+
     # Music player
+    playerctl # Manage audio daemon
     ncmpcpp
     cmus
     qmmp

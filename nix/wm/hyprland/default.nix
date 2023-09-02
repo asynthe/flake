@@ -10,16 +10,12 @@
     #};
   };
 
-  # Environment variables for Hyprland
+  # Environment variable for electron Wayland apps.
   environment.variables = {
     NIXOS_OZONE_WL = "1";
   };
 
   xdg = {
-    #sounds.enable = true;
-    #icons.enable = true;
-    #autostart.enable = true;
-
     portal = {
       enable = true;
       extraPortals = with pkgs; [
@@ -34,27 +30,20 @@
     };
   };
 
+  # Polkit
+  security.polkit = {
+    enable = true;
+    #debug = true;
+    #extraConfig = ''
+    #''
+  };
+
+  # Extra programs
+  programs.wshowkeys.enable = true; # Show keystrokes in wayland.
+
   # Packages to install
+  # See more https://wiki.hyprland.org/Useful-Utilities/Must-have/
   environment.systemPackages = with pkgs; [
-
-    # Hyprland related
-    hyprland-protocols
-    hyprland-share-picker
-    #xdg-desktop-portal-hyprland
-
-    # Apps
-    eww-wayland # status bar
-    wofi #bemenu
-    gtklock # lock screen
-    swayidle # idle daemon
-    imv # image viewer
-    grim slurp # simple screenshot
-    flameshot ksnip sway-contrib.grimshot
-    swww # wallpaper daemon
-    mako libnotify # notification daemon
-    wlogout
-    mpvpaper
-    pass-wayland # password manager
 
     # CUSTOMIZATION - WAYLAND - NOT USED
     #nwg-bar
@@ -65,9 +54,33 @@
     #nwg-launchers
     #waybar
     #swaylock-effects
-  ];
+    flameshot ksnip sway-contrib.grimshot
 
-  # Extra programs
-  programs.wshowkeys.enable = true; # Show keystrokes in wayland.
+    # Apps
+    eww-wayland # status bar
+    wofi #bemenu
+    gtklock # lock screen
+    swayidle # idle daemon
+    imv # image viewer
+    nsxiv # image viewer (X11)
+    grim slurp # simple screenshot
+    mako libnotify # notification daemon
+    wlogout
+    pass-wayland # password manager
+
+    wpaperd
+    swww # wallpaper daemon
+    mpvpaper # video wallpaper
+
+    wl-clipboard
+    wdisplays #wlr-randr #kanshi
+    brightnessctl #brillo
+    xorg.xlsclients # check for apps running on xwayland
+
+    # Must have
+    polkit libsForQt5.polkit-kde-agent # Authentication Agent
+    libsForQt5.qt5.qtwayland qt6.qtwayland # Qt Wayland Support
+
+  ];
 
 }

@@ -32,4 +32,19 @@
     #};
   #};
 
+  environment.systemPackages = with pgks; [
+
+    # GUI
+    haskellPackages.xmobar
+    dmenu
+    picom-jonaburg # compositor
+    lxappearance #lxappearance-gtk2
+    nitrogen
+    xorg.xprop
+    xorg.xinit
+    xclip
+    nsxiv # image viewer
+
+  ];
+
 }

@@ -40,12 +40,9 @@
   };
 
   home.packages = with pkgs; [
-    # Move to
 
-    # Hyprland file
-    waybar # Hyprland file (not home-manager)
-    swww # Hyprland file (not home-manager)
-    wpaperd
+    # WMs
+    wayfire
 
     # GPG -> Most of it is specified on configuration, test without packages
     #gnupg
@@ -124,6 +121,7 @@
     obsidian
     zathura # minimalistic pdf viewer
 
+
     gnome.gnome-clocks
     libsForQt5.kalarm
 
@@ -165,10 +163,9 @@
     #todo-txt-cli
 
     # File managers
-    pcmanfm
-    lxqt.pcmanfm-qt # PCmanFM
     libsForQt5.dolphin # Dolphin
     xfce.thunar # Thunar
+    pcmanfm
     # Thumbnailers (for PCmanFM)
     xfce.tumbler # Image files
     nufraw-thumbnailer # .raw files (raw-thumbnailer)
@@ -185,7 +182,6 @@
     rar #unrar #rar2fs
     #torrent7z
     #mdf2iso
-
 
     # Useful Extra (Not tested)
     jq
@@ -217,9 +213,7 @@
     nyxt
     #imap #mpop # popmail email service like popmail
 
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+    bless hexedit hexyl # Hex editor
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
