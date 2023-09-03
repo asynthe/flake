@@ -13,7 +13,7 @@ GITHUB-LINK][Espanol / GITHUB-LINK][日本語
   - [[#how-to-update][How to update]]
   - [[#how-to-rebuild][How to rebuild]]
   - [[#list-of-commands][List of commands]]
-- [[#start---opening-bracket][Start - opening bracket]]
+- [[#start---opening-bracket][Start - Opening bracket]]
 - [[#outputs][Outputs]]
 - [[#machines][Machines]]
   - [[#laptop][Laptop]]
@@ -53,7 +53,7 @@ This way you can just do it like this: (from flake directory)
 | ...     | ...         |
 |---------+-------------|
 
-* Start - opening bracket
+* Start - Opening bracket
 
 Start!
 #+begin_src nix

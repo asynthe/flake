@@ -5,7 +5,6 @@
 }: {
   imports = [
     ../../wm/hyprland
-    ./settings.nix
     ./drv # Nvidia drivers
     ./extra
     ./srv

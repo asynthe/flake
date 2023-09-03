@@ -55,7 +55,7 @@
     cava
 
     # Sound volume
-    alsamixer
+    alsa-utils # for alsa-mixer
     pavucontrol
     pulsemixer
     ncpamixer

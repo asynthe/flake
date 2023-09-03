@@ -4,19 +4,15 @@
   username,
   ...
 }: {
-  # USER
+  # User
   users.users.${username} = {
+    shell = pkgs.zsh;
     isNormalUser = true;
     description = "${username}";
     extraGroups = ["docker" "wheel" "video" "audio" "networkmanager" "lp" "scanner"];
-    shell = pkgs.zsh;
     initialPassword = "password";
-    #openssh.authorizedKeys.keys = [
-    #""
-    #];
-    #packages = with pkgs; [
-    #];
   };
+  programs.zsh.enable = true; # Needed by users.users.${username}.shell
 
   # Dbus
   services.dbus.enable = true;
