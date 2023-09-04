@@ -4,12 +4,15 @@
   ...
 }: {
   imports = [
-    ../../wm/hyprland
-    ./drv # Nvidia drivers
+    ./drv/nvidia.nix # Nvidia drivers
     ./extra
+    ./net
+    ./sec
     ./srv
     ./sys
     ./usr
+
+    ../../wm/hyprland
     ./hardware-configuration.nix # Include the results of the hardware scan.
   ];
 
