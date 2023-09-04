@@ -1,12 +1,11 @@
 { pkgs, inputs, lib, username, ... }: 
 
 let
-  filePath = "/home/${username}/flake/home/wm/hyprland/hyprland.conf";
+
+  filePath = ./hyprland.conf;
   fileContent = builtins.readFile filePath;
 
 in {
-
-  #home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -17,25 +16,20 @@ in {
     extraConfig = "${fileContent}";
   };
 
-  # Session variables for Hyprland
-  home.sessionVariables.NIXOS_OZONE_WL = "1";
-
+  home.sessionVariables.NIXOS_OZONE_WL = "1"; # Session variable for Electron apps.
   home.packages = with pkgs; [
 
     # Hyprland related
-    hyprland-protocols
-    hyprland-share-picker
     xdg-desktop-portal-hyprland
 
     # Apps
-    eww-wayland # status bar
     wofi #bemenu
     gtklock # lock screen
     swayidle # idle daemon
     imv # image viewer
     grim slurp # simple screenshot
     flameshot ksnip sway-contrib.grimshot
-    swww # wallpaper daemon
+    swww wpaperd # wallpaper daemon
     mako libnotify # notification daemon
     wlogout
     mpvpaper
@@ -43,6 +37,8 @@ in {
 
     # Testing to implement
     waybar
+    eww-wayland # remove or change?
+
     # Not used
     #nwg-bar
     #nwg-menu
@@ -51,6 +47,7 @@ in {
     #nwg-wrapper
     #nwg-launchers
     #swaylock-effects
+
   ];
 
 }
