@@ -5,11 +5,10 @@
   imports = [
 
     ./desktop
-    ../wm/hyprland
     #../../dev
 
-    #./hyprland # DROPPED FOR NOW
-    #./xmonad # DROPPED FOR NOW
+    #../wm/hyprland
+    #../wm/xmonad
 
   ];
 
