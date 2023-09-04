@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  services.stubby.enable = true;
+  #services.stubby.enable = true;
   services.dnscrypt-proxy2 = {
     enable = true;
     #upstreamDefaults = true; # Disable if doing dnscrypt config from scratch.

@@ -1,6 +1,6 @@
 {config, ...}: {
   imports = [
-    ./dns.nix
+    #./dns.nix
     ./i2p.nix
     ./mesh_network.nix
     ./ssh.nix
