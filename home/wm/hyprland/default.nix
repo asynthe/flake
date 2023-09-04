@@ -19,25 +19,32 @@ in {
   home.sessionVariables.NIXOS_OZONE_WL = "1"; # Session variable for Electron apps.
   home.packages = with pkgs; [
 
-    # Hyprland related
+    # XDG Portal
     xdg-desktop-portal-hyprland
 
     # Apps
+    waybar eww-wayland # status bar
     wofi #bemenu
     gtklock # lock screen
     swayidle # idle daemon
     imv # image viewer
+    nsxiv # image viewer (X11)
     grim slurp # simple screenshot
-    flameshot ksnip sway-contrib.grimshot
-    swww wpaperd # wallpaper daemon
     mako libnotify # notification daemon
     wlogout
-    mpvpaper
     pass-wayland # password manager
 
-    # Testing to implement
-    waybar
-    eww-wayland # remove or change?
+    swww #wpaperd # wallpaper daemon
+    mpvpaper # video wallpaper
+
+    wl-clipboard
+    wdisplays #wlr-randr #kanshi
+    brightnessctl #brillo
+    xorg.xlsclients # check for apps running on xwayland
+
+    # Must have
+    polkit libsForQt5.polkit-kde-agent # Authentication Agent
+    libsForQt5.qt5.qtwayland qt6.qtwayland # Qt Wayland Support
 
     # Not used
     #nwg-bar
