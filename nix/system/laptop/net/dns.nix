@@ -1,5 +1,8 @@
-{ config, pkgs, ... }: {
-
+{
+  config,
+  pkgs,
+  ...
+}: {
   services.stubby.enable = true;
   services.dnscrypt-proxy2 = {
     enable = true;
@@ -10,9 +13,9 @@
   };
 
   #environment.systemPackages = with pkgs; [
-    #dnscrypt-proxy2
-    #dnscrypt-wrapper
-    #dnsproxy
-    #doggo
+  #dnscrypt-proxy2
+  #dnscrypt-wrapper
+  #dnsproxy
+  #doggo
   #];
 }
