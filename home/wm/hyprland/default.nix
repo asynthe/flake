@@ -3,11 +3,8 @@
   wayland.windowManager.hyprland = {
     enable = true;
     enableNvidiaPatches = true;
-    xwayland = {
-      enable = true;
-      hidpi = true;
-    };
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    xwayland.enable = true;
+    #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     #settings = ;
   };
 
