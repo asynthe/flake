@@ -1,11 +1,6 @@
 { pkgs, inputs, ... }: {
 
-  home.file = {
-    ".config/hypr" = {
-      source = ./;
-      recursive = true;
-      };
-  };
+  home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
 
   wayland.windowManager.hyprland = {
     enable = true;
