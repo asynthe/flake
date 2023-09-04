@@ -12,7 +12,7 @@
     ./sys
     ./usr
 
-    ../../wm/hyprland
+    #../../wm/hyprland
     ./hardware-configuration.nix # Include the results of the hardware scan.
   ];
 

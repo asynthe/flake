@@ -36,7 +36,7 @@
     };
   };
 
-  home.file = { # Manage dotfiles
+  #home.file = { # Manage dotfiles
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -48,7 +48,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-  };
+  #};
 
   # You can also manage environment variables but you will have to manually
   # source
