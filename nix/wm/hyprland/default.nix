@@ -1,6 +1,5 @@
 { pkgs, inputs, ... }: {
 
-  home.file."~/${username}/hyprland.conf".source = ./hyprland.conf;
   programs.hyprland = {
     enable = true;
     #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
