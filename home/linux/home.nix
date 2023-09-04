@@ -5,6 +5,7 @@
   imports = [
 
     ./desktop
+    ../wm/hyprland
     #../../dev
 
     #./hyprland # DROPPED FOR NOW

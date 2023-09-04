@@ -35,14 +35,15 @@
     mpvpaper
     pass-wayland # password manager
 
-    # CUSTOMIZATION - WAYLAND - NOT USED
+    # Testing to implement
+    waybar
+    # Not used
     #nwg-bar
     #nwg-menu
     #nwg-panel
     #nwg-drawer
     #nwg-wrapper
     #nwg-launchers
-    #waybar
     #swaylock-effects
   ];
 
