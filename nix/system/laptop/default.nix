@@ -10,9 +10,9 @@
     ./sec
     ./srv
     ./sys
+    ./temp
     ./usr
 
-    ../../wm/hyprland
     #../../wm/xmonad
 
     ./hardware-configuration.nix # Include the results of the hardware scan.
