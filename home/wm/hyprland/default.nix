@@ -1,4 +1,10 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, lib, username, ... }: 
+
+let
+  filePath = "/home/${username}/flake/home/wm/hyprland/hyprland.conf";
+  fileContent = builtins.readFile filePath;
+
+in {
 
   #home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
 
@@ -8,7 +14,7 @@
     xwayland.enable = true;
     #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     #settings = ;
-    extraConfig = ./hyprland.conf;
+    extraConfig = "${fileContent}";
   };
 
   # Session variables for Hyprland
