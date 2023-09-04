@@ -1,8 +1,7 @@
 {config, ...}: {
   imports = [
     ./android.nix
-    ./gpg.nix
-    ./ssh.nix
+    ./mpd.nix
     ./vm.nix
     ./wine.nix
   ];
