@@ -1,5 +1,12 @@
 { pkgs, inputs, ... }: {
 
+  home.file = {
+    ".config/hypr" = {
+      .source = ./;
+      recursive = true;
+      };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     enableNvidiaPatches = true;
