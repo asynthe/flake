@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-
     # Video
     kdenlive #davinci-resolve
     obs-studio
@@ -65,7 +64,8 @@
     ncmpcpp
     cmus
     qmmp
-    spotify spotify-tui #spotify-qt 
+    spotify
+    spotify-tui #spotify-qt
     #spotify-tray
 
     # Tag editors

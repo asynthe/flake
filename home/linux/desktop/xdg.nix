@@ -1,5 +1,8 @@
-{ config, pkgs, ... }: 
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     xdg-utils # xdg-mime, xdg-open
     xdg-ninja # checks $HOME for unwanted files and directories.
@@ -8,7 +11,7 @@
 
   # Testing running discord with ozone variables and offload
   #xdg.desktopEntries.discord = {
-    #name = }
+  #name = }
 
   xdg = {
     enable = true;

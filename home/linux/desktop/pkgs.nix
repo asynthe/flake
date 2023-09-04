@@ -40,7 +40,6 @@
   };
 
   home.packages = with pkgs; [
-
     # WMs
     wayfire
 
@@ -51,7 +50,8 @@
     #pinentry-qt #pinentry-gtk2 #pinentry-gnome  # GUI
     #pinentry-curses # CLI
     # GPG/PGP -> Could add to configuration.nix?, encryption.nix?
-    age rage
+    age
+    rage
     signing-party
     graphviz
 
@@ -120,7 +120,6 @@
     # GUI
     obsidian
     zathura # minimalistic pdf viewer
-
 
     gnome.gnome-clocks
     libsForQt5.kalarm
@@ -213,7 +212,9 @@
     nyxt
     #imap #mpop # popmail email service like popmail
 
-    bless hexedit hexyl # Hex editor
+    bless
+    hexedit
+    hexyl # Hex editor
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

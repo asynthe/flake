@@ -3,8 +3,8 @@
     ./emacs.nix
     ./emulation.nix
     ./media.nix
-    ./hacking.nix
-    ./network.nix
+    ./hack.nix
+    ./net.nix
     ./pkgs.nix
     ./shell.nix
     ./xdg.nix
