@@ -8,6 +8,7 @@
     xwayland.enable = true;
     #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     #settings = ;
+    extraConfig = ./hyprland.conf;
   };
 
   # Session variables for Hyprland

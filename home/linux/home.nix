@@ -7,7 +7,7 @@
     ./desktop
     #../../dev
 
-    #../wm/hyprland
+    ../wm/hyprland
     #../wm/xmonad
 
   ];
