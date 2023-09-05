@@ -123,7 +123,7 @@ exec-once = eww daemon && eww open bar &
 
 *WALLPAPER DAEMON - SWWW*
 #+begin_src cpp
-#exec-once = swww init && swww img ~/wallpaper/favourite/favfolder1
+exec-once = swww init &
 #+end_src
 
 *JAPANESE IME - FCITX5 + MOZC*
