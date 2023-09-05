@@ -139,7 +139,7 @@ Resources
 - [[https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050][Setup nix, nix-darwin and home-manager from scratch on an M1 Macbook Pro - gist.github.com]]
 - [[https://github.com/MatthiasBenaets/nixos-config#nix-darwin-installation-guide][nixos-config / MatthiasBenaets - github]]
 
-#+begin_src nix
+##+begin_src nix
 darwinConfigurations = {
   ${hostname_mac} = nix-darwin.lib.darwinSystem {
     system = "${apple_silicon}";
@@ -147,7 +147,7 @@ darwinConfigurations = {
     modules = [ ./nix/system/macbook ];
     };
   };
-#+end_src
+##+end_src
 
 111#+begin_src nix
   macOS configuration
@@ -218,7 +218,7 @@ darwinConfigurations = {
 #+end_src
 
 *NIX DARWIN*
-#+begin_src nix
+##+begin_src nix
     # For MacOS
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
     nix-darwin = {
@@ -226,7 +226,7 @@ darwinConfigurations = {
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
   };
-#+end_src
+##+end_src
 
 *NIX ON DROID*
 #+begin_src nix
@@ -276,5 +276,6 @@ The closing bracket is from OUTPUTs, i put it here to have more flexibility movi
 
 Thanks for Reading!
 #+begin_src nix
+};
 }
 #+end_src

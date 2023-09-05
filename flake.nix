@@ -56,14 +56,6 @@ nixosConfigurations = {
 #};
 #})
 
-darwinConfigurations = {
-  ${hostname_mac} = nix-darwin.lib.darwinSystem {
-    system = "${apple_silicon}";
-    specialArgs = {inherit username_mac inputs;};
-    modules = [ ./nix/system/macbook ];
-    };
-  };
-
 # Home Manager as a Standalone
 homeConfigurations = {
   ${username} = home-manager.lib.homeManagerConfiguration {
@@ -91,14 +83,6 @@ home-manager = {
   # to avoid different versions of nixpkgs deps problems.
 };
 
-# For MacOS
-  nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
-  nix-darwin = {
-    url = "github:lnl7/nix-darwin";
-    inputs.nixpkgs.follows = "nixpkgs-darwin";
-  };
-};
-
 #nix-on-droid = {
   #url = "github:t184256/nix-on-droid/release-23.05";
   #inputs.nixpkgs.follows = "nixpkgs-stable";
@@ -109,4 +93,5 @@ home-manager = {
 #hyprland.url = "github:hyprwm/Hyprland";
 #helix.url = "github:helix-editor/helix/23.05";
 
+};
 }
