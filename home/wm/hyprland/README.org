@@ -115,14 +115,15 @@ hyprctl keywords animations:enabled 0 # Start with animations disabled
 
 exec-once = mpvpaper -f -o "loop-file=inf" eDP-1 ~/main/system/wallpapers/video/loops_1920x1080/retrowave_1920x1080.mp4 &
 
+REPLACE
 *BAR - EWW*
-#+begin_src cpp
+##+begin_src cpp
 exec-once = eww daemon && eww open bar &
-#+end_src
+##+end_src
 
 *WALLPAPER DAEMON - SWWW*
 #+begin_src cpp
-exec-once = swww init && ~/script/bash/swww/random ~/wallpaper/favourite/favfolder1 &
+exec-once = swww init && swww img ~/wallpaper/favourite/favfolder1
 #+end_src
 
 *JAPANESE IME - FCITX5 + MOZC*
