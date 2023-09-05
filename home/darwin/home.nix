@@ -1,10 +1,8 @@
-{ pkgs, ... }:
-{
-
+{pkgs, ...}: {
   #home-manager = {
-    #useGlobalPkgs = true;
-    ##useUserPackages = true;
-    #users.${username_mac} = { pkgs, ... }: {
+  #useGlobalPkgs = true;
+  ##useUserPackages = true;
+  #users.${username_mac} = { pkgs, ... }: {
 
   programs.tmux = {
     enable = true;
@@ -14,11 +12,10 @@
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       gruvbox
-      ];
+    ];
     extraConfig = ''
       new-session -s main
       bind-key -n C-a send-prefix
-      '';
-    };
-
+    '';
+  };
 }

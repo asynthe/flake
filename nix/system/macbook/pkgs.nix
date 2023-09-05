@@ -1,10 +1,12 @@
-{ config, pkgs-darwin, ... }:
 {
-
+  config,
+  pkgs-darwin,
+  ...
+}: {
   # Emacs
   #services.emacs = {
-    #enable = true;
-    #package = ;
+  #enable = true;
+  #package = ;
   #};
 
   # Homebrew
@@ -16,10 +18,9 @@
       # Can make darwin-rebuild much slower
       autoUpdate = true;
       upgrade = true;
-      };
+    };
 
     brews = [
-
       # SHELL
       "neovim"
       "tmux"
@@ -37,10 +38,9 @@
 
       #"koekeishiya/formulae/yabai" # enabled by service?
       #"koekeishiya/formulae/shkd"
-      ];
+    ];
 
     casks = [
-
       # WM
       "amethyst"
 
@@ -51,8 +51,6 @@
       # GUI
       "emacs"
       "logseq"
-      ];
-
+    ];
   };
-
 }

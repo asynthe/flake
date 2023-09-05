@@ -1,6 +1,4 @@
-{ pkgs-darwin, ... }:
-{
-
+{pkgs-darwin, ...}: {
   services.yabai = {
     enable = true;
     #enableScriptingAddition = ; # false by default

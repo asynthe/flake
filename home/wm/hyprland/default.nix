@@ -1,12 +1,12 @@
-{ pkgs, inputs, lib, username, ... }: 
-
-let
-
+{
+  pkgs,
+  lib,
+  username,
+  ...
+}: let
   filePath = ./hyprland.conf;
   fileContent = builtins.readFile filePath;
-
 in {
-
   wayland.windowManager.hyprland = {
     enable = true;
     enableNvidiaPatches = true;
@@ -18,19 +18,21 @@ in {
 
   home.sessionVariables.NIXOS_OZONE_WL = "1"; # Session variable for Electron apps.
   home.packages = with pkgs; [
-
     # XDG Portal
     xdg-desktop-portal-hyprland
 
     # Apps
-    waybar eww-wayland # status bar
+    waybar
+    eww-wayland # status bar
     wofi #bemenu
     gtklock # lock screen
     swayidle # idle daemon
     imv # image viewer
     nsxiv # image viewer (X11)
-    grim slurp # simple screenshot
-    mako libnotify # notification daemon
+    grim
+    slurp # simple screenshot
+    mako
+    libnotify # notification daemon
     wlogout
     pass-wayland # password manager
 
@@ -43,8 +45,10 @@ in {
     xorg.xlsclients # check for apps running on xwayland
 
     # Must have
-    polkit libsForQt5.polkit-kde-agent # Authentication Agent
-    libsForQt5.qt5.qtwayland qt6.qtwayland # Qt Wayland Support
+    polkit
+    libsForQt5.polkit-kde-agent # Authentication Agent
+    libsForQt5.qt5.qtwayland
+    qt6.qtwayland # Qt Wayland Support
 
     # Not used
     #nwg-bar
@@ -54,7 +58,5 @@ in {
     #nwg-wrapper
     #nwg-launchers
     #swaylock-effects
-
   ];
-
 }

@@ -1,35 +1,42 @@
-{ config, lib, pkgs, pkgs-darwin, username_mac, ... }:
 {
-
+  config,
+  lib,
+  pkgs,
+  pkgs-darwin,
+  username_mac,
+  ...
+}: {
   nixpkgs = {
     hostPlatform = {
       config = "aarch64-darwin";
       system = "aarch64-darwin";
-      };
+    };
 
     # Cross-compilation
     #buildPlatform = {
-      #config = "aarch64-darwin";
-      #system = "aarch64-darwin";
-      #};
+    #config = "aarch64-darwin";
+    #system = "aarch64-darwin";
+    #};
   };
 
   #services.nix-daemon.package = pkgs.Flakes; # Installs a version of nix, that doesn't need "experimental-features = nix-command flakes";
   # in /etc/nix/nix.conf
 
   nix.settings = {
-    trusted-users = [ "${username_mac}" ]; # try groups like "@admin"
+    trusted-users = ["${username_mac}"]; # try groups like "@admin"
     #experimental-features = [ "nix-command" "flakes" ];
-    substituters = [ "https://cache.nixos.org/" ];
-    trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+    substituters = ["https://cache.nixos.org/"];
+    trusted-public-keys = ["cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="];
   };
 
-  nix.extraOptions = ''
-    auto-optimise-store = true;
-    experimental-features = nix-command flakes
-  '' + lib.optionalString (pkgs.system == "aarch64-darwin")''
-    extra-platforms = x86_64-darwin aarch64-darwin
-  '';
+  nix.extraOptions =
+    ''
+      auto-optimise-store = true;
+      experimental-features = nix-command flakes
+    ''
+    + lib.optionalString (pkgs.system == "aarch64-darwin") ''
+      extra-platforms = x86_64-darwin aarch64-darwin
+    '';
 
   environment.systemPackages = with pkgs; [
     kitty
@@ -38,8 +45,8 @@
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [
-    recursive
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      recursive
+      (nerdfonts.override {fonts = ["JetBrainsMono"];})
     ];
   };
 
@@ -53,5 +60,4 @@
       remapCapsLockToEscape = true;
     };
   };
-
 }

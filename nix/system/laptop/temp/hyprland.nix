@@ -1,5 +1,8 @@
-{ config, pkgs, ... }: {
-
+{
+  config,
+  pkgs,
+  ...
+}: {
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
@@ -15,5 +18,4 @@
     #extraConfig = ''
     #''
   };
-
 }

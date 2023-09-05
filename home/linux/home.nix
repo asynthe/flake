@@ -1,9 +1,9 @@
-{ username, pkgs, ... }:
-
 {
-
+  username,
+  pkgs,
+  ...
+}: {
   imports = [
-
     ./usr
     ./sec
 
@@ -18,25 +18,7 @@
     #../../dev
     ../wm/hyprland
     #../wm/xmonad
-
   ];
-
-  # usr/dots.nix?
-  # GitHub CLI tool
-  programs.gh = {
-    enable = true;
-  };
-
-  # usr/dots.nix
-  home.file.".config/nvim".source = ../app/nvim;
-  programs.neovim.defaultEditor = true;
-
-
-  # Move to usr/nix_configuration.nix
-  # Fix for nixpkgs.allowUnfree = true
-  # https://discourse.nixos.org/t/unfree-packages-on-flake-based-home-manager/30231
-  nixpkgs.config.allowUnfreePredicate = (_: true);
-  nixpkgs.config.allowUnfree = true;
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
@@ -58,16 +40,16 @@
 
   #home.file = { # Manage dotfiles
 
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
+  # # Building this configuration will create a copy of 'dotfiles/screenrc' in
+  # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+  # # symlink to the Nix store copy.
+  # ".screenrc".source = dotfiles/screenrc;
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+  # # You can also set the file content immediately.
+  # ".gradle/gradle.properties".text = ''
+  #   org.gradle.console=verbose
+  #   org.gradle.daemon.idletimeout=3600000
+  # '';
   #};
 
   # You can also manage environment variables but you will have to manually
@@ -76,7 +58,6 @@
   # or
   #  /etc/profiles/per-user/asynthe/etc/profile.d/hm-session-vars.sh
   # if you don't want to manage your shell through Home Manager.
-
 
   home.packages = with pkgs; [
     # Messaging (from cooler to less cooler)
@@ -89,5 +70,4 @@
     #irssi
     gajim # XMPP client
   ];
-
 }

@@ -1,6 +1,8 @@
-{ config, pkgs-darwin, ... }:
 {
-
+  config,
+  pkgs-darwin,
+  ...
+}: {
   imports = [
     ./pkgs.nix
     ./shell.nix # ZSH configuration
@@ -12,5 +14,4 @@
     echo "what is my CPU?"
     uname -m
   '';
-
 }

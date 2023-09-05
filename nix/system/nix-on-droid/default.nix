@@ -1,7 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
-
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   # Simply install just the packages
   environment.packages = with pkgs; [
     # User-facing stuff that you really want to have
@@ -9,7 +11,7 @@
     neovim
 
     # Some common stuff that people expect to have
-    
+
     #diffutils
     #findutils
     #utillinux
@@ -25,7 +27,6 @@
     #xz
     #zip
     #unzip
-
   ];
 
   # Backup etc files instead of failing to activate generation if a file already exists in /etc/
@@ -37,9 +38,8 @@
   # Set up nix for flakes
   nix.extraOptions = ''
     experimental-features = nix-command flakes
-    '';
+  '';
 
   # Set your time zone
   time.timeZone = "Australia/Perth";
-
 }
