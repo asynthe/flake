@@ -21,6 +21,18 @@
 
   ];
 
+  # usr/dots.nix?
+  # GitHub CLI tool
+  programs.gh = {
+    enable = true;
+  };
+
+  # usr/dots.nix
+  home.file.".config/nvim".source = ../app/nvim;
+  programs.neovim.defaultEditor = true;
+
+
+  # Move to usr/nix_configuration.nix
   # Fix for nixpkgs.allowUnfree = true
   # https://discourse.nixos.org/t/unfree-packages-on-flake-based-home-manager/30231
   nixpkgs.config.allowUnfreePredicate = (_: true);
@@ -65,13 +77,6 @@
   #  /etc/profiles/per-user/asynthe/etc/profile.d/hm-session-vars.sh
   # if you don't want to manage your shell through Home Manager.
 
-  # GitHub CLI tool
-  programs.gh = {
-    enable = true;
-  };
-
-  home.file.".config/nvim".source = ../../dots/nvim;
-  programs.neovim.defaultEditor = true;
 
   home.packages = with pkgs; [
     # Messaging (from cooler to less cooler)
