@@ -4,9 +4,18 @@
 
   imports = [
 
-    ./desktop
-    #../../dev
+    ./usr
+    ./sec
 
+    ./emacs.nix
+    ./emulation.nix
+    ./media.nix
+    ./net.nix
+    ./pkgs.nix
+    ./shell.nix
+    ./xdg.nix
+
+    #../../dev
     ../wm/hyprland
     #../wm/xmonad
 
@@ -55,5 +64,25 @@
   # or
   #  /etc/profiles/per-user/asynthe/etc/profile.d/hm-session-vars.sh
   # if you don't want to manage your shell through Home Manager.
+
+  # GitHub CLI tool
+  programs.gh = {
+    enable = true;
+  };
+
+  home.file.".config/nvim".source = ../../dots/nvim;
+  programs.neovim.defaultEditor = true;
+
+  home.packages = with pkgs; [
+    # Messaging (from cooler to less cooler)
+    signal-desktop #signal-desktop-beta
+    telegram-desktop
+    discord
+    webcord
+
+    weechat #weechat-unwrapped
+    #irssi
+    gajim # XMPP client
+  ];
 
 }
