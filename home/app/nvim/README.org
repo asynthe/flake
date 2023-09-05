@@ -2,6 +2,11 @@
 #+property: header-args :tangle init.lua
 #+auto_tangle: t
 
+- PACKAGES
+- CONFIGURATION
+- IDK
+- IDK 2
+
 Should i do a literate config for each neovim file?
 
 this init.lua
