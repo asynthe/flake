@@ -16,8 +16,6 @@
     enable = true;
   };
 
-  fonts.fontconfig.enable = true;
-
   home.packages = with pkgs; [
     # Messaging (from cooler to less cooler)
     signal-desktop #signal-desktop-beta

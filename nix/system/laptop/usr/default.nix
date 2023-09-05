@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./env.nix
-    ./fonts.nix
+    #./fonts.nix
     ./pkgs.nix
     ./user.nix
   ];
