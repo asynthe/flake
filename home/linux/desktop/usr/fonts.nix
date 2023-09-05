@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   fonts.fontconfig.enable = lib.mkForce true;
   home.packages = builtins.attrValues {
     inherit
