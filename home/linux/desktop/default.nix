@@ -2,6 +2,7 @@
   imports = [
     ./emacs.nix
     ./emulation.nix
+    ./fonts.nix
     ./media.nix
     ./hack.nix
     ./net.nix
