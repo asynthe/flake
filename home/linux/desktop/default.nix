@@ -17,6 +17,9 @@
     enable = true;
   };
 
+  home.file.".config/nvim".source = ../../dots/nvim;
+  programs.neovim.defaultEditor = true;
+
   home.packages = with pkgs; [
     # Messaging (from cooler to less cooler)
     signal-desktop #signal-desktop-beta
