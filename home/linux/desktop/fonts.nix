@@ -6,7 +6,7 @@
 
       source-code-pro
       font-awesome
-      iosevka-comfy.comfy
+      #iosevka-comfy.comfy
       corefonts
       nerdfonts
       # Japanese
