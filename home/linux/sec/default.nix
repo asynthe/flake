@@ -1,5 +1,5 @@
 {config, ...}: {
   imports = [
-    ./hack.nix
+    ./pkgs.nix
   ];
 }

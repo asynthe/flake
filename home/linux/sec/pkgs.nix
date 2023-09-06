@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    arp-scan
     netdiscover
     dsniff
     wireshark #tshark #termshark # network protocol analyzer
