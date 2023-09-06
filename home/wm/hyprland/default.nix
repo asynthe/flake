@@ -22,7 +22,6 @@ in {
     xdg-desktop-portal-hyprland
 
     # Apps
-    waybar
     eww-wayland # status bar
     wofi #bemenu
     gtklock # lock screen
@@ -49,6 +48,9 @@ in {
     libsForQt5.polkit-kde-agent # Authentication Agent
     libsForQt5.qt5.qtwayland
     qt6.qtwayland # Qt Wayland Support
+
+    # Testing
+    waybar
 
     # Not used
     #nwg-bar
