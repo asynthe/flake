@@ -78,6 +78,4 @@
     };
   };
 
-  # Is this necessary?
-  #environment.systemPackages = with pkgs; [ fcitx5-mozc ];
 }

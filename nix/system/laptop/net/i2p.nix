@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   ...
 }: {
   # I2P

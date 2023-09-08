@@ -1,29 +1,43 @@
 {config, ...}: {
-  # PLYMOUTH
-  #boot.plymouth.enable = true;
-  #fileSystems."/boot" = {
-  #   device = "/dev/disk/by-uuid/xxx";
-  #   fsType = "vfat";
-  #};
+
+  # Plymouth boot splash screen
+  boot.plymouth.enable = true;
 
   # BOOTLOADER
-  # Use the systemd-boot EFI boot loader.
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi = {
-    canTouchEfiVariables = true;
-    efiSysMountPoint = "/boot";
-  };
-
-  # GRUB
-  boot.loader = {
-    grub = {
-      enable = true;
-      #version = 2; # deprecated
-      configurationLimit = 5;
-      device = "nodev";
-      efiSupport = true;
-      enableCryptodisk = true;
+  boot = {
+    kernelParams = [ # Silent boot
+      "quiet"
+      "splash"
+      "log_level=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+      #"nohibernate"
+    ];
+    consoleLogLevel = 0;
+    supportedFilesystems = [
+      "ext4"
+      "bcachefs"
+      "btrfs"
+      "xfs"
+      "zfs"
+      ];
+    loader = {
+      # EFI
+      efi = {
+        #systemd-boot.enable = true; # systemd-boot EFI boot loader
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+        };
+      # GRUB
+      grub = {
+        enable = true;
+        #version = 2; # deprecated
+        configurationLimit = 5;
+        device = "nodev";
+        efiSupport = true;
+        enableCryptodisk = true;
+      };
     };
   };
 
@@ -37,4 +51,20 @@
   #boot.initrd.luks.devices."crypt".preLVM = true;
   boot.initrd.availableKernelModules = ["aesni_intel" "cryptd"];
   #boot.initrd.cryptoModules = [ "aes" "aes_generic" "blowfish" "twofish" "serpent" "cbc" "xts" "lrw" "sha1" "sha256" "sha512" "af_alg" "algif_skcipher" ];
+
+  # Console / TTY configuration
+  console = {
+    earlySetup = true;
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
+    packages = with pkgs; [terminus_font];
+    keyMap = "us"; # or us/dvous/dvorak/etc
+    #useXkbConfig = true; # use xkbOptions in tty.
+  };
+
+  # GPM - Mouse on TTY
+  services.gpm = {
+    enable = true;
+    protocol = "ps/2";
+  };
+
 }

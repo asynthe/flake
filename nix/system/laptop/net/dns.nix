@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   ...
 }: {
   #services.stubby.enable = true;
