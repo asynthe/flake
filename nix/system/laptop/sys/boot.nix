@@ -37,6 +37,8 @@
         device = "nodev";
         efiSupport = true;
         enableCryptodisk = true;
+	extraConfig = "set theme=${pkgs.plasma5.breeze-grub}/grub/themes/breeze/theme.txt";
+	#splashImage = null;
       };
     };
   };
