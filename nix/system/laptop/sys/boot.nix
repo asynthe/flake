@@ -17,7 +17,7 @@
     consoleLogLevel = 0;
     supportedFilesystems = [
       "ext4"
-      "bcachefs"
+      #"bcachefs"
       "btrfs"
       "xfs"
       "zfs"
