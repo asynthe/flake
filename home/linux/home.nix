@@ -15,7 +15,7 @@
     ./shell.nix
     ./xdg.nix
 
-    ../../dev
+    ../dev
     ../wm/hyprland
     #../wm/xmonad
   ];
