@@ -28,6 +28,7 @@
       in {
         "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
         "text/csv" = "calc.desktop";
+	"text/x-lua" = "nvim";
 
         "text/html" = browser;
         "text/xml" = browser;

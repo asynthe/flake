@@ -1,33 +1,153 @@
-#+title: Neovim init
+#+title: Neovim configuration
 #+property: header-args :tangle init.lua
 #+auto_tangle: t
-
-- PACKAGES
-- CONFIGURATION
-- IDK
-- IDK 2
-
-Should i do a literate config for each neovim file?
-
-this init.lua
 
 #+begin_src lua
 -- require('packages')
 -- require('keymaps')
-require('config')
+-- require('config')
 -- require('lazy').setup('plugins')
+require('ben.lazy')
+require('ben.core')
 #+end_src
 
+NOTES
+:Explore -> netrw: neovim file explorer
+
+* Info
+
+- [[https://github.com/neovim/neovim][github page]]
+- [[https://neovim.io/][official webpage]]
+- [[https://wiki.gentoo.org/wiki/Neovim][gentoo wiki]]
+- [[https://wiki.archlinux.org/title/Neovim][arch wiki]]
+
+- [[https://neovim.io/doc/user/lua-guide.html#lua-guide][Lua-guide - neovim.io]]
+- [[https://github.com/nanotee/nvim-lua-guide][Getting started using Lua in Neovim - github]]
+
+https://www.reddit.com/r/neovim/comments/104ujc7/what_are_the_plugins_you_consider_necessary_to/
+
+* Resources
+
+*YOUTUBE VIDEOS*
+
+*BLOGS*
++ [[https://dev.to/preciouschicken/neovim-latex-and-zathura-in-perfect-harmony-4d7d][Neovim, LaTeX and Zathura in perfect harmony - Precious Chicken (dev.to)]]
+
+* Plugins List (plugins.lua)
+
+see sane defaults, your terminal colors and more with *:checkhealth*
+
+** lazy.nvim - package manager
+
+[[https://github.com/folke/lazy.nvim][github page]]
+
+check for possible problems with the configuration
+~:checkhealth lazy~
+
+<LIT CONFIG IN PKGS.LUA>
+
+** nil
+
+[[https://github.com/oxalica/nil][github page]]
+
+<LIT CONFIG IN PKGS.LUA>
+
+** vimtex
+
+[[https://github.com/lervag/vimtex][github page]]
+
+<LIT CONFIG IN PKGS.LUA>
+
+** nvim-treesitter
+
+[[https://github.com/nvim-treesitter/nvim-treesiter][github page]]
+
+** nvim-lspconfig
+
+[[https://github.com/neovim/nvim-lspconfig][github page]]
+
+** telescope.nvim 
+
+[[https://github.com/nvim-telescope/telescope.nvim][github page]]
+
+** lualine.nvim
+
+[[https://github.com/nvim-lualine/lualine.nvim][github page]]
+
+** mason.nvim
+
+[[https://github.com/williamboman/mason.nvim][github page]]
+
+** Neogit
+
+[[https://github.com/NeogitOrg/neogit][github page]]
+
+** oil.nvim
+
+[[https://github.com/stevearc/oil.nvim][github page]]
+
+https://youtu.be/93R9Gk_nI2A
+
+** hardtime.nvim
+
+[[https://github.com/m4xshen/hardtime.nvim][hardtime.nvim - github page]]
+[[http://neovimcraft.com/plugin/m4xshen/hardtime.nvim/index.html][hardtime.nvim - neovimcraft]]
+[[https://www.reddit.com/r/neovim/comments/14jferq/hardtimenvim_a_neovim_plugin_helping_you/][hardtime.nvim - A Neovim plugin helping you establish good command workflow and habit - reddit post]]
+
+** vim-surround
+
+[[https://github.com/tpope/vim-surround][github page]]
+
+** catppuccin.nvim (idk)
+** lualine.nvim
+** mini.nvim
+
+[[https://github.com/echasnovski/mini.nvim][github page]]
+
 ##+begin_src lua
--- This is a single-line comment in Lua
---[[
-This is a block comment.
-      Second line...
-]]
+{ 'echanovski/mini.nvim', version = false }}, {})
 ##+end_src
 
-* Configuration
-** Clipboard
+** gitsigns.nvim
+** telescope.nvim
+
+* Configuration file (config.lua)
+** Horizontal and vertical line highlight of cursor
+
+[[https://stackoverflow.com/questions/63949581/how-do-i-highlight-the-position-of-horizontal-and-vertical-line-of-cursor-positi][How do I highlight the position of horizontal and vertical line of cursor position in VIM? - Stack Overflow]]
+
+To enable this, 
+
+set cursorline -> horizontal
+set cursorcolumn -> vertical
+
+** Keybinds
+
+_All of vim default keybinds will be in the vim note, and all the nvim custom keybinds will be in the nvim literate config_
+
+<leader> will be set up as space
+
+*Telescope.nvim* / fuzzy find files
+
+~<leader> ,~ -> change open buffers
+~<leader> .~ -> move to recent opened files
+
+** Colorschemes
+
+~:colorscheme desert~
+~:colorscheme delek~
+
+** Copy into system clipboard
+
++ [[https://stackoverflow.com/questions/75548458/copy-into-system-clipboard-from-neovim][Copy into system clipboard from neovim - stack overflow]]
+
+If you are using ~init.lua~, add
+#+begin_src lua
+vim.opt.clipboard = "unnamedplus"
+#+end_src
+
+If you are using ~init.vim~, add
+*set clipboard+=unnamedplus*
 
 In vimscript
 *set clipboard+=unnamedplus*
@@ -46,40 +166,39 @@ vim.opt.clipboard = "unnamedplus"
 -- set clipboard+=unnamedplus
 ##+end_src
 
-* Lazy nvim (package manager)
+* Fixes
+** First fast config
 
-##+begin_src lua
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-##+end_src
+*USEFUL - FIRST CONFIG (FIND HOW TO DO THEM IN NEOVIM)*
+set nocompatible
+set number
+set cursorline
+set hlsearch
+syntax on
 
-Next step after the bootstrap
-##+begin_src lua
-require("lazy").setup({
-##+end_src
+set expandtab
+set tabstop=2
 
-* Plugins
+** Cannot open undo file for writing
 
-Here is where i install the plugins
+_solution_: go to ~~/.local/state/nvim/undo~ and clear the folder
 
-** mini.nvim
+** Cleaning up the plugins
 
-##+begin_src lua
-{ 'echanovski/mini.nvim', version = false }}, {})
-##+end_src
+Plugins and other's are installed to the *~/.local/share/nvim* directory.
 
-* Plugins
-** catppuccin.nvim (idk)
-** lualine.nvim
-** gitsigns.nvim
-** telescope.nvim
+And the configuration in *~/.config/nvim* if needed.
+
+* Commands
+
+See the lazy menu
+:Lazy
+
+Check everything is working proper
+:checkhealth lazy
+
+See help
+:h lazy.nvim
+
+1. Put the cursor over the blue text
+2. Ctrl + ]
