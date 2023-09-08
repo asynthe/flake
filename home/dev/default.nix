@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    #./python.nix
+    ./python.nix
     ./latex.nix
   ];
 }
