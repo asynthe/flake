@@ -3,9 +3,9 @@
   pkgs,
   ...
 }: {
-  boot.supportedFilesystems = ["zfs"];
   networking.hostId = "3a864bd3"; # Random 8 digits, required
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages; # Only latest compatible kernel stuff with ZFS.
+
   services.zfs = {
     trim.enable = true;
     autoScrub = {
@@ -14,7 +14,7 @@
     };
   };
 
-  # Filesystem Partitions
+  # Partitions
   fileSystems = {
     "/" = {
       device = "nixpool/root/nixos";
@@ -25,7 +25,6 @@
       fsType = "zfs";
     };
   };
-  #boot.kernelParams = [ "nohibernate" ]; # Hibernation
 
   # Filesystem tools
   environment.systemPackages = with pkgs; [
