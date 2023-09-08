@@ -106,14 +106,10 @@ sleep 2
 
 ** Startup
 
+*DBUS*
 #+begin_src cpp
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 #+end_src
-#exec-once = ~/.config/hypr/script/xdg-desktop-portal.sh
-
-hyprctl keywords animations:enabled 0 # Start with animations disabled
-
-exec-once = mpvpaper -f -o "loop-file=inf" eDP-1 ~/main/system/wallpapers/video/loops_1920x1080/retrowave_1920x1080.mp4 &
 
 *BAR - WAYBAR*
 #+begin_src cpp
@@ -139,6 +135,10 @@ exec-once = tmux new-session -d -s weechat weechat
 #+begin_src cpp
 exec-once = qbittorrent
 #+end_src
+
+#exec-once = ~/.config/hypr/script/xdg-desktop-portal.sh
+hyprctl keywords animations:enabled 0 # Start with animations disabled
+exec-once = mpvpaper -f -o "loop-file=inf" eDP-1 ~/main/system/wallpapers/video/loops_1920x1080/retrowave_1920x1080.mp4 &
 
 ** Monitors
 

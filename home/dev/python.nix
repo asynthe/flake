@@ -1,16 +1,17 @@
-{pkgs, ...}: let
-  python-pkgs = ps:
-    with ps; [
-      pandas
-      requests
-      scapy
+{pkgs, ...}: {
 
-      openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
-      defusedxml # defusing XML bombs and other exploits
-    ];
-in {
   home.packages = with pkgs; [
-    (pkgs.python3.withPackages python-pkgs)
+    (pkgs.python3.withPackages (ps:
+      with ps; [
+        pandas
+        requests
+        scapy
+	datetime
+
+        openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
+        defusedxml # defusing XML bombs and other exploits
+      ]))
+ 
   ];
 
   # TESTING
@@ -34,7 +35,4 @@ in {
   #];
   #in
 
-  #environment.systemPackages = with pkgs; [
-  #(pkgs.python3.withPackages python-pkgs)
-  #];
 }
