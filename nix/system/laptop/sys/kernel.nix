@@ -15,7 +15,7 @@
     supportedFilesystems = [
       "zfs"
       ];
-    
+  };
 
   # Plymouth boot splash screen
   boot.plymouth.enable = true;
