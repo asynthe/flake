@@ -19,7 +19,7 @@ in {
   home.sessionVariables.NIXOS_OZONE_WL = "1"; # Session variable for Electron apps.
   home.packages = with pkgs; [
     # XDG Portal
-    xdg-desktop-portal-hyprland
+    #xdg-desktop-portal-hyprland
 
     # Apps
     eww-wayland # status bar
