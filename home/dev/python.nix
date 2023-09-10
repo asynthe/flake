@@ -4,7 +4,7 @@
     (pkgs.python3.withPackages (ps:
       with ps; [
         pandas
-        requests
+        #requests
         scapy
 	datetime
 
