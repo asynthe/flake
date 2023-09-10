@@ -4,6 +4,12 @@
   ...
 }: {
   programs = {
+    eza = {
+      enable = true;
+      icons = true;
+      enableAliases = true;
+    };
+
     skim = {
       enable = true;
       #package = ;
