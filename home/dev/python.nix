@@ -1,11 +1,11 @@
 {pkgs, ...}: {
 
   home.packages = with pkgs; [
-    (pkgs.python3.withPackages (ps:
+    (pkgs.python311.withPackages (ps:
       with ps; [
         pandas
         scapy
-        #requests
+        requests
 	datetime
 
         openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
