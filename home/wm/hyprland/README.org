@@ -11,15 +11,22 @@
   - [[#keywords-][Keywords (?)]]
   - [[#window-rules][Window Rules]]
 - [[#rice][Rice]]
-  - [[#borders-gaps-color][BORDERS, GAPS, COLOR]]
-  - [[#dwindle-layout-bspwm-like][Dwindle layout (BSPWM-like)]]
-  - [[#master-layout-xmonad-like][Master layout (Xmonad like)]]
+  - [[#general---opening-bracket][General - Opening Bracket]]
+  - [[#gaps][Gaps]]
+  - [[#border][Border]]
+  - [[#border-color][Border Color]]
+  - [[#hide-cursor-after-x-seconds][Hide cursor after x seconds]]
+  - [[#layout][Layout]]
+  - [[#general---closing-bracket][General - Closing Bracket]]
+- [[#configuration][Configuration]]
+  - [[#dwindle-layout-configuration-bspwm-like][Dwindle layout configuration (BSPWM-like)]]
+  - [[#master-layout-configuration-xmonad-like][Master layout configuration (Xmonad like)]]
   - [[#gestures][Gestures]]
-  - [[#border-rounding-blur][BORDER ROUNDING, BLUR]]
-  - [[#window-swallowing][WINDOW SWALLOWING]]
+  - [[#decoration-border-rounding-blur][Decoration (Border rounding, blur)]]
+  - [[#window-swallowing][Window Swallowing]]
   - [[#default-hyprland-logo-when-no-wallpaper][Default Hyprland logo (When no Wallpaper)]]
   - [[#vrr-variable-refresh-rate][VRR (Variable Refresh Rate)]]
-  - [[#animations][ANIMATIONS]]
+  - [[#animations][Animations]]
 - [[#keybinds][Keybinds]]
   - [[#modifier-key][Modifier Key]]
   - [[#shortcuts][Shortcuts]]
@@ -221,38 +228,74 @@ The LibreOffice window rule: (.*)(- LibreOffice Calc)$
 Means match /any/ window that contains a string of "- LibreOffice Calc"
 
 * Rice
-** BORDERS, GAPS, COLOR
+** General - Opening Bracket
+
+It belongs to the general section, so here's the entry bracket.
 
 Source a file (multi-file configs)
 source = ~/.config/hypr/myColors.conf
+
 See https://wiki.hyprland.org/Configuring/Keywords/ for more
+See https://wiki.hyprland.org/Configuring/Variables/ for more
 
 #+begin_src cpp
 general {
-# See https://wiki.hyprland.org/Configuring/Variables/ for more
+#+end_src
+
+** Gaps
+
+#+begin_src cpp
 gaps_in = 4
 gaps_out = 10
+#+end_src
+
+** Border
+
+#+begin_src cpp
 border_size = 1
 no_border_on_floating=1
-# XMONAD RED
+#+end_src
+
+** Border Color
+
+*Xmonad Red*
+#+begin_src cpp
 #col.active_border = rgb(ff0000)
 #col.inactive_border = rgb(000000) # BLACK
 #col.inactive_border = rgb(dddddd) # WHITE
-# PURPLE
+#+end_src
+
+*Purple*
+#+begin_src cpp
 col.active_border = rgb(451F67)
 col.inactive_border = rgb(231431)
-# BREEZE GRADIENT
+#+end_src
+
+*Breeze Gradient*
+#+begin_src cpp
 #col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
 #col.inactive_border = rgba(595959aa)
+#+end_src
 
-# CURSOR
+** Hide cursor after x seconds
+
+#+begin_src cpp
 cursor_inactive_timeout = 2
+#+end_src
 
+** Layout
+
+#+begin_src cpp
 layout = dwindle
+#+end_src
+
+** General - Closing Bracket
+#+begin_src cpp
 }
 #+end_src
 
-** Dwindle layout (BSPWM-like)
+* Configuration
+** Dwindle layout configuration (BSPWM-like)
 
 #+begin_src cpp
 dwindle {
@@ -264,7 +307,7 @@ smart_resizing = true
 }
 #+end_src
 
-** Master layout (Xmonad like)
+** Master layout configuration (Xmonad like)
 
 #+begin_src cpp
 master {
@@ -289,7 +332,7 @@ sensitivity = -0.5
 }
 #+end_src
 
-** BORDER ROUNDING, BLUR
+** Decoration (Border rounding, blur)
 
 See https://wiki.hyprland.org/Configuring/Variables/ for more
 
@@ -307,7 +350,7 @@ col.shadow = rgba(1a1a1aee)
 }
 #+end_src
 
-** WINDOW SWALLOWING
+** Window Swallowing
 
 Hide the terminal when i open software from it, thanks.
 
@@ -341,7 +384,7 @@ vrr = 1
 }
 #+end_src
 
-** ANIMATIONS
+** Animations
 
 Some default animations,
 see https://wiki.hyprland.org/Configuring/Animations for more.
@@ -519,6 +562,13 @@ bindm = $mainMod, mouse:273, resizewindow
 #+end_src
 
 ** Workspaces
+*** Special Workspace (Scratchpad)
+
+#+begin_src cpp
+bind = SUPER, s, movetoworkspace, special
+bind = SUPER, s, togglespecialworkspace
+#+end_src
+
 *** Switch
 
 Change workspaces with main mod + number row
