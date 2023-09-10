@@ -4,8 +4,8 @@
     (pkgs.python3.withPackages (ps:
       with ps; [
         pandas
-        #requests
         scapy
+        #requests
 	datetime
 
         openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
