@@ -25,7 +25,7 @@
     # replacements
     (pkgs.uutils-coreutils.override {prefix = "";}) # coreutils replace with uutils
     bat # for cat
-    exa # for ls
+    eza # for ls
     zoxide # for cd
     fd # for find
 
