@@ -18,7 +18,9 @@
       ipafont
       kochi-substitute
       ;
-    inherit (iosevka-comfy) comfy
+    inherit
+      (pkgs.iosevka-comfy)
+      comfy
       ;
   };
 }
