@@ -13,7 +13,7 @@
 
     # TeX Suite
     inherit
-      (pkgs.textlive.combined)
+      (pkgs.texlive.combined)
 
       scheme-full
       #scheme-medium
