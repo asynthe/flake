@@ -9,7 +9,7 @@
       #auto-multiple-choice
 
       # TeX Suite
-      (pkgs.texlive.combined) scheme-full
+      inherit (pkgs.texlive.combined) scheme-full
       #texlive.combined.scheme-medium
       #texlive.combined.scheme-small
       #texlive.combined.scheme-basic
