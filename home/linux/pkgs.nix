@@ -260,6 +260,9 @@
       ffmpegthumbnailer # Video files
       freetype # Font files
       libgsf # .odf files
+
+      # Terminal drop-down (Scratchpad?)
+      tdrop
       
       ;
 
