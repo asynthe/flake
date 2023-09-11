@@ -597,8 +597,8 @@ bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
 ** Special Workspace (Scratchpad)
 
 #+begin_src cpp
-bind = SUPER, s, movetoworkspace, special
-bind = SUPER SHIFT, s, togglespecialworkspace
+bind = SUPER, s, togglespecialworkspace
+bind = SUPER SHIFT, s, movetoworkspace, special
 #+end_src
 
 ** Master / Dwindle mode
