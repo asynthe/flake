@@ -1,17 +1,15 @@
 {pkgs, ...}: {
-
   home.packages = with pkgs; [
     (pkgs.python311.withPackages (ps:
       with ps; [
         pandas
         scapy
         requests
-	datetime
+        datetime
 
         openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
         defusedxml # defusing XML bombs and other exploits
       ]))
- 
   ];
 
   # TESTING
@@ -34,5 +32,4 @@
   #retry # eaf-markdown-previewer
   #];
   #in
-
 }

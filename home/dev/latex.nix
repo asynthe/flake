@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = builtins.attrValues {
+    # LaTeX Packages
     inherit
       (pkgs)
 
@@ -7,17 +8,22 @@
       tectonic # self-contained TeX/LaTeX engine, powered by XeTeX and TeXLive
       #tikzit
       #auto-multiple-choice
+      
+      ;
 
-      # TeX Suite
-      inherit (pkgs.texlive.combined) scheme-full
-      #texlive.combined.scheme-medium
-      #texlive.combined.scheme-small
-      #texlive.combined.scheme-basic
-      #texlive.combined.scheme-minimal
-      #texlive.combined.scheme-infraonly
-  
-      #texlive.combined.scheme-gust
-      #texlive.combined.scheme-context
+    # TeX Suite
+    inherit
+      (pkgs.textlive.combined)
+
+      scheme-full
+      #scheme-medium
+      #scheme-small
+      #scheme-basic
+      #scheme-minimal
+      #scheme-infraonly
+      #scheme-gust
+      #scheme-context
+      
       ;
   };
 }
