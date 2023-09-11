@@ -9,7 +9,7 @@
       #auto-multiple-choice
 
       # TEX SUITE
-      texlive.combined.scheme-full
+      (texlive.combined.scheme-full)
       #texlive.combined.scheme-medium
       #texlive.combined.scheme-small
       #texlive.combined.scheme-basic
