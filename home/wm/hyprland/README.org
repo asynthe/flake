@@ -33,6 +33,7 @@
   - [[#multimedia-keys][Multimedia Keys]]
   - [[#windows][Windows]]
   - [[#workspaces][Workspaces]]
+  - [[#special-workspace-scratchpad][Special Workspace (Scratchpad)]]
   - [[#master--dwindle-mode][Master / Dwindle mode]]
 - [[#app][App]]
   - [[#lockscreen-gtklock][LOCKSCREEN (GTKLOCK)]]
@@ -562,13 +563,6 @@ bindm = $mainMod, mouse:273, resizewindow
 #+end_src
 
 ** Workspaces
-*** Special Workspace (Scratchpad)
-
-#+begin_src cpp
-bind = SUPER, s, movetoworkspace, special
-bind = SUPER, s, togglespecialworkspace
-#+end_src
-
 *** Switch
 
 Change workspaces with main mod + number row
@@ -598,6 +592,13 @@ bind = $mainMod SHIFT, 7, movetoworkspacesilent, 7
 bind = $mainMod SHIFT, 8, movetoworkspacesilent, 8
 bind = $mainMod SHIFT, 9, movetoworkspacesilent, 9
 bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
+#+end_src
+
+** Special Workspace (Scratchpad)
+
+#+begin_src cpp
+bind = SUPER, s, movetoworkspace, special
+bind = SUPER SHIFT, s, togglespecialworkspace
 #+end_src
 
 ** Master / Dwindle mode
