@@ -30,7 +30,7 @@ nixosConfigurations = {
     specialArgs = {inherit username inputs;};
 
     modules = [
-      ./nix/system/laptop
+      ./nix/laptop
       # Home Manager as a Module goes here !!!      
     ];
     };
