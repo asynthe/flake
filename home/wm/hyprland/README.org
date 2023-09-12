@@ -11,13 +11,8 @@
   - [[#keywords-][Keywords (?)]]
   - [[#window-rules][Window Rules]]
 - [[#rice][Rice]]
-  - [[#general---opening-bracket][General - Opening Bracket]]
-  - [[#gaps][Gaps]]
-  - [[#border][Border]]
-  - [[#border-color][Border Color]]
-  - [[#hide-cursor-after-x-seconds][Hide cursor after x seconds]]
-  - [[#layout][Layout]]
-  - [[#general---closing-bracket][General - Closing Bracket]]
+  - [[#general][General]]
+  - [[#animations][Animations]]
 - [[#configuration][Configuration]]
   - [[#dwindle-layout-configuration-bspwm-like][Dwindle layout configuration (BSPWM-like)]]
   - [[#master-layout-configuration-xmonad-like][Master layout configuration (Xmonad like)]]
@@ -26,7 +21,6 @@
   - [[#window-swallowing][Window Swallowing]]
   - [[#default-hyprland-logo-when-no-wallpaper][Default Hyprland logo (When no Wallpaper)]]
   - [[#vrr-variable-refresh-rate][VRR (Variable Refresh Rate)]]
-  - [[#animations][Animations]]
 - [[#keybinds][Keybinds]]
   - [[#modifier-key][Modifier Key]]
   - [[#shortcuts][Shortcuts]]
@@ -228,7 +222,8 @@ The LibreOffice window rule: (.*)(- LibreOffice Calc)$
 Means match /any/ window that contains a string of "- LibreOffice Calc"
 
 * Rice
-** General - Opening Bracket
+** General
+*** Opening Bracket
 
 It belongs to the general section, so here's the entry bracket.
 
@@ -242,21 +237,21 @@ See https://wiki.hyprland.org/Configuring/Variables/ for more
 general {
 #+end_src
 
-** Gaps
+*** Gaps
 
 #+begin_src cpp
 gaps_in = 4
 gaps_out = 10
 #+end_src
 
-** Border
+*** Border
 
 #+begin_src cpp
 border_size = 1
 no_border_on_floating=1
 #+end_src
 
-** Border Color
+*** Border Color
 
 *Xmonad Red*
 #+begin_src cpp
@@ -277,20 +272,51 @@ col.inactive_border = rgb(231431)
 #col.inactive_border = rgba(595959aa)
 #+end_src
 
-** Hide cursor after x seconds
+*** Hide cursor after x seconds
 
 #+begin_src cpp
 cursor_inactive_timeout = 2
 #+end_src
 
-** Layout
+*** Layout
 
 #+begin_src cpp
 layout = dwindle
 #+end_src
 
-** General - Closing Bracket
+*** Closing Bracket
 #+begin_src cpp
+}
+#+end_src
+
+** Animations
+
+Some default animations,
+see https://wiki.hyprland.org/Configuring/Animations for more.
+
+Disable animations with ~Super key + a~
+
+Animations types list:
+- slide
+- slidevert
+- fade
+- slidefade
+- slidefadevert
+
+#+begin_src cpp
+#bind = SUPER, a, exec, hyprctl keyword animations:enabled 0
+
+animations {
+enabled = yes
+
+bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+
+animation = windows, 1, 7, myBezier
+animation = windowsOut, 1, 7, default, popin 80%
+animation = border, 1, 10, default
+animation = fade, 1, 7, default
+animation = workspaces, 1, 6, default, slide
+animation = specialWorkspace, 1, 3, default, fade
 }
 #+end_src
 
@@ -381,30 +407,6 @@ Must be a monitor with G-SYNC for NVIDIA GPU's, or FreeSync for AMD GPU's.
 
 #+begin_src cpp
 vrr = 1
-}
-#+end_src
-
-** Animations
-
-Some default animations,
-see https://wiki.hyprland.org/Configuring/Animations for more.
-
-Disable animations with ~Super key + a~
-
-#+begin_src cpp
-#bind = SUPER, a, exec, hyprctl keyword animations:enabled 0
-
-animations {
-enabled = yes
-
-bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-
-animation = windows, 1, 7, myBezier
-animation = windowsOut, 1, 7, default, popin 80%
-animation = border, 1, 10, default
-animation = fade, 1, 7, default
-animation = workspaces, 1, 6, default, slide
-animation = specialWorkspace, 1, 3, default, slidevert
 }
 #+end_src
 
