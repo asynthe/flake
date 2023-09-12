@@ -140,7 +140,6 @@ exec-once = qbittorrent
 *TERMINAL IN WORKSPACE SPECIAL*
 #+begin_src cpp
 exec-once = [workspace special] alacritty -e tmux attach
-bind = $mainMod SHIFT, e, exec, alacritty -e tmux attach
 #+end_src
 
 #exec-once = ~/.config/hypr/script/xdg-desktop-portal.sh
@@ -430,6 +429,7 @@ https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommo
 Set up the modifier key!
 #+begin_src cpp
 $mainMod = ALT
+bind = $mainMod, e, exec, alacritty -e tmux attach
 #+end_src
 
 ** Shortcuts
