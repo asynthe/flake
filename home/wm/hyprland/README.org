@@ -13,6 +13,7 @@
 - [[#rice][Rice]]
   - [[#general][General]]
   - [[#animations][Animations]]
+  - [[#special-workspace][Special Workspace]]
 - [[#configuration][Configuration]]
   - [[#dwindle-layout-configuration-bspwm-like][Dwindle layout configuration (BSPWM-like)]]
   - [[#master-layout-configuration-xmonad-like][Master layout configuration (Xmonad like)]]
@@ -330,6 +331,14 @@ animation = specialWorkspace, 1, 3, default, fade
 }
 #+end_src
 
+** Special Workspace
+
+Some rules
+
+#+begin_src cpp
+workspace = special, border:0
+#+end_src
+
 * Configuration
 ** Dwindle layout configuration (BSPWM-like)
 
@@ -429,7 +438,6 @@ https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommo
 Set up the modifier key!
 #+begin_src cpp
 $mainMod = ALT
-bind = $mainMod, e, exec, alacritty -e tmux attach
 #+end_src
 
 ** Shortcuts
