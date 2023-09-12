@@ -37,8 +37,7 @@
   - [[#master--dwindle-mode][Master / Dwindle mode]]
 - [[#app][App]]
   - [[#lockscreen-gtklock][LOCKSCREEN (GTKLOCK)]]
-  - [[#screenshots-grimslurp-flameshot][SCREENSHOTS (GRIM/SLURP, FLAMESHOT)]]
-  - [[#screenshot-ksnip][SCREENSHOT (KSNIP)]]
+  - [[#screenshots][SCREENSHOTS]]
 
 * System
 ** Environment Variables
@@ -596,9 +595,11 @@ bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
 
 ** Special Workspace (Scratchpad)
 
+Execute tmux inside alacritty
+
 #+begin_src cpp
-bind = SUPER, s, togglespecialworkspace
-bind = SUPER SHIFT, s, movetoworkspace, special
+bind = $mainMod, s, togglespecialworkspace
+bind = $mainMod SHIFT, s, movetoworkspace, special
 #+end_src
 
 ** Master / Dwindle mode
@@ -642,23 +643,19 @@ Options for ~idleinhibit~
 
 #+begin_src cpp
 windowrulev2 = idleinhibit always, class:^(steam)$
-
 windowrulev2 = idleinhibit fullscreen, class:^(mpv)$
 windowrulev2 = idleinhibit focus, class:^(mpv)$  
 #+end_src
 
-** SCREENSHOTS (GRIM/SLURP, FLAMESHOT)
+** SCREENSHOTS
+
+(GRIM/SLURP, FLAMESHOT)
 
 TEST: FIXING FLAMESHOT (NOT WORKING)
 #+begin_src cpp
 windowrulev2 = move 0 0,title:^(flameshot)
 windowrulev2 = nofullscreenrequest,title:^(flameshot)
-#+end_src
-
-** SCREENSHOT (KSNIP)
-
-#+begin_src cpp
-bind = $mainMod, s, exec, grim -g "$(slurp)" 
+#bind = $mainMod, s, exec, grim -g "$(slurp)" 
 #bind = $mainMod, # fullscreen screenshot
 #+end_src
 
