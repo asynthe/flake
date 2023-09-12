@@ -403,7 +403,8 @@ animation = windows, 1, 7, myBezier
 animation = windowsOut, 1, 7, default, popin 80%
 animation = border, 1, 10, default
 animation = fade, 1, 7, default
-animation = workspaces, 1, 6, default
+animation = workspaces, 1, 6, default, slide
+animation = specialWorkspace, 1, 3, default, slidevert
 }
 #+end_src
 
@@ -598,15 +599,15 @@ bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
 Execute tmux inside alacritty
 
 #+begin_src cpp
-animation = specialWorkspace, 1, myBezier, fadeIn
 bind = $mainMod, s, togglespecialworkspace
 bind = $mainMod SHIFT, s, movetoworkspace, special
 #+end_src
 
 ** Master / Dwindle mode
 
-#+begin_src cpp
+Add here a keybind that chanes master and dwindle mode.
 
+#+begin_src cpp
 
 #+end_src
 
