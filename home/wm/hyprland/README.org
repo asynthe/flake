@@ -607,7 +607,7 @@ Execute tmux inside alacritty
 
 #+begin_src cpp
 bind = $mainMod, s, exec, [workspace special] alacritty
-bind = $mainMod, s, togglespecialworkspace
+#bind = $mainMod, s, togglespecialworkspace
 bind = $mainMod SHIFT, s, movetoworkspace, special
 #+end_src
 
