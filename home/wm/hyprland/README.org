@@ -598,6 +598,7 @@ bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
 Execute tmux inside alacritty
 
 #+begin_src cpp
+animation = specialWorkspace, 1, myBezier, fadeIn
 bind = $mainMod, s, togglespecialworkspace
 bind = $mainMod SHIFT, s, movetoworkspace, special
 #+end_src
