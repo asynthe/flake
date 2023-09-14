@@ -452,7 +452,7 @@ FIX
 #bindl = $mainMod SHIFT, s, exec, sleep 1 && hyprctl dispatch dpms off
 
 #+begin_src cpp
-bind = $mainMod SHIFT, return, exec, alacritty -e tmux
+bind = $mainMod SHIFT, return, exec, alacritty -e tmux -a
 #bind = $mainMod, return, exec, cool-retro-term
 #bind = $mainMod return, exec, emacsclient -c -a "emacs"
 bind = $mainMod SHIFT, c, killactive,
