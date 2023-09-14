@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./drv/nvidia.nix # Nvidia drivers
+    ./drv
     ./extra
     ./net
     ./sec
