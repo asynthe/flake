@@ -28,6 +28,7 @@
   - [[#multimedia-keys][Multimedia Keys]]
   - [[#windows][Windows]]
   - [[#workspaces][Workspaces]]
+  - [[#monitor][Monitor]]
   - [[#special-workspace-scratchpad][Special Workspace (Scratchpad)]]
   - [[#master--dwindle-mode][Master / Dwindle mode]]
 - [[#app][App]]
@@ -613,6 +614,18 @@ bind = $mainMod SHIFT, 7, movetoworkspacesilent, 7
 bind = $mainMod SHIFT, 8, movetoworkspacesilent, 8
 bind = $mainMod SHIFT, 9, movetoworkspacesilent, 9
 bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
+#+end_src
+
+** Monitor
+
+When Lid is Open.
+#+begin_src cpp
+bindl = , switch:off:Lid Switch, exec, hyprctl keyword monitor "eDP-1, 1920x1080, 0x0, 1"
+#+end_src
+
+When Lid is Closed.
+#+begin_src cpp
+bindl = , switch:on:Lid Switch, exec, hyprctl keyword monitor "eDP-1, disable"
 #+end_src
 
 ** Special Workspace (Scratchpad)
