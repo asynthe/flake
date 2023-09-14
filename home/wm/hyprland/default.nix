@@ -12,8 +12,8 @@ in {
     enableNvidiaPatches = true;
     xwayland.enable = true;
     #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    #settings = ;
-    #extraConfig = "${fileContent}";
+    settings = ;
+    extraConfig = "${fileContent}";
   };
 
   home.sessionVariables.NIXOS_OZONE_WL = "1"; # Session variable for Electron apps.
