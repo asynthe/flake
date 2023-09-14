@@ -4,8 +4,8 @@
   username,
   ...
 }: let
-  #filePath = ./hyprland.conf;
-  #fileContent = builtins.readFile filePath;
+  filePath = ./hyprland.conf;
+  fileContent = builtins.readFile filePath;
 in {
   wayland.windowManager.hyprland = {
     enable = true;
