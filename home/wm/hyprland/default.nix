@@ -4,8 +4,8 @@
   username,
   ...
 }: let
-  filePath = ./hyprland.conf;
-  fileContent = builtins.readFile filePath;
+  #filePath = ./hyprland.conf;
+  #fileContent = builtins.readFile filePath;
 in {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -13,7 +13,7 @@ in {
     xwayland.enable = true;
     #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     #settings = ;
-    extraConfig = "${fileContent}";
+    #extraConfig = "${fileContent}";
   };
 
   home.sessionVariables.NIXOS_OZONE_WL = "1"; # Session variable for Electron apps.

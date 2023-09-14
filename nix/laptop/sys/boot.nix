@@ -3,6 +3,11 @@
   # Plymouth boot splash screen
   boot.plymouth.enable = true;
 
+  # Don't suspend/hibernate when closing laptop lid
+  # Options: ignore, poweroff, reboot, halt, kexec, suspend, hibernate, hybrid-sleep, suspend-then-hibernate, lock.
+  services.logind.lidSwitch = "ignore"; # or
+  #services.logind.extraConfig = "HandleLidSwitch=ignore";
+
   # BOOTLOADER
   boot = {
     kernelParams = [ # Silent boot
@@ -13,6 +18,7 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
       #"nohibernate"
+      #"button.lid_init_state=open"
     ];
     consoleLogLevel = 0;
     supportedFilesystems = [
@@ -37,7 +43,9 @@
         device = "nodev";
         efiSupport = true;
         enableCryptodisk = true;
-	extraConfig = "set theme=${pkgs.libsForQt5.breeze-grub}/grub/themes/breeze/theme.txt";
+
+	# Custom Grub Theme Test - Not Working (package location?)
+	#extraConfig = "set theme=${pkgs.libsForQt5.breeze-grub}/grub/themes/breeze/theme.txt";
 	#splashImage = null;
       };
     };
@@ -56,7 +64,7 @@
 
   # Console / TTY configuration
   console = {
-    earlySetup = true;
+    #earlySetup = true; # Not working because of this?
     font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
     packages = with pkgs; [terminus_font];
     keyMap = "us"; # or us/dvous/dvorak/etc
