@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   #services.stubby.enable = true;
   services.dnscrypt-proxy2 = {
     enable = true;

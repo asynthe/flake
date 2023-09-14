@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   # I2P
   #services.i2p = {
   #enable = true;

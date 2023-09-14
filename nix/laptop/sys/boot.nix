@@ -1,5 +1,8 @@
-{config, pkgs, ...}: {
-
+{
+  config,
+  pkgs,
+  ...
+}: {
   # Plymouth boot splash screen
   boot.plymouth.enable = true;
 
@@ -10,7 +13,8 @@
 
   # BOOTLOADER
   boot = {
-    kernelParams = [ # Silent boot
+    kernelParams = [
+      # Silent boot
       "quiet"
       "splash"
       "log_level=3"
@@ -27,14 +31,14 @@
       "btrfs"
       "xfs"
       "zfs"
-      ];
+    ];
     loader = {
       # EFI
       efi = {
         #systemd-boot.enable = true; # systemd-boot EFI boot loader
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
-        };
+      };
       # GRUB
       grub = {
         enable = true;
@@ -44,9 +48,9 @@
         efiSupport = true;
         enableCryptodisk = true;
 
-	# Custom Grub Theme Test - Not Working (package location?)
-	#extraConfig = "set theme=${pkgs.libsForQt5.breeze-grub}/grub/themes/breeze/theme.txt";
-	#splashImage = null;
+        # Custom Grub Theme Test - Not Working (package location?)
+        #extraConfig = "set theme=${pkgs.libsForQt5.breeze-grub}/grub/themes/breeze/theme.txt";
+        #splashImage = null;
       };
     };
   };
@@ -76,5 +80,4 @@
     enable = true;
     protocol = "ps/2";
   };
-
 }
