@@ -27,20 +27,23 @@
   };
 
   # Filesystem tools
-  environment.systemPackages = with pkgs; [
-    # Tools
-    nvme-cli
-    hdparm
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      # Tools
+      nvme-cli
+      hdparm
 
-    # Backup Tools
-    sanoid # ZFS
-    borgbackup
-    restic
-    tarsnap
+      # Backup Tools
+      sanoid # ZFS
+      borgbackup
+      restic
+      tarsnap
 
-    # Progs
-    xfsprogs
-    btrfs-progs
-    ntfs3g
-  ];
+      # Progs
+      xfsprogs
+      btrfs-progs
+      ntfs3g
+      ;
+    };
 }
