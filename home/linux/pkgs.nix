@@ -264,6 +264,7 @@
       # Terminal drop-down (Scratchpad?)
       
       tdrop
+      libqalculate
       ;
 
     # Previewers for PCmanFM

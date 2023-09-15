@@ -155,6 +155,7 @@ See https://wiki.hyprland.org/Configuring/Monitors/
 #+begin_src cpp
 monitor = eDP-1, 1920x1080@144, 0x0, 1
 monitor = HDMI-A-2, 1920x1080@60, 1920x0, 1
+monitor = DVI-I-1, 1920x1080@60, 
 #+end_src
 
 ** Input (Keyboard)
