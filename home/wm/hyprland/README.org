@@ -195,6 +195,7 @@ Example windowrule v2
 *Ueberzugpp*
 #+begin_src cpp
 windowrulev2 = noanim,class:ueberzugpp.*$
+windowrulev2 = noanim,class:pavucontrol.*$
 #+end_src
 
 *Force Floating Mode*
