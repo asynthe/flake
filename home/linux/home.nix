@@ -5,10 +5,8 @@
 }: {
   imports = [
     ./usr
-    ./sec
 
     ./emacs.nix
-    ./emulation.nix
     ./media.nix
     ./net.nix
     ./pkgs.nix

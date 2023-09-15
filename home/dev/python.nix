@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    (pkgs.python311.withPackages (ps:
+    (pkgs.python3.withPackages (ps:
       with ps; [
         pandas
         scapy
