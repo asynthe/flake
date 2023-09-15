@@ -265,6 +265,7 @@
       
       tdrop
       libqalculate
+      inxi
       ;
 
     # Previewers for PCmanFM
