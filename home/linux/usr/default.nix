@@ -1,6 +1,7 @@
 {config, ...}: {
   imports = [
     ./fonts.nix
-    ./nix_configuration.nix
+    ./gtk.nix
+    ./xdg.nix
   ];
 }

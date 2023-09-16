@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     bc
-
     qgis #qgis-ltr
     nethogs
     mtr # A network diagnostic tool

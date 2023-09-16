@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ./python.nix
     ./latex.nix
+    ./python.nix
+    ./rust.nix
   ];
 }

@@ -2,8 +2,7 @@
 
   imports = [
 
-   ./comms.nix
-   ./emulation.nix
+    ./emacs.nix
 
   ];
 }
