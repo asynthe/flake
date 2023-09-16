@@ -32,7 +32,7 @@
 
       # NINTENDO
       snes9x
-      zsnes
+      #zsnes
       bsnes-hd # SUPER NINTENDO
       mupen64plus # NINTENDO 64
       dolphin-emu # GAMECUBE / WII

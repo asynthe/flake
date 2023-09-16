@@ -21,6 +21,7 @@
   - [[#decoration-border-rounding-blur][Decoration (Border rounding, blur)]]
   - [[#misc][Misc]]
 - [[#keybinds][Keybinds]]
+  - [[#scripts][Scripts]]
   - [[#modifier-key][Modifier Key]]
   - [[#shortcuts][Shortcuts]]
   - [[#multimedia-keys][Multimedia Keys]]
@@ -440,6 +441,11 @@ vrr = 1
 #+end_src
 
 * Keybinds
+** Scripts
+*** Gamemode
+
+
+
 ** Modifier Key
 
 Find the used key convention on the next link:
