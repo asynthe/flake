@@ -19,9 +19,7 @@
   - [[#master-layout-configuration-xmonad-like][Master layout configuration (Xmonad like)]]
   - [[#gestures][Gestures]]
   - [[#decoration-border-rounding-blur][Decoration (Border rounding, blur)]]
-  - [[#window-swallowing][Window Swallowing]]
-  - [[#default-hyprland-logo-when-no-wallpaper][Default Hyprland logo (When no Wallpaper)]]
-  - [[#vrr-variable-refresh-rate][VRR (Variable Refresh Rate)]]
+  - [[#misc][Misc]]
 - [[#keybinds][Keybinds]]
   - [[#modifier-key][Modifier Key]]
   - [[#shortcuts][Shortcuts]]
@@ -398,19 +396,23 @@ col.shadow = rgba(1a1a1aee)
 }
 #+end_src
 
-** Window Swallowing
+** Misc
+*** Opening Bracket
+
+#+begin_src cpp
+misc {
+#+end_src
+
+*** Window Swallowing
 
 Hide the terminal when i open software from it, thanks.
 
 #+begin_src cpp
-misc {
 enable_swallow = true
-swallow_regex = ^(Alacritty)$
-swallow_regex = ^(alacritty)$
-swallow_regex = ^(kitty)$
+  swallow_regex = ^(Alacritty|kitty|footclient)$
 #+end_src
 
-** Default Hyprland logo (When no Wallpaper)
+*** Default Hyprland logo (When no Wallpaper)
 
 You can disable it if you want it, it will show you just a grey screen.
 
@@ -420,7 +422,7 @@ disable_hyprland_logo = true
 disable_splash_rendering = true
 #+end_src
 
-** VRR (Variable Refresh Rate)
+*** VRR (Variable Refresh Rate)
 
 https://wiki.archlinux.org/title/Variable_refresh_rate
 
@@ -429,6 +431,11 @@ Must be a monitor with G-SYNC for NVIDIA GPU's, or FreeSync for AMD GPU's.
 
 #+begin_src cpp
 vrr = 1
+#+end_src
+
+*** Closing Bracket
+
+#+begin_src cpp
 }
 #+end_src
 
