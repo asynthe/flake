@@ -200,7 +200,7 @@
       unzip
       p7zip
       xz
-      rar #unrar #rar2fs
+      #rar #unrar #rar2fs
       #torrent7z
       
       #mdf2iso
