@@ -10,7 +10,7 @@
 
       signal-desktop
       telegram-desktop
-      discord webcord gtkcord
+      discord webcord gtkcord4
 
       ;
   };
