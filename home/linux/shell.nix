@@ -12,7 +12,7 @@
   #'';
   #};
 
-  home.packages.(pkgs.uutils-coreutils.override {prefix = "";}) # coreutils replace with uutils
+  home.packages.pkgs.uutils-coreutils.override {prefix = "";} # coreutils replace with uutils
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
