@@ -13,7 +13,7 @@
       #osu-lazer-bin #osu-lazer
       stepmania
       gzdoom
-      clonehero # NOT WORKING (22-05-2023)
+      #clonehero # NOT WORKING (17-09-2023)
       ;
   };
 }
