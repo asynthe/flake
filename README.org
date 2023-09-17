@@ -22,7 +22,11 @@ GITHUB-LINK][Espanol / GITHUB-LINK][日本語
   - [[#home-manager][Home Manager]]
   - [[#android-nix-on-droid][Android (Nix On Droid)]]
 - [[#inputs][Inputs]]
-- [[#nix-configuration-not-added][Nix Configuration (Not added)]]
+  - [[#opening-bracket][Opening Bracket]]
+  - [[#nixpkgs-and-nixpkgs-stable][Nixpkgs and Nixpkgs Stable]]
+  - [[#home-manager-1][Home Manager]]
+  - [[#apps-and-repos][Apps and Repos]]
+  - [[#nix-configuration-not-added][Nix Configuration (Not added)]]
 - [[#end---closing-bracket][End - Closing bracket]]
 
 * About Flakes
@@ -74,6 +78,7 @@ outputs = inputs @ {
   nix-darwin,
   #nix-gaming,
   home-manager,
+  hyprland,
   ...
 	}: let
   username = "asynthe";
@@ -102,14 +107,13 @@ nixosConfigurations = {
 
     modules = [
       ./nix/laptop
-      # Home Manager as a Module goes here !!!      
+      # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
     ];
     };
   };
 #+end_src
 
-*** Home Manager as module
-
+*HOME MANAGER AS MODULE*
 Disabled for now, but you can play around with it.
 
 #+begin_src nix
@@ -197,19 +201,23 @@ darwinConfigurations = {
 #+end_src
 
 * Inputs
+** Opening Bracket
 
-*NIXPKGS AND NIXPKGS STABLE*
 #+begin_src nix
-      }; 
-  inputs = {
-    # Main
+};
+ inputs = {
+#+end_src
+
+** Nixpkgs and Nixpkgs Stable
+
+#+begin_src nix
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 #+end_src
 
-*HOME MANAGER*
+** Home Manager
+
 #+begin_src nix
-    # Home
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs"; 
@@ -237,15 +245,15 @@ darwinConfigurations = {
       #};
 #+end_src
 
-*APPS AND REPOS*
+** Apps and Repos
 #+begin_src nix
     #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     #nix-gaming.url = "github:fufexan/nix-gaming";
-    #hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland";
     #helix.url = "github:helix-editor/helix/23.05";
 #+end_src
 
-* Nix Configuration (Not added)
+** Nix Configuration (Not added)
 
 The closing bracket is from OUTPUTs, i put it here to have more flexibility moving the configurations around.
 

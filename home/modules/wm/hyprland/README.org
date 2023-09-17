@@ -21,8 +21,8 @@
   - [[#decoration][Decoration]]
   - [[#misc][Misc]]
 - [[#keybinds][Keybinds]]
-  - [[#scripts][Scripts]]
   - [[#modifier-key][Modifier Key]]
+  - [[#scripts][Scripts]]
   - [[#shortcuts][Shortcuts]]
   - [[#multimedia-keys][Multimedia Keys]]
   - [[#windows][Windows]]
@@ -115,22 +115,10 @@ exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CUR
 
 *BAR - WAYBAR*
 #+begin_src cpp
-exec-once = waybar &
-#+end_src
-
-*WALLPAPER DAEMON - SWWW*
-#+begin_src cpp
-exec-once = swww init &
-#+end_src
-
-*JAPANESE IME - FCITX5 + MOZC*
-#+begin_src cpp
-exec-once = fcitx5 -d &
-#+end_src
-
-*WEECHAT TMUX SESSION*
-#+begin_src cpp
-exec-once = tmux new-session -d -s weechat weechat
+exec-once = fcitx5 -d & # IME for Japanese
+exec-once = waybar & # Bar
+exec-once = swww init & # Wallpaper Daemon
+exec-once = tmux new-session -d -s weechat weechat # Weechat tmux session in background
 #+end_src
 
 *APPS*
@@ -138,11 +126,12 @@ exec-once = tmux new-session -d -s weechat weechat
 exec-once = qbittorrent
 #+end_src
 
-*TERMINAL IN WORKSPACE SPECIAL*
+*WORKSPACE SPECIAL*
 #+begin_src cpp
-exec-once = [workspace special] alacritty -e tmux attach
+exec-once = [workspace special] emacs
 #+end_src
 
+#exec-once = [workspace special] alacritty -e tmux attach
 #exec-once = ~/.config/hypr/script/xdg-desktop-portal.sh
 hyprctl keywords animations:enabled 0 # Start with animations disabled
 exec-once = mpvpaper -f -o "loop-file=inf" eDP-1 ~/main/system/wallpapers/video/loops_1920x1080/retrowave_1920x1080.mp4 &
@@ -486,11 +475,6 @@ vrr = 1
 #+end_src
 
 * Keybinds
-** Scripts
-*** Gamemode
-
-
-
 ** Modifier Key
 
 Find the used key convention on the next link:
@@ -500,6 +484,9 @@ Set up the modifier key!
 #+begin_src cpp
 $mainMod = ALT
 #+end_src
+
+** Scripts
+*** Gamemode
 
 ** Shortcuts
 
@@ -512,7 +499,8 @@ FIX
 #bindl = $mainMod SHIFT, s, exec, sleep 1 && hyprctl dispatch dpms off
 
 #+begin_src cpp
-bind = $mainMod SHIFT, return, exec, alacritty -e tmux
+bind = $mainMod SHIFT, return, exec, alacritty
+#bind = $mainMod SHIFT, return, exec, alacritty -e tmux
 #bind = $mainMod, return, exec, cool-retro-term
 #bind = $mainMod return, exec, emacsclient -c -a "emacs"
 bind = $mainMod SHIFT, c, killactive,
