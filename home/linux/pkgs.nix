@@ -67,12 +67,10 @@
       graphviz
       ##### TESTING #####
       
-      gamemode
       clamav
       clamsmtp # antivirus
       
       # Bluetooth
-      
       blueman
       pdftk #pdfchain # Latex file?
       hplip # -> cups.nix / printer.nix
@@ -98,22 +96,17 @@
       
       #vscodium #vscodium-fhs # test how compatible vscode is w nixos
       
-      font-awesome
-      # Term
-      
+      # Terminals
       alacritty
-      kitty
+      kitty kitty-themes
       cool-retro-term
+
       # Utils
-      
       gparted
       ventoy-full #ventoy
       #etcher
       
-      #helix.packages."${pkgs.system}".helix # Helix editor
-      
       # Nix
-      
       deploy-rs
       nixops_unstable #nixops
       direnv
@@ -144,12 +137,11 @@
       bluetuith # bluetooth ncurses frontend
       
       # GUI
-      
       obsidian
       zathura # minimalistic pdf viewer
+      xournalpp
       
       # Browser
-      
       firefox
       librewolf #librewolf-unwrapped
       brave #nyxt #links2
@@ -216,14 +208,11 @@
       # Replace in future
       
       keepassxc # change into password store
-      kitty-themes
       #openrgb-with-all-plugins
       
       #openrgb-plugin-hardwaresync
       
       #ankisyncd
-      
-      #syncthing
       
       # email client
       

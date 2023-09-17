@@ -12,55 +12,54 @@
   #'';
   #};
 
-  home.packages = with pkgs; [
-    # shell
-    zsh
-    dash
-    fish
-    starship
-    powershell
-    nushell
-    nu_scripts
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
+      # Shell
+      zsh
+      dash
+      fish
+      powershell
+      nushell nu_scripts
 
-    # replacements
-    (pkgs.uutils-coreutils.override {prefix = "";}) # coreutils replace with uutils
-    bat # for cat
-    eza # for ls
-    zoxide # for cd
-    fd # for find
+      # Replacements
+      (pkgs.uutils-coreutils.override {prefix = "";}) # coreutils replace with uutils
+      bat # for cat
+      eza # for ls
+      zoxide # for cd
+      fd # for find
 
-    # tools
-    git
-    tmux
-    neovim #vim
-    skim #fzf
+      # Tools
+      starship
+      git
+      tmux
+      neovim #vim
+      skim #fzf
 
-    # apps
-    lf
-    ueberzugpp # file manager
-    xplr
-    yt-dlp
-    ripdrag # drag-and-drop for terminal
+      # Apps
+      lf
+      ueberzugpp # file manager
+      yt-dlp
+      ripdrag # drag-and-drop for terminal
+      cli-visualizer
+      cava # audio visualizer
+      pipes-rs #pipes
+      peaclock #tty-clock
+      cmatrix
+      hollywood
+      figlet
+      lolcat
+      pfetch #neofetch #ipfetch #macchina
+      pv
 
-    # fun
-    cli-visualizer
-    cava # audio visualizer
-    pipes-rs #pipes
-    peaclock #tty-clock
-    cmatrix
-    hollywood
-    figlet
-    lolcat
-    pfetch #neofetch #ipfetch #macchina
-    pv
+      # Customization
+      pywal
+      wpgtk
+      colorz
 
-    # customization
-    pywal
-    wpgtk
-    colorz
-
-    # code formatters
-    nixfmt
-    alejandra # nix
-  ];
+      # Code formatters
+      nixfmt
+      alejandra # nix
+      ;
+  };
 }
