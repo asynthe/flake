@@ -432,7 +432,7 @@ fullscreen_opacity = 0.9
 #+begin_src cpp
 dim_inactive = false
 dim_strength = 0.5
-dim_special = 0.5
+dim_special = 0.4
 dim_around = 0.4
 #+end_src
 
