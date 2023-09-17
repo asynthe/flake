@@ -339,7 +339,7 @@ Some rules
 
 #+begin_src cpp
 workspace = special, border:0
-workspace = special, noblur:1
+workspace = special, decorate:false
 #+end_src
 
 * Configuration
@@ -381,6 +381,9 @@ sensitivity = -0.5
 #+end_src
 
 ** Decoration
+
+See https://wiki.hyprland.org/Configuring/Variables/ for more
+
 *** Opening Bracket
 
 #+begin_src cpp
@@ -389,8 +392,6 @@ decoration {
 
 *** Border rounding
 
-See https://wiki.hyprland.org/Configuring/Variables/ for more
-
 #+begin_src cpp
 rounding = 0
 #+end_src
@@ -398,11 +399,13 @@ rounding = 0
 *** Blur
 
 #+begin_src cpp
-blur = yes
-blur_size = 7
-blur_passes = 2
-#blur_new_optimizations = on
-drop_shadow = no
+blur {
+  enabled = true
+  size = 3
+  passes = 1
+}
+
+drop_shadow = true
 shadow_range = 4
 shadow_render_power = 3
 col.shadow = rgba(1a1a1aee)
