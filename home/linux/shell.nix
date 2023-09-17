@@ -12,6 +12,7 @@
   #'';
   #};
 
+  home.packages.(pkgs.uutils-coreutils.override {prefix = "";}) # coreutils replace with uutils
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
@@ -23,7 +24,6 @@
       nushell nu_scripts
 
       # Replacements
-      (pkgs.uutils-coreutils.override {prefix = "";}) # coreutils replace with uutils
       bat # for cat
       eza # for ls
       zoxide # for cd
