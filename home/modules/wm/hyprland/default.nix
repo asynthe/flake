@@ -1,6 +1,6 @@
 {
   pkgs,
-  hyprland,
+  inputs,
   lib,
   username,
   ...
