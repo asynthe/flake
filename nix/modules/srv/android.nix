@@ -11,7 +11,10 @@
   users.users.${username}.extraGroups = ["adbusers"];
 
   # scrcpy and other packages
-  environment.systemPackages = with pkgs; [
-    scrcpy
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      scrcpy
+      ;
+  };
 }

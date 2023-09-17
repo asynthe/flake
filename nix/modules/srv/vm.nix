@@ -27,23 +27,24 @@
     };
   };
 
-  users.extraGroups.vboxusers.members = ["asynthe"];
+  users.extraGroups.vboxusers.members = ["${username}"];
 
   # Install necessary packages
-  environment.systemPackages = with pkgs; [
-    virt-manager
-    virt-viewer
-    spice
-    spice-gtk
-    spice-protocol
-    win-virtio
-    win-spice
-    xorriso
-    libguestfs
-    gnome.adwaita-icon-theme # needed if not running on gnome
-    # Extra
-    remmina
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      virt-manager
+      virt-viewer
+      spice
+      spice-gtk
+      spice-protocol
+      win-virtio
+      win-spice
+      xorriso
+      libguestfs
+      ;
+    inherit (pkgs.gnome) adwaita-icon-theme; # Needed if not running gnome.
+  };
 
   # Manage the virtualization services
   virtualisation = {

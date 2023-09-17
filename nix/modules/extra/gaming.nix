@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   username,
   ...
 }: {
@@ -24,34 +23,4 @@
   #enableRenice = true;
   #settings = ;
   #};
-
-  # Install necessary packages
-  environment.systemPackages = with pkgs; [
-    mangohud # Vulkan and OpenGL overlay for monitoring
-
-    # FRONTENDS
-    lutris #lutris-free #lutris-unwrapped
-
-    # STEAM
-    #steam
-    steam-tui
-    gamescope
-    steamtinkerlaunch
-    #steamPackages.steamcmd
-    #steamPackages.steam-runtime
-    #steamPackages.steam-runtime-wrapped
-
-    # PROTON
-    protontricks
-    protonup-qt
-    protonup-ng
-    xboxdrv
-
-    # GAMES
-    minecraft #minecraft-server
-    #osu-lazer osu-lazer-bin
-    stepmania
-    gzdoom
-    #clonehero # NOT WORKING (22-05-2023)
-  ];
 }

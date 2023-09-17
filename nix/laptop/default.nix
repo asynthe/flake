@@ -4,15 +4,8 @@
   ...
 }: {
   imports = [
-    ./drv
-    ./extra
-    ./net
-    ./sec
-    ./srv
-    ./sys
-    ./temp
-    ./usr
 
+    ./usr
     ../modules
 
     ./hardware-configuration.nix # Include the results of the hardware scan.
