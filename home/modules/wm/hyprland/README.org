@@ -339,7 +339,6 @@ Some rules
 
 #+begin_src cpp
 workspace = special, border:0
-workspace = special, decorate:false
 #+end_src
 
 * Configuration
@@ -403,12 +402,38 @@ blur {
   enabled = true
   size = 3
   passes = 1
+  new_optimizations = true
+  xray = true
+  special = false
 }
+#+end_src
 
-drop_shadow = true
+*** Window Shadows
+
+#+begin_src cpp
+drop_shadow = false
 shadow_range = 4
 shadow_render_power = 3
+shadow_ignore_window = true
 col.shadow = rgba(1a1a1aee)
+#col.shadow_inactive = ...
+#+end_src
+
+*** Window Opacity
+
+#+begin_src cpp
+active_opacity = 1.0
+inactive_opacity = 1.0
+fullscreen_opacity = 0.9
+#+end_src
+
+*** Dim
+
+#+begin_src cpp
+dim_inactive = false
+dim_strength = 0.5
+dim_special = 0.2
+dim_around = 0.4
 #+end_src
 
 *** Closing Bracket
