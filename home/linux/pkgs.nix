@@ -138,8 +138,12 @@
       
       # GUI
       obsidian
+
+      # PDF
       zathura # minimalistic pdf viewer
       xournalpp
+      masterpdfeditor4 #masterpdfeditor
+      pdfarranger
       
       # Browser
       firefox
