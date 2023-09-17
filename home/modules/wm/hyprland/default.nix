@@ -1,5 +1,6 @@
 {
   pkgs,
+  hyprland,
   lib,
   username,
   ...
@@ -11,7 +12,7 @@ in {
     enable = true;
     enableNvidiaPatches = true;
     xwayland.enable = true;
-    #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     #settings = ;
     extraConfig = "${fileContent}";
   };
