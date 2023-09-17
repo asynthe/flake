@@ -69,5 +69,6 @@
       #minimal
       #base
       #fonts # Microsoft replacement fonts by the Wine project.
+      ;
   };
 }
