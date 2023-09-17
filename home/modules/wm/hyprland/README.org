@@ -403,12 +403,12 @@ blur {
   size = 3
   passes = 1
   new_optimizations = true
-  xray = true
+  xray = false
   special = false
 }
 #+end_src
 
-*** Window Shadows
+*** Shadows
 
 #+begin_src cpp
 drop_shadow = false
@@ -419,7 +419,7 @@ col.shadow = rgba(1a1a1aee)
 #col.shadow_inactive = ...
 #+end_src
 
-*** Window Opacity
+*** Opacity
 
 #+begin_src cpp
 active_opacity = 1.0
@@ -432,7 +432,7 @@ fullscreen_opacity = 0.9
 #+begin_src cpp
 dim_inactive = false
 dim_strength = 0.5
-dim_special = 0.2
+dim_special = 0.5
 dim_around = 0.4
 #+end_src
 
