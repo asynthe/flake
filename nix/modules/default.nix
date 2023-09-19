@@ -8,7 +8,6 @@
     ./sec
     ./srv
     ./sys
-    ./temp
 
   ];
 }
