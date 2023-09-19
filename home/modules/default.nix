@@ -11,7 +11,7 @@
     #./timer # systemd timers and cron jobs.
     
     # Window Managers
-    ./wm/hyprland # Hyprland configuration.
+    #./wm/hyprland # Hyprland configuration.
     #./wm/xmonad # xmonad configuration.
     #./wm/yabai # yabai configuration. (macOS)
 
