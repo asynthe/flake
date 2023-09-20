@@ -6,8 +6,8 @@
   imports = [
 
     ./usr
-    ../modules
-    ../modules/wm
+    ../../modules/nix
+    ../../modules/nix/wm
 
     ./hardware-configuration.nix # Include the results of the hardware scan.
   ];
