@@ -79,6 +79,7 @@ outputs = inputs @ {
   #nix-gaming,
   home-manager,
   hyprland,
+  musnix,
   ...
 	}: let
   username = "asynthe";
@@ -250,18 +251,24 @@ darwinConfigurations = {
 #+begin_src nix
     #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     #nix-gaming.url = "github:fufexan/nix-gaming";
-    hyprland.url = "github:hyprwm/Hyprland";
     #helix.url = "github:helix-editor/helix/23.05";
+#+end_src
+
+
+*** Hyprland
+
++ [[https://github.com/hyprwm/Hyprland][Hyprland - github page]]
+
+#+begin_src nix
+hyprland.url = "github:hyprwm/Hyprland";
 #+end_src
 
 *** musnix
 
-- [[https://github.com/musnix/musnix][musnix - github page]]
++ [[https://github.com/musnix/musnix][musnix - github page]]
 
 #+begin_src nix
-musnix = {
-  url = "github:musnix/musnix";
-};
+musnix.url = "github:musnix/musnix";
 #+end_src
 
 ** Nix Configuration (Not added)

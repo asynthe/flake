@@ -11,6 +11,7 @@ outputs = inputs @ {
   #nix-gaming,
   home-manager,
   hyprland,
+  musnix,
   ...
 	}: let
   username = "asynthe";
@@ -90,12 +91,11 @@ home-manager = {
 
 #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 #nix-gaming.url = "github:fufexan/nix-gaming";
-hyprland.url = "github:hyprwm/Hyprland";
 #helix.url = "github:helix-editor/helix/23.05";
 
-musnix = {
-  url = "github:musnix/musnix";
-};
+hyprland.url = "github:hyprwm/Hyprland";
+
+musnix.url = "github:musnix/musnix";
 
 };
 }
