@@ -6,6 +6,7 @@
     ./extra
     ./net
     ./sec
+    ./snd
     ./srv
     ./sys
 

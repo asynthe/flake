@@ -5,7 +5,7 @@
 }: {
   imports = [
 
-    ../modules
+    ../../modules/home
 
     ./usr
     ./nix_configuration.nix

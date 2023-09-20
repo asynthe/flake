@@ -1,6 +1,5 @@
 {config, ...}: {
   imports = [
-    ./audio.nix
     ./boot.nix
     ./fs.nix
     ./network.nix

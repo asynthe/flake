@@ -4,13 +4,6 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
-      # DAWs - Digital Audio Workstation
-      ardour
-      bitwig-studio
-      reaper
-
-      # DJ mixer
-      mixxx
 
       # Tools
       #yabridge #yabridgectl

@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, inputs, ...}: {
   # Audio configuration
   # See more at https://nixos.wiki/wiki/PipeWire
   # See more at https://nixos.wiki/wiki/PulseAudio
@@ -20,11 +20,13 @@
   services.pipewire = {
     enable = true;
     audio.enable = true; # use as primary sound server
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    wireplumber.enable = true;
     pulse.enable = true;
     jack.enable = true; # use JACK applications
-    wireplumber.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
   };
   # JACK -
   #services.jack = {

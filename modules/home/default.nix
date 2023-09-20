@@ -8,6 +8,7 @@
     ./media # Media apps (Video, audio, dj, ...) and configs.
     ./net # Networking apps and configs.
     ./sec # Cybersecurity apps and configs.
+    ./snd # Audio and sound packages.
     #./timer # systemd timers and cron jobs.
     
     # Window Managers
