@@ -246,11 +246,22 @@ darwinConfigurations = {
 #+end_src
 
 ** Apps and Repos
+
 #+begin_src nix
     #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     #nix-gaming.url = "github:fufexan/nix-gaming";
     hyprland.url = "github:hyprwm/Hyprland";
     #helix.url = "github:helix-editor/helix/23.05";
+#+end_src
+
+*** musnix
+
+- [[https://github.com/musnix/musnix][musnix - github page]]
+
+#+begin_src nix
+musnix = {
+  url = "github:musnix/musnix";
+};
 #+end_src
 
 ** Nix Configuration (Not added)

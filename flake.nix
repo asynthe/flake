@@ -93,5 +93,9 @@ home-manager = {
 hyprland.url = "github:hyprwm/Hyprland";
 #helix.url = "github:helix-editor/helix/23.05";
 
+musnix = {
+  url = "github:musnix/musnix";
+};
+
 };
 }
