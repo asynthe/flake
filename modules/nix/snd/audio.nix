@@ -4,8 +4,8 @@
   # See more at https://nixos.wiki/wiki/PulseAudio
   # See more at https://github.com/musnix/musnix
 
+  musnix.enable = true;
   users.users.${username}.extraGroups = [ "audio" ];
-  inputs.musnix.enable = true;
 
   #users.users.asynthe.extraGroups = [ "audio" ];
   sound = {
