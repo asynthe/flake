@@ -1,4 +1,4 @@
-{config, username, inputs, ...}: {
+{config, username, musnix, inputs, ...}: {
   # Audio configuration + musnix
   # See more at https://nixos.wiki/wiki/PipeWire
   # See more at https://nixos.wiki/wiki/PulseAudio
