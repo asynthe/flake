@@ -1,7 +1,11 @@
-{config, inputs, ...}: {
-  # Audio configuration
+{config, username, inputs, ...}: {
+  # Audio configuration + musnix
   # See more at https://nixos.wiki/wiki/PipeWire
   # See more at https://nixos.wiki/wiki/PulseAudio
+  # See more at https://github.com/musnix/musnix
+
+  users.users.${username}.extraGroups = [ "audio" ];
+  musnix.enable = true;
 
   #users.users.asynthe.extraGroups = [ "audio" ];
   sound = {

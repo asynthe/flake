@@ -97,5 +97,7 @@ hyprland.url = "github:hyprwm/Hyprland";
 
 musnix.url = "github:musnix/musnix";
 
+nil.url = "github:oxalica/nil";
+
 };
 }

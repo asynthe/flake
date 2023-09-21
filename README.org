@@ -271,6 +271,12 @@ hyprland.url = "github:hyprwm/Hyprland";
 musnix.url = "github:musnix/musnix";
 #+end_src
 
+*** nil - Nix Language server
+
+#+begin_src nix
+nil.url = "github:oxalica/nil";
+#+end_src
+
 ** Nix Configuration (Not added)
 
 The closing bracket is from OUTPUTs, i put it here to have more flexibility moving the configurations around.
