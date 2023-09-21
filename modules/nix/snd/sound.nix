@@ -2,7 +2,7 @@
   config,
   pkgs,
   username,
-  musnix,
+  #musnix,
   ...
 }: {
   # Audio configuration + musnix
@@ -11,7 +11,7 @@
   # See more at https://github.com/musnix/musnix
 
   users.users.${username}.extraGroups = ["audio"];
-  musnix.enable = true;
+  #musnix.enable = true;
 
   sound = {
     enable = true;
