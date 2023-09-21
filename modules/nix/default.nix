@@ -1,7 +1,5 @@
-{ config, ... }: {
-
+{config, ...}: {
   imports = [
-
     ./drv
     ./extra
     ./net
@@ -9,6 +7,5 @@
     ./snd
     ./srv
     ./sys
-
   ];
 }

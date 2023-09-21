@@ -17,7 +17,7 @@
   };
 
   environment.systemPackages = builtins.attrValues {
-    inherit 
+    inherit
       (pkgs)
       displaylink
       ;

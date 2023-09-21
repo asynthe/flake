@@ -4,14 +4,12 @@
   ...
 }: {
   imports = [
-
     ../../modules/home
 
     ./usr
     ./nix_configuration.nix
     ./pkgs.nix
     ./shell.nix
-
   ];
 
   home = {
@@ -19,8 +17,8 @@
     homeDirectory = "/home/${username}";
     stateVersion = "23.05";
     #sessionVariables = {
-      # MOVE ALL USER SESSION VARIABLES HERE!
-      # EDITOR = "emacs";
+    # MOVE ALL USER SESSION VARIABLES HERE!
+    # EDITOR = "emacs";
     #};
   };
 

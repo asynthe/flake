@@ -44,8 +44,8 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
-
       # WMs
+      
       wayfire
       # GPG -> Most of it is specified on configuration, test without packages
       
@@ -71,6 +71,7 @@
       clamsmtp # antivirus
       
       # Bluetooth
+      
       blueman
       pdftk #pdfchain # Latex file?
       hplip # -> cups.nix / printer.nix
@@ -97,16 +98,19 @@
       #vscodium #vscodium-fhs # test how compatible vscode is w nixos
       
       # Terminals
+      
       alacritty
-      kitty kitty-themes
+      kitty
+      kitty-themes
       cool-retro-term
-
       # Utils
+      
       gparted
       ventoy-full #ventoy
       #etcher
       
       # Nix
+      
       deploy-rs
       nixops_unstable #nixops
       direnv
@@ -137,15 +141,16 @@
       bluetuith # bluetooth ncurses frontend
       
       # GUI
+      
       obsidian
-
       # PDF
+      
       zathura # minimalistic pdf viewer
       xournalpp
       masterpdfeditor4 #masterpdfeditor
       pdfarranger
-      
       # Browser
+      
       firefox
       librewolf #librewolf-unwrapped
       brave #nyxt #links2
@@ -197,6 +202,7 @@
       p7zip
       xz
       #rar #unrar #rar2fs
+      
       #torrent7z
       
       #mdf2iso

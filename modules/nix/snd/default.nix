@@ -1,8 +1,9 @@
-{ config, pkgs, ... }: {
-
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
-
     ./audio.nix
-
   ];
 }

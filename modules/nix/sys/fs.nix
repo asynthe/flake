@@ -31,19 +31,20 @@
     inherit
       (pkgs)
       # Tools
+      
       nvme-cli
       hdparm
-
       # Backup Tools
+      
       sanoid # ZFS
       borgbackup
       restic
       tarsnap
-
       # Progs
+      
       xfsprogs
       btrfs-progs
       ntfs3g
       ;
-    };
+  };
 }

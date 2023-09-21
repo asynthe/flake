@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   home = {
     sessionPath = [
       "$HOME/.cargo/bin"
@@ -10,7 +9,9 @@
         cargo
         rustc
         #rusty-man
+        
         #surrealdb
+        
         ;
     };
   };

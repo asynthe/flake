@@ -1,11 +1,8 @@
-{ config, ... }: {
-
+{config, ...}: {
   imports = [
-
-   ./comms.nix
-   ./emulation.nix
-   ./games.nix
-   ./steam.nix
-
+    ./comms.nix
+    ./emulation.nix
+    ./games.nix
+    ./steam.nix
   ];
 }

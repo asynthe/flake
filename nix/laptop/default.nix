@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-
     ./usr
     ../../modules/nix
     ../../modules/nix/wm
