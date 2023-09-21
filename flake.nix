@@ -33,6 +33,7 @@ nixosConfigurations = {
 
     modules = [
       ./nix/laptop
+      inputs.musnix.nixosModules.musnix
       # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
     ];
     };
