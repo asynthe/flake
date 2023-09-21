@@ -44,6 +44,8 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
+      teams
+      teams-for-linux
       # WMs
       
       wayfire
