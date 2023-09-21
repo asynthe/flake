@@ -1,6 +1,6 @@
 {config, ...}: {
   imports = [
-    ./audio.nix
+    ./audio_pkgs.nix
     ./daw.nix
   ];
 }
