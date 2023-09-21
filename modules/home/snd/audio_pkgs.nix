@@ -1,9 +1,9 @@
 { pkgs, ... }: {
 
-
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
+      supercollider
 
       # Tools
       #yabridge #yabridgectl

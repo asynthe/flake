@@ -42,4 +42,13 @@
   #'';
   #};
   #};
+
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      qjackctl
+      cadence
+      ;
+  };
+      
 }
