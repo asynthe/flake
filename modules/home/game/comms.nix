@@ -12,6 +12,9 @@
       telegram-desktop
       discord webcord gtkcord4
 
+      # Microsoft Teams
+      teams-for-linux #teams
+
       ;
   };
 }

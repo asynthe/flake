@@ -44,10 +44,8 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
-      teams
-      teams-for-linux
+
       # WMs
-      
       wayfire
       # GPG -> Most of it is specified on configuration, test without packages
       
