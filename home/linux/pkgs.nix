@@ -44,8 +44,23 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
+
+      # email client / NEOMUTT ADD TO FILE
+      #neomutt
+      #mutt
+      #mutt-wizard # cli email client
+      #isync
+      #msmtp
+      #notmuch
+      #notmuch-mutt
+      #abook
+      #urlview
+      #links2
+      #lynx
+      #nyxt
+      #imap #mpop # popmail email service like popmail
+
       # WMs
-      
       wayfire
       # GPG -> Most of it is specified on configuration, test without packages
       
@@ -67,8 +82,8 @@
       graphviz
       ##### TESTING #####
       
-      clamav
-      clamsmtp # antivirus
+      #clamav
+      #clamsmtp # antivirus
       
       # Bluetooth
       
@@ -224,21 +239,6 @@
       
       #ankisyncd
       
-      # email client
-      
-      neomutt
-      mutt
-      mutt-wizard # cli email client
-      isync
-      msmtp
-      notmuch
-      notmuch-mutt
-      abook
-      urlview
-      links2
-      lynx
-      nyxt
-      #imap #mpop # popmail email service like popmail
       
       bless
       hexedit
