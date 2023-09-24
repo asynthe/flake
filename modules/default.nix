@@ -15,7 +15,7 @@
 
     # Drivers
     #./drv/amd.nix
-    ./drv/displaylink.nix
+    #./drv/displaylink.nix
     ./drv/nvidia.nix
 
     # Filesystems
