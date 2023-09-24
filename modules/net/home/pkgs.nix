@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     bc
-    qgis #qgis-ltr
+    #qgis #qgis-ltr
     nethogs
     mtr # A network diagnostic tool
     iperf3
