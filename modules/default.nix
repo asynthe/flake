@@ -33,7 +33,6 @@
     ./net/ssh.nix
 
     # Cybersecurity Tools
-    ./sec
     ./sec/gpg.nix
 
     # Server
