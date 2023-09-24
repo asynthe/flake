@@ -6,7 +6,7 @@
   imports = [
     ./usr
     ../../modules
-    ../../modules/wm
+    ../../modules/wm/hyprland.nix
 
     ./hardware-configuration.nix # Include the results of the hardware scan.
   ];
