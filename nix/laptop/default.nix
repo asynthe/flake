@@ -5,8 +5,8 @@
 }: {
   imports = [
     ./usr
-    ../../modules/nix
-    ../../modules/nix/wm
+    ../../modules
+    ../../modules/wm
 
     ./hardware-configuration.nix # Include the results of the hardware scan.
   ];
