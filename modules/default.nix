@@ -2,7 +2,7 @@
   imports = [
   
     # Nix
-    ./sys/settings.nix # Package manager configuration.
+    ./nix/settings.nix # Package manager configuration.
 
     # System
     ./sys/boot.nix
