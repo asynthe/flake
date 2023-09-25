@@ -7,7 +7,7 @@
       btop
       strace # System call monitoring
       ltrace # Library call monitoring
-      iotol # IO monitoring
+      iotop # IO monitoring
       iftop # Network monitoring
       lsof # List open files
       lshw # List hardware details
