@@ -7,6 +7,9 @@
     ./home/game # Videogames and emulators.
     ./home/media # Media apps (Video, audio, dj, ...) and configs.
 
+    # System tools
+    ./sys/home/pkgs.nix # System utilities and tools.
+
     # Network / Networking
     ./net/home/pkgs.nix # Networking and packages.
 

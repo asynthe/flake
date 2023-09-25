@@ -45,41 +45,9 @@
     inherit
       (pkgs)
 
-      # email client / NEOMUTT ADD TO FILE
-      #neomutt
-      #mutt
-      #mutt-wizard # cli email client
-      #isync
-      #msmtp
-      #notmuch
-      #notmuch-mutt
-      #abook
-      #urlview
-      #links2
-      #lynx
-      #nyxt
-      #imap #mpop # popmail email service like popmail
-
       # WMs
       wayfire
-      # GPG -> Most of it is specified on configuration, test without packages
       
-      #gnupg
-      
-      #pam_gnupg
-      
-      #pinentry # GNU interface to GPG passphrase input.
-      
-      #pinentry-qt #pinentry-gtk2 #pinentry-gnome  # GUI
-      
-      #pinentry-curses # CLI
-      
-      # GPG/PGP -> Could add to configuration.nix?, encryption.nix?
-      
-      age
-      rage
-      signing-party
-      graphviz
       ##### TESTING #####
       
       #clamav
@@ -132,25 +100,8 @@
       nix-direnv
       nix-output-monitor # use as `nom`, works like `nix` but with more details
       btop
-      iotop # io monitoring
-      iftop # network monitoring
-      
-      # system call monitoring
-      
-      strace # system call monitoring
-      ltrace # library call monitoring
-      lsof # list open files
-      
-      # system tools
-      
-      sysstat
-      lm_sensors # for `sensors` command
-      ethtool
-      pciutils # lspci
-      usbutils # lsusb
-      
+
       # Bluetooth
-      
       bluez
       bluez-tools
       bluetuith # bluetooth ncurses frontend
@@ -264,7 +215,6 @@
       
       tdrop
       libqalculate
-      inxi
       ;
 
     # Previewers for PCmanFM
