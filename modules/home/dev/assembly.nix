@@ -6,7 +6,7 @@
       nasm
       yasm
       # Formatter
-      nasmfm
+      nasmfmt      
 
       # Reverse engineering / Disassemblers
       ghidra-bin #ghidra
