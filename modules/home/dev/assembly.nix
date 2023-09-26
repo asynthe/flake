@@ -9,7 +9,7 @@
       nasmfmt      
 
       # Reverse engineering / Disassemblers
-      ghidra-bin #ghidra
+      #ghidra-bin #ghidra
       #radare2
       #hopper
       ;

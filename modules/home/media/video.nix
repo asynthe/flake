@@ -2,6 +2,7 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
+      davinci-resolve # Test
       kdenlive #davinci-resolve
       obs-studio
       mpv # video player
