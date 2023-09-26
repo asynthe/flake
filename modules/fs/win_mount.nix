@@ -5,7 +5,7 @@
   # Note: add a let variable to flake, windows_partition = "/dev/..."
 
   # Mounting Windows partition to a folder in the Home folder
-  fileSystems."/home/asynthe/windows" = {
+  fileSystems."/home/asynthe/.windows" = {
     device = "/dev/sda2";
     fsType = "ntfs";
   };
