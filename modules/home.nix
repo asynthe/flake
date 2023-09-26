@@ -10,6 +10,7 @@
     ./sys/home/pkgs.nix # System utilities and tools.
 
     # Developer tools
+    ./home/dev/assembly.nix # Assembly
     ./home/dev/tools.nix # Visual Studio Code
     ./home/dev/latex.nix # LaTeX
     ./home/dev/rust.nix # Python
