@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     (pkgs.python3.withPackages (ps:
       with ps; [
+        faker
         pandas
         scapy
         requests
