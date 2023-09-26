@@ -3,12 +3,17 @@
   imports = [
     # Home
     ./home/app # Specific apps.
-    ./home/dev # Developer tools.
     ./home/game # Videogames and emulators.
     ./home/media # Media apps (Video, audio, dj, ...) and configs.
 
     # System tools
     ./sys/home/pkgs.nix # System utilities and tools.
+
+    # Developer tools
+    ./home/dev/tools.nix # Visual Studio Code
+    ./home/dev/latex.nix # LaTeX
+    ./home/dev/rust.nix # Python
+    ./home/dev/python.nix # Rust
 
     # Network / Networking
     ./net/home/pkgs.nix # Networking and packages.
