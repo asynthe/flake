@@ -17,7 +17,7 @@
       enable = true;
       #headless = ;
       #enableWebService = ;
-      #enableExtensionPack = ; # Requires nixpks.config.allowUnfree = true
+      enableExtensionPack = true; # Required to forward usb2/usb3 to guests. Requires nixpks.config.allowUnfree = true
       #addNetworkInterface = ; # Sets up vboxnet0
     };
     # Guest Additions, both need to be enabled.
