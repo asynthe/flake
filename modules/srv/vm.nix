@@ -21,10 +21,10 @@
       #addNetworkInterface = ; # Sets up vboxnet0
     };
     # Guest Additions
-    #guest = {
-      #enable = true;
+    guest = {
+      enable = true;
       #x11 = true;
-    #};
+    };
   };
 
   users.extraGroups.vboxusers.members = ["${username}"];
