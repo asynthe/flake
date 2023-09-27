@@ -20,10 +20,10 @@
       #enableExtensionPack = ; # Requires nixpks.config.allowUnfree = true
       #addNetworkInterface = ; # Sets up vboxnet0
     };
-    # Guest Additions
+    # Guest Additions, both need to be enabled.
     guest = {
       enable = true;
-      #x11 = true;
+      x11 = true;
     };
   };
 
