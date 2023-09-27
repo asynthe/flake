@@ -9,6 +9,7 @@
       hypnotix # tv
       ffmpeg
       mediainfo # video/audio metadata
+      wf-recorder # Wayland
       ;
   };
 }
