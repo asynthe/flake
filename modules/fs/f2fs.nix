@@ -2,7 +2,7 @@
 
   boot.supportedFilesystems = [ "f2fs" ];
 
-  filesystems = {
+  fileSystems = {
     "/" = {
       options = ["compress_algorithm=lz4"];
       fsType = "f2fs";
