@@ -3,11 +3,12 @@
   pkgs,
   ...
 }: {
-  networking.hostId = "3a864bd3"; # Random 8 digits, required
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages; # Only latest compatible kernel stuff with ZFS.
 
-  services.zfs = {
-    trim.enable = true;
+  #networking.hostId = "3a864bd3"; # Random 8 digits, required
+  #boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages; # Only latest compatible kernel stuff with ZFS.
+
+  #services.zfs = {
+    #trim.enable = true;
     autoScrub = {
       enable = true;
       pools = ["nixpool"];

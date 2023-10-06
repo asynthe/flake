@@ -6,7 +6,16 @@
 
     # System
     ./sys/boot.nix
+    #./sys/silent_boot.nix # Silent boot
+    #./sys/console.nix
     ./sys/network.nix
+  
+    # Bootloader - GRUB / systemd-boot
+    ./sys/systemd_boot.nix
+    #./sys/grub.nix
+
+    # RAID0/1 - mdadm
+    ./sys/mdadm/raid0.nix
 
     # Audio
     ./snd/sound.nix
@@ -19,12 +28,12 @@
     ./drv/nvidia.nix
 
     # Filesystems
-    ./fs/fs.nix #?
+    #./fs/fs.nix # this is ZFS.nix lol
     #./fs/zfs.nix
     #./fs/zfs_encryption.nix
-    #./fs/f2fs.nix
+    ./fs/f2fs.nix
     #./fs/bcachefs.nix
-    ./fs/win_mount.nix # Windows partition mounted on a folder in $HOME.
+    #./fs/win_mount.nix # Windows partition mounted on a folder in $HOME.
 
     # Network
     #./net/dns.nix

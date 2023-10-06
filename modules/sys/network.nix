@@ -1,4 +1,5 @@
 {config, ...}: {
+
   # Networking configuration
   networking = {
     hostName = "genkai";
