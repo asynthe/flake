@@ -28,7 +28,7 @@
     ./drv/nvidia.nix
 
     # Filesystems
-    #./fs/fs.nix # this is ZFS.nix lol
+    ./fs/fs.nix # this is ZFS.nix lol
     #./fs/zfs.nix
     #./fs/zfs_encryption.nix
     ./fs/f2fs.nix
