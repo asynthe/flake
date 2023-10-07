@@ -39,10 +39,11 @@
       
       nvme-cli
       hdparm
+      fio
+
       # Backup Tools
-      
-      sanoid # ZFS
-      borgbackup
+      #sanoid # ZFS
+      #borgbackup
       restic
       tarsnap
       # Progs
