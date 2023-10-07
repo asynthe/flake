@@ -7,6 +7,6 @@
   fileContent = builtins.readFile filePath;
 in {
 
-  boot.initrd.services.swraid.mdadmConf = "${fileContent}";
+  boot.swraid.mdadmConf = "${fileContent}";
 
 }
