@@ -11,10 +11,6 @@
     driSupport32Bit = true;
     #setLdLibraryPath = true; # gaming extra
     #extraPackages32 = with pkgs.pkgsi686Linux; [libva]; # gaming extra
-    #extraPackages = with pkgs; [
-      #vaapiVdpau
-      #libvdpau-va-gl
-    #];
   };
   
   # Specify your system's drivers.
