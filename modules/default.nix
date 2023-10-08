@@ -11,8 +11,8 @@
     ./sys/network.nix
   
     # Bootloader - GRUB / systemd-boot
-    ./sys/systemd_boot.nix
     #./sys/grub.nix
+    ./sys/systemd_boot.nix
 
     # RAID0/1 - mdadm
     ./sys/mdadm/raid0.nix
@@ -55,7 +55,7 @@
     ./srv/wine.nix # Wine services and packages.
 
     # Extra
-    ./extra/syncthing.nix
+    #./extra/syncthing.nix
     ./extra/gaming.nix
     ./extra/weechat.nix
   ];

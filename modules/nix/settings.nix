@@ -51,13 +51,8 @@
   boot.binfmt.emulatedSystems = ["aarch64-linux" "riscv64-linux"];
   boot.supportedFilesystems = [
     "ext4"
-    "btrfs"
-    "xfs"
-    "zfs"
-    "ntfs"
     "fat"
     "vfat"
     "exfat"
-    "cifs" # mount windows share
   ];
 }
