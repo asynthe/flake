@@ -1,14 +1,14 @@
 { config, pkgs, ... }: {
 
   boot.loader = {
-    timeout = 3;
+    timeout = 5;
     systemd-boot = {
       enable = true;
-      configurationLimit = 7;
+      configurationLimit = 5;
     };
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
-    };
+    #efi = {
+      #canTouchEfiVariables = true;
+      #efiSysMountPoint = "/boot";
+    #};
   };
 }
