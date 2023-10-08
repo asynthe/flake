@@ -29,7 +29,10 @@
   hardware.nvidia = {
     # Driver version (stable, beta, production [install 535], vulkan_beta, legacy_390, legacy_340)
     package = config.boot.kernelPackages.nvidiaPackages.beta;
-    #open = true; # Use the open source drivers.
+
+    # Nvidia open source kernel module, not nouveau.
+    open = true;
+
     nvidiaSettings = true;
     modesetting.enable = true;
     #forceFullCompositionPipeline = true; # Fix screen tearing
