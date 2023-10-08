@@ -8,7 +8,7 @@
       fsType = "f2fs";
       };
     "/boot" = {
-      device = "/dev/sda1";
+      #device = "/dev/sda1";
       fsType = "vfat";
     };
   };
