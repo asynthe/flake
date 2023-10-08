@@ -25,7 +25,11 @@
     # Drivers
     #./drv/amd.nix
     #./drv/displaylink.nix
+    ./drv/intel.nix
     ./drv/nvidia.nix
+    ./drv/nvidia_offload.nix
+    #./drv/nvidia_sync.nix
+    #./drv/nvidia_reverse_sync.nix
 
     # Filesystems
     ./fs/fs.nix # this is ZFS.nix lol

@@ -27,24 +27,22 @@
 
     # NVIDIA Configuration
   hardware.nvidia = {
+    modesetting.enable = true; # Required
+    nvidiaSettings = true;
     # Driver version (stable, beta, production [install 535], vulkan_beta, legacy_390, legacy_340)
     package = config.boot.kernelPackages.nvidiaPackages.beta;
 
     # Nvidia open source kernel module, not nouveau.
     open = true;
 
-    nvidiaSettings = true;
-    modesetting.enable = true;
     #forceFullCompositionPipeline = true; # Fix screen tearing
-    prime = {
-      #allowExternalGpu = true;
-      #sync.enable = true;
-      offload.enable = true; # sync or offload, one of the two
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
   };
 
+  # Bus ID Values
+  hardware.nvidia.prime = {
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
 
   environment.systemPackages = with pkgs; [
     glibc
