@@ -7,7 +7,7 @@
   services.syncthing = {
     enable = true;
     systemService = true; # Run as system service.
-    user = ${username};
+    user = "${username}";
     #package = ;
     #group = ""; The group to run Syncthing under, by default 'syncthing'.
     #extraFlakgs = ;
