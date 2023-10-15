@@ -55,7 +55,7 @@
     ./srv/wine.nix # Wine services and packages.
 
     # Extra
-    #./extra/syncthing.nix
+    ./extra/syncthing.nix
     ./extra/gaming.nix
     ./extra/weechat.nix
   ];
