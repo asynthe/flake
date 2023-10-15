@@ -1,11 +1,13 @@
 {
   config,
+  username,
   pkgs,
   ...
 }: {
   services.syncthing = {
     enable = true;
-    #systemService = true;
+    systemService = true; # Run as system service.
+    user = ${username};
     #package = ;
     #group = ""; The group to run Syncthing under, by default 'syncthing'.
     #extraFlakgs = ;
@@ -14,11 +16,9 @@
     ### SHARED FOLDERS ###
     #folders = ;
 
-    ### RELAY ###
-    #relay = {
-    #enable = true;
-    #port = ; From 0 to 65535, default 22067. Needs to be added to networking.firewall.allowedTCPPorts
-
-    #};
+  };
+  services.syncthing.relay = {
+   #enable = true;
+   #port = ; From 0 to 65535, default 22067. Needs to be added to networking.firewall.allowedTCPPorts
   };
 }
