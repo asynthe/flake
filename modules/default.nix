@@ -14,9 +14,6 @@
     #./sys/grub.nix
     ./sys/systemd_boot.nix
 
-    # RAID0/1 - mdadm
-    ./sys/mdadm/raid0.nix
-
     # Audio
     ./snd/sound.nix
     #./snd/pipewire.nix
@@ -39,6 +36,8 @@
     ./fs/f2fs.nix
     #./fs/bcachefs.nix
     #./fs/win_mount.nix # Windows partition mounted on a folder in $HOME.
+
+    #./sys/mdadm/raid0.nix # RAID0/1 - mdadm
 
     # Network
     #./net/dns.nix
