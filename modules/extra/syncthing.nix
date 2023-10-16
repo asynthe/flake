@@ -11,7 +11,7 @@
       (pkgs)
       syncthing
       syncthingtray
-      #stc-cli
+      stc-cli
       ;
   };
 
