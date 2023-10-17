@@ -1,17 +1,23 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
-    (pkgs.python3.withPackages (ps:
-      with ps; [
-        faker
-        pandas
-        scapy
-        requests
-        datetime
 
-        openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
-        defusedxml # defusing XML bombs and other exploits
-      ]))
-  ];
+  #home.packages = with pkgs; [
+  home.packages = builtins.attrValues {
+    inherit 
+      (pkgs)
+      (pkgs.python3.withPackages (ps:
+        with ps; [
+          faker
+          pandas
+          scapy
+          requests
+          datetime
+
+          openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
+          defusedxml # defusing XML bombs and other exploits
+        ]))
+	;
+  };
+  #];
 
   # TESTING
   #pip

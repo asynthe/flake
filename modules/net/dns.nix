@@ -8,10 +8,13 @@
     #};
   };
 
-  #environment.systemPackages = with pkgs; [
-  #dnscrypt-proxy2
-  #dnscrypt-wrapper
-  #dnsproxy
-  #doggo
-  #];
+  #environment.systemPackages = builtins.attrValues {
+    #inherit
+      #(pkgs)
+      #dnscrypt-proxy2
+      #dnscrypt-wrapper
+      #dnsproxy
+      #doggo
+      #;
+  #};
 }

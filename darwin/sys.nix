@@ -38,9 +38,13 @@
       extra-platforms = x86_64-darwin aarch64-darwin
     '';
 
-  environment.systemPackages = with pkgs; [
-    kitty
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      alacritty
+      kitty
+      ;
+  };
 
   fonts = {
     fontDir.enable = true;

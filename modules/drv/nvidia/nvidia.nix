@@ -40,19 +40,22 @@
     nvidiaBusId = "PCI:1:0:0";
   };
 
-  environment.systemPackages = with pkgs; [
-    glibc
-    glxinfo # Check if running on gpu.
-    zenith-nvidia
-    nvtop-nvidia
-    vulkan-tools
-
-    #virtualgl
-    #nvidia-offload
-    #linuxKernel.packages.linux_6_2.bbswitch
-    #libva
-    #libva-utils
-    #libdrm
-    #mesa #mesa-demos
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      glibc
+      glxinfo # Check if running on gpu.
+      zenith-nvidia
+      nvtop-nvidia
+      vulkan-tools
+   
+      #virtualgl
+      #nvidia-offload
+      #linuxKernel.packages.linux_6_2.bbswitch
+      #libva
+      #libva-utils
+      #libdrm
+      #mesa #mesa-demos
+    ;
+  };
 }

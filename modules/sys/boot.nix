@@ -32,7 +32,10 @@
   #boot.initrd.availableKernelModules = ["aesni_intel" "cryptd"];
   #boot.initrd.cryptoModules = [ "aes" "aes_generic" "blowfish" "twofish" "serpent" "cbc" "xts" "lrw" "sha1" "sha256" "sha512" "af_alg" "algif_skcipher" ];
 
-  environment.systemPackages = with pkgs; [
-    efibootmgr
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      efibootmgr
+      ;
+  };
 }

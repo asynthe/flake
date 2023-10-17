@@ -12,13 +12,15 @@ in {
     enable = true;
     enableNvidiaPatches = true;
     xwayland.enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland; # If using the flake.
     #settings = ;
     extraConfig = "${fileContent}";
   };
 
   home.sessionVariables.NIXOS_OZONE_WL = "1"; # Session variable for Electron apps.
-  home.packages = with pkgs; [
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
     # XDG Portal
     #xdg-desktop-portal-hyprland
 
@@ -42,13 +44,6 @@ in {
     wl-clipboard
     wdisplays #wlr-randr #kanshi
     brightnessctl #brillo
-    xorg.xlsclients # check for apps running on xwayland
-
-    # Must have
-    polkit
-    libsForQt5.polkit-kde-agent # Authentication Agent
-    libsForQt5.qt5.qtwayland
-    qt6.qtwayland # Qt Wayland Support
 
     # Testing
     waybar
@@ -61,5 +56,13 @@ in {
     #nwg-wrapper
     #nwg-launchers
     #swaylock-effects
-  ];
+
+    # Must have
+    polkit
+    ;
+    inherit (pkgs.xorg) xlsclients; # Check for apps running on xwayland.
+    inherit (pkgs.libsForQt5) polkit-kde-agent; # Authentication Agent.
+    inherit (pkgs.libsForQt5.qt5) qtwayland; # Qt Wayland Support.
+    inherit (qt6) qtwayland; # Qt Wayland Support.
+  };
 }

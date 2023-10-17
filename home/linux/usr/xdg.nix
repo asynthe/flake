@@ -3,11 +3,14 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    xdg-utils # xdg-mime, xdg-open
-    xdg-ninja # checks $HOME for unwanted files and directories.
-    #xdg-user-dirs
-  ];
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
+      xdg-utils # xdg-mime, xdg-open
+      xdg-ninja # checks $HOME for unwanted files and directories.
+      #xdg-user-dirs
+      ;
+  };
 
   # Testing running discord with ozone variables and offload
   #xdg.desktopEntries.discord = {

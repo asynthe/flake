@@ -20,6 +20,9 @@
   # for a WiFi printer
   services.avahi.openFirewall = true;
 
-  #environment.systemPackages = with pkgs; [
-  #];
+  #environment.systemPackages = builtins.attrValues {
+    #inherit
+      #(pkgs)
+      #;
+  #};
 }
