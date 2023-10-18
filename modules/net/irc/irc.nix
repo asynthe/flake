@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, pkgs, ...}: {
   services.weechat = {
     enable = true;
     #root = "var/lib/weechat"; # Weechat state directory.
