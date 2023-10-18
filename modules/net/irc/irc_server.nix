@@ -3,8 +3,8 @@
   pkgs,
   ...
 }: {
-  services.inspircd = {
-    enable = true;
+  #services.inspircd = {
+    #enable = true;
     #package = true;
     #config = ;
   };
