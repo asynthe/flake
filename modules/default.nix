@@ -59,6 +59,5 @@
     # Extra
     ./extra/syncthing.nix
     ./extra/gaming.nix
-    ./extra/weechat.nix
   ];
 }
