@@ -5,4 +5,11 @@
     #sessionName = "weechat-screen"; # Name of the `screen` session for Weechat.
     #binary = "${pkgs.weechat}/bin/weechat" # Binary to execute.
   };
+
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      hexchat
+      ;
+  };
 }
