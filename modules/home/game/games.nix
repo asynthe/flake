@@ -11,7 +11,8 @@
       # Games
       
       minecraft #minecraft-server
-      #osu-lazer-bin #osu-lazer
+      osu-lazer # AppImage version for score submission and multiplayer.
+      #osu-lazer-bin  # Binary for Darwin systems.
       
       stepmania
       gzdoom
