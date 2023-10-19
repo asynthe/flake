@@ -23,6 +23,8 @@ I could have put everything in my literate config but it is long as it is, so th
 
 * Resources 
 
+123
+
 *BLOG POSTS*
 + [[https://www.tweag.io/blog/2020-05-25-flakes][NIX FLAKES, PART 1: AN INTRODUCTION AND TUTORIAL - tweag.io]]
 + [[https://www.tweag.io/blog/2020-06-25-eval-cache/][NIX FLAKES, PART 2: EVALUATION CACHING - tweag.io]]
