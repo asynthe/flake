@@ -9,15 +9,12 @@
       gamemode # Better performance on games, use with `gamemoderun`.
       
       # Games
-      
       minecraft #minecraft-server
-      osu-lazer # AppImage version for score submission and multiplayer.
-      #osu-lazer-bin  # Binary for Darwin systems.
-      
       stepmania
+      #osu-lazer # No score submission or multiplayer.
+      osu-lazer-bin # AppImage version for score submission and multiplayer and also for Darwin systems.
       gzdoom
       #clonehero # NOT WORKING (17-09-2023)
-      
       ;
   };
 }
