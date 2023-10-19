@@ -9,9 +9,7 @@
         cargo
         rustc
         #rusty-man
-        
         #surrealdb
-        
         ;
     };
   };
