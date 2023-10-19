@@ -13,8 +13,9 @@ I could have put everything in my literate config but it is long as it is, so th
   - [[#enabling-flakes][ENABLING FLAKES]]
   - [[#using-flakes][USING FLAKES]]
   - [[#commands][COMMANDS]]
-- [[#commands-nix-flake][Commands (nix flake)]]
-  - [[#update][update]]
+- [[#commands-1][Commands]]
+  - [[#updating-the-system][Updating the system]]
+  - [[#nix-flake][nix flake]]
 - [[#tutorials-fix-pls][Tutorials (FIX PLS)]]
   - [[#tweag-webpages][TWEAG WEBPAGES]]
   - [[#nix-flakes-explained---vimjoyer][Nix flakes explained - Vimjoyer']]
@@ -72,8 +73,22 @@ dwarffs 0.1.20200406.cd7955a~
 
 ~$ nix flake metadata github:edolstra/dwarffs~
 
-* Commands (nix flake)
-** update
+* Commands
+** Updating the system
+
+Update the flake inputs, this will be the first step to updating your system if running on a flake.
+~$ nix flake update~
+
+Now, proceed to update the system
+~# nixos-rebuild switch --flake .~
+_note_: Depending on your setup
+
+
+** nix flake
+
+~nix flake update~ -> Update the flake inputs
+
+
 * Tutorials (FIX PLS)
 ** TWEAG WEBPAGES
 
