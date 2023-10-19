@@ -31,12 +31,12 @@
 
     # Filesystems
     ./fs/fs.nix # this is ZFS.nix lol
-    #./fs/zfs.nix
-    #./fs/zfs_encryption.nix
     ./fs/f2fs.nix
     #./fs/bcachefs.nix
-    #./fs/win_mount.nix # Windows partition mounted on a folder in $HOME.
+    #./fs/zfs.nix
+    #./fs/zfs_encryption.nix
 
+    #./fs/win_mount.nix # Windows partition mounted on a folder in $HOME.
     #./sys/mdadm/raid0.nix # RAID0/1 - mdadm
 
     # Network
