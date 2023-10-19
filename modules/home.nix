@@ -5,6 +5,7 @@
     ./home/app # Specific apps.
     ./home/game # Videogames and emulators.
     ./home/media # Media apps (Video, audio, dj, ...) and configs.
+    ./home/comms.nix
 
     # System tools
     ./sys/home/pkgs.nix # System utilities and tools.
