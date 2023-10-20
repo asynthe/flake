@@ -6,6 +6,7 @@
     ./home/game # Videogames and emulators.
     ./home/media # Media apps (Video, audio, dj, ...) and configs.
     ./home/comms.nix
+    ./home/jp.nix # Memento video player
 
     # System tools
     ./sys/home/pkgs.nix # System utilities and tools.
