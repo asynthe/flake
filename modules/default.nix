@@ -44,6 +44,7 @@
     #./net/i2p.nix
     ./net/mesh_network.nix # Tailscale, zero Tier One
     ./net/ssh.nix
+    ./net/mosh.nix
     ./net/irc/irc.nix
     #./net/irc/irc_server.nix
 
