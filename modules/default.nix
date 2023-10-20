@@ -48,6 +48,7 @@
     ./net/openvpn.nix
     ./net/irc/irc.nix
     #./net/irc/irc_server.nix
+    ./net/rdp.nix
 
     # Cybersecurity Tools
     ./sec/gpg.nix
