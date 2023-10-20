@@ -5,11 +5,13 @@
     inherit 
       (pkgs.python3.withPackages (ps:
         with ps; [
+	  pip
           faker
           pandas
           scapy
           requests
           datetime
+	  pyftpdlib
           openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
           defusedxml # defusing XML bombs and other exploits
         ]))
