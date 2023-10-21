@@ -27,6 +27,7 @@
     # Audio
     ./snd/home/daw.nix # Audio and sound packages.
     ./snd/home/pkgs.nix # Audio apps and packages.
+    ./snd/home/tools.nix
 
     # systemd Timers / Cron jobs
     #./timer # systemd timers and cron jobs.
