@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    ./usr
     ../../modules
     ../../modules/wm/hyprland.nix
 

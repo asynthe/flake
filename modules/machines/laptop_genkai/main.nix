@@ -29,16 +29,6 @@
     #./drv/nvidia/sync.nix
     #./drv/nvidia/reverse_sync.nix
 
-    # Filesystems
-    ./fs/fs.nix # this is ZFS.nix lol
-    ./fs/f2fs.nix
-    #./fs/bcachefs.nix
-    #./fs/zfs.nix
-    #./fs/zfs_encryption.nix
-
-    #./fs/win_mount.nix # Windows partition mounted on a folder in $HOME.
-    #./sys/mdadm/raid0.nix # RAID0/1 - mdadm
-
     # Network
     #./net/dns.nix
     #./net/i2p.nix
@@ -58,6 +48,9 @@
     ./srv/mpd.nix # MPD
     ./srv/vm.nix # VMs configuration.
     ./srv/wine.nix # Wine services and packages.
+
+    # User
+    ./usr
 
     # Extra
     ./extra/syncthing.nix

@@ -3,9 +3,12 @@
 #+auto_tangle: t
 
 [INSERT COOL IMAGE HERE]
-testing something
 
-GITHUB-LINK][Espanol / GITHUB-LINK][日本語
+Linux system
+Laptop -> genkai
+
+Home manager
+- everything else
 
 * Table of Contents :toc:
 - [[#about-flakes][About Flakes]]

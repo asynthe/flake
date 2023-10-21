@@ -1,33 +1,10 @@
-{
-  config,
-  pkgs,
-  username,
-  ...
-}: {
+{ config, pkgs, username, ... }: {
+  
   # Enable dconf (System Management Tool)
   programs.dconf.enable = true;
 
   # Add user to libvirtd group
   users.users.${username}.extraGroups = ["libvirtd"];
-
-  # VirtualBox
-  virtualisation.virtualbox = {
-    # Host Configuration
-    host = {
-      enable = true;
-      #headless = ;
-      #enableWebService = ;
-      enableExtensionPack = true; # Required to forward usb2/usb3 to guests. Requires nixpks.config.allowUnfree = true
-      #addNetworkInterface = ; # Sets up vboxnet0
-    };
-    # Guest Additions, both need to be enabled.
-    guest = {
-      enable = true;
-      x11 = true;
-    };
-  };
-
-  users.extraGroups.vboxusers.members = ["${username}"];
 
   # Install necessary packages
   environment.systemPackages = builtins.attrValues {
