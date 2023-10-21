@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
 
-  home.package = builtins.attrValues = {
+  home.package = builtins.attrValues {
     inherit
       (pkgs)
       lame
