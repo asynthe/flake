@@ -1,3 +1,6 @@
+:PROPERTIES:
+:ID:       fd9a97e4-acc3-4bb1-aa66-6a170e5cf9ae
+:END:
 #+title: Asynthe's systems flake
 #+property: header-args :tangle flake.nix
 #+auto_tangle: t
@@ -7,8 +10,15 @@
 Linux system
 Laptop -> genkai
 
+- /core_server.nix/ contains all that regular system must have.
+- /genkai/ contains my current sy
+- _core_server.nix_ is contained inside _genkai_laptop_
+- nor /core_server/ nor /genkai/ replaces coreutils
+
 Home manager
 - everything else
+- hacking tools
+home-manager replaces coreutils with the rust uutils
 
 * Table of Contents :toc:
 - [[#about-flakes][About Flakes]]
@@ -111,7 +121,7 @@ nixosConfigurations = {
     specialArgs = {inherit username inputs;};
 
     modules = [
-      ./nix/laptop
+      ./modules/machines/laptop_genkai
       inputs.musnix.nixosModules.musnix
       # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
     ];
@@ -155,7 +165,7 @@ darwinConfigurations = {
   ${hostname_mac} = nix-darwin.lib.darwinSystem {
     system = "${apple_silicon}";
     specialArgs = {inherit username_mac inputs;};
-    modules = [ ./nix/system/macbook ];
+    modules = [ ./modules/machines/laptop_macbook ];
     };
   };
 #+end_src
@@ -193,7 +203,7 @@ darwinConfigurations = {
         ${username} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {inherit username inputs;};
-          modules = [ ./home/linux/home.nix ];
+          modules = [ ./modules/home ];
         };
       };
 #+end_src

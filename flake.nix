@@ -32,7 +32,7 @@ nixosConfigurations = {
     specialArgs = {inherit username inputs;};
 
     modules = [
-      ./nix/laptop
+      ./modules/machines/laptop_genkai
       inputs.musnix.nixosModules.musnix
       # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
     ];
@@ -63,7 +63,7 @@ darwinConfigurations = {
   ${hostname_mac} = nix-darwin.lib.darwinSystem {
     system = "${apple_silicon}";
     specialArgs = {inherit username_mac inputs;};
-    modules = [ ./nix/system/macbook ];
+    modules = [ ./modules/machines/laptop_macbook ];
     };
   };
 
@@ -72,7 +72,7 @@ homeConfigurations = {
   ${username} = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = {inherit username inputs;};
-    modules = [ ./home/linux/home.nix ];
+    modules = [ ./modules/home ];
   };
 };
 
