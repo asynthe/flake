@@ -8,6 +8,9 @@
 
   imports = [
 
+    # User stuff (Move?)
+    ./user
+
     # Drivers
     ./driver/accelerated_video_playback.nix
     #./driver/amd.nix
