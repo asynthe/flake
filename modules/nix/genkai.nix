@@ -38,10 +38,10 @@
     ./sec/gpg.nix
 
     # Server
-    ./srv/android.nix # Android tools and packages.
-    ./srv/mpd.nix # MPD
-    ./srv/vm.nix # VMs configuration.
-    ./srv/wine.nix # Wine services and packages.
+    ./server/android.nix # Android tools and packages.
+    ./server/mpd.nix # MPD
+    ./server/vm.nix # VMs configuration.
+    ./server/wine.nix # Wine services and packages.
 
     # Extra
     ./extra/syncthing.nix
