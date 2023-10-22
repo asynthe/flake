@@ -25,6 +25,7 @@
 
     # Network
     #./net/dns.nix
+    #./net/elastic.nix
     #./net/i2p.nix
     ./net/irc.nix
     #./net/irc_server.nix
@@ -40,13 +41,15 @@
 
     # Server
     ./server/android.nix # Android tools and packages.
-    ./server/mpd.nix # MPD
-    ./server/vm.nix # VMs configuration.
-    ./server/wine.nix # Wine services and packages.
+    ./libvirt.nix
+    ./server/mpd.nix # MPD.
+    ./server/syncthing.nix
+    ./server/virtualbox.nix
+    ./server/wine.nix # Wine configuration.
+    #./server/xmr.nix # Monero.
 
     # Extra
-    ./extra/syncthing.nix
-    ./extra/gaming.nix#
+    ./extra/gaming.nix
   ]; 
 
 }
