@@ -9,7 +9,7 @@
     ./app # Specific apps.
     ./game # Videogames and emulators.
     ./media # Media apps (Video, audio, dj, ...) and configs.
-    ./comms.nix
+    ./net/comms.nix
 
     ./ime/jp.nix # Memento video player
 
@@ -30,9 +30,9 @@
     ./sec/pkgs.nix # Cybersecurity apps and packages.
 
     # Audio
-    ./snd/daw.nix # Audio and sound packages.
-    ./snd/pkgs.nix # Audio apps and packages.
-    ./snd/tools.nix
+    ./audio/daw.nix # Audio and sound packages.
+    ./audio/pkgs.nix # Audio apps and packages.
+    ./audio/tools.nix
 
     # systemd Timers / Cron jobs
     #./timer/backup.nix # systemd timer.
