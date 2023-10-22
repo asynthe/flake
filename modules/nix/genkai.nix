@@ -26,8 +26,8 @@
     # Network
     #./net/dns.nix
     #./net/i2p.nix
-    ./net/irc/irc.nix
-    #./net/irc/irc_server.nix
+    ./net/irc.nix
+    #./net/irc_server.nix
     ./net/mosh.nix
     ./net/openvpn.nix
     ./net/ssh.nix
