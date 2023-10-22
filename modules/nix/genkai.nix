@@ -41,7 +41,7 @@
 
     # Server
     ./server/android.nix # Android tools and packages.
-    ./libvirt.nix
+    ./server/libvirt.nix
     ./server/mpd.nix # MPD.
     ./server/syncthing.nix
     ./server/virtualbox.nix
