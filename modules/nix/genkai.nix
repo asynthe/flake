@@ -9,19 +9,19 @@
   imports = [
 
     # Drivers
-    ./drv/accelerated_video_playback.nix
-    #./drv/amd.nix
-    #./drv/displaylink.nix
-    ./drv/intel.nix
-    ./drv/nvidia/nvidia.nix
-    ./drv/nvidia/offload.nix
-    #./drv/nvidia/sync.nix
-    #./drv/nvidia/reverse_sync.nix
+    ./driver/accelerated_video_playback.nix
+    #./driver/amd.nix
+    #./driver/displaylink.nix
+    ./driver/intel.nix
+    ./driver/nvidia/nvidia.nix
+    ./driver/nvidia/offload.nix
+    #./driver/nvidia/sync.nix
+    #./driver/nvidia/reverse_sync.nix
 
     # Audio
-    ./snd/sound.nix
-    #./snd/pipewire.nix
-    #./snd/jack.nix
+    ./sound/sound.nix
+    #./sound/pipewire.nix
+    #./sound/jack.nix
 
     # Network
     #./net/dns.nix
