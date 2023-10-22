@@ -13,7 +13,6 @@
     ./sys/systemd_boot.nix
 
     # Filesystems
-    ./fs/btrfs.nix # Find a way to replace
     ./fs/fs.nix # this is ZFS.nix lol
     ./fs/f2fs.nix
     #./fs/bcachefs.nix
