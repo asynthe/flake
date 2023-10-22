@@ -19,7 +19,7 @@
     #./driver/nvidia/reverse_sync.nix
 
     # Audio
-    ./audio/sound.nix
+    ./audio/audio.nix
     #./audio/pipewire.nix
     #./audio/jack.nix
 
