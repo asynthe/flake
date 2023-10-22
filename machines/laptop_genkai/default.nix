@@ -1,24 +1,14 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  imports = [
-    ../../modules
-    ../../modules/wm/hyprland.nix
+{ config, pkgs, ... }: {
 
-    ./hardware-configuration.nix # Include the results of the hardware scan.
+  imports = [
+
+    # Core server configuration + My own configuration.
+    ../basic
+    ../../modules/nix/genkai.nix
+
+    # WMs
+    ../../modules/nix/wm/hyprland.nix
+    #../../modules/nix/wm/xmonad.nix
   ];
 
-  # System packages
-  nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = builtins.attrValues {
-    inherit
-      (pkgs)
-      git # Git must be installed before flakes.
-      wget
-      curl
-      pulseaudio # needed by Pipewire
-      ;
-  };
 }

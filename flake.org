@@ -12,7 +12,7 @@ Laptop -> genkai
 
 - /core_server.nix/ contains all that regular system must have.
 - /genkai/ contains my current sy
-- _core_server.nix_ is contained inside _genkai_laptop_
+- _basic.nix_ is contained inside _genkai_
 - nor /core_server/ nor /genkai/ replaces coreutils
 
 Home manager
