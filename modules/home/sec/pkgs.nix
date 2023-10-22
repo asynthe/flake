@@ -2,6 +2,11 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
+      # Linux Basics for Hackers
+      aircrack-ng
+      snort
+
+      # Ethical Hacking
       arp-scan
       macchanger
       netdiscover
