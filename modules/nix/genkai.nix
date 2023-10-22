@@ -27,7 +27,7 @@
     #./net/dns.nix
     #./net/i2p.nix
     ./net/tailscale.nix
-    ./net/zero_tier_one.nix
+    #./net/zero_tier_one.nix
     ./net/ssh.nix
     ./net/mosh.nix
     ./net/openvpn.nix
