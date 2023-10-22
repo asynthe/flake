@@ -26,14 +26,14 @@
     # Network
     #./net/dns.nix
     #./net/i2p.nix
-    ./net/tailscale.nix
-    #./net/zero_tier_one.nix
-    ./net/ssh.nix
-    ./net/mosh.nix
-    ./net/openvpn.nix
     ./net/irc/irc.nix
     #./net/irc/irc_server.nix
-    ./net/rdp.nix
+    ./net/mosh.nix
+    ./net/openvpn.nix
+    ./net/ssh.nix
+    ./net/tailscale.nix
+    ./net/vnc.nix
+    #./net/zero_tier_one.nix
 
     # Cybersecurity
     ./sec/gpg.nix
