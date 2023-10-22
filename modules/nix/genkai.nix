@@ -26,7 +26,8 @@
     # Network
     #./net/dns.nix
     #./net/i2p.nix
-    ./net/mesh_network.nix # Tailscale, zero Tier One
+    ./net/tailscale.nix
+    ./net/zero_tier_one.nix
     ./net/ssh.nix
     ./net/mosh.nix
     ./net/openvpn.nix
