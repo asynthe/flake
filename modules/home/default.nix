@@ -40,5 +40,6 @@
     # Apps
     ./app/nvim.nix
     ./app/shell.nix
+    ./app/fonts.nix
   ];
 }
