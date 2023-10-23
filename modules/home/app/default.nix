@@ -1,5 +1,0 @@
-{config, ...}: {
-  imports = [
-    ./emacs.nix
-  ];
-}
