@@ -7,7 +7,7 @@
 
     # Apps
     #./app/dots.nix
-    #./app/emacs.nix
+    ./app/emacs.nix
     #./app/nvim.nix
     #./app/neomutt.nix
 
