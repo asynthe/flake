@@ -16,6 +16,8 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
+      alacritty
+      kitty
       # Shell
       
       zsh
