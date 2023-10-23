@@ -38,7 +38,7 @@
     #./timer/backup.nix # systemd timer.
 
     # Apps
-    ./app/nvim.nix
+    #./app/nvim.nix
     ./app/shell.nix
     ./app/fonts.nix
   ];
