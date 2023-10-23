@@ -64,6 +64,9 @@
       
       nixfmt
       alejandra # nix
+
+      # Terminal Apps
+      hyperfine
       ;
   };
 }

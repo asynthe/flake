@@ -36,5 +36,9 @@
 
     # systemd Timers / Cron jobs
     #./timer/backup.nix # systemd timer.
+
+    # Apps
+    ./app/nvim.nix
+    ./app/shell.nix
   ];
 }
