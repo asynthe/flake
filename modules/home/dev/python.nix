@@ -1,7 +1,7 @@
 {pkgs, ...}: {
 
   home.packages = with pkgs; [
-    (pkgs.python312.withPackages (ps:
+    (pkgs.python311.withPackages (ps:
       with ps; [
         pip
 	faker
