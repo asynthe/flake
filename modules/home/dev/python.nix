@@ -7,7 +7,7 @@
 	faker
 	pandas
 	scapy
-	requests
+	#requests # CVE
 	datetime
 	pyftpdlib
 	uploadserver
