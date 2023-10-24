@@ -37,7 +37,7 @@
       
       starship
       git
-      tmux
+      tmux tmuxp
       neovim #vim
       skim #fzf
       
