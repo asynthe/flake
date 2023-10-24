@@ -17,11 +17,11 @@
     #};
   #};
 
-  #environment.systemPackages = builtins.attrValues {
-    #inherit
-      #(pkgs)
-      #openvpn
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      openvpn
       #openvpn3
-      #;
-  #};
+      ;
+  };
 }
