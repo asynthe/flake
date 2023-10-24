@@ -18,17 +18,19 @@
     ./main/audio_tools.nix
     ./main/comms.nix
     ./main/coreutils_replace.nix
-    ./main/dev_assembly.nix
-    ./main/dev_latex.nix
-    ./main/dev_python.nix
-    ./main/dev_rust.nix
-    ./main/dev_tools.nix
     ./main/fonts.nix
     ./main/gtk.nix
     ./main/image.nix
     ./main/jp.nix
     ./main/steam.nix
     ./main/xdg.nix
+
+    # Dev
+    ./dev/assembly.nix
+    ./dev/latex.nix
+    ./dev/python.nix
+    ./dev/rust.nix
+    ./dev/tools.nix
 
     # Pkgs
     ./pkgs/1_pkgs.nix
