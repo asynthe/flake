@@ -7,10 +7,10 @@
 	faker
 	pandas
 	scapy
-	#requests # CVE
+	requests # CVE
 	datetime
 	pyftpdlib
-	uploadserver
+	#uploadserver
 	openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
 	defusedxml # defusing XML bombs and other exploits
       ]))
