@@ -8,37 +8,33 @@ I could have put everything in my literate config but it is long as it is, so th
 -> [[https://github.com/asynthe/flake/blob/main/flake.org][Link to my literate config]]
 
 * Table of Contents :toc:
-- [[#resources][Resources]]
-- [[#what-are-flakes][What are Flakes]]
-  - [[#enabling-flakes][ENABLING FLAKES]]
-  - [[#using-flakes][USING FLAKES]]
-  - [[#commands][COMMANDS]]
-- [[#commands-1][Commands]]
-  - [[#updating-the-system][Updating the system]]
-  - [[#nix-flake][nix flake]]
+- [[#resources][/Resources/]]
+- [[#what-are-flakes][/What are Flakes/]]
+- [[#enabling-flakes][/Enabling Flakes/]]
+- [[#using-flakes][/Using Flakes/]]
+- [[#commands][/Commands/]]
+  - [[#updating-the-system][/Updating the system/]]
 - [[#tutorials-fix-pls][Tutorials (FIX PLS)]]
   - [[#tweag-webpages][TWEAG WEBPAGES]]
   - [[#nix-flakes-explained---vimjoyer][Nix flakes explained - Vimjoyer']]
   - [[#nixos-introduction---nix-flakes---li-yang][NixOS Introduction - Nix Flakes - Li Yang]]
 
-* Resources 
+* /Resources/
 
-123
-
-*BLOG POSTS*
+Posts
 + [[https://www.tweag.io/blog/2020-05-25-flakes][NIX FLAKES, PART 1: AN INTRODUCTION AND TUTORIAL - tweag.io]]
 + [[https://www.tweag.io/blog/2020-06-25-eval-cache/][NIX FLAKES, PART 2: EVALUATION CACHING - tweag.io]]
 + [[https://www.tweag.io/blog/2020-07-31-nixos-flakes][NIX FLAKES, PART 3: MANAGING NIXOS SYSTEMS - tweag.io]]
 
-*YOUTUBE VIDEOS*
+Youtube
 + [[https://youtu.be/IrxCiNnXG4M][Beginners Guide to Nix EP1: Flakes - youtube]]
 + [[https://youtu.be/ARjAsEJ9WVY][NixOS Flake Tour - youtube]]
 + [[https://youtu.be/K54KKAx2wNc][Intro to Flakes - youtube]]
 
-*GITHUB*
+GitHub
 + [[https://github.com/Misterio77/nix-starter-configs][Nix Starter Config]]
 
-* What are Flakes
+* /What are Flakes/
 
 Nix Flakes allow you to have all your configuration (~configuration.nix~, ~home-manager~) in one folder and source control.
 
@@ -46,10 +42,10 @@ Nix Flakes allow you to have all your configuration (~configuration.nix~, ~home-
 
 The flake file format and semantics are described in a NixOS RFC, which is currently the best reference on flakes.
 
-Abstract: This RFC proposes a mechanism to package Nix expressions into composable entities called "flakes". Flakes allow hermetic, reproducible evaluation of multi-repository Nix projects; impose a discoverable, standard structure on Nix projects; and replace previous mechanisms such as Nix channels and the Nix search path.
+*Abstract*: This RFC proposes a mechanism to package Nix expressions into composable entities called "flakes". Flakes allow hermetic, reproducible evaluation of multi-repository Nix projects; impose a discoverable, standard structure on Nix projects; and replace previous mechanisms such as Nix channels and the Nix search path.
 /from [[https://github.com/NixOS/rfcs/pull/49][[RFC0049] Flakes]]/
 
-** ENABLING FLAKES
+* /Enabling Flakes/
 
 There are different ways to enable flakes on your nix system.
 
@@ -64,31 +60,26 @@ nix = {
 }
 #+end_src
 
-** USING FLAKES
+* /Using Flakes/
 
 Fetching a simple Unix package called ~dwarffs~, it is on https://github.com/edolstra/dwarffs
 It contains a file called ~flake.nix~.
 ~$ nix shell github:edolstra/dwarffs --command dwarffs --version
 dwarffs 0.1.20200406.cd7955a~
 
-** COMMANDS
+* /Commands/
 
 ~$ nix flake metadata github:edolstra/dwarffs~
 
-* Commands
-** Updating the system
+** /Updating the system/
 
 Update the flake inputs, this will be the first step to updating your system if running on a flake.
 ~$ nix flake update~
 
 Now, proceed to update the system
 ~# nixos-rebuild switch --flake .~
-_note_: Depending on your setup
 
-
-** nix flake
-
-~nix flake update~ -> Update the flake inputs
+_note_: Depending on your setup ... (you may have to specify the 
 
 * Tutorials (FIX PLS)
 ** TWEAG WEBPAGES
