@@ -8,7 +8,6 @@ I could have put everything in my literate config but it is long as it is, so th
 -> [[https://github.com/asynthe/flake/blob/main/flake.org][Link to my literate config]]
 
 * Table of Contents :toc:
-- [[#resources][/Resources/]]
 - [[#what-are-flakes][/What are Flakes/]]
 - [[#enabling-flakes][/Enabling Flakes/]]
 - [[#using-flakes][/Using Flakes/]]
@@ -18,21 +17,7 @@ I could have put everything in my literate config but it is long as it is, so th
   - [[#tweag-webpages][TWEAG WEBPAGES]]
   - [[#nix-flakes-explained---vimjoyer][Nix flakes explained - Vimjoyer']]
   - [[#nixos-introduction---nix-flakes---li-yang][NixOS Introduction - Nix Flakes - Li Yang]]
-
-* /Resources/
-
-Posts
-+ [[https://www.tweag.io/blog/2020-05-25-flakes][NIX FLAKES, PART 1: AN INTRODUCTION AND TUTORIAL - tweag.io]]
-+ [[https://www.tweag.io/blog/2020-06-25-eval-cache/][NIX FLAKES, PART 2: EVALUATION CACHING - tweag.io]]
-+ [[https://www.tweag.io/blog/2020-07-31-nixos-flakes][NIX FLAKES, PART 3: MANAGING NIXOS SYSTEMS - tweag.io]]
-
-Youtube
-+ [[https://youtu.be/IrxCiNnXG4M][Beginners Guide to Nix EP1: Flakes - youtube]]
-+ [[https://youtu.be/ARjAsEJ9WVY][NixOS Flake Tour - youtube]]
-+ [[https://youtu.be/K54KKAx2wNc][Intro to Flakes - youtube]]
-
-GitHub
-+ [[https://github.com/Misterio77/nix-starter-configs][Nix Starter Config]]
+- [[#resources][/Resources/]]
 
 * /What are Flakes/
 
@@ -179,3 +164,18 @@ alias rebuild='doas nixos-rebuild switch --flake "/home/asynthe/test/flake/flake
 alias nixconf='doas nvim ~/sync/system/nix/flake/configuration.nix'
 alias homeconf='nvim ~/sync/system/nix/flake/home-manager/home.nix'
 #+end_src
+* /Resources/
+
+Posts
++ [[https://www.tweag.io/blog/2020-05-25-flakes][NIX FLAKES, PART 1: AN INTRODUCTION AND TUTORIAL - tweag.io]]
++ [[https://www.tweag.io/blog/2020-06-25-eval-cache/][NIX FLAKES, PART 2: EVALUATION CACHING - tweag.io]]
++ [[https://www.tweag.io/blog/2020-07-31-nixos-flakes][NIX FLAKES, PART 3: MANAGING NIXOS SYSTEMS - tweag.io]]
+
+Youtube
++ [[https://youtu.be/IrxCiNnXG4M][Beginners Guide to Nix EP1: Flakes - youtube]]
++ [[https://youtu.be/ARjAsEJ9WVY][NixOS Flake Tour - youtube]]
++ [[https://youtu.be/K54KKAx2wNc][Intro to Flakes - youtube]]
+
+GitHub
++ [[https://github.com/Misterio77/nix-starter-configs][Nix Starter Config]]
+
