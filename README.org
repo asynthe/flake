@@ -5,21 +5,21 @@
 
 This is somewhat on my explanation on flakes
 I could have put everything in my literate config but it is long as it is, so that's why i decided
--> [[https://github.com/asynthe/flake/blob/main/flake.org][Link to my literate config]]
 
+* -> [[https://github.com/asynthe/flake/blob/main/flake.org][Link to my literate configuration]]
 * /Resources/
 
-Posts
+*Posts*
 + [[https://www.tweag.io/blog/2020-05-25-flakes][NIX FLAKES, PART 1: AN INTRODUCTION AND TUTORIAL - tweag.io]]
 + [[https://www.tweag.io/blog/2020-06-25-eval-cache/][NIX FLAKES, PART 2: EVALUATION CACHING - tweag.io]]
 + [[https://www.tweag.io/blog/2020-07-31-nixos-flakes][NIX FLAKES, PART 3: MANAGING NIXOS SYSTEMS - tweag.io]]
 
-Youtube
+*Youtube*
 + [[https://youtu.be/IrxCiNnXG4M][Beginners Guide to Nix EP1: Flakes - youtube]]
 + [[https://youtu.be/ARjAsEJ9WVY][NixOS Flake Tour - youtube]]
 + [[https://youtu.be/K54KKAx2wNc][Intro to Flakes - youtube]]
 
-GitHub
+*GitHub*
 + [[https://github.com/Misterio77/nix-starter-configs][Nix Starter Config]]
 
 * /What are Flakes/
