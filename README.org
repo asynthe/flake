@@ -4,9 +4,10 @@
 #+title: Flakes
 
 This is somewhat on my explanation on flakes
-I could have put everything in my literate config but it is long as it is, so that's why i decided
+I could have put everything in my literate config but it is long as it is, so that's why i decided.
 
-* -> [[https://github.com/asynthe/flake/blob/main/flake.org][Link to my literate configuration]]
++ [[https://github.com/asynthe/flake/blob/main/flake.org][Link to my literate configuration]]
+
 * /Resources/
 
 *Posts*

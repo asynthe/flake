@@ -35,7 +35,7 @@
     ./net/mosh.nix
     ./net/openvpn.nix
     ./net/ssh.nix
-    ./net/tailscale.nix
+    #./net/tailscale.nix
     ./net/vnc.nix
     #./net/zero_tier_one.nix
 
