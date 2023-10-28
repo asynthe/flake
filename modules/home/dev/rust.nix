@@ -8,6 +8,7 @@
         (pkgs)
         cargo
         rustc
+	rustup
         #rusty-man
         #surrealdb
         ;
