@@ -34,10 +34,6 @@ nixosConfigurations = {
     modules = [
       ./machines/laptop_genkai
       inputs.musnix.nixosModules.musnix
-      ({ pkgs, ... }: {
-        nixpkgs.overlays = [ rust-overlay.overlays.default ];
-        environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
-      })
       # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
     ];
     };
