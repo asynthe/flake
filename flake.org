@@ -286,6 +286,14 @@ musnix.url = "github:musnix/musnix";
 nil.url = "github:oxalica/nil";
 #+end_src
 
+*** rust-overlay
+
++ [[https://github.com/oxalica/rust-overlay][rust-overlay - github page]]
+
+#+begin_src nix
+
+#+end_src
+
 *** Uncommented
 
 #+begin_src nix

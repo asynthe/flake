@@ -47,7 +47,7 @@
     ./server/libvirt.nix # Virt-manager / libvirt.
     ./server/mpd.nix # MPD.
     ./server/syncthing.nix
-    ./server/virtualbox.nix
+    #./server/virtualbox.nix
     ./server/wine.nix # Wine configuration.
     #./server/xmr.nix # Monero.
 

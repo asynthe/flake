@@ -104,6 +104,8 @@ musnix.url = "github:musnix/musnix";
 
 nil.url = "github:oxalica/nil";
 
+
+
 #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 #nix-gaming.url = "github:fufexan/nix-gaming";
 #helix.url = "github:helix-editor/helix/23.05";
