@@ -53,7 +53,7 @@
     inherit
       (pkgs)
       qjackctl
-      cadence
+      #cadence
       ;
   };
 }
