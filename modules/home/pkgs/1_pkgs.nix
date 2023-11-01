@@ -145,7 +145,7 @@
       
       libreoffice
       slides
-      zoom-us
+      #zoom-us
       #slack #slack-cli #slack-term # testing
       
       #onedrive
@@ -182,22 +182,13 @@
       #log4cxx # asked by davinci-resolve (?)
       
       # Replace in future
-      
       keepassxc # change into password store
-      #openrgb-with-all-plugins
-      
-      #openrgb-plugin-hardwaresync
-      
-      #ankisyncd
-      
-      
       bless
       hexedit
       hexyl # Hex editor
       
       # PCB Design
-      
-      kicad-unstable
+      #kicad-unstable
       #kicad #kicad-small
       
       # File managers

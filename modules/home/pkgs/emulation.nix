@@ -27,9 +27,9 @@
       
       #ppsspp-sdl-wayland # PSP on wayland
       
-      pcsx2 # PS2
-      rpcs3 # PS3
-      mgba #vbam # GAME BOY ADVANCE
+      #pcsx2 # PS2
+      #rpcs3 # PS3
+      #mgba #vbam # GAME BOY ADVANCE
       
       # SEGA
       
@@ -43,19 +43,19 @@
       
       # NINTENDO
       
-      snes9x
+      #snes9x
       #zsnes
       
-      bsnes-hd # SUPER NINTENDO
-      mupen64plus # NINTENDO 64
-      dolphin-emu # GAMECUBE / WII
+      #bsnes-hd # SUPER NINTENDO
+      #mupen64plus # NINTENDO 64
+      #dolphin-emu # GAMECUBE / WII
       #desmume # DS
       
       #citra-nightly #citra-canary # 3DS
       
-      cemu # WII U
-      yuzu-mainline
-      ryujinx # SWITCH
+      #cemu # WII U
+      #yuzu-mainline
+      #ryujinx # SWITCH
       
       # VARIOUS
       
