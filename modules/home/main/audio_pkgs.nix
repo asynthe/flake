@@ -9,7 +9,7 @@
       linthesia # Synthesia replacement
       asunder # CD ripper and encoder
       #ocenaudio #audacity
-      cadence # catia
+      #cadence # catia
       patchance # JACK patchbay GUI
       helvum # gtk patchbay for pipewire
       easyeffects
