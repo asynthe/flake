@@ -12,14 +12,14 @@
     ./user
 
     # Drivers
-    ./driver/accelerated_video_playback.nix
-    #./driver/amd.nix
-    #./driver/displaylink.nix
     ./driver/intel.nix
-    ./driver/nvidia/nvidia.nix
-    ./driver/nvidia/offload.nix
+    #./driver/amd.nix
+    #./driver/nvidia/nvidia.nix
+    #./driver/nvidia/offload.nix
     #./driver/nvidia/sync.nix
     #./driver/nvidia/reverse_sync.nix
+    ./driver/accelerated_video_playback.nix # Video acceleration.
+    #./driver/displaylink.nix # Display link drivers, requires manual setup.
 
     # Audio
     ./audio/audio.nix

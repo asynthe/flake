@@ -56,6 +56,10 @@ It contains a file called ~flake.nix~.
 ~$ nix shell github:edolstra/dwarffs --command dwarffs --version
 dwarffs 0.1.20200406.cd7955a~
 
+** /nix develop instead of nix-shell/
+
++ [[https://stackoverflow.com/questions/75129830/how-should-i-write-a-flake-nix-in-order-to-use-nix-develop-instead-of-nix-develo][How should I write a flake.nix in order to use nix develop instead of nix develop github:project#shell - StackOverflow]]
+
 * /Commands/
 
 ~$ nix flake metadata github:edolstra/dwarffs~
