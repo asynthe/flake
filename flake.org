@@ -30,6 +30,7 @@ home-manager replaces coreutils with the rust uutils
 - [[#start---opening-bracket][Start - Opening bracket]]
 - [[#outputs][Outputs]]
 - [[#machines][Machines]]
+  - [[#basic-server][Basic (Server)]]
   - [[#laptop][Laptop]]
   - [[#macbook][Macbook]]
   - [[#home-manager][Home Manager]]
@@ -112,6 +113,7 @@ outputs = inputs @ {
 *In {* is here as it gives me more flexibility for moving the org boxes.
 
 * Machines
+** Basic (Server)
 ** Laptop
 
 #+begin_src nix
@@ -123,6 +125,10 @@ nixosConfigurations = {
     modules = [
       ./machines/laptop_genkai
       inputs.musnix.nixosModules.musnix
+      ({ pkgs, ... }: {
+        nixpkgs.overlays = [ rust-overlay.overlays.default ];
+        environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+      })
       # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
     ];
     };
@@ -291,7 +297,7 @@ nil.url = "github:oxalica/nil";
 + [[https://github.com/oxalica/rust-overlay][rust-overlay - github page]]
 
 #+begin_src nix
-
+rust-overlay.url = "github:oxalica/rust-overlay";
 #+end_src
 
 *** Uncommented
