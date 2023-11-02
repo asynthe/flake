@@ -1,10 +1,16 @@
 { config, pkgs, ... }: {
 
-  environment.systemPackages = builtins.attrValues {
-    inherit
-      (pkgs)
-      xmonad-with-packages
-      ;
+  service.xserver.windowManager.xmonad = {
+    enable = true;
+    enableContribAndExtras = true;
+    #config = ;
   };
+
+  #environment.systemPackages = builtins.attrValues {
+    #inherit
+      #(pkgs)
+      #xmonad-with-packages
+      #;
+  #};
 
 }
