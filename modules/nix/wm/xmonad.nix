@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
 
-  service.xserver.windowManager.xmonad = {
+  services.xserver.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
     #config = ;
