@@ -8,7 +8,7 @@
         (pkgs)
         cargo
         rustc
-	rustup
+	#rustup (conflicts with installing cargo)
         #rusty-man
         #surrealdb
         ;
