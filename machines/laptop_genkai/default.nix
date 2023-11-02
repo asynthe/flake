@@ -8,7 +8,7 @@
 
     # WMs
     ../../modules/nix/wm/hyprland.nix
-    #../../modules/nix/wm/xmonad.nix
+    ../../modules/nix/wm/xmonad.nix
   ];
 
 }
