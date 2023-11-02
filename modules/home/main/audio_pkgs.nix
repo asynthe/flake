@@ -26,7 +26,7 @@
       # Music player
       playerctl # Manage audio daemon
       ncmpcpp
-      cmus
+      #cmus
       qmmp
       # Propietary
       spotify
