@@ -4,7 +4,7 @@
     serviceConfig.Type = "oneshot";
     path = with pkgs; [ bash ];
     script = ''
-      bash ./myscript.sh
+      bash /home/asynthe/flake/modules/nix/timer/myscript.sh
     '';
   };
 
