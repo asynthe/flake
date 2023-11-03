@@ -1,6 +1,9 @@
 { config, pkgs, ... }: {
 
   imports = [
+
+    # Enable custom systemd services / timers.
+    ./timer
   
     # System
     ./sys/boot.nix
