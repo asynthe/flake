@@ -7,6 +7,7 @@
     path = with pkgs; [ bash zip ];
     script = ''
       bash /home/${username}/script/bash/backup/backup_notes.sh
+      bash /home/${username}/script/bash/backup/backup_notes_delete_old_1_minute.sh
     '';
   };
 

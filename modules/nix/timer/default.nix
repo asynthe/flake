@@ -2,8 +2,7 @@
 
   imports = [
 
-    #./test.nix # systemd service / timer test
-    ./test2.nix
+    ./backup_notes.nix # Simple user unit that runs a backup script.
 
   ];
 }
