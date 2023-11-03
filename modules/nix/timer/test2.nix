@@ -3,7 +3,7 @@
   # The service
   systemd.services."test-backup" = {
     serviceConfig.Type = "oneshot";
-    path = with pkgs; [ bash ];
+    path = with pkgs; [ bash rsync ];
     script = ''
       bash /home/${username}/script/bash/backup/backup_notes.sh
     '';
