@@ -4,7 +4,7 @@
   systemd.user.services."backup-notes" = {
     serviceConfig.Type = "oneshot";
     wantedBy = [ "default.target" ]; # Test with this line.
-    path = with pkgs; [ bash rsync ];
+    path = with pkgs; [ bash zip ];
     script = ''
       bash /home/${username}/script/bash/backup/backup_notes.sh
     '';
