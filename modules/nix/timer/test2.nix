@@ -1,17 +1,18 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, username, ... }: {
 
   # The service
-  systemd.services."test-dir" = {
+  systemd.services."test-backup" = {
     serviceConfig.Type = "oneshot";
+    path = with pkgs; [ bash ];
     script = ''
-      mkdir /home/asynthe/bin/test/sdtest
+      bash /home/${username}/script/bash/backup/backup_notes.sh
     '';
   };
 
   # The Timer
-  systemd.timers."test-dir" = {
+  systemd.timers."test-backup" = {
     wantedBy = [ "timers.target" ];
-    partOf = [ "test-dir.service" ];
+    partOf = [ "test-backup.service" ];
     timerConfig = {
       OnCalendar = "*:0/1"; # Every 1 minute.
     };
