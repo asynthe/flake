@@ -1,7 +1,7 @@
 { config, pkgs, username, ... }: {
 
   # The service
-  systemd.services."test-backup" = {
+  systemd.user.services."test-backup" = {
     serviceConfig.Type = "oneshot";
     path = with pkgs; [ bash rsync ];
     script = ''
@@ -10,7 +10,7 @@
   };
 
   # The Timer
-  systemd.timers."test-backup" = {
+  systemd.user.timers."test-backup" = {
     wantedBy = [ "timers.target" ];
     partOf = [ "test-backup.service" ];
     timerConfig = {
