@@ -4,7 +4,7 @@
   systemd.user.services."backup-notes" = {
     serviceConfig.Type = "oneshot";
     wantedBy = [ "default.target" ]; # Test with this line.
-    path = with pkgs; [ bash zip ];
+    path = with pkgs; [ bash gnutar ];
     script = ''
       bash /home/${username}/script/bash/backup/backup_notes.sh
       bash /home/${username}/script/bash/backup/backup_notes_delete_old_1_minute.sh
