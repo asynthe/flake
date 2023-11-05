@@ -16,7 +16,7 @@
     wantedBy = [ "timers.target" ];
     partOf = [ "test-backup.service" ];
     timerConfig = {
-      OnCalendar = "*:3/0"; # Every 3 hours.
+      OnCalendar = "*-*-* */3:00:00"; # Every 3 hours.
       Persistent = true;
     };
   };
