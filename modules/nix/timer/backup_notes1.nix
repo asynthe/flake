@@ -1,7 +1,7 @@
 { config, pkgs, username, ... }: {
 
   # The service
-  systemd.user.services."backup-notes" = {
+  systemd.user.services."backup_notes" = {
     serviceConfig.Type = "oneshot";
     wantedBy = [ "default.target" ]; # Test with this line.
     path = with pkgs; [ bash gnutar gzip ];
@@ -12,7 +12,7 @@
   };
 
   # The Timer
-  systemd.user.timers."backup-notes" = {
+  systemd.user.timers."backup_notes" = {
     wantedBy = [ "timers.target" ];
     partOf = [ "test-backup.service" ];
     timerConfig = {
