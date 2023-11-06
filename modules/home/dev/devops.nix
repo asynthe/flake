@@ -4,6 +4,12 @@
     inherit
       (pkgs)
       awscli
+      ansible
+      ansible-lint
+      terraform
+      #terraformer
+      #terraforming
+      #terraform-lsp
       ;
   };
 

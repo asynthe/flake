@@ -25,13 +25,6 @@
       ncpamixer
       # Music player
       playerctl # Manage audio daemon
-      ncmpcpp
-      #cmus
-      qmmp
-      # Propietary
-      spotify
-      spotify-tui #spotify-qt
-      #spotify-tray
       # Tag editors
       easytag
       tagger
