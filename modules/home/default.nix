@@ -5,6 +5,9 @@
     # Home Manager configuration and settings.
     ./home.nix 
 
+    # Temp file to test stuff
+    ./pkgs/1_temp.nix
+
     # Apps
     #./app/dots.nix
     ./app/emacs.nix
