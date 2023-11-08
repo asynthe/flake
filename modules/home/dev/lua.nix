@@ -8,6 +8,7 @@
       ;
     inherit (pkgs.luajitPackages)
     luarocks-nix
+    luafilesystem
     #luarocks
     ;
   };
