@@ -2,11 +2,11 @@
 
   home.packages = builtins.attrValues {
     inherit
-      (pkgs.luajitPackages)
+      (pkgs)
       lua
       luajit
-      luarocks-nix
       ;
+      (pkgs.luajitPackages) luarocks-nix;
   };
 
 }
