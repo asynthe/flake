@@ -31,6 +31,7 @@
     # Dev
     ./dev/assembly.nix
     ./dev/latex.nix
+    ./dev/lua.nix
     ./dev/python.nix
     ./dev/rust.nix
     ./dev/tools.nix

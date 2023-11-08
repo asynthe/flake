@@ -6,7 +6,10 @@
       lua
       luajit
       ;
-      (pkgs.luajitPackages) luarocks-nix;
+    inherit (pkgs.luajitPackages)
+    luarocks-nix
+    #luarocks
+    ;
   };
 
 }
