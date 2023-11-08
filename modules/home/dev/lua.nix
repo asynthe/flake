@@ -3,8 +3,8 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
-      lua
-      luajit
+      #lua
+      #luajit
       ;
     inherit (pkgs.luajitPackages)
     luarocks-nix
