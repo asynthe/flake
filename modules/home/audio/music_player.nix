@@ -11,6 +11,6 @@
       #spotify-tui
       #spotify spotify-qt
       spicetify-cli
+      ;
   };
-
 }
