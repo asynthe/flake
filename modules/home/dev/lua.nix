@@ -4,7 +4,7 @@
     inherit
       (pkgs)
       #lua
-      #luajit
+      luajit
       ;
     inherit (pkgs.luajitPackages)
     luarocks-nix
