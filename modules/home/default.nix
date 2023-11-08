@@ -16,9 +16,6 @@
 
     # Main
     ./main/3d.nix
-    ./main/audio_daw.nix
-    ./main/audio_pkgs.nix
-    ./main/audio_tools.nix
     ./main/comms.nix
     ./main/coreutils_replace.nix
     ./main/fonts.nix
@@ -27,6 +24,12 @@
     ./main/jp.nix
     ./main/steam.nix
     ./main/xdg.nix
+
+    # Audio
+    ./audio/daw.nix
+    ./audio/music_player.nix
+    ./audio/pkgs.nix
+    ./audio/tools.nix
 
     # Dev
     ./dev/assembly.nix
