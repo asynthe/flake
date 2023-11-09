@@ -2,9 +2,11 @@
 
   home.packages = builtins.attrValues {
 
-    inherit (pkgs.vimPlugins) lsp-zero-nvim; # lsp-zero
+    # lsp-zero
+    inherit (pkgs.vimPlugins) lsp-zero-nvim;
 
     # Lua
+    inherit (pkgs)
     lua-language-server # lua_ls
     stylua
     ;
