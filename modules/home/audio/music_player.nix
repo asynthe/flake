@@ -4,7 +4,7 @@
     inherit
       (pkgs)
       cmus
-      ncmpcpp
+      ncmpcpp mpd
       qmmp
 
       # Propietary
