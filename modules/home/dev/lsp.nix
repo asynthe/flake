@@ -2,7 +2,10 @@
 
   home.packages = builtins.attrValues {
     inherit
-      (pkgs.luajitPackages) lua-lsp; # LSP for lua.
+      (pkgs.luajitPackages) 
+      lua-lsp # LSP for lua.
+      lsp-zero-nvim
+      ;
   };
 
 }
