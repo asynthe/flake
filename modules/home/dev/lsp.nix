@@ -6,7 +6,7 @@
     inherit (pkgs.vimPlugins) lsp-zero-nvim;
 
     # General purpose Language Server
-    efm-langserver
+    inherit (pkgs) efm-langserver;
 
     # Lua
     inherit (pkgs)
