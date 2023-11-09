@@ -4,8 +4,9 @@
     inherit
       (pkgs.luajitPackages) 
       lua-lsp # LSP for lua.
-      lsp-zero-nvim
+      #lsp-zero-nvim # ?
       ;
+      (pkgs.vimPlugins) lsp-zero-nvim;
   };
 
 }
