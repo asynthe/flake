@@ -16,7 +16,10 @@
     inherit (pkgs.luajitPackages) lua-lsp luacheck; # Lua linter
 
     # Python
-    inherit (pkgs.python311Packages) jedi python-lsp-server;
+    inherit (pkgs.nodePackages) pyright; # Type checker for Python.
+    inherit (pkgs.python311Packages) 
+    jedi 
+    python-lsp-server;
 
     # Rust
 
