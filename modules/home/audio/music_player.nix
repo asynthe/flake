@@ -9,7 +9,7 @@
 
       # Propietary
       #spotify-tui
-      #spotify spotify-qt
+      spotify spotify-qt
       spicetify-cli
       ;
   };
