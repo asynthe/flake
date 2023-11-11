@@ -4,6 +4,7 @@
     inherit
       (pkgs)
       memento
+      anki-bin
       ;
   };
 }
