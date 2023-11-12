@@ -25,7 +25,6 @@
 
     # Go
     inherit (pkgs) gopls;
-
   };
 
 }

@@ -10,6 +10,7 @@
 
     # Apps
     #./app/dots.nix
+    ./app/nvim
     ./app/emacs.nix
     #./app/nvim.nix
     #./app/neomutt.nix
@@ -34,7 +35,6 @@
     # Dev
     ./dev/assembly.nix
     ./dev/latex.nix
-    ./dev/lsp.nix
     ./dev/lua.nix
     ./dev/python.nix
     ./dev/rust.nix
