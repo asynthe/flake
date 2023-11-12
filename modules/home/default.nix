@@ -44,11 +44,12 @@
     ./pkgs/1_pkgs.nix
     ./pkgs/emulation.nix
     ./pkgs/games.nix
-    ./pkgs/net.nix
-    ./pkgs/sec.nix
     ./pkgs/shell.nix
     ./pkgs/system.nix
     ./pkgs/video.nix
+
+    ./net/net.nix # Networking tools.
+    ./sec/sec.nix # Cybersecurity tools.
 
     # systemd Timers
     #./systemd.nix
