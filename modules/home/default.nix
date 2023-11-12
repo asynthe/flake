@@ -17,7 +17,7 @@
     # Main
     ./main/3d.nix
     ./main/comms.nix
-    ./main/coreutils_replace.nix
+    ./main/coreutils.nix
     ./main/fonts.nix
     ./main/gtk.nix
     ./main/image.nix

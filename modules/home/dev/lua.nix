@@ -6,11 +6,11 @@
       #lua
       luajit
       ;
-    inherit (pkgs.luajitPackages)
-    luarocks-nix
-    luafilesystem
+    #inherit (pkgs.luajitPackages)
+    #luarocks-nix
+    #luafilesystem
     #luarocks
-    ;
+    #;
   };
 
 }
