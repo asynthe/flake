@@ -3,7 +3,7 @@
     inherit
       (pkgs)
 
-      wireless-tools # Maybe replace in future?
+      wirelesstools # Maybe replace in future?
 
       #socat # replacement of openbsd-netcat
 
