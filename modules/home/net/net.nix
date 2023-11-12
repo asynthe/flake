@@ -2,7 +2,11 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
+
+      wireless-tools # Maybe replace in future?
+
       #socat # replacement of openbsd-netcat
+
       bc
       qgis #qgis-ltr
       nethogs
