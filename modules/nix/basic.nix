@@ -3,7 +3,7 @@
   imports = [
 
     # Enable custom systemd services / timers.
-    ./timer
+    ./timers.nix
   
     # System
     ./sys/boot.nix
