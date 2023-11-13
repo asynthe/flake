@@ -1,6 +1,11 @@
 { config, pkgs, username, ... }: {
 
   virtualisation.docker.enable = true;
+  syus
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs) docker-compose;
+  };
 
   # Beware that docker group membership is equivalent to being root!
   # See more at https://github.com/moby/moby/issues/9976
