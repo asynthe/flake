@@ -44,7 +44,6 @@
 
     # Server
     ./server/syncthing.nix
-    #./server/virtualbox.nix
     ./server/wine.nix # Wine configuration.
     #./server/xmr.nix # Monero.
 
@@ -60,7 +59,7 @@
     ./tools/libvirt.nix # Virt-manager / libvirt.
     ./tools/docker.nix
     ./tools/podman.nix
-    ./tools/virtualbox.nix
+    #./tools/virtualbox.nix
   ]; 
 
 }
