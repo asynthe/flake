@@ -43,16 +43,24 @@
     ./sec/gpg.nix
 
     # Server
-    ./server/android.nix # Android tools and packages.
-    ./server/libvirt.nix # Virt-manager / libvirt.
-    ./server/mpd.nix # MPD.
     ./server/syncthing.nix
     #./server/virtualbox.nix
     ./server/wine.nix # Wine configuration.
     #./server/xmr.nix # Monero.
 
+    # Daemon
+    ./daemon/locate.nix
+    ./daemon/mpd.nix
+
     # Extra
     ./extra/gaming.nix
+
+    # Tools
+    ./tools/android.nix # Android tools and packages.
+    ./tools/libvirt.nix # Virt-manager / libvirt.
+    ./tools/docker.nix
+    ./tools/podman.nix
+    ./tools/virtualbox.nix
   ]; 
 
 }
