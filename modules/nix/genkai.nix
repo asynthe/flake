@@ -49,7 +49,7 @@
     #./server/xmr.nix # Monero.
 
     # Daemon
-    ./daemon/locate.nix
+    #./daemon/locate.nix
     ./daemon/mpd.nix
 
     # Extra
