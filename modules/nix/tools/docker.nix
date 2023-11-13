@@ -1,7 +1,6 @@
 { config, pkgs, username, ... }: {
 
   virtualisation.docker.enable = true;
-  syus
   environment.systemPackages = builtins.attrValues {
     inherit
       (pkgs) docker-compose;
