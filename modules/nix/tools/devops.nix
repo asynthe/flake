@@ -5,6 +5,7 @@
       ansible ansible-lint
       vagrant
       terraform
+      virtualenv
       ;
   };
 
