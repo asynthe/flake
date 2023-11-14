@@ -27,7 +27,7 @@
     #./audio/jack.nix
 
     # Network
-    #./net/dns.nix
+    ./net/dns.nix
     #./net/elastic.nix
     #./net/i2p.nix
     ./net/irc.nix
