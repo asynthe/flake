@@ -8,7 +8,7 @@
     #configFile = "/etc/dnscrypt-proxy/dnscrypt-proxy.toml"; # Path to TOML config file.
     #settings = {
     #};
-  };
+  #};
 
   #environment.systemPackages = builtins.attrValues {
     #inherit
