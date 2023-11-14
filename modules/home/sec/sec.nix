@@ -10,8 +10,13 @@
       arp-scan
       macchanger
       netdiscover
-      dsniff
+      dsniff # dnssniff, ...
       wireshark #tshark #termshark # network protocol analyzer
+
+      # Password Cracking
+      hashcat hashcat-utils
+      john
+      hcxtools
 
       # Encryption
       gnupg
