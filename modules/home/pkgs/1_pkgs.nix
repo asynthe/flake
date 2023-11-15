@@ -142,8 +142,7 @@
       #easyocr
       
       # Officematics
-      
-      libreoffice
+      #libreoffice
       slides
       #zoom-us
       #slack #slack-cli #slack-term # testing
