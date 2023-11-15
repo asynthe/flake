@@ -45,6 +45,8 @@
     inherit
       (pkgs)
 
+      libreoffice-bin
+
       # WMs
       wayfire
       
