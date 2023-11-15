@@ -14,6 +14,7 @@
     ./app/emacs.nix
     #./app/nvim.nix
     #./app/neomutt.nix
+    ./app/libreoffice.nix
 
     # Main
     ./main/3d.nix
