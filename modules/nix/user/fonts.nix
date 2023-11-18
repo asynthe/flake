@@ -1,8 +1,5 @@
+{ config, pkgs, ... }: 
 {
-  config,
-  pkgs,
-  ...
-}: {
   # Fonts
   fonts = {
     packages = with pkgs; [
@@ -16,10 +13,10 @@
       kochi-substitute
     ];
 
-    fontconfig.defaultFonts = {
-      monospace = ["DejaVu Sans Mono" "IPAGothic"];
-      sansSerif = ["DejaVu Sans" "IPAPGothic"];
-      serif = ["DejaVu Serif" "IPAPMincho"];
-    };
+    #fontconfig.defaultFonts = {
+      #monospace = ["DejaVu Sans Mono" "IPAGothic"];
+      #sansSerif = ["DejaVu Sans" "IPAPGothic"];
+      #serif = ["DejaVu Serif" "IPAPMincho"];
+    #};
   };
 }
