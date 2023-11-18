@@ -41,6 +41,7 @@
 
     # Cybersecurity
     ./sec/gpg.nix
+    ./sec/mullvad.nix
 
     # Server
     ./server/syncthing.nix
