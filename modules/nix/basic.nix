@@ -42,4 +42,12 @@
     # Windows mount to home folder.
     #./fs/win_mount.nix
   ];
+
+  environment.systemPackages = builtins.attrValues {
+    inherit (pkgs)
+    alacritty
+    kitty
+    ;
+  };
+
 }
