@@ -7,7 +7,7 @@
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    enableNvidiaPatches = true;
+    #enableNvidiaPatches = true;
   };
 
   xdg.portal = {
@@ -32,8 +32,8 @@
   environment.systemPackages = builtins.attrValues {
     inherit
       (pkgs)
-      # Apps
       
+      # Apps
       eww-wayland # status bar
       wofi #bemenu
       gtklock # lock screen
@@ -55,25 +55,16 @@
       brightnessctl #brillo
       
       # Must have
-      
       polkit
-      # Testing
-      
       waybar
+
       # Not used
-      
       #nwg-bar
-      
       #nwg-menu
-      
       #nwg-panel
-      
       #nwg-drawer
-      
       #nwg-wrapper
-      
-      #nwg-launchers
-      
+      #nwg-launchers  
       #swaylock-effects
       
       ;
