@@ -58,7 +58,7 @@
     # Tools
     ./tools/android.nix # Android tools and packages.
     ./tools/devops.nix
-    ./tools/libvirt.nix # Virt-manager / libvirt.
+    #./tools/libvirt.nix # Virt-manager / libvirt.
     ./tools/docker.nix
     ./tools/podman.nix
     #./tools/virtualbox.nix
