@@ -12,8 +12,8 @@
     ../timers.nix
 
     # Window Managers
-    ../../modules/nix/wm/hyprland.nix
-    ../../modules/nix/wm/xmonad.nix
+    ../../../modules/nix/wm/hyprland.nix
+    ../../../modules/nix/wm/xmonad.nix
 
     # User stuff (Move?)
     ../../../modules/nix/user

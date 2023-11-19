@@ -20,8 +20,8 @@
       wget
       curl
       pulseaudio # needed by Pipewire
-
       alacritty kitty # Always good to have some extra terminals.
+
       ;
   };
 }
