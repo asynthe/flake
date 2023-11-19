@@ -100,7 +100,6 @@ nixosConfigurations = {
 #  };
 #+end_src
 
-
 *** Laptop
 
 #+begin_src nix
