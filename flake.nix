@@ -16,6 +16,9 @@ outputs = inputs @ {
 	}: let
   username = "asynthe";
   hostname = "genkai";
+
+  username_server = "user";
+  hostname_server = "basic";
   
   username_mac = "benjamindunstan";
   hostname_mac = "192-168-1-123";
@@ -47,11 +50,11 @@ genkai = nixpkgs.lib.nixosSystem {
   specialArgs = {inherit username inputs;};
 
   modules = [
-    ./machines/linux/laptop_genkai
+    ./machines/linux/laptop
 
     inputs.musnix.nixosModules.musnix
     # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
-  ];
+    ];
   };
 };
 

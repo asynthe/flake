@@ -21,8 +21,8 @@
     # Drivers
     ../../../modules/nix/driver/intel.nix
     #../../../modules/nix/driver/amd.nix
-    ../../../modules/nix/driver/nvidia/nvidia.nix
-    ../../../modules/nix/driver/nvidia/offload.nix
+    #../../../modules/nix/driver/nvidia/nvidia.nix
+    #../../../modules/nix/driver/nvidia/offload.nix
     #../../../modules/nix/driver/nvidia/sync.nix
     #../driver/nvidia/reverse_sync.nix
     ../../../modules/nix/driver/accelerated_video_playback.nix # Video acceleration.

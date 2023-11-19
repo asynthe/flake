@@ -4,7 +4,7 @@
 
     # Core server configuration + My own configuration.
     ../basic
-    ./genkai.nix
+    ./laptop.nix
   ];
 
 }

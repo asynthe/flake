@@ -13,15 +13,13 @@
     #extraPackages32 = with pkgs.pkgsi686Linux; [libva]; # gaming extra
   };
   
+  # Completely disable NVIDIA graphics and use integrated
+  #hardware.nvidiaOptimus.disable = true; 
+
   # Specify your system's drivers.
   services.xserver.videoDrivers = ["nvidia"];
 
-  hardware = {
-    cpu.intel.updateMicrocode = true; # update the cpu microcode
-    #nvidiaOptimus.disable = true; # Completely disable NVIDIA graphics and use integrated
-  };
-
-    # NVIDIA Configuration
+  # NVIDIA Configuration
   hardware.nvidia = {
     modesetting.enable = true; # Required
     nvidiaSettings = true;

@@ -62,6 +62,9 @@ outputs = inputs @ {
 	}: let
   username = "asynthe";
   hostname = "genkai";
+
+  username_server = "user";
+  hostname_server = "basic";
   
   username_mac = "benjamindunstan";
   hostname_mac = "192-168-1-123";
@@ -83,7 +86,11 @@ outputs = inputs @ {
 nixosConfigurations = {
 #+end_src
 
-*** Basic (Server)
+*** Server (basic)
+
+This basic server configures:
+- Networking
+- Filesystems
 
 #+begin_src nix
 #  basic = nixpkgs.lib.nixosSystem {
@@ -100,8 +107,17 @@ nixosConfigurations = {
 #  };
 #+end_src
 
+*** Laptop (genkai)
 
-*** Laptop
+This configures more specific things such as:
+- Audio
+- Drivers
+- More networking
+- systemd Timers
+- Services
+- Window Managers
+- Extra
+- Tools
 
 #+begin_src nix
   genkai = nixpkgs.lib.nixosSystem {
@@ -109,11 +125,11 @@ nixosConfigurations = {
     specialArgs = {inherit username inputs;};
 
     modules = [
-      ./machines/linux/laptop_genkai
+      ./machines/linux/laptop
 
       inputs.musnix.nixosModules.musnix
       # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
-    ];
+      ];
     };
   };
 #+end_src
@@ -187,6 +203,9 @@ darwinConfigurations = {
 111#+end_src
 
 ** Home Manager
+
+_note_: GNU coreutils it's replaced with Rust's [[https://github.com/uutils/coreutils][uutils]].
+
 
 #+begin_src nix
       # Home Manager as a Standalone
