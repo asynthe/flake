@@ -33,7 +33,6 @@
     ./net/irc.nix
     #./net/irc_server.nix
     ./net/mosh.nix
-    ./net/openvpn.nix
     ./net/ssh.nix
     #./net/tailscale.nix
     ./net/vnc.nix
@@ -41,7 +40,6 @@
 
     # Cybersecurity
     ./sec/gpg.nix
-    ./sec/mullvad.nix
 
     # Server
     ./server/syncthing.nix
