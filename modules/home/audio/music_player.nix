@@ -4,13 +4,13 @@
     inherit
       (pkgs)
       cmus
-      #ncmpcpp mpd
+      ncmpcpp mpd
       qmmp
 
       # Propietary
       #spotify-tui
-      spotify spotify-qt
-      spicetify-cli
+      spotify #spotify-qt
+      #spicetify-cli
       ;
   };
 }
