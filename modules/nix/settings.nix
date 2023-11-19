@@ -18,7 +18,7 @@
     settings = {
       auto-optimise-store = true;
       trusted-users = ["${username}"];
-      system-features = ["recursive.nix"];
+      system-features = ["recursive.nix" "big-parallel"];
       experimental-features = ["nix-command" "flakes" "recursive-nix"];
       warn-dirty = false;
 
