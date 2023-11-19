@@ -34,7 +34,7 @@ nixosConfigurations = {
 #    specialArgs = {inherit username inputs;};
 #
 #    modules = [
-#      ./machines/laptop_genkai
+#      ./machines/basic
 #
 #      inputs.musnix.nixosModules.musnix
 #      # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
@@ -47,7 +47,7 @@ genkai = nixpkgs.lib.nixosSystem {
   specialArgs = {inherit username inputs;};
 
   modules = [
-    ./machines/laptop_genkai
+    ./machines/linux/laptop_genkai
 
     inputs.musnix.nixosModules.musnix
     # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
