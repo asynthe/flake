@@ -15,8 +15,9 @@ outputs = inputs @ {
   ...
 	}: let
   username = "asynthe";
-  username_mac = "benjamindunstan";
   hostname = "genkai";
+  
+  username_mac = "benjamindunstan";
   hostname_mac = "192-168-1-123";
 
   linux_64 = "x86_64-linux";
@@ -27,18 +28,32 @@ outputs = inputs @ {
   in {
 
 nixosConfigurations = {
-  genkai = nixpkgs.lib.nixosSystem {
-    system = "genkai";
-    specialArgs = {inherit username inputs;};
 
-    modules = [
-      ./machines/laptop_genkai
+#  basic = nixpkgs.lib.nixosSystem {
+#    system = "genkai";
+#    specialArgs = {inherit username inputs;};
+#
+#    modules = [
+#      ./machines/laptop_genkai
+#
+#      inputs.musnix.nixosModules.musnix
+#      # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
+#    ];
+#    };
+#  };
 
-      inputs.musnix.nixosModules.musnix
-      # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
-    ];
-    };
+genkai = nixpkgs.lib.nixosSystem {
+  system = "genkai";
+  specialArgs = {inherit username inputs;};
+
+  modules = [
+    ./machines/laptop_genkai
+
+    inputs.musnix.nixosModules.musnix
+    # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
+  ];
   };
+};
 
 # Home Manager as a Module
 #home-manager.nixosModules.home-manager

@@ -60,6 +60,37 @@ dwarffs 0.1.20200406.cd7955a~
 
 + [[https://stackoverflow.com/questions/75129830/how-should-i-write-a-flake-nix-in-order-to-use-nix-develop-instead-of-nix-develo][How should I write a flake.nix in order to use nix develop instead of nix develop github:project#shell - StackOverflow]]
 
+** What is a flake
+** Resources
+** How to update
+
+To update, we must update the *flake.lock* file, which is done by the next command: (from flake directory)
+*$ nix flake update*
+
+** How to rebuild
+
+You may
+.#genkai
+
+Now, change the *hostname* attribute with your own
+
+This way you can just do it like this: (from flake directory)
+
+
+*$ nixos-rebuild switch --flake .*
+
+** List of commands
+
+|---------+-------------|
+| Command | Explanation |
+|---------+-------------|
+| IN      | PROGRESS    |
+| ...     | ...         |
+|         |             |
+|---------+-------------|
+
+
+
 * /Commands/
 
 ~$ nix flake metadata github:edolstra/dwarffs~
