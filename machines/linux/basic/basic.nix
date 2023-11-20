@@ -6,6 +6,10 @@
     ../../../modules/nix/sys/boot.nix
     ../../../modules/nix/sys/network.nix
 
+    # System language
+    ../../../modules/nix/sys/lang/en.nix # English
+    #../../../modules/nix/sys/lang/jp.nix # Japanese (日本語)
+
     # Bootloader
     #../../../modules/nix/sys/grub.nix
     ../../../modules/nix/sys/systemd_boot.nix
