@@ -6,7 +6,7 @@
   services.mullvad-vpn = {
     enable = true;
     #enableExcludeWrapper = true;
-    package = with pkgs; [mullvad-vpn];
+    package = "pkgs.mullvad-vpn";
   };
 
   programs.openvpn3.enable = true;
