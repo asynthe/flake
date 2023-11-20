@@ -4,7 +4,7 @@
   # Open fcitx-configtool and add Mozc, once it's done
   # Start with `fcitx5 -d &`.
 
-  inputMethod = {
+  i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-mozc
