@@ -60,7 +60,7 @@
 
     # Extra
     ../../../modules/nix/extra/gaming.nix
-    ../../../modukes/nix/extra/fcitx5_mozc.nix # Fcitx5 + mozc (IME)
+    ../../../modules/nix/extra/fcitx5_mozc.nix # Fcitx5 + mozc (IME)
 
     # Tools
     ../../../modules/nix/tools/android.nix # Android tools and packages.
