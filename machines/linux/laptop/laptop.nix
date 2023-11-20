@@ -43,6 +43,7 @@
     ../../../modules/nix/net/ssh.nix
     #../../../modules/nix/net/tailscale.nix
     ../../../modules/nix/net/vnc.nix
+    ../../../modules/nix/net/vpn.nix
     #../../../modules/nix/net/zero_tier_one.nix
 
     # Cybersecurity
