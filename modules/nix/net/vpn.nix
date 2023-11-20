@@ -32,4 +32,5 @@
       #openvpn
       #openvpn3
       ;
+  };
 }
