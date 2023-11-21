@@ -68,7 +68,7 @@
     #../../../modules/nix/tools/libvirt.nix # Virt-manager / libvirt.
     ../../../modules/nix/tools/docker.nix
     ../../../modules/nix/tools/podman.nix
-    #../../../modules/nix/tools/virtualbox.nix
+    ../../../modules/nix/tools/virtualbox.nix
   ]; 
 
 }
