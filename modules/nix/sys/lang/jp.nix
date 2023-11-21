@@ -8,7 +8,7 @@
       "en_US.UTF-8/UTF-8"
       "ja_JP.EUC-JP/EUC-JP"
       #"ja_JP.SJIS/SHIFT_JIS" # Not supported, see how to add to NixOS in future.
-      ];
+    ];
 
     extraLocaleSettings = {
       LC_ALL = "ja_JP.UTF-8"; # This one overrides all.
