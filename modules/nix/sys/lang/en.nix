@@ -11,6 +11,7 @@
     ];
 
     extraLocaleSettings = {
+      LC_ALL = "en_US.UTF-8"; # This replaces all the other ones.
       LC_MESSAGES = "en_US.UTF-8";
       LC_TIME = "en_US.UTF-8";
       LC_ADDRESS = "en_US.UTF-8";
