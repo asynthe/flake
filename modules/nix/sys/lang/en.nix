@@ -25,7 +25,7 @@
    #  LC_ADDRESS = "en_US.UTF-8/UTF-8";
    #  LC_TELEPHONE = "en_US.UTF-8/UTF-8";
    #  LC_MEASUREMENT = "en_US.UTF-8/UTF-8";
-   };
+   #};
   };
 
 }
