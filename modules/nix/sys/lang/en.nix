@@ -3,7 +3,7 @@
   time.timeZone = "Australia/Perth";
 
   environment.variables = {
-    LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
+    LOCALE_ARCHIVE = lib.mkForce true "${pkgs.glibcLocales}/lib/locale/locale-archive";
   };
 
   i18n = {
