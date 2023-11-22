@@ -9,7 +9,7 @@
     # Bootloader
     #../../../modules/nix/sys/grub.nix
     ../../../modules/nix/sys/systemd_boot.nix
-    ../../../modules/nix/sys/secure_boot.nix
+    #../../../modules/nix/sys/secure_boot.nix
     #../../../modules/nix/sys/silent_boot.nix
 
     # System language
