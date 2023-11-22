@@ -34,12 +34,4 @@
    #  LC_MEASUREMENT = "en_US.UTF-8/UTF-8";
    #};
   };
-
-  environment.systemPackages = builtins.attrValues { 
-    inherit (pkgs) 
-    glibc
-    glibcLocales
-    glibcLocalesUtf8
-    ;
-  };
 }
