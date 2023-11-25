@@ -205,6 +205,8 @@
       
       tdrop
       libqalculate
+
+      unar
       ;
 
     # Previewers for PCmanFM
