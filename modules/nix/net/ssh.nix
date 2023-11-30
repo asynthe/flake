@@ -11,10 +11,10 @@
   #""
   #];
 
-  programs.ssh = {
-    startAgent = true; # Start ssh-agent at boot.
-    agentTimeout = "null"; # How long to keep private keys in memory. Use "null" to keep forever.
-  };
+  #programs.ssh = {
+    #startAgent = true; # Start ssh-agent at boot.
+    #agentTimeout = "null"; # How long to keep private keys in memory. Use "null" to keep forever.
+  #};
 
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
