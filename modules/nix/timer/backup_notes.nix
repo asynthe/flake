@@ -6,8 +6,8 @@
     #wantedBy = [ "default.target" ]; # Test with this line.
     path = with pkgs; [ bash gnutar gzip ];
     script = ''
-      bash /home/${username}/script/bash/backup/backup_notes.sh
-      bash /home/${username}/script/bash/backup/backup_notes_delete_old_1_minute.sh
+      bash /home/${username}/sync/dots/script/bash/backup/backup_notes.sh
+      bash /home/${username}/sync/dots/script/bash/backup/backup_notes_delete_old_1_minute.sh
     '';
   };
 
