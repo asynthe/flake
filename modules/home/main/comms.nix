@@ -12,7 +12,7 @@
       signal-desktop
       telegram-desktop
       armcord webcord discord #gtkcord4
-      teams #teams-for-linux # Microsoft Teams
+      #teams #teams-for-linux # Microsoft Teams
       ;
   };
 }
