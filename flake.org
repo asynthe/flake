@@ -165,8 +165,6 @@ Disabled for now, but you can play around with it.
 + [[https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050][Setup nix, nix-darwin and home-manager from scratch on an M1 Macbook Pro - gist.github.com]]
 + [[https://github.com/MatthiasBenaets/nixos-config#nix-darwin-installation-guide][nixos-config / MatthiasBenaets - github]]
 
-*** Macbook
-
 #+begin_src nix
 darwinConfigurations = {
   ${hostname_mac} = nix-darwin.lib.darwinSystem {

@@ -65,7 +65,7 @@ dwarffs 0.1.20200406.cd7955a~
 ** How to update
 
 To update, we must update the *flake.lock* file, which is done by the next command: (from flake directory)
-*$ nix flake update*
+~$ nix flake update~
 
 ** How to rebuild
 
@@ -75,11 +75,9 @@ You may
 Now, change the *hostname* attribute with your own
 
 This way you can just do it like this: (from flake directory)
+~$ nixos-rebuild switch --flake .*~
 
-
-*$ nixos-rebuild switch --flake .*
-
-** List of commands
+** Commands
 
 |---------+-------------|
 | Command | Explanation |
@@ -89,12 +87,10 @@ This way you can just do it like this: (from flake directory)
 |         |             |
 |---------+-------------|
 
-
-* /Commands/
-
 ~$ nix flake metadata github:edolstra/dwarffs~
 
-** /Updating the system/
+** System Flake
+*** Updating the system
 
 Update the flake inputs, this will be the first step to updating your system if running on a flake.
 ~$ nix flake update~
@@ -102,7 +98,14 @@ Update the flake inputs, this will be the first step to updating your system if 
 Now, proceed to update the system
 ~# nixos-rebuild switch --flake .~
 
-_note_: Depending on your setup ... (you may have to specify the 
+_note_: If your system hostname is the same as the flake hostname ~nixosConfiguration.<configuration-name>.system = <hostname>~, then you don't need to specify the...
+
+* Development workflow
+
++ [[https://ayats.org/blog/nix-workflow/][Development workflow with Nix - ayats.org]]
+
+Install direnv  
+
 
 * Tutorials (FIX PLS)
 ** TWEAG WEBPAGES
