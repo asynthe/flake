@@ -82,7 +82,7 @@ darwinConfigurations = {
   ${hostname_mac} = nix-darwin.lib.darwinSystem {
     system = "${apple_silicon}";
     specialArgs = {inherit username_mac inputs;};
-    modules = [ ./machines/laptop_macbook ];
+    modules = [ ./machines/macos ];
     };
   };
 

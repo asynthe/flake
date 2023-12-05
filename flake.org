@@ -5,6 +5,25 @@
 #+property: header-args :tangle flake.nix
 #+auto_tangle: t
 
+* Table of Contents :toc:
+- [[#description][Description]]
+- [[#start---opening-bracket][Start - Opening bracket]]
+- [[#outputs][Outputs]]
+- [[#machines][Machines]]
+  - [[#linux][Linux]]
+  - [[#macos-apple-silicon][MacOS (Apple Silicon)]]
+  - [[#home-manager][Home Manager]]
+  - [[#not-used-for-now][Not Used For Now]]
+- [[#inputs][Inputs]]
+  - [[#opening-bracket][Opening Bracket]]
+  - [[#nixpkgs-and-nixpkgs-stable][Nixpkgs and Nixpkgs Stable]]
+  - [[#home-manager-1][Home Manager]]
+  - [[#apps-and-repos][Apps and Repos]]
+  - [[#nix-configuration-not-added][Nix Configuration (Not added)]]
+- [[#end---closing-bracket][End - Closing bracket]]
+
+* Description
+
 [INSERT COOL IMAGE HERE]
 
 Linux system
@@ -19,22 +38,6 @@ Home manager
 - everything else
 - hacking tools
 home-manager replaces coreutils with the rust uutils
-
-* Table of Contents :toc:
-- [[#start---opening-bracket][Start - Opening bracket]]
-- [[#outputs][Outputs]]
-- [[#machines][Machines]]
-  - [[#linux][Linux]]
-  - [[#macos-in-progress][MacOS [IN PROGRESS]]]
-  - [[#home-manager][Home Manager]]
-  - [[#not-used-for-now][Not Used For Now]]
-- [[#inputs][Inputs]]
-  - [[#opening-bracket][Opening Bracket]]
-  - [[#nixpkgs-and-nixpkgs-stable][Nixpkgs and Nixpkgs Stable]]
-  - [[#home-manager-1][Home Manager]]
-  - [[#apps-and-repos][Apps and Repos]]
-  - [[#nix-configuration-not-added][Nix Configuration (Not added)]]
-- [[#end---closing-bracket][End - Closing bracket]]
 
 * Start - Opening bracket
 
@@ -159,7 +162,7 @@ Disabled for now, but you can play around with it.
       #})
 #+end_src
 
-** MacOS [IN PROGRESS]
+** MacOS (Apple Silicon)
 
 *Resources*
 + [[https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050][Setup nix, nix-darwin and home-manager from scratch on an M1 Macbook Pro - gist.github.com]]
@@ -172,7 +175,7 @@ darwinConfigurations = {
   ${hostname_mac} = nix-darwin.lib.darwinSystem {
     system = "${apple_silicon}";
     specialArgs = {inherit username_mac inputs;};
-    modules = [ ./machines/laptop_macbook ];
+    modules = [ ./machines/macos ];
     };
   };
 #+end_src
