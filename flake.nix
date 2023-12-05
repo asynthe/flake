@@ -21,7 +21,7 @@ outputs = inputs @ {
   hostname_server = "basic";
   
   username_mac = "benjamindunstan";
-  hostname_mac = "192-168-1-123";
+  hostname_mac = "Benjis-Macbook";
 
   linux_64 = "x86_64-linux";
   apple_silicon = "aarch64-darwin";
