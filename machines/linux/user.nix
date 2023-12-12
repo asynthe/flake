@@ -1,9 +1,5 @@
-{
-  config,
-  pkgs,
-  username,
-  ...
-}: {
+{ config, pkgs, username, ... }: {
+
   # User
   users.users.${username} = {
     shell = pkgs.zsh;

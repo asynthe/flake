@@ -2,9 +2,13 @@
 
   imports = [
 
+    # Window Manager
+    ../../../modules/nix/wm/hyprland.nix
+    ../../../modules/nix/wm/xmonad.nix
+
     # System
     ../../../modules/nix/sys/boot.nix
-    ../../../modules/nix/sys/network.nix
+    ../../../modules/nix/sys/network_manager.nix
 
     # Bootloader
     #../../../modules/nix/sys/grub.nix
@@ -31,7 +35,6 @@
     #../../../modules/nix/sys/fs/win_mount.nix
 
     # Extra configuration 
-    #../../../modules/nix/sys/silent_boot.nix # Silent boot
     #../../../modules/nix/sys/console.nix # Some tty configuration to make it better.
   ];
 

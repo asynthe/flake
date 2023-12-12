@@ -15,8 +15,8 @@
     };
   };
 
-  systemd.services.NetworkManager-wait-online.enable = false; # Temporary fix for bug
-  services.dnsmasq.enable = true;
+  #systemd.services.NetworkManager-wait-online.enable = false; # Temporary fix for ZFS bug, disable?
+  #services.dnsmasq.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
