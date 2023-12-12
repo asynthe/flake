@@ -59,6 +59,8 @@
       git # Git must be installed before flakes.
       wget
       curl
+      neovim
+      tmux
       pulseaudio # Needed by Pipewire.
       alacritty kitty # Always good to have some extra terminals.
 
