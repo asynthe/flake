@@ -16,7 +16,7 @@
       #"bcachefs"
       "btrfs"
       "xfs"
-      "zfs"
+      #"zfs" # Requires network.hostId.
   ];
 
   # ENCRYPT.NIX, ZFS_ENCRYPTED.NIX (?)
