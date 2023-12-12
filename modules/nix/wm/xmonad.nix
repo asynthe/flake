@@ -6,11 +6,14 @@
     #config = ;
   };
 
-  #environment.systemPackages = builtins.attrValues {
-    #inherit
-      #(pkgs)
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      dmenu
+      xmobar
+      #picom-jonaburg
       #xmonad-with-packages
-      #;
-  #};
+      ;
+  };
 
 }

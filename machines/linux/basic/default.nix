@@ -10,18 +10,4 @@
     ./hardware-configuration.nix # Include the results of the hardware scan.
   ];
 
-  # System packages # Move to BASIC.nix
-  nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = builtins.attrValues {
-    inherit
-      (pkgs)
-
-      git # Git must be installed before flakes.
-      wget
-      curl
-      pulseaudio # needed by Pipewire
-      alacritty kitty # Always good to have some extra terminals.
-
-      ;
-  };
 }

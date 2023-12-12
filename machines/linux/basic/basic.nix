@@ -38,4 +38,36 @@
     #../../../modules/nix/sys/console.nix # Some tty configuration to make it better.
   ];
 
+  boot = {
+    binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux"];
+    supportedFilesystems = [
+      "ext4"
+      "vfat"
+      #"fat" # Remove?
+      #"exfat" # Remove?
+    ];
+  };
+
+  # List of packages I want to have on a server.
+  nixpkgs.config.allowUnfree = true;
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+
+      # CLI
+
+      git # Git must be installed before flakes.
+      wget
+      curl
+      pulseaudio # Needed by Pipewire.
+      alacritty kitty # Always good to have some extra terminals.
+
+      # GUI
+
+      librewolf
+      ungoogled-chromium
+      pavucontrol
+      ;
+  };
+
 }

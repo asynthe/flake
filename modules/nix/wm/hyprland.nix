@@ -16,7 +16,7 @@
     extraPortals = builtins.attrValues {
       inherit
         (pkgs)
-        xdg-desktop-portal-hyprland # Gives me error.
+        xdg-desktop-portal-hyprland
         xdg-desktop-portal-gtk # GTK portal needed to make gtk apps happy.
         ;
     };

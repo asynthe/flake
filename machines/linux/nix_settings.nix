@@ -1,11 +1,5 @@
-{
-  config,
-  pkgs,
-  lib,
-  username,
-  hostname,
-  ...
-}: {
+{ config, username, ... }: {
+
   nix = {
     # Garbage collection
     gc = {
@@ -50,11 +44,4 @@
     #copySystemConfiguration = true; # Not supported by flakes.
   };
 
-  boot.binfmt.emulatedSystems = ["aarch64-linux" "riscv64-linux"];
-  boot.supportedFilesystems = [
-    "ext4"
-    "fat"
-    "vfat"
-    "exfat"
-  ];
 }
