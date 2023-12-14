@@ -23,4 +23,14 @@
       XDG_STATE_HOME = "\${HOME}/.local/state";
     };
   };
+
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      eza
+      lf
+      starship
+      ueberzugpp
+      fzf skim
+      zoxide
 }
