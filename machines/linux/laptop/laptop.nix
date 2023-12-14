@@ -8,15 +8,9 @@
 
   imports = [
 
-    # Enable custom systemd services / timers.
-    ../timers.nix
-
     # Window Managers
     ../../../modules/nix/wm/hyprland.nix
     ../../../modules/nix/wm/xmonad.nix
-
-    # User stuff (Move?)
-    ../../../modules/nix/user
 
     # Drivers
     ../../../modules/nix/driver/intel.nix

@@ -4,7 +4,7 @@
   imports = [
 
     # Automated Backups
-    ../../modules/nix/timer/backup_notes.nix # Simple user unit that runs a backup script.
+    ../../../modules/nix/timer/backup_notes.nix # Simple user unit that runs a backup script.
 
   ];
 }
