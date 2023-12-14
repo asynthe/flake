@@ -2,7 +2,7 @@
 
   imports = [
 
-    ../../../modules/nix/default # User environment and configuration.
+    ../../../modules/nix/user # User environment and configuration.
 
     # Window Manager
     ../../../modules/nix/wm/hyprland.nix
