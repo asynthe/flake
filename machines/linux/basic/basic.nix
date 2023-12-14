@@ -70,6 +70,9 @@
       librewolf
       ungoogled-chromium
       pavucontrol
+
+      # TESTING
+      remote-touchpad
       ;
   };
 
