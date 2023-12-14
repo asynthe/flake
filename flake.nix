@@ -87,6 +87,12 @@ homeConfigurations = {
     extraSpecialArgs = {inherit username inputs;};
     modules = [ ./modules/home ];
   };
+
+  only_user = home-manager.lib.homeManagerConfiguration {
+    inherit pkgs;
+    extraSpecialArgs = {inherit username inputs;};
+    modules = [ ./modules/home/user ];
+  };
 };
 
 #nixOnDroidConfigurations.default = #nix-on-droid.lib.nixOnDroidConfiguration {

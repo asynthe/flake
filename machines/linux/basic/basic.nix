@@ -2,6 +2,8 @@
 
   imports = [
 
+    ../../../modules/nix/default # User environment and configuration.
+
     # Window Manager
     ../../../modules/nix/wm/hyprland.nix
     ../../../modules/nix/wm/xmonad.nix
@@ -21,7 +23,7 @@
     #../../../modules/nix/sys/lang/jp.nix # Japanese (日本語)
 
     # Filesystems
-    #../../../modules/nix/fs/fs.nix # this is ZFS.nix lol / FIGURE OUT HOW TO DELETE THIS ONE.
+    #../../../modules/nix/fs/fs.nix
     #../../../modules/nix/fs/f2fs.nix
     #../../../modules/nix/fs/bcachefs.nix
     #../../../modules/nix/fs/zfs.nix
@@ -31,11 +33,9 @@
     #../../../modules/nix/fs/raid/raid0.nix
     #../../../modules/nix/fs/raid/raid1.nix
 
-    # Windows mount to `win` folder in home.
-    #../../../modules/nix/sys/fs/win_mount.nix
-
     # Extra configuration 
     #../../../modules/nix/sys/console.nix # Some tty configuration to make it better.
+    #../../../modules/nix/sys/fs/win_mount.nix # Windows mount to `win` folder in home.
   ];
 
   boot = {
@@ -70,10 +70,6 @@
       librewolf
       ungoogled-chromium
       pavucontrol
-
-      # TESTING
-      anydesk
-      remote-touchpad
       ;
   };
 
