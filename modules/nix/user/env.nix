@@ -27,6 +27,7 @@
   environment.systemPackages = builtins.attrValues {
     inherit
       (pkgs)
+      direnv
       eza
       lf
       starship
