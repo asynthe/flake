@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, username, ... }: {
 
   imports = [
     ./env.nix
