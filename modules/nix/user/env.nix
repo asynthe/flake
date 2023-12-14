@@ -33,4 +33,6 @@
       ueberzugpp
       fzf skim
       zoxide
+      ;
+  };
 }
