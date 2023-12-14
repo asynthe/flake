@@ -72,6 +72,7 @@
       pavucontrol
 
       # TESTING
+      anydesk
       remote-touchpad
       ;
   };
