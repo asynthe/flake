@@ -23,7 +23,7 @@
       pavucontrol
 
       cachix # necessary? if yes add to configuration.nix (default.nix)
-      nodejs
+      #nodejs
       wmctrl
       xdotool
       neofetch
