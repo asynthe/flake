@@ -117,8 +117,9 @@
       # GUI
       librewolf
       ungoogled-chromium
+      chromium
       mullvad-browser
-      pavucontrol
+      pavucontrol # -> audio?
 
       cachix # necessary? if yes add to configuration.nix (default.nix)
       #nodejs
