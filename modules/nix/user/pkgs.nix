@@ -8,6 +8,20 @@
     inherit
       (pkgs)
 
+      # CLI
+      direnv
+      eza
+      lf
+      starship
+      ueberzugpp
+      fzf skim
+      zoxide
+
+      # GUI
+      librewolf
+      ungoogled-chromium
+      pavucontrol
+
       cachix # necessary? if yes add to configuration.nix (default.nix)
       nodejs
       wmctrl

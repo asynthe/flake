@@ -2,10 +2,7 @@
 
   imports = [
 
-    ../../../modules/nix/user # User environment and configuration.
-    # Window Managers
-    ../../../modules/nix/wm/hyprland.nix
-    ../../../modules/nix/wm/xmonad.nix
+    ../../../modules/nix/user/basic.nix # Simple user for a server.
 
     # Bootloader
     #../../../modules/nix/boot/grub.nix
@@ -35,9 +32,6 @@
   environment.systemPackages = builtins.attrValues {
     inherit
       (pkgs)
-
-      #pulseaudio # Needed by Pipewire. # Add to pipewire.nix?
-      # CLI
       git # Git must be installed before flakes.
       wget
       curl
@@ -45,11 +39,6 @@
       neovim
       tmux
       alacritty kitty # Always good to have some extra terminals.
-
-      # GUI
-      librewolf
-      ungoogled-chromium
-      pavucontrol
       ;
   };
 

@@ -9,29 +9,32 @@
   # User
   users.users.${username} = {
     shell = pkgs.zsh;
-    isNormalUser = true;
+    isNormlalUser = true;
     description = "${username}";
     extraGroups = ["docker" "wheel" "video" "audio" "networkmanager" "lp" "scanner" "input"];
     initialPassword = "password";
   };
   programs.zsh.enable = true; # Needed by users.users.${username}.shell
 
-  # Dbus
-  services.dbus.enable = true;
 
   # Replace sudo with doas
-  security.sudo.enable = false;
-  security.doas = {
-    enable = true;
-    extraRules = [
-      {
-        users = ["${username}"];
-        keepEnv = true;
-        #persist = true; # no auth every 5 mins.
-        noPass = true;
-      }
-    ];
+  security = {
+    sudo.enable = false;
+    doas = {
+      enable = true;
+      extraRules = [
+        {
+          users = ["${username}"];
+          keepEnv = true;
+          #persist = true; # No auth every 5 mins.
+          noPass = true; # No auth.
+        }
+      ];
+    };
   };
+
+  # D-bus
+  services.dbus.enable = true;
 
   # PAM service
   security.pam.services = {

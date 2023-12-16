@@ -2,6 +2,10 @@
 
   imports = [
 
+    # Window Managers
+    ../../../modules/nix/wm/hyprland.nix
+    ../../../modules/nix/wm/xmonad.nix
+
     # Drivers
     ../../../modules/nix/driver/intel.nix
     #../../../modules/nix/driver/amd.nix
@@ -46,9 +50,10 @@
     # Tools
     ../../../modules/nix/tools/android.nix # Android tools and packages.
     ../../../modules/nix/tools/devops.nix
-    #../../../modules/nix/tools/libvirt.nix # Virt-manager / libvirt.
     ../../../modules/nix/tools/docker.nix # -> DEVOPS.NIX?
     ../../../modules/nix/tools/podman.nix # -> DEVOPS.NIX?
+
+    #../../../modules/nix/tools/libvirt.nix # Virt-manager / libvirt.
     ../../../modules/nix/tools/virtualbox.nix
 
     # Extra
