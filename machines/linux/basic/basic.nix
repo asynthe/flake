@@ -2,8 +2,9 @@
 
   imports = [
 
-    ../../../modules/nix/user/basic.nix # Simple user for a server.
-    ../../../modules/nix/user # My customized user.
+    # Users
+    ../../../modules/nix/user/asynthe.nix # My customized user.
+    #../../../modules/nix/user/basic.nix # Simple user for a server.
 
     # Bootloader
     #../../../modules/nix/boot/grub.nix
