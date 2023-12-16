@@ -116,7 +116,8 @@
 
       # GUI
       librewolf
-      ungoogled-chromium nss
+      ungoogled-chromium
+      mullvad-browser
       pavucontrol
 
       cachix # necessary? if yes add to configuration.nix (default.nix)
