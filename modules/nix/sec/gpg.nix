@@ -1,5 +1,5 @@
-{config, ...}: {
-  # GPG
+{ config, ... }: {
+
   programs.gnupg = {
     #package = ...
     #dirmngr.enable = true;
@@ -17,4 +17,5 @@
       #(pkgs)
       #;
   #};
+
 }

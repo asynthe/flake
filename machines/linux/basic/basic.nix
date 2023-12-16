@@ -8,10 +8,6 @@
     ../../../modules/nix/wm/hyprland.nix
     ../../../modules/nix/wm/xmonad.nix
 
-    # System
-    ../../../modules/nix/sys/boot.nix
-    ../../../modules/nix/sys/network_manager.nix
-
     # Bootloader
     #../../../modules/nix/sys/grub.nix
     ../../../modules/nix/sys/systemd_boot.nix

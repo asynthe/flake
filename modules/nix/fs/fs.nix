@@ -4,13 +4,13 @@
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux"];
     supportedFilesystems = [
+      #"bcachefs"
       #"btrfs"
       "ext4"
       #"f2fs"
       #"vfat"
       "xfs"
-      #"fat" # Remove?
-      #"exfat" # Remove?
+      #"zfs" # Requires network.hostId.
     ];
   };
 
@@ -20,15 +20,15 @@
       (pkgs)
 
       # Tools
-      nvme-cli
-      hdparm
+      efibootmgr
       fio
+      hdparm
+      nvme-cli
 
-      # Backup Tools
+      # Backup Tools -> #BACKUP.nix ??
       #borgbackup
-      restic
-      tarsnap
-
+      #restic
+      #tarsnap
       ;
   };
 }

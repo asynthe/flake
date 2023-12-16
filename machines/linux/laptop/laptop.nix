@@ -9,7 +9,7 @@
     #../../../modules/nix/driver/nvidia/offload.nix
     #../../../modules/nix/driver/nvidia/sync.nix
     #../driver/nvidia/reverse_sync.nix
-    ../../../modules/nix/driver/accelerated_video_playback.nix # Video acceleration.
+    #../../../modules/nix/driver/accelerated_video_playback.nix # Video acceleration.
     #../../../modules/nix/driver/displaylink.nix # Display link drivers, requires manual setup.
 
     # Network
@@ -19,11 +19,11 @@
     #../../../modules/nix/net/irc.nix
     #../../../modules/nix/net/irc_server.nix
     #../../../modules/nix/net/mosh.nix
-    #../../../modules/nix/net/ssh.nix
-    #../../../modules/nix/net/tailscale.nix
+    ../../../modules/nix/net/ssh.nix
     #../../../modules/nix/net/vnc.nix
-    #../../../modules/nix/net/vpn.nix
+    ../../../modules/nix/net/vpn.nix
     #../../../modules/nix/net/zero_tier_one.nix
+    #../../../modules/nix/net/tailscale.nix
 
     # Cybersecurity
     ../../../modules/nix/sec/gpg.nix
@@ -45,8 +45,8 @@
     ../../../modules/nix/tools/android.nix # Android tools and packages.
     ../../../modules/nix/tools/devops.nix
     #../../../modules/nix/tools/libvirt.nix # Virt-manager / libvirt.
-    ../../../modules/nix/tools/docker.nix
-    ../../../modules/nix/tools/podman.nix
+    ../../../modules/nix/tools/docker.nix # -> DEVOPS.NIX?
+    ../../../modules/nix/tools/podman.nix # -> DEVOPS.NIX?
     ../../../modules/nix/tools/virtualbox.nix
   ]; 
 
