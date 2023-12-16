@@ -7,6 +7,9 @@
       # Pulumi (IaC)
       pulumi-bin #pulumi
       #pulumictl
+
+      wacomtablet
+      libwacom
       ;
   };
 }
