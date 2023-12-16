@@ -7,6 +7,7 @@
     allowUnfree = true;
     permittedInsecurePackages = [
       "python3.10-requests-2.29.0"
+      "electron-25.9.0"
     ];
   };
 
