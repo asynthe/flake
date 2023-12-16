@@ -1,9 +1,18 @@
 { pkgs, ... }: {
 
-  # Flatpak
+  # Move to FLATPAK.NIX!
   services.flatpak.enable = true;
-  xdg.portal.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = builtins.attrValues {
+      inherit
+        (pkgs)
+	xdg-desktop-portal-gtk
+	;
+    };
+  };
   fonts.fontDir.enable = true; # Fix for flatpak not finding system installed fonts.
+  # Flatpak
 
   environment.systemPackages = builtins.attrValues {
     inherit
