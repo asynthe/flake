@@ -24,7 +24,7 @@
 
       cachix # necessary? if yes add to configuration.nix (default.nix)
       #nodejs
-      wmctrl
+      #wmctrl
       xdotool
       neofetch
    
