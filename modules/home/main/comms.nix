@@ -11,9 +11,9 @@
       #gajim # XMPP client
       signal-desktop
       telegram-desktop
-      armcord #webcord 
+      armcord
+      webcord
       #discord #gtkcord4
-      #teams #teams-for-linux # Microsoft Teams
       ;
   };
 }
