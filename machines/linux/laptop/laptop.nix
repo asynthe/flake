@@ -39,7 +39,7 @@
     # Daemon
     #../../../modules/nix/daemon/locate.nix
     ../../../modules/nix/daemon/mpd.nix
-    ../../../modules/nix/server/syncthing.nix
+    #../../../modules/nix/server/syncthing.nix
 
     # Tools
     ../../../modules/nix/tools/android.nix # Android tools and packages.
