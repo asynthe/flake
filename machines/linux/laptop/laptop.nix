@@ -12,7 +12,13 @@
     #../../../modules/nix/driver/accelerated_video_playback.nix # Video acceleration.
     #../../../modules/nix/driver/displaylink.nix # Display link drivers, requires manual setup.
 
+    # Audio
+    ../../../modules/nix/audio/audio.nix
+    #../../../modules/nix/audio/pipewire.nix
+    #../../../modules/nix/audio/jack.nix
+
     # Network
+    ../../../modules/nix/net/nm.nix # Network Manager configuration.
     #../../../modules/nix/net/dns.nix
     #../../../modules/nix/net/elastic.nix
     #../../../modules/nix/net/i2p.nix
@@ -37,10 +43,6 @@
     #../../../modules/nix/daemon/locate.nix
     ../../../modules/nix/daemon/mpd.nix
 
-    # Extra
-    ../../../modules/nix/extra/gaming.nix
-    ../../../modules/nix/extra/fcitx5_mozc.nix # Fcitx5 + mozc (IME)
-
     # Tools
     ../../../modules/nix/tools/android.nix # Android tools and packages.
     ../../../modules/nix/tools/devops.nix
@@ -48,6 +50,13 @@
     ../../../modules/nix/tools/docker.nix # -> DEVOPS.NIX?
     ../../../modules/nix/tools/podman.nix # -> DEVOPS.NIX?
     ../../../modules/nix/tools/virtualbox.nix
+
+    # Extra
+    ../../../modules/nix/extra/gaming.nix
+    ../../../modules/nix/extra/fcitx5_mozc.nix # Fcitx5 + mozc (IME)
+    #../../../modules/nix/sys/console.nix # Some tty configuration to make it better.
+    #../../../modules/nix/sys/fs/win_mount.nix # Windows mount to `win` folder in home.
+
   ]; 
 
 }
