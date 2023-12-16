@@ -42,7 +42,7 @@
 
     # Pkgs
     ./pkgs/1_pkgs.nix
-    ./pkgs/emulation.nix
+    #./pkgs/emulation.nix
     ./pkgs/games.nix
     ./pkgs/shell.nix
     ./pkgs/system.nix
