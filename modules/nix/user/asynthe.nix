@@ -56,7 +56,6 @@
     };
   };
 
-
   # Fonts
   fonts = {
     packages = with pkgs; [
@@ -117,7 +116,7 @@
 
       # GUI
       librewolf
-      ungoogled-chromium
+      ungoogled-chromium nss
       pavucontrol
 
       cachix # necessary? if yes add to configuration.nix (default.nix)
