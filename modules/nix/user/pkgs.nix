@@ -2,6 +2,7 @@
 
   # Flatpak
   services.flatpak.enable = true;
+  xdg.portal.enable = true;
   fonts.fontDir.enable = true; # Fix for flatpak not finding system installed fonts.
 
   environment.systemPackages = builtins.attrValues {
