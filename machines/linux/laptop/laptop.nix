@@ -1,16 +1,6 @@
 { config, ... }: {
 
-  # The Basic.nix should have the filesystems and everything.
-  # This one should be used to enable more specific options like nvidia drivers
-  # Audio, network, cybersecurity things, services
-  # Although maybe it can also be used to prefer a file system over other(?)
-  # Like if i choose this then mkForce disable the ext4 default.
-
   imports = [
-
-    # Window Managers
-    ../../../modules/nix/wm/hyprland.nix
-    ../../../modules/nix/wm/xmonad.nix
 
     # Drivers
     ../../../modules/nix/driver/intel.nix
@@ -22,22 +12,17 @@
     ../../../modules/nix/driver/accelerated_video_playback.nix # Video acceleration.
     #../../../modules/nix/driver/displaylink.nix # Display link drivers, requires manual setup.
 
-    # Audio
-    ../../../modules/nix/audio/audio.nix
-    #../../../modules/nix/audio/pipewire.nix
-    #../../../modules/nix/audio/jack.nix
-
     # Network
-    ../../../modules/nix/net/dns.nix
+    #../../../modules/nix/net/dns.nix
     #../../../modules/nix/net/elastic.nix
     #../../../modules/nix/net/i2p.nix
-    ../../../modules/nix/net/irc.nix
+    #../../../modules/nix/net/irc.nix
     #../../../modules/nix/net/irc_server.nix
-    ../../../modules/nix/net/mosh.nix
-    ../../../modules/nix/net/ssh.nix
+    #../../../modules/nix/net/mosh.nix
+    #../../../modules/nix/net/ssh.nix
     #../../../modules/nix/net/tailscale.nix
-    ../../../modules/nix/net/vnc.nix
-    ../../../modules/nix/net/vpn.nix
+    #../../../modules/nix/net/vnc.nix
+    #../../../modules/nix/net/vpn.nix
     #../../../modules/nix/net/zero_tier_one.nix
 
     # Cybersecurity

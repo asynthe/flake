@@ -4,7 +4,7 @@
 
     ../../../modules/nix/user # User environment and configuration.
 
-    # Window Manager
+    # Window Managers
     ../../../modules/nix/wm/hyprland.nix
     ../../../modules/nix/wm/xmonad.nix
 
@@ -33,20 +33,18 @@
     #../../../modules/nix/fs/raid/raid0.nix
     #../../../modules/nix/fs/raid/raid1.nix
 
+    # Audio
+    ../../../modules/nix/audio/audio.nix
+    #../../../modules/nix/audio/pipewire.nix
+    #../../../modules/nix/audio/jack.nix
+
+    # Network
+    ../../../modules/nix/net/nm.nix # Network Manager
+
     # Extra configuration 
     #../../../modules/nix/sys/console.nix # Some tty configuration to make it better.
     #../../../modules/nix/sys/fs/win_mount.nix # Windows mount to `win` folder in home.
   ];
-
-  boot = {
-    binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux"];
-    supportedFilesystems = [
-      "ext4"
-      "vfat"
-      #"fat" # Remove?
-      #"exfat" # Remove?
-    ];
-  };
 
   # List of packages I want to have on a server.
   nixpkgs.config.allowUnfree = true;
@@ -54,19 +52,17 @@
     inherit
       (pkgs)
 
+      #pulseaudio # Needed by Pipewire. # Add to pipewire.nix?
       # CLI
-
       git # Git must be installed before flakes.
       wget
       curl
       lf
       neovim
       tmux
-      pulseaudio # Needed by Pipewire.
       alacritty kitty # Always good to have some extra terminals.
 
       # GUI
-
       librewolf
       ungoogled-chromium
       pavucontrol

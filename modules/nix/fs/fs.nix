@@ -1,56 +1,34 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
 
-
-  # Something in my config is getting zfs, making me require this, even though im using F2FS.
-  networking.hostId = "3a864bd3"; # Random 8 digits, required
-
-
-  #boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages; # Only latest compatible kernel stuff with ZFS.
-
-  #services.zfs = {
-    #trim.enable = true;
-    #autoScrub = {
-      #enable = true;
-      #pools = ["nixpool"];
-    #};
-  #};
-
-  # Partitions
-  #fileSystems = {
-    #"/" = {
-      #device = "nixpool/root/nixos";
-      #fsType = "zfs";
-    #};
-    #"/home" = {
-      #device = "nixpool/home";
-      #fsType = "zfs";
-    #};
-  #};
+  # Some configuration
+  boot = {
+    binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux"];
+    supportedFilesystems = [
+      #"btrfs"
+      "ext4"
+      #"f2fs"
+      #"vfat"
+      "xfs"
+      #"fat" # Remove?
+      #"exfat" # Remove?
+    ];
+  };
 
   # Filesystem tools
   environment.systemPackages = builtins.attrValues {
     inherit
       (pkgs)
+
       # Tools
-      
       nvme-cli
       hdparm
       fio
 
       # Backup Tools
-      #sanoid # ZFS
       #borgbackup
       restic
       tarsnap
-      # Progs
-      
-      xfsprogs
-      btrfs-progs
-      ntfs3g
+
       ;
   };
 }
