@@ -1,6 +1,6 @@
 { config, pkgs, username, ... }: {
 
-  users.users.${username} = {
+  users.users.user = {
     extraGroups = ["wheel" "video" "audio" "networkmanager" "input"];
     initialPassword = "password";
   };
