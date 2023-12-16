@@ -3,6 +3,7 @@
   imports = [
 
     ../../../modules/nix/user/basic.nix # Simple user for a server.
+    ../../../modules/nix/user # My customized user.
 
     # Bootloader
     #../../../modules/nix/boot/grub.nix
