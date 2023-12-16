@@ -3,6 +3,7 @@
   users.users.user = {
     extraGroups = ["wheel" "video" "audio" "networkmanager" "input"];
     initialPassword = "password";
+    isNormalUser = true;
   };
 
   # Replace sudo with doas

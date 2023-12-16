@@ -9,7 +9,7 @@
   # User
   users.users.${username} = {
     shell = pkgs.zsh;
-    isNormlalUser = true;
+    isNormalUser = true;
     description = "${username}";
     extraGroups = ["docker" "wheel" "video" "audio" "networkmanager" "lp" "scanner" "input"];
     initialPassword = "password";
