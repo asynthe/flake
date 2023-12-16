@@ -44,6 +44,7 @@
     packages = with pkgs; [terminus_font];
     #keyMap = "us"; remove (?)
     #useXkbOptions = true; # use xkbOptions in tty.
+  };
 
   # PAM service
   security.pam.services = {
