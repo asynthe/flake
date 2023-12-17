@@ -29,7 +29,7 @@ outputs = inputs @ {
 
 nixosConfigurations = {
 
-  genkai = nixpkgs.lib.nixosSystem {
+  ${hostname} = nixpkgs.lib.nixosSystem {
     system = "${hostname}";
     specialArgs = {inherit username inputs;};
 
