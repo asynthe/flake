@@ -12,7 +12,7 @@
       signal-desktop
       telegram-desktop
       webcord
-      discord 
+      #discord 
       armcord
       gtkcord4
       ;
