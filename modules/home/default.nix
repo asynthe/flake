@@ -38,7 +38,7 @@
     ./dev/tools.nix
 
     # Pkgs
-    ./pkgs/1_pkgs.nix
+    ./pkgs/pkgs.nix
     #./pkgs/emulation.nix
     ./pkgs/games.nix
     ./pkgs/shell.nix
