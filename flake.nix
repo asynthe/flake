@@ -29,27 +29,30 @@ outputs = inputs @ {
 
 nixosConfigurations = {
 
-  ${hostname} = nixpkgs.lib.nixosSystem {
-    system = "${hostname}";
-    specialArgs = {inherit username inputs;};
+#  basic = nixpkgs.lib.nixosSystem {
+#    system = "genkai";
+#    specialArgs = {inherit username inputs;};
+#
+#    modules = [
+#      ./machines/laptop_genkai
+#
+#      inputs.musnix.nixosModules.musnix
+#      # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
+#    ];
+#    };
+#  };
 
-    modules = [
-      ./machines/linux/laptop
-      inputs.musnix.nixosModules.musnix
-      # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
+genkai = nixpkgs.lib.nixosSystem {
+  system = "genkai";
+  specialArgs = {inherit username inputs;};
+
+  modules = [
+    ./machines/linux/laptop
+
+    inputs.musnix.nixosModules.musnix
+    # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
     ];
   };
-
-  basic = nixpkgs.lib.nixosSystem {
-    system = "${hostname}";
-    specialArgs = {inherit username inputs;};
-
-    modules = [
-      ./machines/linux/basic
-    ];
-  };
-
-
 };
 
 # Home Manager as a Module
@@ -86,12 +89,6 @@ homeConfigurations = {
     inherit pkgs;
     extraSpecialArgs = {inherit username inputs;};
     modules = [ ./modules/home ];
-  };
-
-  only_user = home-manager.lib.homeManagerConfiguration {
-    inherit pkgs;
-    extraSpecialArgs = {inherit username inputs;};
-    modules = [ ./modules/home/user ];
   };
 };
 
