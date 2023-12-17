@@ -11,9 +11,10 @@
       #gajim # XMPP client
       signal-desktop
       telegram-desktop
-      armcord
       webcord
-      #discord #gtkcord4
+      discord 
+      armcord
+      gtkcord4
       ;
   };
 }
