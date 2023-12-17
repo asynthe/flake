@@ -8,6 +8,7 @@
       pulumi-bin #pulumi
       #pulumictl
 
+      hexchat
       wacomtablet
       libwacom
       ;
