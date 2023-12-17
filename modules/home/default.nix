@@ -2,9 +2,8 @@
 
   imports = [
 
-    # Home Manager configuration and settings.
-    ./home.nix 
-    ./1_temp.nix # Temp file to test stuff
+    ./home.nix # Home Manager configuration and settings.
+    ./temp.nix # Temp file to test stuff
 
     # Apps
     #./app/dots.nix
