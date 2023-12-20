@@ -3,7 +3,7 @@
   imports = [
 
     # Window Managers
-    #../../../modules/nix/wm/hyprland.nix
+    ../../../modules/nix/wm/hyprland.nix
     ../../../modules/nix/wm/xmonad.nix
 
     # Drivers
