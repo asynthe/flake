@@ -77,6 +77,6 @@
 
     inherit (pkgs.libsForQt5.qt5) qtwayland;
     #inherit (pkgs.qt6) qtwayland; # Qt Wayland Support
-    inherit (pkgs.xorg) xlsclients; # Check for apps running on xwayland
+    #inherit (pkgs.xorg) xlsclients; # Check for apps running on xwayland
   };
 }
