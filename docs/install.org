@@ -336,20 +336,20 @@ we will are going to create the partitions as it follows
 - rest of disk as main partition
 - encrypted with another encrypted swap partitions
 
-*** GUI
-**** Gparted
+** GUI
+*** Gparted
 - run the iso on your computer
 - run gparted
   - Device -> Create Partition Table... -> gpt (UEFI) / msdos (MBR)
 
-*** CLI
-**** sgdisk
+** CLI
+*** sgdisk
 #+begin_src
 # sgdisk -n3:1M:+1024M -t3:EF00 /dev/disk/by-id/VENDOR-ID
 # sgdisk -n1:0:0 -t1:BF01 /dev/disk/by-id/VENDOR-ID
 #+end_src
 
-**** Parted
+*** Parted
 #+begin_src
 # parted /dev/sda -- mklabel gpt (UEFI)
 # parted /dev/sda -- mkpart primary 512MiB -8GiB
@@ -361,7 +361,7 @@ we will are going to create the partitions as it follows
 # mkfs.fat -F 32 -n boot /dev/sda3
 #+end_src
 
-**** fdisk
+*** fdisk
 #+begin_src
 g (gpt)
 n
@@ -377,7 +377,7 @@ default (fill up partition)
 w (write)
 #+end_src
 
-**** gdisk - CLI - ZFS
+*** gdisk - CLI - ZFS
 -> ~# gdisk /dev/sda~
 #+begin_src
 n
@@ -394,26 +394,25 @@ w
 Y
 #+end_src
 
-** Filesystems
-*** formatting boot device 
+* Filesystems
+** formatting boot device 
 format the boot partition first
 ~# mkfs.vfat /dev/sda1~
 
-**** luks encryption
+** luks encryption
 ~# cryptsetup luksFormat --hash sha512 --use-random /dev/sda2~
 _extra_: add ~--hash sha512~ and ~--use-random~
 ~# cryptsetup open --type luks /dev/sda2 crypt~
 this will mount the encrypted device in ~crypt~
 
-*** ZFS
-**** luks encryption
+** ZFS
+** luks encryption
+
 create a zpool like this
 ~# zpool create -O mountpoint=none nixpool /dev/mapper/crypt~
 
-**** native encryption
-
-
-**** datasets
+** native encryption
+** datasets
 ~# zfs create -o mountpoint=legacy nixpool/root~
 ~# zfs create -o mountpoint=legacy nixpool/root/nixos~
 ~# zfs create -o mountpoint=legacy nixpool/home~
@@ -426,15 +425,15 @@ mounting home dir
 mounting boot partition
 ~# mount /dev/sda1 /mnt/boot~
 
-*** BTRFS
-*** XFS
+** BTRFS
+** XFS
 
 time to generate our nix configuration from start
 ~# nixos-generate-config --root /mnt~
 ~# cd /mnt/etc/nixos~
 ~# vim configuration.nix~
 
-**** nixos configuration
+*** nixos configuration
 generate needed hostId, and write it on a paper
 ~# head -c4 /dev/urandom | od -A none -t x4~
 3a864ad3
@@ -443,17 +442,17 @@ also copy and add ~/dev/nvme1n1p2~ uuid with
 
 [my configuration.nix]
 
-**** nixos installation
+*** nixos installation
 once everything's done, you can proceed to make *the nixos install* on your drive
 ~# cd /mnt~
 ~# nixos-install~
 
-**** after install
+*** after install
+
 run ~passwd~ to change the user password
 
-
---------------------------------
 * XDDD
+
 so, remember to change your password
 TTY
 - Ctrl Alt F1 -> log in via root

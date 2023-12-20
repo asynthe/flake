@@ -4,9 +4,11 @@ This is my attempt at explaining and gathering all that I know about Nix,
 
 These are links for my org notes.
 I will try to keep them tidy and updated, but I don't promise anything.
-- Nix
-- NixOS
-- Home Manager
+
+- [[][Nix]
+- [[][Flakes]
+- [[][NixOS]
+- [[][Home Manager
 
 I use Emacs and org-mode to edit the flake content, as a literate configuration.
 You can see my personal use flake [[][here]].

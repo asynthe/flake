@@ -3,11 +3,6 @@
 :END:
 #+title: Flakes
 
-This is somewhat on my explanation on flakes
-I could have put everything in my literate config but it is long as it is, so that's why i decided.
-
-+ [[https://github.com/asynthe/flake/blob/main/flake.org][Link to my literate configuration]]
-
 * /Resources/
 
 *Posts*
@@ -105,7 +100,6 @@ _note_: If your system hostname is the same as the flake hostname ~nixosConfigur
 + [[https://ayats.org/blog/nix-workflow/][Development workflow with Nix - ayats.org]]
 
 Install direnv  
-
 
 * Tutorials (FIX PLS)
 ** TWEAG WEBPAGES
