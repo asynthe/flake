@@ -42,10 +42,10 @@
     #../../../modules/nix/server/syncthing.nix
 
     # Tools
-    ../../../modules/nix/tools/android.nix # Android tools and packages.
-    ../../../modules/nix/tools/devops.nix
-    ../../../modules/nix/tools/docker.nix # -> DEVOPS.NIX?
-    ../../../modules/nix/tools/podman.nix # -> DEVOPS.NIX?
+    #../../../modules/nix/tools/android.nix # Android tools and packages.
+    #../../../modules/nix/tools/devops.nix
+    #../../../modules/nix/tools/docker.nix # -> DEVOPS.NIX?
+    #../../../modules/nix/tools/podman.nix # -> DEVOPS.NIX?
 
     #../../../modules/nix/tools/libvirt.nix # Virt-manager / libvirt.
     #../../../modules/nix/tools/virtualbox.nix
