@@ -1,0 +1,900 @@
+:PROPERTIES:
+:ID:       5a7e42db-d799-46bd-853f-05bbf53c3f69
+:END:
+#+title: NixOS
+
+* Resources
+
+*WEBSITES*
++ [[https://nixos.org/][NixOS main page]]
++ [[https://nixos.wiki/wiki/Main_Page][NixOS wiki main page]]
++ [[https://search.nixos.org/packages][nixpkgs (nix packages)]]
++ [[https://search.nixos.org/options][NixOS options]]
+
+[[https://nixos.org/manual/nix/unstable][Nix reference manual]]
+[[https://github.com/mikeroyal/NixOS-Guide][NixOS Guide, mike royal - github]]
+[[https://jiaxiaodong.com/blog/][jiaxiaodong - nix stuff]]
+
+*TEST AND ADD/DELETE*
+https://lazamar.github.io/download-specific-package-version-with-nix/
+
+*GETTING STARTED WITH NIX*
++ https://github.com/nix-community/awesome-nix
++ https://nix.ug
++ https://nix.dev
++ https://zero-to-nix.com/
++ discourse
++ matrix and discord channels
+
+*NIX PACKAGE MANAGER*
+[[https://linuxhint.com/how-to-use-nixos-package-manager/][How to use NixOS Package Manager? - linuxhint]]
+[[https://matthewrhone.dev/nixos-package-guide][NixOS simple package manager guide - Matthew Rhone]]
+
+*NIX LANGUAGE*
+[[https://nix-tutorial.gitlabpages.inria.fr/nix-tutorial/getting-started.html][Getting Started with Nix - nix-tutorial]]
+
+*FLAKES*
+https://thiscute.world/en/posts/nixos-and-flake-basics/
+[[https://nixos-and-flakes.thiscute.world/][NixOS & Flakes Book - ryan4yin]]
+
+*DOTS*
+https://github.com/dmadisetti/.dots/tree/main
+https://github.com/notohh/snowflake
+
+*YOUTUBE VIDEOS*
+
+*BLOGS*
++ [[https://www.tweag.io/blog/2022-11-01-hard-user-separation-with-nixos/][HARD USER SEPARATION WITH NIXOS - tweag.io]]
++ [[https://lantian.pub/en/article/modify-website/nixos-why.lantian/][NixOS Series 1: Why I fell in love - Lan Tian @ Blog]]
++ [[https://itsfoss.com/why-use-nixos/][NixOS Series #1: Why Should You Consider Using NixOS? - IT'S FOSS]]
+
++ [[https://tech.aufomm.com/my-nixos-journey-flakes/][My NixOS Journey - Flakes - Red Tomato's Blog]]
++ [[https://tech.aufomm.com/my-nixos-journey-home-manager/][My NixOS Journey - Home Manager - Red Tomato's Blog]]
+
++ [[https://shen.hong.io/nixos-home-manager-wayland-sway/][Building a Philosophy Workstation with NixOS: Learning Home Manager and Configuring Sway with Wayland - Shen's Essays]]
+
+*EXTRA*
+[[https://builtwithnix.org/][Build with Nix - Add the Sticker to your github!]]
+
+* [[id:a1e4c20e-a777-4e75-8bef-403b1e7c5c4a][Flakes]]
+* Home Manager
+:PROPERTIES:
+:ID:       b734280e-2bf7-4fc1-bb0a-248eebbb7e7b
+:END:
+
+** Resources
+
++ [[https://github.com/nix-community/home-manager][github page]]
++ [[https://nix-community.github.io/home-manager/][Home Manager Manual - nix-community]]
++ [[https://itsfoss.com/home-manager-nixos/][NixOS Series #5: How to set up home-manager on NixOS? - IT'S FOSS]]
++ [[https://www.magnusson.io/post/home-manager-review/][Review of home manager - Gunnar por Magnusson]]
+
+** Commands
+
+Read the news
+~$ home-manager news~
+
+[link to home-manager section]
+https://nixos.wiki/wiki/Zsh
+
+** Installing
+*** As a Module
+
+_note_: It will *require* sudo privileges to run *home-manager* as a NixOS module.
+
+If using the _stable_ channel.
+~# nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager~
+
+If using the _unstable_ channel.
+~# nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager~
+
+*UPDATE THE CHANNELS*
+~# nix-channel --update~
+
+*EDITING CONFIGURATION.NIX*
+Edit ~/etc/nixos/configuration.nix~ as root, and add the next
+#+begin_src nix
+{
+  imports =
+    [  # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+      <home-manager/nixos>
+    ];
+#+end_src
+Add this on the end of the file, before ~}~.
+#+begin_src nix
+...
+  home-manager.users.<user> = { pkgs, ... }: {
+  home.packages = [   ];
+  };
+}
+#+end_src
+
+*REBUILD THE SYSTEM*
+Rebuild the config and switch into it:
+~# nixos-rebuild switch~
+
+_note_: If you're using _stable_, it will give you an error.
+To solve this issue, you will have to add the next in your home manager block.
+#+begin_src nix
+...
+  home-manager.users.<user> = { pkgs, ... }: {
+  home.stateVersion = "22.11";
+  home.packages = [   ];
+  };
+}
+#+end_src
+
+*** Standalone
+
+If using the _stable_ channel.
+~$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager~
+
+If using the _unstable_ channel.
+~$ nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager~
+
+*UPDATE THE CHANNELS*
+~# nix-channel --update~
+
+And install the home manager:
+~$ nix-shell '<home-manager>' -A install~
+
+If you get an error, reboot the computer and run again
+
+** Adding Packages
+
+Everything now to edit will be on
+~~/.config/home-manager/home.nix~
+
+Add packages in
+#+begin_src nix
+home.packages = with pkgs; [
+
+  # Add packages here
+  neofetch
+  slides
+
+];
+#+end_src
+
+** Configuring SSH Credential Caching
+* [[id:889de3b6-1c25-4b59-a844-90955c59c924][Install]]
+* Tips
+** Checking whether package is installed with nix or home-manager
+
+Check you have a package installed though home manager like this
+~$ which btop~
+
+*This is on Home Manager*
+#+begin_src
+/home/user/.nix-profile/bin/btop
+#+end_src
+*This is on regular Nix*
+#+begin_src 
+/run/current-system/sw/bin/btop
+#+end_src
+
+* setup
+** cachix (binary repository)
+
+[[https://github.com/cachix/cachix][github page]]
+[[https://www.cachix.org][main page]]
+[[https://docs.cachix.org][cachix docs]]
+
+cachix is *binary as a service* for nix binaries
+
+you can install with ~nix-env~ or adding it to your ~configuration.nix~
+#+begin_src nix
+environment.systemPackages = with pkgs; [
+  cachix
+];
+#+end_src
+
+now, add a binary cache such as the ~nix-community~ one.
+~# cachix use nix-community~
+
+add the import in ~configuration.nix~
+#+begin_src nix
+imports = [ ./cachix.nix ];
+#+end_src
+
+then run
+~# nixos-rebuild switch~
+
+** bleeding edge emacs
+
+[[https://github.com/nix-community/emacs-overlay][nix-community/emacs-overlay]]
+
+easy config in ~configuration.nix~, you can replace emacsUnstable with
+- emacsGit
+- emacsUnstable
+- emacsGit-nox
+- emacsUnstable-nox
+- emacsPgtk
+
+#+begin_src nix
+{config, pkgs, callPackage, ... }:
+{
+# ...
+  services.emacs.package = pkgs.emacsUnstable;
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    }))
+  ];
+# ...
+}
+#+end_src
+
+after that, update your nix channel
+~# nix-channel --update~
+
+and rebuild your configuration
+~# nixos-rebuild --switch~
+
+** Impermanence
+
+"/Making root dissapear, be a tmpfs./"
+Handle persistent state on systems with ephemeral root storage.
+
+[[https://nixos.wiki/wiki/Impermanence][Impermanence - nixos wiki]]
+
+https://github.com/nix-community/impermanence
+https://www.reddit.com/r/NixOS/comments/13j64qh/how_to_add_impermanence_afterwards/
+
+* package manager
+** updating system
+
+1. *updating the nix channel*
+~# nix-channel --update~
+
+2. *updating packages*
+declarative: in /configuration.nix/ or other
+~# nixos-rebuild switch~
+
+ad-hoc: _nix-env_ installed packages
+~$ nix-env -u '*'~
+
+_Home Manager_ installed packages
+~$ home-manager switch~
+
+do both with
+~$ sudo nix-channel --update && sudo nixos-rebuild switch~
+
+** changing the nix-channel
+
+so you want to change from /stable/ to /unstable/? (rolling-release)
+do the next:
+~# nix-channel --add https://nixos.org/channels/nixos-unstable nixos~
+~# nixos-rebuild --upgrade-all switch~
+
+now,
+if you do the rebuild as root, it will work for configuration.nix
+if you do as user, it will update nix-env channels
+
+** garbage collection
+
+*command-line*
+one liner:
+~# nix-collect-garbage -d~
+
+remove undeclared packaged, dependencies and symlinks:
+~$ nix-collect-garbage~
+
+list generations:
+~$ nix-env --list-generations~
+
+remove above of older generations:
+~$ nix-collect-garbage --delete-old~
+older than /n/ days:
+~$ nix-env --delete-generations 14d~
+~$ nix-env --delete-generations 10 11~
+
+optimize store
+~$ nix-store --gc~
+
+*as a module* (/configuration.nix/)
+
+#+begin_src nix
+nix = {
+  settings.auto-optimise-store = true;
+  gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d"
+  };
+};
+#+end_src
+
+* nix-shell / ephemeral shell
+
+[[https://peppe.rs/posts/nixOS/][NixOS - peppe.rs]]
+
+#+begin_src nix
+#!/usr/bin/env nix-shell
+#! nix-shell -i bash -p 
+#+end_src
+~-p~ -> Specified dependencies
+~-i~ -> Specified interpreter
+
+* installing packages
+** declarative - configuration.nix
+
+in _configuration.nix_
+add your packages on nix file
+#+begin_src nix
+environment.systemPackages = with pkgs; [
+  bottles
+  firefox
+  gimp
+  ];
+#+end_src
+
+** ad-hoc - nix-env
+
+_ad-hoc_: *nix-env* (local package manager) 
+
+_nix-env_ will install programs on your local machine
+
+nix-shell will install programs on your ephemeral shell, install like this
+~$ nix-shell -p usbimager~
+exit the shell
+~$[nix-shell:~]$ exit~
+
+*system failure or break*
+now, there's a possibility of a system break, in which case you can reboot and choose another system state. if you make that state as the main one, do this.
+~# nixos-rebuild --rollback~
+
+** ad-hoc - nix-shell: ephemeral shell
+
+or *nix-shell* (ephemeral shell)
+
+* tips
+** overlays
+
+[[https://nixos.wiki/wiki/Overlays][nixos wiki]]
+
+*WAYLAND*
+https://github.com/nix-community/nixpkgs-wayland
+
+overriding a package attrs
+
+* FIXES
+** problems with packages
+
+Sometimes, you can have problems with a package if you have it installed through ~nix-env~ and by rebuilding it with ~nixos-rebuild switch~, this can be solved in the next way.
+
+~$ sudo nix-channel --list~
+if there's a ~nixos~ channel, there shouldn't be a ~nixpkgs~ channel
+remove it with ~$ nix-channel --remove nixpkgs~
+
+now, try to remove all packages install with ~nix-env~ (other than home-manager)
+~nix-env -q~ to list them
+~nix-env -e <app>~ to remove
+~nix-env -e '*'~ remove all
+
+try garbage collecting
+~$ nix-collect-garbage --delete-older-than 1m~
+
+** nvidia propietary driver
+
+enable like this:
+
+#+begin_src nix
+services.xserver.videoDrivers = [ "nvidia" ];
+hardware.opengl.enable = true;
+hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+#+end_src
+
+** printer driver (CUPS)
+
+enable the printer drivers like this:
+#+begin_src nix
+services.printing.enable = true;
+services.printing.drivers = [ pkgs.pantum-driver ];
+#+end_src
+if you need the brlaser driver instead:
+#+begin_src nix
+services.printing.enable = true;
+services.printing.drivers = [ pkgs.brlaser ];
+#+end_src
+
+** installing package from unstable branch when using stable (fix)
+
+Suppose you wanted to use the very latest version of Polychromatic from the unstable branch. First, you'll have to tell nixos to start tracking the unstable channel. Run this
+
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable
+sudo nix-channel --update
+
+Then we're going to make a nix file to direct the package manager to incorporate this one package from the unstable channel into the system. Take this file and put it in the /etc/nixos directory and call it "upack.nix" (short for unstable-packages):
+
+{ config, pkgs, ... }:
+
+let
+  unstablepkgs = import <unstable> {};
+in {
+  environment.systemPackages = with pkgs; [
+    unstablepkgs.polychromatic
+  ];
+}
+
+If you wanted to add more packages from the unstable channel, just put them there on a new line after polychromatic, but remembering to add the "unstablepkgs." prefix. For example, if you also wanted DistroBox and GNOME Builder from the unstable branch, your upack.nix file would look like this:
+
+{ config, pkgs, ... }:
+
+let
+  unstablepkgs = import <unstable> {};
+in {
+  environment.systemPackages = with pkgs; [
+    unstablepkgs.polychromatic
+    unstablepkgs.gnome-builder
+    unstablepkgs.distrobox
+  ];
+}
+
+Now you'll need to incorporate the upack.nix file into the configuration.nix file. To do that, add it to the imports section. Usually, that includes the hardware-configuration.nix, so we'll just add it after that line. The imports section should then look like this:
+
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+      ./upack.nix
+    ];
+
+Then do a normal "sudo nixos-rebuild --upgrade-all switch" and the packages you listed in upack.nix will all be the versions from the unstable channel. If you later decide you don't want those packages from unstable installed on the system, just comment out the line in configuration.nix so that it looks like this:
+
+Suppose you wanted to use the very latest version of Polychromatic from the unstable branch. First, you'll have to tell nixos to start tracking the unstable channel. Run this
+
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable
+sudo nix-channel --update
+
+Then we're going to make a nix file to direct the package manager to incorporate this one package from the unstable channel into the system. Take this file and put it in the /etc/nixos directory and call it "upack.nix" (short for unstable-packages):
+
+{ config, pkgs, ... }:
+
+let
+  unstablepkgs = import <unstable> {};
+in {
+  environment.systemPackages = with pkgs; [
+    unstablepkgs.polychromatic
+  ];
+}
+
+If you wanted to add more packages from the unstable channel, just put them there on a new line after polychromatic, but remembering to add the "unstablepkgs." prefix. For example, if you also wanted DistroBox and GNOME Builder from the unstable branch, your upack.nix file would look like this:
+
+{ config, pkgs, ... }:
+
+let
+  unstablepkgs = import <unstable> {};
+in {
+  environment.systemPackages = with pkgs; [
+    unstablepkgs.polychromatic
+    unstablepkgs.gnome-builder
+    unstablepkgs.distrobox
+  ];
+}
+
+Now you'll need to incorporate the upack.nix file into the configuration.nix file. To do that, add it to the imports section. Usually, that includes the hardware-configuration.nix, so we'll just add it after that line. The imports section should then look like this:
+
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+      ./upack.nix
+    ];
+
+Then do a normal "sudo nixos-rebuild --upgrade-all switch" and the packages you listed in upack.nix will all be the versions from the unstable channel. If you later decide you don't want those packages from unstable installed on the system, just comment out the line in configuration.nix so that it looks like this:
+
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+#     ./upack.nix
+    ];
+
+** running an AppImage
+
+you will need to run AppImages through a helper application called appimage-run, add it to ~configuration.nix~, ~nix-env~ or ~nix-shell~.
+
+you will have to modify the .desktop file to make the launcher work
+~exec=/home/<user>/.local/share/program/program.Linux.AppImage~
+to
+~exec=appimage-run "//home/<user>//.local/share/program/program.Linux.AppImage"'~
+or
+~exec=nix-shell -p appimage-run --run 'app-image-run "home/<user>/.local/share/program/program.Linux.AppImage"'~
+
+_note_: it doesn't work when double-clicking on a file manager.
+** running Flatpak applications
+
+enable Flatpak on ~configuration.nix~
+#+begin_src nix
+services.flatpak.enable = true;
+#+end_src
+
+now add the Flatpak repo
+~$ flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo~
+
+* TUTORIALS
+** LONG TUTORIAL (ORGANIZE)
+*** package management
+
+**** nix-env
+
+normal installation of package
+~$ nix-env -iA nixos.<package>~
+
+**** nix-shell
+make a ephemeral shell environtment
+_example_:
+
+~[user@linuxpc:~]$ go version~
+~go: command not found~
+
+~[user@linuxpc:~]$ nix-shell -p go~
+or
+~[user@linuxpc:~]$ nix-shell -p go_1_15~
+
+~[nix-shell:~]$ go version~
+~go version go.1.16.13 linux/amd64~
+
+~[nix-shell:~]$ exit~
+~exit~
+
+*** nix-store
+no /lib & /usr/lib, almost non-existent /bin & /usr/bin -> /nix/store
+
+**** nix-channels
+define if your distro is traditional "release every 6 months" -> ~nixos-21.11~
+or "git master" (but after it passes CI) -> ~nixos-unstable~
+
+- you can run a stable system with unstable packages
+- the inverse
+- just a "rolling-release" or just stable
+
+how to change
+
+**** building from source
+
+*** nix-env (Nix Package Manager)
+install packages at user level without having to change system state
+
+*** installing packages
+**** Nix Package Manager
+install
+~$ nix-env -iA nixos.firefox~
+
+list (will only show packages installed with nix-env)
+~$ nix-env -q~
+
+uninstall
+~$ nix-env --uninstall firefox~
+
+**** on configuration (/etc/nixos/configuration.nix)
+set up then
+
+then do
+~# nixos-rebuild build~ <- test if there's no problems
+~# nixos-rebuild switch~
+rebuild -> rebuild the system
+switch -> automatically switch to new configuration
+
+***
+*** extra
+*** variables
+todo
+*** overlays
+todo
+
+*** updating and upgrading with Nix-channel
+update your channel with
+~$ nix-channel --update~
+
+add a channel with
+~$ nix-channel --add https://nixos.org/channels/nixos-21.11~
+
+remember to rebuild the packages using the --upgrade flag
+~# nixos-rebuild switch --upgrade~
+and
+~$ nix-env -u '*'~
+
+**** set it up on configuration.nix
+#+begin_src nix
+system.autoUpgrade = {
+  enable = true;
+  channel = "https://nixos.org/channels/nixos-unstable";
+};
+#+end_src
+
+*** Garbage Collection
+**** command-line
+the one to use:
+~# nix-collect-garbage -d~
+
+remove undeclared packaged, dependencies and symlinks:
+~$ nix-collect-garbage~
+
+list generations:
+~$ nix-env --list-generations~
+
+remove above of older generations:
+~$ nix-collect-garbage --delete-old~
+older than ... days:
+~$ nix-env --delete-generations 14d~
+~$ nix-env --delete-generations 10 11~
+
+optimize store
+~$ nix-store --gc~
+
+**** configuration.nix
+
+#+begin_src nix
+nix = {
+  settings.auto-optimise-store = true;
+  gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d"
+  };
+};
+#+end_src
+
+*** HOME-MANAGER
+[[https://github.com/nix-community/home-manager][github page]]
+[[https://nixos.wiki/wiki/Home_Manager][Home Manager - nixos wiki]
+[[https://nix-community.github.io/home-manager/index.html][manual]
+
+Like configuration.nix, but for user environment.
+There are plenty more options for packages.
+And a better way to manage dotfiles.
+
+you can also see
+~$ man home-configuration.nix~
+
+*** setup
+add the channel
+~$ nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager~
+
+update the channel
+~# nix-channel --update~
+-> log out and log in again
+
+*** changing a nixos from number-version to unstable
+#+begin_src bash
+# nix-channel --list
+# nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+# nix-channel --update 
+# nixos-rebuild switch --upgrade
+#+end_s
+*** MODULE VERSION
+configure home-manager within an existing nix configuration
+
+in ~/etc/nixos/configuration.nix~
+
+#+begin_src nix
+  let
+  in
+  {
+    imports = [ <home-manager/nixos> ];
+  
+    users.users.<name> = {
+      isNormalUser = true;
+    }
+
+    home-manager.users.<name> = { pkgs, ...}: {
+    # declared packages
+    home.packages = [ pkgs.atool pkgs.httpie pkgs.btop ];
+    # fix for stateVersion bug
+    home.stateVersion = "18.09";
+    };
+  }
+#+end_src
+
+now rebuild your system
+~# nixos-rebuild switch~
+
+**** uninstall
+remove the configuration.nix edits and remove the channel
+~# nix-channel --remove home-manager~
+~$ nix-channel --remove home-manager~
+
+be sure to re-log after changing or deleting channels
+
+*** STANDALONE VERSION
+make sure you have the home-manager nix-channel on your user
+~$ nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager~
+
+now install it with
+~$ nix-shell '<home-manager>' -A install~
+
+**** configuration
+
+you just have to edit in ~~/.config/home-manager/home.nix~
+#+begin_src nix
+  home.packages = with pkgs; [ btop ];
+}
+#+end_src
+
+**** usage
+
+run it like this
+~$ home-manager switch~
+
+now, while using home-manager as standalone, services won't be activated by the system,
+this doesn't occur with home-manager as a module, or packages in ~configuration.nix~,
+these services will be automatically ran by the system.
+
+*** FLAKES
+*the "upcoming feature" of NixOS*
+
+- specify code dependencies declaratively (will be stored in flake.lock)
+  - for example: home-manager
+- rebuilding and updating whole system made easy
+- very useful to build own config
+  - multiple configs in one
+  - best for github dotfiles
+
+*** set up
+
+in ~configuration.nix~
+#+begin_src nix
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = "experimental-features = nix-command flakes";
+    };
+}
+#+end_src
+
+**** a basic flake configuration
+
+make a directory and start your flake there
+#+begin_src nix
+$ cd
+$ mkdir flake && cd flake
+$ nix flake init
+#+end_src
+
+edit it to look like this
+#+begin_src nix
+{
+  description = "A very basic flake";
+
+  inputs = {
+    nixpgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  };
+
+  outputs = { self, nixpkgs }: {
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    lib = nixpkgs.lib;
+  in {
+    nixosConfigurations = {
+      asynthe = lib.nixosSystem {
+        inherit system;
+	modules = [ ./configuration.nix ];
+      };
+    };
+  };
+}
+#+end_src
+
+remember to copy over ~configuration.nix~
+~$ cp /etc/nixos/* .~
+
+build the flake
+~# nixos-rebuild switch --flake .#<username>~
+
+**** Home-manager on Flakes
+home manager in a flake.nix
+
+on ~flake.nix~ add
+#+begin_src nix
+ inputs = {
+   nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+   home-manager = {
+     url = github:nix-community/home-manager;
+     inputs.nikxpkgs.follows = "nixpkgs";
+   };
+};
+
+outputs = { self, nixpkgs, home-manager }:
+
+...
+
+       modules = [ ./configuration.nix ];
+     };
+    };
+    hmConfig = {
+      asynthe = home-manager.lib.homeManagerConfiguration {
+        inherit system pkgs;
+	username = "asynthe";
+	homeDirectory = "/home/asynthe";
+	configuration = {
+	  imports = [
+	  ./home.nix
+	  ];
+        };
+    };
+  };
+}
+#+end_src
+
+remember to copy your ~~/.config/nixpkgs/home.nix~
+~$ cp ~/.config/nixpkgs/home.nix .~
+
+rebuild with
+~$ nix build .#hmConfig.asynthe.activationPackage~
+
+**** Flake on ISO
+
+#+begin_src bash
+$ sudo su
+# nix-env -iA nixos.git
+# git clone <flake repo url> /mnt/<path>
+# nixos-install -flake .#<host>
+# reboot
+/* login */
+$ sudo rm -r /etc/nixos/configuration.nix
+/* move build to desired location */
+#+end_src
+
+*** personal config
+** Pitfalls of NIXOS
+
+Nix is the trinity of three different projects, but they're not interchangeable
+
++ The operating system (NixOS)
++ The package manager (Nix)
++ The language (Nix)
+
+*Benefits*
+- Reproducibility
+- (easy) Cross-Platform Builds
+- Declarativity
+
+How to get started
++ https://github.com/nix-community/awesome-nix
++ https://nix.ug
++ https://nix.dev
++ https://zero-to-nix.com/
++ discourse
++ matrix and discord channels
+
+Problem: *Eating up Disk Space*
+Problem: *Conflics with the Base System* (for installs in other OSes)
+Problem: *Secret Management*
+- Sops-nix
+- Vault
+
+*Nix is a Programming Language!*
+
+** Creating a dev environment with Nix and direnv
+
+[[https://determinate.systems/posts/nix-direnv][Effortless dev environments with Nix and direnv - determinate.systems]]
+
+*NIX SHELL ENVIRONMENTS*
+
+You can define
++ Which Nix packages you want installed in the environment
++ Which shell commands you want to run whenever the environment is initialized
+
+*DIRENV*
+
+Whenever you navigate to a directory with a ~.envrc~
+
+** Building nixos systems remotely
+
+[[https://discourse.nixos.org/t/how-to-build-nixos-system-remotely/26188][How to build nixos system remotely - discourse.nixos]]
+
+You can do remote activation (after the copying the closure or without copying first):
+#+begin_src nix
+# nixos-rebuild boot --target-host root@$machine-a --build-host localhost --flake some-flake#machine-a
+#+end_src
+
+** specify a file with SSH keys in configuration.nix
+
+[[https://stackoverflow.com/questions/67982799/how-the-proper-way-users-users-and-authorizedkeysfiles-in-configuration-nix][how the proper way users.users and authorizedKeysFiles in configuration.nix - Stack Overflow]]
+
+
+
+
