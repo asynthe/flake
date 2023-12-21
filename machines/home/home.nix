@@ -26,9 +26,10 @@
     ../../modules/sec/home/pkgs.nix # Cybersecurity apps and packages.
 
     # Audio
-    ../../modules/snd/home/daw.nix # Audio and sound packages.
-    ../../modules/snd/home/pkgs.nix # Audio apps and packages.
-    ../../modules/snd/home/tools.nix
+    ../../modules/home/audio/daw.nix # Audio and sound packages.
+    ../../modules/home/audio/mpd.nix
+    ../../modules/home/audio/pkgs.nix # Audio apps and packages.
+    ../../modules/home/audio/tools.nix
 
   ];
 
