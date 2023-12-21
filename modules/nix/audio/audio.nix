@@ -18,15 +18,15 @@
   security.rtkit.enable = true;
   hardware.pulseaudio = {
     enable = false;
-    support32Bit = true; # for gaming fix
+    support32Bit = true; # Gaming fix
   };
 
   services.pipewire = {
     enable = true;
-    audio.enable = true; # use as primary sound server
+    audio.enable = true; # Use as primary sound server
     wireplumber.enable = true;
     pulse.enable = true;
-    jack.enable = true; # use JACK applications
+    jack.enable = true; # Use JACK applications
     alsa = {
       enable = true;
       support32Bit = true;

@@ -38,7 +38,7 @@
 
     # Daemon
     #../../../modules/nix/daemon/locate.nix
-    ../../../modules/nix/daemon/mpd.nix
+    #../../../modules/nix/daemon/mpd.nix
     #../../../modules/nix/server/syncthing.nix
 
     # Tools
