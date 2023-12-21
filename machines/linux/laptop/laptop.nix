@@ -18,8 +18,10 @@
 
     # Audio
     ../../../modules/nix/audio/audio.nix
-    #../../../modules/nix/audio/pipewire.nix
     #../../../modules/nix/audio/jack.nix
+    #../../../modules/nix/audio/mpd.nix
+    ../../../modules/nix/audio/musnix.nix
+    ../../../modules/nix/audio/pipewire.nix
 
     # Network
     ../../../modules/nix/net/nm.nix # Network Manager configuration.
