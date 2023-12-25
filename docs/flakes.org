@@ -227,3 +227,9 @@ The closing bracket is from OUTPUTs, i put it here to have more flexibility movi
   };
 }
 ##+end_src
+
+* Fixing nix store
+
+nix store repair
+
+doas nix-store --repair --verify --check-contents
