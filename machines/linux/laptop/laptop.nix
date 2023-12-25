@@ -56,6 +56,8 @@
     ../../../modules/nix/extra/gaming.nix # Steam
     ../../../modules/nix/extra/fcitx5_mozc.nix # Fcitx5 + mozc (IME)
     ../../../modules/nix/extra/flatpak.nix # Flatpak
+    ../../../modules/nix/extra/printing.nix # Printer
+
     #../../../modules/nix/extra/win_mount.nix # Automatically mount windows partition to `win` folder in home.
     #../../../modules/nix/extra/irc.nix
     #../../../modules/nix/extra/irc_server.nix
