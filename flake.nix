@@ -16,48 +16,37 @@ outputs = inputs @ {
 	}: let
   username = "asynthe";
   hostname = "genkai";
-  
   username_mac = "benjamindunstan";
   hostname_mac = "Benjis-Macbook";
-
   linux_64 = "x86_64-linux";
   apple_silicon = "aarch64-darwin";
-
   pkgs = nixpkgs.legacyPackages.x86_64-linux;
   
   in {
 
 nixosConfigurations = {
 
-#  basic = nixpkgs.lib.nixosSystem {
-#    system = "genkai";
-#    specialArgs = {inherit username inputs;};
-#
-#    modules = [
-#      ./machines/laptop_genkai
-#
-#      inputs.musnix.nixosModules.musnix
-#      # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
-#    ];
-#    };
-#  };
+basic = nixpkgs.lib.nixosSystem {
+  system = "${hostname}";
+  specialArgs = {inherit username inputs;};
+  modules = [
+    ./machines/linux/basic
+   ];
+  };
+};
 
 genkai = nixpkgs.lib.nixosSystem {
-  system = "genkai";
+  system = "${hostname}";
   specialArgs = {inherit username inputs;};
-
   modules = [
     ./machines/linux/laptop
-
     inputs.musnix.nixosModules.musnix
-    # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
+    # HOME MANAGER AS A MODULE GOES HERE
     ];
   };
 };
 
-# Home Manager as a Module
-#home-manager.nixosModules.home-manager
-#{
+#home-manager.nixosModules.home-manager {
 #home-manager = {
 #useGlobalPkgs = true;
 #useUserPackages = true;
@@ -75,26 +64,39 @@ genkai = nixpkgs.lib.nixosSystem {
 #};
 #})
 
-darwinConfigurations = {
-  ${hostname_mac} = nix-darwin.lib.darwinSystem {
-    system = "${apple_silicon}";
-    specialArgs = {inherit username_mac inputs;};
-    modules = [ ./machines/macos ];
-    };
-  };
-
-# Home Manager as a Standalone
 homeConfigurations = {
   ${username} = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = {inherit username inputs;};
-    modules = [ ./modules/home ];
+    modules = [
+      ./modules/home
+    ];
   };
 };
 
-#nixOnDroidConfigurations.default = #nix-on-droid.lib.nixOnDroidConfiguration {
-  #modules = [./nix/nix-on-droid];
-#};
+only_user = home-manager.lib.homeManagerConfiguration {
+  inherit pkgs;
+  extraSpecialArgs = {inherit username inputs;};
+  modules = [ ./modules/home/user ];
+};
+
+darwinConfigurations = {
+
+${hostname_mac} = nix-darwin.lib.darwinSystem {
+  system = "${apple_silicon}";
+  specialArgs = {inherit username_mac inputs;};
+    modules = [
+      ./machines/macos
+    ];
+  };
+};
+
+#nixOnDroidConfigurations.default =
+  #nix-on-droid.lib.nixOnDroidConfiguration {
+    #modules = [
+      #./nix/nix-on-droid
+    #];
+  #};
 
 };
  inputs = {

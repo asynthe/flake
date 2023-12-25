@@ -11,8 +11,8 @@
 - [[#outputs][Outputs]]
 - [[#machines][Machines]]
   - [[#linux][Linux]]
-  - [[#macos-apple-silicon][MacOS (Apple Silicon)]]
   - [[#home-manager][Home Manager]]
+  - [[#macos-apple-silicon][MacOS (Apple Silicon)]]
   - [[#not-used-for-now][Not Used For Now]]
 - [[#inputs][Inputs]]
   - [[#opening-bracket][Opening Bracket]]
@@ -65,13 +65,10 @@ outputs = inputs @ {
 	}: let
   username = "asynthe";
   hostname = "genkai";
-  
   username_mac = "benjamindunstan";
   hostname_mac = "Benjis-Macbook";
-
   linux_64 = "x86_64-linux";
   apple_silicon = "aarch64-darwin";
-
   pkgs = nixpkgs.legacyPackages.x86_64-linux;
   
   in {
@@ -83,7 +80,7 @@ outputs = inputs @ {
 ** Linux
 
 #+begin_src nix
-nixosConfigurations = {
+  nixosConfigurations = {
 #+end_src
 
 *** Server (basic)
@@ -93,18 +90,14 @@ This basic server configures:
 - Filesystems
 
 #+begin_src nix
-#  basic = nixpkgs.lib.nixosSystem {
-#    system = "genkai";
-#    specialArgs = {inherit username inputs;};
-#
-#    modules = [
-#      ./machines/laptop_genkai
-#
-#      inputs.musnix.nixosModules.musnix
-#      # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
-#    ];
-#    };
-#  };
+  basic = nixpkgs.lib.nixosSystem {
+    system = "${hostname}";
+    specialArgs = {inherit username inputs;};
+    modules = [
+      ./machines/linux/basic
+     ];
+    };
+  };
 #+end_src
 
 *** Laptop (genkai)
@@ -121,26 +114,23 @@ This configures more specific things such as:
 
 #+begin_src nix
   genkai = nixpkgs.lib.nixosSystem {
-    system = "genkai";
+    system = "${hostname}";
     specialArgs = {inherit username inputs;};
-
     modules = [
       ./machines/linux/laptop
-
       inputs.musnix.nixosModules.musnix
-      # HOME MANAGER AS A MODULE GOES INSIDE HERE !!!
+      # HOME MANAGER AS A MODULE GOES HERE
       ];
     };
   };
 #+end_src
 
-*HOME MANAGER AS MODULE*
+*** Home Manager as Module
+
 Disabled for now, but you can play around with it.
 
 #+begin_src nix
-      # Home Manager as a Module
-      #home-manager.nixosModules.home-manager
-      #{
+      #home-manager.nixosModules.home-manager {
       #home-manager = {
       #useGlobalPkgs = true;
       #useUserPackages = true;
@@ -159,7 +149,38 @@ Disabled for now, but you can play around with it.
       #})
 #+end_src
 
+** Home Manager
+
+_note_: GNU coreutils is replaced with Rust's [[https://github.com/uutils/coreutils][uutils]].
+
+Home Manager as a Standalone
+#+begin_src nix
+  homeConfigurations = {
+    ${username} = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      extraSpecialArgs = {inherit username inputs;};
+      modules = [
+        ./modules/home
+      ];
+    };
+  };
+#+end_src
+
+only-user? (check pls)
+
+#+begin_src nix
+  only_user = home-manager.lib.homeManagerConfiguration {
+    inherit pkgs;
+    extraSpecialArgs = {inherit username inputs;};
+    modules = [ ./modules/home/user ];
+  };
+#+end_src
+
 ** MacOS (Apple Silicon)
+
+#+begin_src nix
+darwinConfigurations = {
+#+end_src
 
 *Resources*
 + [[https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050][Setup nix, nix-darwin and home-manager from scratch on an M1 Macbook Pro - gist.github.com]]
@@ -168,16 +189,16 @@ Disabled for now, but you can play around with it.
 darwin-rebuild switch --flake .
 
 #+begin_src nix
-darwinConfigurations = {
   ${hostname_mac} = nix-darwin.lib.darwinSystem {
     system = "${apple_silicon}";
     specialArgs = {inherit username_mac inputs;};
-    modules = [ ./machines/macos ];
+      modules = [
+        ./machines/macos
+      ];
     };
   };
 #+end_src
 
-111#+begin_src nix
   macOS configuration
     darwinConfigurations =
       let
@@ -202,29 +223,18 @@ darwinConfigurations = {
       };
 111#+end_src
 
-** Home Manager
-
-_note_: GNU coreutils it's replaced with Rust's [[https://github.com/uutils/coreutils][uutils]].
-
-
-#+begin_src nix
-      # Home Manager as a Standalone
-      homeConfigurations = {
-        ${username} = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {inherit username inputs;};
-          modules = [ ./modules/home ];
-        };
-      };
-#+end_src
-
 ** Not Used For Now
 *** Android (Nix On Droid)
 
+Interesting, might use.
+
 #+begin_src nix
-      #nixOnDroidConfigurations.default = #nix-on-droid.lib.nixOnDroidConfiguration {
-        #modules = [./nix/nix-on-droid];
-      #};
+  #nixOnDroidConfigurations.default =
+    #nix-on-droid.lib.nixOnDroidConfiguration {
+      #modules = [
+        #./nix/nix-on-droid
+      #];
+    #};
 #+end_src
 
 * Inputs
@@ -273,34 +283,25 @@ _note_: GNU coreutils it's replaced with Rust's [[https://github.com/uutils/core
 #+end_src
 
 ** Apps and Repos
-*** Hyprland
 
-+ [[https://github.com/hyprwm/Hyprland][github page]]
-
+- [[https://github.com/hyprwm/Hyprland][Hyprland]]
 #+begin_src nix
 hyprland.url = "github:hyprwm/Hyprland";
 #+end_src
 
-*** musnix
-
-+ [[https://github.com/musnix/musnix][github page]]
-
++ [[https://github.com/musnix/musnix][musnix]]
 #+begin_src nix
 musnix.url = "github:musnix/musnix";
 #+end_src
 
-*** nil - Nix Language server
-
+nil - Nix Language server
 + [[https://github.com/oxalica/nil][github page]]
-
 #+begin_src nix
 nil.url = "github:oxalica/nil";
 #+end_src
 
-*** rust-overlay
-
+rust-overlay
 + [[https://github.com/oxalica/rust-overlay][rust-overlay - github page]]
-
 #+begin_src nix
 rust-overlay.url = "github:oxalica/rust-overlay";
 #+end_src
@@ -314,33 +315,6 @@ rust-overlay.url = "github:oxalica/rust-overlay";
 #+end_src
 
 ** Nix Configuration (Not added)
-
-The closing bracket is from OUTPUTs, i put it here to have more flexibility moving the configurations around.
-
-*nixConfig* should be put inside the configurations, but this will work for now.
-
-##+begin_src nix
-  nixConfig = {
-      extra-experimental-features = [ "recursive-nix" ];
-      extra-subtituters = [
-        "https://cache.nixos.org/" # The main cache, you can replace w one closer to you.
-        "https://hyprland.cachix.org"
-        # Nix community's cache server
-        "https://nix-community.cachix.org"
-        "https://nixpkgs-wayland.cachix.org"
-      ];
-
-      extra-trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" # Hyprland
-        "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E=" # Cuda Maintaners, nvidia
-      ];
-  };
-}
-##+end_src
-
 * End - Closing bracket
 
 Thanks for Reading!

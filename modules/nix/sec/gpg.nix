@@ -6,7 +6,7 @@
     agent = {
       enable = true;
       pinentryFlavor = "curses";
-      #enableSSHSupport = true;
+      enableSSHSupport = true;
       #enableExtraSocket = true;
       #enableBrowserSocket = true;
     };

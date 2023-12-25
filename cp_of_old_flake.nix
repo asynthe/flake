@@ -18,13 +18,7 @@ outputs = inputs @ {
   hostname = "nixos";
   
   username_mac = "benjamindunstan";
-  hostname_mac = "Benjis-Macbook";
 
-  linux_64 = "x86_64-linux";
-  apple_silicon = "aarch64-darwin";
-
-  pkgs = nixpkgs.legacyPackages.x86_64-linux;
-  
   in {
 
 nixosConfigurations = {

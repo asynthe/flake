@@ -199,3 +199,31 @@ alias rebuild='doas nixos-rebuild switch --flake "/home/asynthe/test/flake/flake
 alias nixconf='doas nvim ~/sync/system/nix/flake/configuration.nix'
 alias homeconf='nvim ~/sync/system/nix/flake/home-manager/home.nix'
 #+end_src
+
+* From Flake (Nix configuration inside flake)
+
+The closing bracket is from OUTPUTs, i put it here to have more flexibility moving the configurations around.
+
+*nixConfig* should be put inside the configurations, but this will work for now.
+
+##+begin_src nix
+  nixConfig = {
+      extra-experimental-features = [ "recursive-nix" ];
+      extra-subtituters = [
+        "https://cache.nixos.org/" # The main cache, you can replace w one closer to you.
+        "https://hyprland.cachix.org"
+        # Nix community's cache server
+        "https://nix-community.cachix.org"
+        "https://nixpkgs-wayland.cachix.org"
+      ];
+
+      extra-trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" # Hyprland
+        "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E=" # Cuda Maintaners, nvidia
+      ];
+  };
+}
+##+end_src
