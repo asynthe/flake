@@ -13,7 +13,7 @@
   - [[#linux][Linux]]
   - [[#home-manager][Home Manager]]
   - [[#macos-apple-silicon][MacOS (Apple Silicon)]]
-  - [[#not-used-for-now][Not Used For Now]]
+  - [[#not-used-for-now---android-nix-on-droid][Not Used for Now - Android (Nix On Droid)]]
 - [[#inputs][Inputs]]
   - [[#opening-bracket][Opening Bracket]]
   - [[#nixpkgs-and-nixpkgs-stable][Nixpkgs and Nixpkgs Stable]]
@@ -63,6 +63,7 @@ outputs = inputs @ {
   musnix,
   ...
 	}: let
+
   username = "asynthe";
   hostname = "genkai";
   username_mac = "benjamindunstan";
@@ -96,7 +97,6 @@ This basic server configures:
     modules = [
       ./machines/linux/basic
      ];
-    };
   };
 #+end_src
 
@@ -168,19 +168,21 @@ Home Manager as a Standalone
 
 only-user? (check pls)
 
-#+begin_src nix
+##+begin_src nix
   only_user = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = {inherit username inputs;};
     modules = [ ./modules/home/user ];
   };
-#+end_src
+##+end_src
 
 ** MacOS (Apple Silicon)
 
 #+begin_src nix
-darwinConfigurations = {
+  darwinConfigurations = {
 #+end_src
+
+*** M1 Macbook
 
 *Resources*
 + [[https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050][Setup nix, nix-darwin and home-manager from scratch on an M1 Macbook Pro - gist.github.com]]
@@ -195,8 +197,8 @@ darwin-rebuild switch --flake .
       modules = [
         ./machines/macos
       ];
-    };
   };
+};
 #+end_src
 
   macOS configuration
@@ -223,8 +225,7 @@ darwin-rebuild switch --flake .
       };
 111#+end_src
 
-** Not Used For Now
-*** Android (Nix On Droid)
+** Not Used for Now - Android (Nix On Droid)
 
 Interesting, might use.
 

@@ -14,6 +14,7 @@ outputs = inputs @ {
   musnix,
   ...
 	}: let
+
   username = "asynthe";
   hostname = "genkai";
   username_mac = "benjamindunstan";
@@ -32,7 +33,6 @@ basic = nixpkgs.lib.nixosSystem {
   modules = [
     ./machines/linux/basic
    ];
-  };
 };
 
 genkai = nixpkgs.lib.nixosSystem {
@@ -74,20 +74,14 @@ homeConfigurations = {
   };
 };
 
-only_user = home-manager.lib.homeManagerConfiguration {
-  inherit pkgs;
-  extraSpecialArgs = {inherit username inputs;};
-  modules = [ ./modules/home/user ];
-};
-
 darwinConfigurations = {
 
 ${hostname_mac} = nix-darwin.lib.darwinSystem {
-  system = "${apple_silicon}";
-  specialArgs = {inherit username_mac inputs;};
-    modules = [
-      ./machines/macos
-    ];
+    system = "${apple_silicon}";
+    specialArgs = {inherit username_mac inputs;};
+      modules = [
+        ./machines/macos
+      ];
   };
 };
 
