@@ -7,7 +7,7 @@
 
 * Table of Contents :toc:
 - [[#description][Description]]
-- [[#start---opening-bracket][Start - Opening bracket]]
+- [[#start][Start]]
 - [[#outputs][Outputs]]
 - [[#machines][Machines]]
   - [[#linux][Linux]]
@@ -39,7 +39,7 @@ Home manager
 - hacking tools
 home-manager replaces coreutils with the rust uutils
 
-* Start - Opening bracket
+* Start
 
 Start!
 #+begin_src nix
