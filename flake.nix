@@ -16,7 +16,7 @@ outputs = inputs @ {
 	}: let
 
   username = "asynthe";
-  hostname = "genkai";
+  hostname = "nixos";
   username_mac = "benjamindunstan";
   hostname_mac = "Benjis-Macbook";
   linux_64 = "x86_64-linux";
