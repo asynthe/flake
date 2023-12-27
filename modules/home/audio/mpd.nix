@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }: {
+{ config, pkgs, ... }: {
 
   services.mpd = {
     enable = true;

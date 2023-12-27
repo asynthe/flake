@@ -4,8 +4,11 @@
     inherit
       (pkgs)
       cmus
-      ncmpcpp mpd
+      ncmpcpp
       qmmp
+
+      # Music player
+      playerctl # Manage audio daemon
 
       # Propietary
       #spotify-tui
@@ -13,4 +16,5 @@
       #spicetify-cli
       ;
   };
+
 }
