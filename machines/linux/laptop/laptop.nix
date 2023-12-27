@@ -5,6 +5,9 @@
     # Window Managers
     ../../../modules/nix/wm/hyprland.nix
     ../../../modules/nix/wm/xmonad.nix
+    # Packages
+    ../../../modules/nix/pkgs/wayland.nix # Wayland packages.
+    ../../../modules/nix/pkgs/x11.nix # X11 packages.
 
     # Drivers
     ../../../modules/nix/driver/intel.nix

@@ -12,4 +12,10 @@
     openFirewall = true;
   };
 
+  #environment.systemPackages = builtins.attrValues {
+    #inherit (pkgs)
+    #hplip
+    #;
+  #};
+
 }

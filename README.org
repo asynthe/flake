@@ -1,15 +1,1 @@
-#+title: Asynthe's systems flake
-
-This is my attempt at explaining and gathering all that I know about Nix,
-
-These are links for my org notes.
-I will try to keep them tidy and updated, but I don't promise anything.
-
-- [[https://github.com/asynthe/flake/blob/main/docs/install.org][Preparing Linux for NixOS]]
-- [[https://github.com/asynthe/flake/blob/main/docs/nixos.org][NixOS]]
-- [[https://github.com/asynthe/flake/blob/main/docs/nix.org][Nix]]
-- [[https://github.com/asynthe/flake/blob/main/docs/flakes.org][Flakes]]
-- [[https://github.com/asynthe/flake/blob/main/docs/home-manager.org][Home Manager]]
-
-I use Emacs and org-mode to edit the flake content, as a literate configuration.
-You can see my personal use flake configuration [[https://github.com/asynthe/flake/blob/main/flake.org][here]].
+flake.org
