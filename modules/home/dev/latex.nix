@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
+
   home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
+    inherit (pkgs)
       pandoc
       tectonic # self-contained TeX/LaTeX engine, powered by XeTeX and TeXLive
       #tikzit
@@ -9,8 +9,7 @@
       ;
 
     # TeX Suite
-    inherit
-      (pkgs.texlive.combined)
+    inherit (pkgs.texlive.combined)
       scheme-full
       #scheme-medium
       #scheme-small
@@ -21,4 +20,5 @@
       #scheme-context
       ;
   };
+
 }

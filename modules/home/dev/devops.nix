@@ -1,8 +1,7 @@
 { pkgs, ... }: {
 
   home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
+    inherit (pkgs)
       awscli
       ansible
       ansible-lint

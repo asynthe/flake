@@ -1,11 +1,13 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
+
   home = {
+
     sessionPath = [
       "$HOME/.cargo/bin"
     ];
+
     packages = builtins.attrValues {
-      inherit
-        (pkgs)
+      inherit (pkgs)
         cargo
         rustc
       	#rustup (conflicts with installing cargo)
@@ -16,4 +18,5 @@
         ;
     };
   };
+
 }
