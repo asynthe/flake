@@ -14,7 +14,7 @@
     # Audio
     ../../modules/home/audio/daw.nix # Audio and sound packages.
     ../../modules/home/audio/mpd.nix
-    ../../modukes/home/audio/music_player.nix
+    ../../modules/home/audio/music_player.nix
     ../../modules/home/audio/pkgs.nix # Audio apps and packages.
     ../../modules/home/audio/tools.nix
 
