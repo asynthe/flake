@@ -160,7 +160,7 @@ Home Manager as a Standalone
       inherit pkgs;
       extraSpecialArgs = {inherit username inputs;};
       modules = [
-        ./modules/home
+        ./machines/home
       ];
     };
   };

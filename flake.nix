@@ -16,7 +16,7 @@ outputs = inputs @ {
 	}: let
 
   username = "asynthe";
-  hostname = "nixos";
+  hostname = "genkai";
   username_mac = "benjamindunstan";
   hostname_mac = "Benjis-Macbook";
   linux_64 = "x86_64-linux";
@@ -69,7 +69,7 @@ homeConfigurations = {
     inherit pkgs;
     extraSpecialArgs = {inherit username inputs;};
     modules = [
-      ./modules/home
+      ./machines/home
     ];
   };
 };
