@@ -1,11 +1,16 @@
 { pkgs, ... }: {
 
+  #programs.ncmpcpp = {
+    #enable = true;
+    #mpdMusicDir = ; # The value of services.mpd.musicDirectory is used as default.
+  };
+
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
       cmus
-      ncmpcpp
       qmmp
+      ncmpcpp
 
       # Music player
       playerctl # Manage audio daemon

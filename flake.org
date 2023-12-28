@@ -102,7 +102,7 @@ This basic server configures:
 
 *** Laptop (genkai)
 
-This configures more specific things such as:
+This import points at server but also add's a list of imports that configure more things, such as:
 - Audio
 - Drivers
 - More networking
@@ -159,15 +159,12 @@ Home Manager as a Standalone
     ${username} = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = {inherit username inputs;};
-      modules = [
-        ./machines/home
-      ];
+      modules = [ ./machines/home ];
     };
   };
 #+end_src
 
 only-user? (check pls)
-
 ##+begin_src nix
   only_user = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;

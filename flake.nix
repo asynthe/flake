@@ -68,9 +68,7 @@ homeConfigurations = {
   ${username} = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = {inherit username inputs;};
-    modules = [
-      ./machines/home
-    ];
+    modules = [ ./machines/home ];
   };
 };
 
