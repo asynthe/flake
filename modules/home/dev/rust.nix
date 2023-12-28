@@ -8,7 +8,9 @@
         (pkgs)
         cargo
         rustc
-	#rustup (conflicts with installing cargo)
+      	#rustup (conflicts with installing cargo)
+
+        rust-analyzer
         #rusty-man
         #surrealdb
         ;
