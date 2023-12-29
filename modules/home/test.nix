@@ -4,7 +4,8 @@
     inherit
       (pkgs)
       
-      #log4cxx # asked by davinci-resolve (?)
+      # ai.nix ?
+      ollama
 
       # GNU TOOLS
       at
@@ -18,7 +19,7 @@
       #zstd
       #vscodium #vscodium-fhs # test how compatible vscode is w nixos
 
-      # Nix
+      # Nix -> devops.nix?
       deploy-rs
       nixops_unstable #nixops
       direnv
@@ -31,7 +32,7 @@
       arti
 
       # Task management
-      taskwarrior
+      #taskwarrior
       #taskserver
       #taskell # command-line kanban board/task manager
       #vit

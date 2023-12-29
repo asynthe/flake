@@ -3,7 +3,7 @@
   #programs.ncmpcpp = {
     #enable = true;
     #mpdMusicDir = ; # The value of services.mpd.musicDirectory is used as default.
-  };
+  #};
 
   home.packages = builtins.attrValues {
     inherit
