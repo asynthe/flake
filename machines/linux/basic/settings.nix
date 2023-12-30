@@ -1,13 +1,15 @@
 { config, username, ... }: {
 
-  nix = {
-    #system = {
-      #autoUpgrade = {
-        #enable = true;
-        #channel = "https://nixos.org/channels/nixos-unstable"; # Needed?
-      #};
-      #stateVersion = "22.11";
+  system = {
+    #autoUpgrade = {
+      #enable = true;
+      #channel = "https://nixos.org/channels/nixos-unstable"; # Needed?
     #};
+    label = "Meow"
+    stateVersion = "22.11";
+  };
+
+  nix = {
 
     # Garbage collection
     gc = {
