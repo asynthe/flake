@@ -26,7 +26,6 @@
     # Software RAID with mdadm.
     #../../../modules/nix/fs/raid/raid0.nix
     #../../../modules/nix/fs/raid/raid1.nix
-
   ];
 
   # List of packages I want to have on any computer.
@@ -35,8 +34,7 @@
     inherit
       (pkgs)
       git # Git must be installed before flakes.
-      wget
-      curl
+      wget curl
       lf
       neovim
       tmux

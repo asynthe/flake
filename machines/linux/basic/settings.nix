@@ -1,11 +1,19 @@
 { config, username, ... }: {
 
   nix = {
+    #system = {
+      #autoUpgrade = {
+        #enable = true;
+        #channel = "https://nixos.org/channels/nixos-unstable"; # Needed?
+      #};
+      #stateVersion = "22.11";
+    #};
+
     # Garbage collection
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 4d";
     };
 
     # Nix settings
@@ -33,15 +41,6 @@
         "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E=" # Cuda Maintaners, nvidia
       ];
     };
-  };
-
-  system = {
-    autoUpgrade = {
-      enable = true;
-      channel = "https://nixos.org/channels/nixos-unstable";
-    };
-    stateVersion = "22.11";
-    #copySystemConfiguration = true; # Not supported by flakes.
   };
 
 }
