@@ -1,15 +1,15 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
+  
   home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-      #davinci-resolve # Not working (Hash issue?)
-      kdenlive
+    inherit (pkgs)
       obs-studio
-      mpv # video player
-      hypnotix # tv
-      ffmpeg
-      mediainfo # video/audio metadata
       wf-recorder # Wayland
+      #davinci-resolve # Not working (Hash issue?)
+      #kdenlive
+      mpv # Video player.
+      hypnotix # TV.
+      ffmpeg
+      mediainfo # Video/audio metadata.
       ;
   };
 }

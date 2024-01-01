@@ -1,16 +1,15 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
+
   home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-      darktable
-      rawtherapee
-      #inkscape-with-extensions #inkscape
-      
+    inherit (pkgs)
       gimp-with-plugins #gimp # Replaced for flatpak gimp + photogimp.
       #krita
+      #inkscape-with-extensions #inkscape
+      #darktable
+      #rawtherapee # RAW images editor.
       
-      imagemagick # image editing
-      exif # image metadata
+      imagemagick # Image editing.
+      exif # Image metadata.
       ;
   };
 }

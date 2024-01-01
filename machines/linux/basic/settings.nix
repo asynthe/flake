@@ -5,7 +5,6 @@
       #enable = true;
       #channel = "https://nixos.org/channels/nixos-unstable"; # Needed?
     #};
-    label = "Meow";
     stateVersion = "22.11";
   };
 

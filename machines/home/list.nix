@@ -47,6 +47,7 @@
 
     # Media
     ../../modules/home/media/image.nix # Tools for inspection of images.
+    ../../modules/home/media/subtitle.nix # Subtitle editors.
     ../../modules/home/media/video.nix # Tools for editing and creating videos.
 
     ../../modules/home/net/net.nix # Networking tools.
