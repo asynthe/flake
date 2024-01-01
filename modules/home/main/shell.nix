@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
+
   #programs.zsh = {
   #enable = true;
   #enableAutosuggestions = true;
@@ -26,8 +27,8 @@
       powershell
       nushell
       nu_scripts
+
       # Replacements
-      
       bat # for cat
       eza # for ls
       zoxide # for cd
@@ -91,7 +92,6 @@
       pciutils
       curl
       dconf
-      fd
       lshw
       fontconfig
       file
