@@ -33,12 +33,14 @@
   environment.systemPackages = builtins.attrValues {
     inherit
       (pkgs)
-      git # Git must be installed before flakes.
+      alacritty kitty # Always good to have some extra terminals.
       wget curl
-      lf
+      git # Git must be installed before flakes.
+      cachix
       neovim
       tmux
-      alacritty kitty # Always good to have some extra terminals.
+      firefox
+      pavucontrol
       ;
   };
 

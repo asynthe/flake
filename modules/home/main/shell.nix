@@ -34,15 +34,15 @@
       fd # for find
       
       # Tools
-      
       starship
       git
       tmux tmuxp
       neovim #vim
       skim #fzf
+
+      # From other note
       
       # Apps
-      
       lf
       ueberzugpp # file manager
       yt-dlp
@@ -57,18 +57,56 @@
       lolcat
       pfetch #neofetch #ipfetch #macchina
       pv
+
       # Customization
-      
       pywal
       wpgtk
       colorz
+
       # Code formatters
-      
       nixfmt
       alejandra # nix
 
       # Terminal Apps
+      ripgrep
       hyperfine
+      tree
+      wget
+      rsync
+      ncdu
+      killall
+      btop
+      htop
+      entr
+      acpi
+      #beets
+      offlineimap
+      gammastep
+      links2
+      tldr
+      epr
+      libcryptui
+      broot
+      harfbuzz
+      pciutils
+      curl
+      dconf
+      fd
+      lshw
+      fontconfig
+      file
+      gnumake
+      sosreport
+      xsos
+      #nodejs
+      #wmctrl
+      xdotool
+      neofetch
+
+      trashy
+   
+      # GUI
+      font-manager
       ;
   };
 }

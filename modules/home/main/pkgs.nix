@@ -80,11 +80,13 @@
       pdfarranger
 
       # Browser
-      firefox
       librewolf #librewolf-unwrapped
-      tor tor-browser-bundle-bin
+      #firefox
+      #ungoogled-chromium #chromium
+      #tor tor-browser-bundle-bin
+      #mullvad-browser
+
       # Torrents
-      
       #aria #ariang
       qbittorrent #qbittorrent-nox
 

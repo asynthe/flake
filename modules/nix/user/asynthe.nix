@@ -105,7 +105,6 @@
     inherit
       (pkgs)
 
-      # CLI
       direnv
       eza
       lf
@@ -113,68 +112,6 @@
       ueberzugpp
       fzf skim
       zoxide
-
-      # GUI
-      librewolf
-      ungoogled-chromium
-      chromium
-      mullvad-browser
-      pavucontrol # -> audio?
-
-      cachix # necessary? if yes add to configuration.nix (default.nix)
-      #nodejs
-      #wmctrl
-      xdotool
-      neofetch
-   
-      # SYSTEM UTILS -> move to home packages except for few
-      trashy
-   
-      # EXTRA
-      epr
-      libcryptui
-   
-      broot
-      harfbuzz
-      pciutils
-      curl
-      dconf
-      fd
-      lshw
-      fontconfig
-      file
-      gnumake
-      sosreport
-      xsos
-
-      ripgrep
-   
-      ##### CLI #####
-      tree
-      wget
-      rsync
-      ncdu
-      killall
-      btop
-      htop
-      entr
-      acpi
-      #beets
-      offlineimap
-      gammastep
-      links2
-      tldr
-   
-      # GUI
-      font-manager
-
-      # NECESSARY?
-      # EMACS -> really needed by emacs?
-      binutils
-      libgccjit
-      llvm
-      gcc
-      sqlite
       ;
 
   inherit 
