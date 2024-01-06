@@ -11,9 +11,8 @@
 - [[#outputs][Outputs]]
 - [[#machines][Machines]]
   - [[#linux][Linux]]
-  - [[#home-manager][Home Manager]]
   - [[#macos-apple-silicon][MacOS (Apple Silicon)]]
-  - [[#not-used-for-now---android-nix-on-droid][Not Used for Now - Android (Nix On Droid)]]
+  - [[#home-manager][Home Manager]]
 - [[#inputs][Inputs]]
   - [[#opening-bracket][Opening Bracket]]
   - [[#nixpkgs-and-nixpkgs-stable][Nixpkgs and Nixpkgs Stable]]
@@ -21,6 +20,8 @@
   - [[#apps-and-repos][Apps and Repos]]
   - [[#nix-configuration-not-added][Nix Configuration (Not added)]]
 - [[#end---closing-bracket][End - Closing bracket]]
+- [[#not-used-for-now][Not Used for Now]]
+  - [[#android-nix-on-droid][Android (Nix On Droid)]]
 
 * Description
 
@@ -65,7 +66,7 @@ outputs = inputs @ {
 	}: let
 
   username = "asynthe";
-  hostname = "genkai";
+  hostname = "nya";
   username_mac = "benjamindunstan";
   hostname_mac = "Benjis-Macbook";
   linux_64 = "x86_64-linux";
@@ -91,7 +92,7 @@ This basic server configures:
 - Filesystems
 
 #+begin_src nix
-  basic = nixpkgs.lib.nixosSystem {
+  server = nixpkgs.lib.nixosSystem {
     system = "${hostname}";
     specialArgs = {inherit username inputs;};
     modules = [
@@ -100,7 +101,7 @@ This basic server configures:
   };
 #+end_src
 
-*** Laptop (genkai)
+*** Thinkpad
 
 This import points at server but also add's a list of imports that configure more things, such as:
 - Audio
@@ -113,13 +114,13 @@ This import points at server but also add's a list of imports that configure mor
 - Tools
 
 #+begin_src nix
-  genkai = nixpkgs.lib.nixosSystem {
+  ${hostname} = nixpkgs.lib.nixosSystem {
     system = "${hostname}";
     specialArgs = {inherit username inputs;};
     modules = [
       ./machines/linux/laptop
       inputs.musnix.nixosModules.musnix
-      # HOME MANAGER AS A MODULE GOES HERE
+      # Home Manager as Module goes here !
       ];
     };
   };
@@ -149,37 +150,12 @@ Disabled for now, but you can play around with it.
       #})
 #+end_src
 
-** Home Manager
-
-_note_: GNU coreutils is replaced with Rust's [[https://github.com/uutils/coreutils][uutils]].
-
-Home Manager as a Standalone
-#+begin_src nix
-  homeConfigurations = {
-    ${username} = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      extraSpecialArgs = {inherit username inputs;};
-      modules = [ ./machines/home ];
-    };
-  };
-#+end_src
-
-only-user? (check pls)
-##+begin_src nix
-  only_user = home-manager.lib.homeManagerConfiguration {
-    inherit pkgs;
-    extraSpecialArgs = {inherit username inputs;};
-    modules = [ ./modules/home/user ];
-  };
-##+end_src
-
 ** MacOS (Apple Silicon)
+*** M1 Macbook
 
 #+begin_src nix
   darwinConfigurations = {
 #+end_src
-
-*** M1 Macbook
 
 *Resources*
 + [[https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050][Setup nix, nix-darwin and home-manager from scratch on an M1 Macbook Pro - gist.github.com]]
@@ -222,18 +198,29 @@ darwin-rebuild switch --flake .
       };
 111#+end_src
 
-** Not Used for Now - Android (Nix On Droid)
+** Home Manager
 
-Interesting, might use.
+_note_: GNU coreutils is replaced with Rust's [[https://github.com/uutils/coreutils][uutils]].
 
+Home Manager as a Standalone
 #+begin_src nix
-  #nixOnDroidConfigurations.default =
-    #nix-on-droid.lib.nixOnDroidConfiguration {
-      #modules = [
-        #./nix/nix-on-droid
-      #];
-    #};
+  homeConfigurations = {
+    ${username} = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      extraSpecialArgs = {inherit username inputs;};
+      modules = [ ./machines/home ];
+    };
+  };
 #+end_src
+
+only-user? (check pls)
+##+begin_src nix
+  only_user = home-manager.lib.homeManagerConfiguration {
+    inherit pkgs;
+    extraSpecialArgs = {inherit username inputs;};
+    modules = [ ./modules/home/user ];
+  };
+##+end_src
 
 * Inputs
 ** Opening Bracket
@@ -320,3 +307,20 @@ Thanks for Reading!
 };
 }
 #+end_src
+
+* Not Used for Now
+** Android (Nix On Droid)
+
+Interesting, might use.
+
+Add this below Machines / Linux.
+
+#+begin_src nix
+  #nixOnDroidConfigurations.default =
+    #nix-on-droid.lib.nixOnDroidConfiguration {
+      #modules = [
+        #./nix/nix-on-droid
+      #];
+    #};
+#+end_src
+

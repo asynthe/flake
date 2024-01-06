@@ -16,7 +16,7 @@ outputs = inputs @ {
 	}: let
 
   username = "asynthe";
-  hostname = "genkai";
+  hostname = "nya";
   username_mac = "benjamindunstan";
   hostname_mac = "Benjis-Macbook";
   linux_64 = "x86_64-linux";
@@ -27,7 +27,7 @@ outputs = inputs @ {
 
 nixosConfigurations = {
 
-basic = nixpkgs.lib.nixosSystem {
+server = nixpkgs.lib.nixosSystem {
   system = "${hostname}";
   specialArgs = {inherit username inputs;};
   modules = [
@@ -35,13 +35,13 @@ basic = nixpkgs.lib.nixosSystem {
    ];
 };
 
-genkai = nixpkgs.lib.nixosSystem {
+${hostname} = nixpkgs.lib.nixosSystem {
   system = "${hostname}";
   specialArgs = {inherit username inputs;};
   modules = [
     ./machines/linux/laptop
     inputs.musnix.nixosModules.musnix
-    # HOME MANAGER AS A MODULE GOES HERE
+    # Home Manager as Module goes here !
     ];
   };
 };
@@ -64,14 +64,6 @@ genkai = nixpkgs.lib.nixosSystem {
 #};
 #})
 
-homeConfigurations = {
-  ${username} = home-manager.lib.homeManagerConfiguration {
-    inherit pkgs;
-    extraSpecialArgs = {inherit username inputs;};
-    modules = [ ./machines/home ];
-  };
-};
-
 darwinConfigurations = {
 
 ${hostname_mac} = nix-darwin.lib.darwinSystem {
@@ -83,12 +75,13 @@ ${hostname_mac} = nix-darwin.lib.darwinSystem {
   };
 };
 
-#nixOnDroidConfigurations.default =
-  #nix-on-droid.lib.nixOnDroidConfiguration {
-    #modules = [
-      #./nix/nix-on-droid
-    #];
-  #};
+homeConfigurations = {
+  ${username} = home-manager.lib.homeManagerConfiguration {
+    inherit pkgs;
+    extraSpecialArgs = {inherit username inputs;};
+    modules = [ ./machines/home ];
+  };
+};
 
 };
  inputs = {
@@ -122,3 +115,10 @@ rust-overlay.url = "github:oxalica/rust-overlay";
 
 };
 }
+
+#nixOnDroidConfigurations.default =
+  #nix-on-droid.lib.nixOnDroidConfiguration {
+    #modules = [
+      #./nix/nix-on-droid
+    #];
+  #};
