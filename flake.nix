@@ -16,7 +16,7 @@ outputs = inputs @ {
 	}: let
 
   username = "asynthe";
-  hostname = "nya";
+  hostname = "thinknya";
   username_mac = "benjamindunstan";
   hostname_mac = "Benjis-Macbook";
   linux_64 = "x86_64-linux";
@@ -31,15 +31,15 @@ server = nixpkgs.lib.nixosSystem {
   system = "${hostname}";
   specialArgs = {inherit username inputs;};
   modules = [
-    ./machines/linux/basic
+    ./hosts/linux/server
    ];
 };
 
-${hostname} = nixpkgs.lib.nixosSystem {
+thinknya = nixpkgs.lib.nixosSystem {
   system = "${hostname}";
   specialArgs = {inherit username inputs;};
   modules = [
-    ./machines/linux/laptop
+    ./hosts/linux/thinknya
     inputs.musnix.nixosModules.musnix
     # Home Manager as Module goes here !
     ];

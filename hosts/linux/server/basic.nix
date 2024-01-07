@@ -4,6 +4,7 @@
 
     # Users
     ../../../modules/nix/user/asynthe.nix # My customized user.
+    ../../../modules/nix/user/secrets.nix # Secrets (SSH, zerotier)
     #../../../modules/nix/user/basic.nix # Simple user for a server.
 
     # Bootloader
@@ -13,8 +14,9 @@
     #../../../modules/nix/boot/silent_boot.nix
 
     # System language
-    #../../../modules/nix/user/lang/en.nix # English
-    #../../../modules/nix/user/lang/jp.nix # Japanese (日本語)
+    ../../../modules/nix/sys/locale/en_jp.nix # English and Japanese
+    #../../../modules/nix/sys/locale/en.nix # English
+    #../../../modules/nix/sys/locale/jp.nix # Japanese (日本語)
 
     # Filesystems
     #../../../modules/nix/fs/fs.nix
@@ -37,10 +39,13 @@
       wget curl
       git # Git must be installed before flakes.
       cachix
-      neovim
       tmux
       firefox
       pavucontrol
+
+      neovim
+      libgccjit
+      binutils
       ;
   };
 

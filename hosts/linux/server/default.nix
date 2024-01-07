@@ -7,7 +7,7 @@
     ../timers.nix # Enable custom systemd services / timers.
 
     # Is this really needed on a flake?
-    ./remove/hardware-configuration.nix # Include the results of the hardware scan.
+    ../1_hardware_scan/thinknya.nix # Include the results of the hardware scan.
   ];
 
 }

@@ -33,6 +33,7 @@
     ../../../modules/nix/net/ssh.nix
     #../../../modules/nix/net/mosh.nix
     ../../../modules/nix/net/vpn.nix
+    ../../../modules/nix/net/zero_tier_one.nix
 
     # Cybersecurity
     ../../../modules/nix/sec/gpg.nix
@@ -65,7 +66,6 @@
     #../../../modules/nix/extra/irc.nix
     #../../../modules/nix/extra/irc_server.nix
     #../../../modules/nix/extra/elastic.nix
-    #../../../modules/nix/extra/zero_tier_one.nix
     #../../../modules/nix/extra/tailscale.nix
     #../../../modules/nix/extra/vnc.nix
 
