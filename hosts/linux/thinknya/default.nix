@@ -3,8 +3,8 @@
   imports = [
 
     # Core server configuration + My own configuration.
-    ../basic
-    ./laptop.nix
+    ../server
+    ./modules.nix
   ];
 
 }

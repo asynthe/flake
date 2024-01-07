@@ -2,9 +2,15 @@
 
   imports = [
 
+    # Move to like home or smth
+    #../../../modules/nix/daemon/mpd.nix
+    #../../../modules/nix/server/syncthing.nix
+    #../../../modules/nix/audio/mpd.nix # Enabled on Home Manager.
+
     # Window Managers
     ../../../modules/nix/wm/hyprland.nix
     ../../../modules/nix/wm/xmonad.nix
+
     # Packages
     ../../../modules/nix/pkgs/wayland.nix # Wayland packages.
     ../../../modules/nix/pkgs/x11.nix # X11 packages.
@@ -22,7 +28,6 @@
     # Audio
     ../../../modules/nix/audio/audio.nix
     #../../../modules/nix/audio/jack.nix
-    #../../../modules/nix/audio/mpd.nix # Enabled on Home Manager.
     ../../../modules/nix/audio/musnix.nix
     ../../../modules/nix/audio/pipewire.nix
 
@@ -43,9 +48,9 @@
     #../../../modules/nix/server/xmr.nix # Monero.
 
     # Daemon
+    ../../../modules/nix/daemon/fingerprint.nix
     #../../../modules/nix/daemon/locate.nix
-    #../../../modules/nix/daemon/mpd.nix
-    #../../../modules/nix/server/syncthing.nix
+    ../../../modules/nix/daemon/printing.nix # Printer
 
     # Tools
     #../../../modules/nix/tools/android.nix # Android tools and packages.
@@ -60,7 +65,6 @@
     ../../../modules/nix/extra/gaming.nix # Steam
     ../../../modules/nix/extra/fcitx5_mozc.nix # Fcitx5 + mozc (IME)
     ../../../modules/nix/extra/flatpak.nix # Flatpak
-    ../../../modules/nix/extra/printing.nix # Printer
 
     #../../../modules/nix/extra/win_mount.nix # Automatically mount windows partition to `win` folder in home.
     #../../../modules/nix/extra/irc.nix

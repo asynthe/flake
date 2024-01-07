@@ -2,7 +2,7 @@
 
   services.fprintd = {
     enable = true;
-    package = "";
+    #package = "";
 
     # Touch OEM Drivers library support.
     #tod = {       

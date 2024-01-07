@@ -29,7 +29,7 @@ nixosConfigurations = {
 
 server = nixpkgs.lib.nixosSystem {
   system = "${hostname}";
-  specialArgs = {inherit username inputs;};
+  specialArgs = {inherit username hostname inputs;};
   modules = [
     ./hosts/linux/server
    ];
@@ -37,7 +37,7 @@ server = nixpkgs.lib.nixosSystem {
 
 thinknya = nixpkgs.lib.nixosSystem {
   system = "${hostname}";
-  specialArgs = {inherit username inputs;};
+  specialArgs = {inherit username hostname inputs;};
   modules = [
     ./hosts/linux/thinknya
     inputs.musnix.nixosModules.musnix
@@ -70,7 +70,7 @@ ${hostname_mac} = nix-darwin.lib.darwinSystem {
     system = "${apple_silicon}";
     specialArgs = {inherit username_mac inputs;};
       modules = [
-        ./machines/macos
+        ./hosts/macos
       ];
   };
 };
@@ -79,7 +79,7 @@ homeConfigurations = {
   ${username} = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = {inherit username inputs;};
-    modules = [ ./machines/home ];
+    modules = [ ./hosts/home ];
   };
 };
 
