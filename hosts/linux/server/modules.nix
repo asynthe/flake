@@ -5,7 +5,7 @@
   imports = [
 
     # Nix configuration
-    ../../../modules/nix/nix/setting.nix
+    ../../../modules/nix/nix/settings.nix
 
     # Users
     #../../../modules/nix/user/basic.nix # Simple user for a server.
