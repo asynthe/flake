@@ -1,8 +1,6 @@
 {config, ...}: {
 
-  # Networking configuration
   networking = {
-    hostName = "genkai";
     #networking.wireless.enable = true; # wpa-supplicant
     # Network Manager
     networkmanager = {

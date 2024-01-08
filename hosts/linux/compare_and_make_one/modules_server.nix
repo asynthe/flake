@@ -1,11 +1,9 @@
-{ config, hostname, ... }: {
-
-  networking.hostName = "${hostname}";
+{ config, pkgs, ... }: {
 
   imports = [
 
     # Nix configuration
-    ../../../modules/nix/nix/settings.nix
+    ../../../modules/nix/nix/setting.nix
 
     # Users
     #../../../modules/nix/user/basic.nix # Simple user for a server.
@@ -109,5 +107,25 @@
     #../../../modules/nix/extra/elastic.nix
     #../../../modules/nix/extra/vnc.nix
 
-  ]; 
+  ];
+
+  # List of packages I want to have on any computer.
+  nixpkgs.config.allowUnfree = true;
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      alacritty kitty # Always good to have some extra terminals.
+      wget curl
+      git # Git must be installed before flakes.
+      cachix
+      tmux
+      firefox
+      pavucontrol
+
+      neovim
+      libgccjit
+      binutils
+      ;
+  };
+
 }

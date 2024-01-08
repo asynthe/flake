@@ -65,10 +65,15 @@ outputs = inputs @ {
   ...
 	}: let
 
+  # Linux / Home
   username = "asynthe";
   hostname = "thinknya";
+
+  # Darwin
   username_mac = "benjamindunstan";
   hostname_mac = "Benjis-Macbook";
+
+  # pkgs
   linux_64 = "x86_64-linux";
   apple_silicon = "aarch64-darwin";
   pkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -94,10 +99,8 @@ This basic server configures:
 #+begin_src nix
   server = nixpkgs.lib.nixosSystem {
     system = "${hostname}";
-    specialArgs = {inherit username inputs;};
-    modules = [
-      ./machines/linux/basic
-     ];
+    specialArgs = {inherit username hostname inputs;};
+    modules = [ ./hosts/linux/server ];
   };
 #+end_src
 
@@ -114,11 +117,11 @@ This import points at server but also add's a list of imports that configure mor
 - Tools
 
 #+begin_src nix
-  ${hostname} = nixpkgs.lib.nixosSystem {
+  thinknya = nixpkgs.lib.nixosSystem {
     system = "${hostname}";
-    specialArgs = {inherit username inputs;};
+    specialArgs = {inherit username hostname inputs;};
     modules = [
-      ./machines/linux/laptop
+      ./hosts/linux/thinknya
       inputs.musnix.nixosModules.musnix
       # Home Manager as Module goes here !
       ];
@@ -167,9 +170,7 @@ darwin-rebuild switch --flake .
   ${hostname_mac} = nix-darwin.lib.darwinSystem {
     system = "${apple_silicon}";
     specialArgs = {inherit username_mac inputs;};
-      modules = [
-        ./machines/macos
-      ];
+      modules = [ ./hosts/macos ];
   };
 };
 #+end_src
@@ -208,7 +209,7 @@ Home Manager as a Standalone
     ${username} = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = {inherit username inputs;};
-      modules = [ ./machines/home ];
+      modules = [ ./hosts/home ];
     };
   };
 #+end_src

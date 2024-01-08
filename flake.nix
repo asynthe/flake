@@ -15,10 +15,15 @@ outputs = inputs @ {
   ...
 	}: let
 
+  # Linux / Home
   username = "asynthe";
   hostname = "thinknya";
+
+  # Darwin
   username_mac = "benjamindunstan";
   hostname_mac = "Benjis-Macbook";
+
+  # pkgs
   linux_64 = "x86_64-linux";
   apple_silicon = "aarch64-darwin";
   pkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -30,9 +35,7 @@ nixosConfigurations = {
 server = nixpkgs.lib.nixosSystem {
   system = "${hostname}";
   specialArgs = {inherit username hostname inputs;};
-  modules = [
-    ./hosts/linux/server
-   ];
+  modules = [ ./hosts/linux/server ];
 };
 
 thinknya = nixpkgs.lib.nixosSystem {
@@ -69,9 +72,7 @@ darwinConfigurations = {
 ${hostname_mac} = nix-darwin.lib.darwinSystem {
     system = "${apple_silicon}";
     specialArgs = {inherit username_mac inputs;};
-      modules = [
-        ./hosts/macos
-      ];
+      modules = [ ./hosts/macos ];
   };
 };
 

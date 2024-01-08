@@ -2,7 +2,7 @@
 
   imports = [
 
-    ../../modules/home/test.nix # Temp file to test stuff
+    ../../modules/test/home_test.nix # Temp file to test stuff
 
     # Apps
     #../../modules/home/app/dots.nix
