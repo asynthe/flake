@@ -62,6 +62,7 @@ outputs = inputs @ {
   home-manager,
   hyprland,
   musnix,
+  nixos-06cb-009a-fingerprint-sensor,
   ...
 	}: let
 
@@ -117,16 +118,22 @@ This import points at server but also add's a list of imports that configure mor
 - Tools
 
 #+begin_src nix
-  thinknya = nixpkgs.lib.nixosSystem {
-    system = "${hostname}";
-    specialArgs = {inherit username hostname inputs;};
-    modules = [
-      ./hosts/linux/thinknya
-      inputs.musnix.nixosModules.musnix
-      # Home Manager as Module goes here !
-      ];
-    };
+thinknya = nixpkgs.lib.nixosSystem {
+  system = "${hostname}";
+  specialArgs = {inherit
+    username
+    hostname
+    inputs
+    nixos-06cb-009a-fingerprint-sensor
+    ;
   };
+  modules = [
+    ./hosts/linux/thinknya
+    inputs.musnix.nixosModules.musnix
+    # Home Manager as Module goes here !
+    ];
+  };
+};
 #+end_src
 
 *** Home Manager as Module
@@ -270,26 +277,37 @@ only-user? (check pls)
 
 ** Apps and Repos
 
-- [[https://github.com/hyprwm/Hyprland][Hyprland]]
+Hyprland
+> [[https://github.com/hyprwm/Hyprland][github page]]
 #+begin_src nix
 hyprland.url = "github:hyprwm/Hyprland";
 #+end_src
 
-+ [[https://github.com/musnix/musnix][musnix]]
+musnix
+> [[https://github.com/musnix/musnix][github page]]
 #+begin_src nix
 musnix.url = "github:musnix/musnix";
 #+end_src
 
 nil - Nix Language server
-+ [[https://github.com/oxalica/nil][github page]]
+> [[https://github.com/oxalica/nil][github page]]
 #+begin_src nix
 nil.url = "github:oxalica/nil";
 #+end_src
 
 rust-overlay
-+ [[https://github.com/oxalica/rust-overlay][rust-overlay - github page]]
+> [[https://github.com/oxalica/rust-overlay][github page]]
 #+begin_src nix
 rust-overlay.url = "github:oxalica/rust-overlay";
+#+end_src
+
+nixos-06cb:009-fingerprint-sensor
+> [[https://github.com/ahbnr/nixos-06cb-009a-fingerprint-sensor][github page]]
+#+begin_src nix
+nixos-06cb-009a-fingerprint-sensor = {
+  url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
 #+end_src
 
 *** Uncommented

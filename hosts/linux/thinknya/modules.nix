@@ -4,6 +4,16 @@
 
   imports = [
 
+    # Test
+    ../../../modules/test/fingerprint/t480_fingerprint.nix
+    ../../../modules/test/xone_driver.nix
+    ../../../modules/test/lid_switch.nix
+
+    # Move to like home or smth
+    #../../../modules/nix/daemon/mpd.nix
+    #../../../modules/nix/server/syncthing.nix
+    #../../../modules/nix/audio/mpd.nix # Enabled on Home Manager.
+
     # Nix configuration
     ../../../modules/nix/nix/settings.nix
 
@@ -33,14 +43,6 @@
     # Software RAID with mdadm.
     #../../../modules/nix/fs/raid/raid0.nix
     #../../../modules/nix/fs/raid/raid1.nix
-
-    # Test
-    ../../../modules/test/fingerprint.nix
-
-    # Move to like home or smth
-    #../../../modules/nix/daemon/mpd.nix
-    #../../../modules/nix/server/syncthing.nix
-    #../../../modules/nix/audio/mpd.nix # Enabled on Home Manager.
 
     # Window Managers
     ../../../modules/nix/wm/hyprland.nix

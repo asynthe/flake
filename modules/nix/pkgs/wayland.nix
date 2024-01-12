@@ -21,8 +21,8 @@
       wl-clipboard
       pass-wayland # password manager
       
-      # Not used
-      #gtklock # lock screen
+      # Lock Screen
+      gtklock
       #swaylock-effects
       #wlogout
       #eww-wayland # status bar

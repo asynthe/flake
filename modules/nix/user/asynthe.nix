@@ -13,15 +13,16 @@
 
   # Replace sudo with doas
   security = {
-    sudo.enable = false;
+    sudo.enable = true;
+    #sudo.enable = false;
     doas = {
       enable = true;
       extraRules = [
         {
           users = ["${username}"];
           keepEnv = true;
-          #persist = true; # No auth every 5 mins.
-          noPass = true; # No auth.
+          persist = true; # No auth every 5 mins.
+          #noPass = true; # No auth.
         }
       ];
     };

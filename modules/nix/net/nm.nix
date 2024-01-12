@@ -1,14 +1,16 @@
-{config, ...}: {
+{ config, lib, ... }: {
 
   networking = {
-    #networking.wireless.enable = true; # wpa-supplicant
+
+    #wireless.enable = true; # wpa-supplicant
+
     # Network Manager
     networkmanager = {
       enable = true;
       ethernet.macAddress = "random";
       wifi = {
         scanRandMacAddress = true;
-        macAddress = "random"; # One of: permanent, preserve, random, stable.
+        macAddress = "random"; # permanent, preserve, random, stable.
       };
     };
   };
@@ -21,4 +23,5 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
 }

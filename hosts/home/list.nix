@@ -31,7 +31,7 @@
 
     # Extra
     ../../modules/home/extra/comms.nix # Discord, IRC, Signal, Telegram.
-    #../../modules/home/extra/emulation.nix # Emulators.
+    ../../modules/home/extra/emulation.nix # Emulators.
     #../../modules/home/extra/game.nix # Videogames.
     #../../modules/home/extra/steam.nix # Steam. (also managed by Nix)
 

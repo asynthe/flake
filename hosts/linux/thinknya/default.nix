@@ -14,7 +14,7 @@
       git # Git must be installed before flakes.
       cachix
       tmux
-      firefox
+      firefox ungoogled-chromium
       pavucontrol
       neovim
       libgccjit

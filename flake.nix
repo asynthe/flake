@@ -12,6 +12,7 @@ outputs = inputs @ {
   home-manager,
   hyprland,
   musnix,
+  nixos-06cb-009a-fingerprint-sensor,
   ...
 	}: let
 
@@ -40,7 +41,13 @@ server = nixpkgs.lib.nixosSystem {
 
 thinknya = nixpkgs.lib.nixosSystem {
   system = "${hostname}";
-  specialArgs = {inherit username hostname inputs;};
+  specialArgs = {inherit
+    username
+    hostname
+    inputs
+    nixos-06cb-009a-fingerprint-sensor
+    ;
+  };
   modules = [
     ./hosts/linux/thinknya
     inputs.musnix.nixosModules.musnix
@@ -109,6 +116,11 @@ musnix.url = "github:musnix/musnix";
 nil.url = "github:oxalica/nil";
 
 rust-overlay.url = "github:oxalica/rust-overlay";
+
+nixos-06cb-009a-fingerprint-sensor = {
+  url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
 
 #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 #nix-gaming.url = "github:fufexan/nix-gaming";

@@ -1,51 +1,59 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
+
   # Personal list of emulators.
-
   home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-      # RetroArch
-      
-      retroarchFull # Retroarch with all the libraries
-      #(retroarch.override { # Retroarch with specific libraries
-      #cores = with libretro; [
-      #genesis-plus-gx
-      #snes9x
-      #beetle-psx-hw
-      #];
-      #})
+    inherit (pkgs)
 
-      # SONY
+      xboxdrv # Gamepad driver
+
+      # Sony
       #ppsspp #ppsspp-qt # PSP
       #ppsspp-sdl-wayland # PSP on wayland
       #pcsx2 # PS2
       #rpcs3 # PS3
-      mgba #vbam # GAME BOY ADVANCE
-      # SEGA
-      
-      #flycast # SEGA DREAMCAST / NAOMI / ATOMISWAVE
-      #redream # SEGA DREAMCAST (not yet implemented)
-      
-      # MICROSOFT
-      #xemu # XBOX
-      
-      # NINTENDO
-      #snes9x
-      #zsnes
-      bsnes-hd # SUPER NINTENDO
-      mupen64plus # NINTENDO 64
-      #dolphin-emu # GAMECUBE / WII
+
+      # Sega
+      # Genesis / Mega Drive
+      # Sega Saturn
+      #flycast # Dreamcast / Naomi / Atomiswave
+      #redream # Dreamcast (not yet implemented)
+
+      # Microsoft
+      #xemu # Xbox
+
+      # Nintendo
+      #mgba #vbam Game Boy Advanced
+      #bsdnes-hd #snes9x #zsnes # Super Nintendo
+      mupen64plus # Nintendo 64
+      #dolphin-emu # Gamecube / Wii
       #desmume # DS
       #citra-nightly #citra-canary # 3DS
-      #cemu # WII U
-      #yuzu-mainline #ryujinx # SWITCH
-      
-      # VARIOUS
+      #cemu # Wii U
+      #yuzu-mainline #ryujinx # Switch
+
+      # Various
       #mame #mame-tools
       #dosbox #dosbox-staging # DOS
-      #mednafen
-      #mednaffe # frontend for mednafen
-      
-      ;
+      mednafen # Play Station, NEC PC Engine, PC-FX, Sega Saturn, Nintendo Virtual Boy.
+      mednaffe # Frontend for Mednafen.
+
+      # RetroArch
+      retroarchFull
+      #(retroarch.override { # Retroarch with specific libraries
+        #cores = with libretro; [
+          #genesis-plus-gx
+	  #beetle-psx
+          #beetle-psx-hw
+	  #dolphin
+	  #flycast
+          #snes9x
+	  #mupen64plus
+	  #parallel-n64
+	  #pcsx2
+	  #ppsspp
+	  #vba-next
+        #];
+      #})
+    ;
   };
 }
