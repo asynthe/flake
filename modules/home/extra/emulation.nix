@@ -4,8 +4,6 @@
   home.packages = builtins.attrValues {
     inherit (pkgs)
 
-      xboxdrv # Gamepad driver
-
       # Sony
       #ppsspp #ppsspp-qt # PSP
       #ppsspp-sdl-wayland # PSP on wayland
@@ -34,11 +32,13 @@
       # Various
       #mame #mame-tools
       #dosbox #dosbox-staging # DOS
-      mednafen # Play Station, NEC PC Engine, PC-FX, Sega Saturn, Nintendo Virtual Boy.
-      mednaffe # Frontend for Mednafen.
+      #mednafen # Play Station, NEC PC Engine, PC-FX, Sega Saturn, Nintendo Virtual Boy.
+      #mednaffe # Frontend for Mednafen.
 
       # RetroArch
       retroarchFull
+      retroarch-assets
+
       #(retroarch.override { # Retroarch with specific libraries
         #cores = with libretro; [
           #genesis-plus-gx

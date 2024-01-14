@@ -1,8 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
+
   # Displaylink driver for multiple monitors
   # See more at https://nixos.wiki/wiki/Displaylink
 
@@ -14,12 +11,5 @@
     #sessionCommands = ''
     #${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
     #'';
-  };
-
-  environment.systemPackages = builtins.attrValues {
-    inherit
-      (pkgs)
-      displaylink
-      ;
   };
 }

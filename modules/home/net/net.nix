@@ -3,12 +3,13 @@
     inherit
       (pkgs)
 
+      # Where to put this
+      qgis #qgis-ltr
+
       wirelesstools # Maybe replace in future?
 
       #socat # replacement of openbsd-netcat
-
       bc
-      qgis #qgis-ltr
       nethogs
       mtr # A network diagnostic tool
       iperf3

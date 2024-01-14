@@ -1,8 +1,6 @@
-{ 
-  config, 
-  pkgs, 
-  ... 
-}: let
+{ config, pkgs, ... }: 
+
+let
   filePath = ./mdadm.conf;
   fileContent = builtins.readFile filePath;
 in {

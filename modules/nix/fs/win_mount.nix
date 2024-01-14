@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }: {
+
   # Windows mounting and dual-booting
   # More info in https://nixos.wiki/wiki/Dual_Booting_NixOS_and_Windows
   # Note: add a let variable to flake, windows_partition = "/dev/..."

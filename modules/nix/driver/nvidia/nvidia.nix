@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
 
   # Enable OpenGL
   hardware.opengl = {
@@ -13,7 +9,7 @@
     #extraPackages32 = with pkgs.pkgsi686Linux; [libva]; # gaming extra
   };
   
-  # Completely disable NVIDIA graphics and use integrated
+  # Completely disable NVIDIA graphics and use integrated.
   #hardware.nvidiaOptimus.disable = true; 
 
   # Specify your system's drivers.

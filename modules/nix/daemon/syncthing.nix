@@ -1,9 +1,4 @@
-{
-  config,
-  username,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, username, ... }: {
 
   # Just the package and set up myself.
   environment.systemPackages = builtins.attrValues {

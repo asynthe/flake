@@ -1,14 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, ... }: {
 
-  hardware.cpu.intel = {
-    updateMicrocode = true;
-    #sgx.provision = {
-      #enable = true;
-      #mode = ;
-      #user = ;
-      #group = ;
-      #enableDcapCompat = ;
-    #};
-  };
+  hardware.cpu.intel.updateMicrocode = true;
 
 }

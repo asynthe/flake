@@ -1,4 +1,15 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, username, ... }: {
+
+  # Pipewire audio configuration.
+  # See more at https://nixos.wiki/wiki/Pipewire
+  # See more at https://nixos.wiki/wiki/PulseAudio
+
+  users.users.${username}.extraGroups = [ "audio" ];
+
+  sound = {
+    enable = true;
+    mediaKeys.enable = true;
+  };
 
   security.rtkit.enable = true;
   hardware.pulseaudio = {

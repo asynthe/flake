@@ -1,8 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
+
   # Wine configuration and packages
   # See more at https://nixos.wiki/wiki/Wine
 
@@ -12,10 +9,9 @@
 
   # Packages to install
   environment.systemPackages = builtins.attrValues {
-    inherit
-      (pkgs)
-      # Frontends for Wine.
-      
+    inherit (pkgs)
+
+      # Frontends for Wine. 
       bottles #bottles-unwrapped
       #q4wine
       
@@ -26,12 +22,13 @@
       #wine64 # Support 64-bit only
       
       # WINE extras
-      
       wineasio
       winetricks
       ;
-    inherit
-      (pkgs.wineWowPackages) # Wine build that support both 32 and 64-bit applications.
+
+    # Wine build that support both 32 and 64-bit applications.
+    inherit (pkgs.wineWowPackages) 
+
       waylandFull # With experimental Wayland support.
       #wayland # With experimental Wayland support.
       #unstableFull
@@ -46,8 +43,8 @@
       #fonts # Microsoft replacement fonts by the Wine project.
       ;
 
-    inherit
-      (pkgs.wine64Packages) # Wine build that supports 64-bit only.
+    # Wine build that supports 64-bit only.
+    inherit (pkgs.wine64Packages) 
       #waylandFull
       #wayland
       #unstableFull
@@ -61,8 +58,8 @@
       #fonts # Microsoft replacement fonts by the Wine project.
       ;
 
-    inherit
-      (pkgs.winePackages) # Wine build that supports 32-bit only.
+    # Wine build that supports 32-bit only.
+    inherit (pkgs.winePackages) 
       #waylandFull
       #wayland
       #unstableFull
@@ -74,7 +71,6 @@
       #minimal
       #base
       #fonts # Microsoft replacement fonts by the Wine project.
-      
       ;
   };
 }

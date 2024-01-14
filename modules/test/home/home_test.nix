@@ -1,8 +1,7 @@
 { config, pkgs, ... }: {
 
   home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
+    inherit (pkgs)
       
       # ai.nix ?
       ollama
@@ -43,5 +42,4 @@
       #kicad #kicad-small
       ;
   };
-
 }

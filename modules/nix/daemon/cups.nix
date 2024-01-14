@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
 
-# See more at https://nixos.wiki/wiki/Printing
+  # See more at https://nixos.wiki/wiki/Printing
 
   # Local print service.
   services.printing.enable = true;
