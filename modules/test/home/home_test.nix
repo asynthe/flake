@@ -3,11 +3,8 @@
   home.packages = builtins.attrValues {
     inherit (pkgs)
       
-      # ai.nix ?
-      ollama
-
       # GNU TOOLS
-      at
+      #at
       #cowsay
       #file
       #which
@@ -17,18 +14,6 @@
       #gawk
       #zstd
       #vscodium #vscodium-fhs # test how compatible vscode is w nixos
-
-      # Nix -> devops.nix?
-      deploy-rs
-      nixops_unstable #nixops
-      direnv
-      nix-direnv
-      nix-output-monitor # use as `nom`, works like `nix` but with more details
-
-      # Browser
-      #nyxt #links2
-      brave
-      arti
 
       # Task management
       #taskwarrior

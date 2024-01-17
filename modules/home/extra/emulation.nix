@@ -22,7 +22,7 @@
       # Nintendo
       #mgba #vbam Game Boy Advanced
       #bsdnes-hd #snes9x #zsnes # Super Nintendo
-      mupen64plus # Nintendo 64
+      #mupen64plus # Nintendo 64
       #dolphin-emu # Gamecube / Wii
       #desmume # DS
       #citra-nightly #citra-canary # 3DS
@@ -36,8 +36,9 @@
       #mednaffe # Frontend for Mednafen.
 
       # RetroArch
-      retroarchFull
-      retroarch-assets
+      # (moving to Steam's RetroArch)
+      #retroarchFull
+      #retroarch-assets
 
       #(retroarch.override { # Retroarch with specific libraries
         #cores = with libretro; [

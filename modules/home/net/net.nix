@@ -4,7 +4,7 @@
       (pkgs)
 
       # Where to put this
-      qgis #qgis-ltr
+      #qgis #qgis-ltr
 
       wirelesstools # Maybe replace in future?
 

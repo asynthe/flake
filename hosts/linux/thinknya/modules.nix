@@ -7,10 +7,12 @@
     # Test
     ../../../modules/test/nix/fingerprint/t480_fingerprint.nix
     ../../../modules/test/nix/lid_switch.nix
-    ../../../modules/test/nix/xone_driver.nix
+    # Test - make so it works on Home instead.
+    ../../../modules/test/nix/steam.nix
+    ../../../modules/test/nix/gaming.nix
 
     # Move to like home or smth
-    ../../../modules/nix/1_to_home/gaming.nix
+    #../../../modules/nix/1_to_home/gaming.nix
     #../../../modules/nix/1_to_home/mpd.nix
     #../../../modules/nix/1_to_home/devops.nix
 
