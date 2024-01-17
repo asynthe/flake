@@ -1,8 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
+
   home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
+    inherit (pkgs)
+
       # Linux Basics for Hackers
+      metasploit
       aircrack-ng
       snort
 
@@ -17,15 +19,6 @@
       hashcat hashcat-utils
       john
       hcxtools
-
-      # Encryption
-      gnupg
-      pam_gnupg
-      pinentry-curses
-      age
-      rage
-      signing-party
-      graphviz
       ;
   };
 }
