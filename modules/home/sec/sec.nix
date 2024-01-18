@@ -3,6 +3,9 @@
   home.packages = builtins.attrValues {
     inherit (pkgs)
 
+      # Removing fingerprints
+      exiftool
+
       # Linux Basics for Hackers
       metasploit
       aircrack-ng

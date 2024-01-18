@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
+
   home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
+    inherit (pkgs)
 
       # Where to put this
       #qgis #qgis-ltr
