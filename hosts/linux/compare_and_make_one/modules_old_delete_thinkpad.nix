@@ -2,13 +2,14 @@
 
 
   # System setup
-  networking.hostName = "thinknya"; # Set up as "${hostname}" if you've set a custom hostname.
-  networkconfig.thinkpad.enable = true;
+  #networking.hostName = "thinknya"; # Set up as "${hostname}" if you've set a custom hostname.
+  #networkconfig.thinkpad.enable = true;
 
   imports = [
 
+    # Delete
     # Networking - Test
-    ../../../modules/test/nix/nm.nix # Disable other networkmanager
+    #../../../modules/test/nix/nm.nix # Disable other networkmanager
 
     # Test
     ../../../modules/test/nix/fingerprint/t480_fingerprint.nix
@@ -89,7 +90,7 @@
     ../../../modules/nix/net/ssh/ssh.nix
     #../../../modules/nix/net/dns.nix
     #../../../modules/nix/net/elastic.nix
-    #../../../modules/nix/net/nm.nix # Network Manager.
+    ../../../modules/nix/net/nm.nix # Network Manager.
 
     # Network - VPN
     ../../../modules/nix/net/vpn/mullvad.nix

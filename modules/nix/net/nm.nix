@@ -1,27 +1,39 @@
-{ config, lib, ... }: {
+{ config, lib, pkgs, ... }:
 
-  networking = {
+with lib; # Use the functions from lib, such as mkIf
 
-    #wireless.enable = true; # wpa-supplicant
+let
 
-    # Network Manager
-    networkmanager = {
-      enable = true;
-      ethernet.macAddress = "random";
-      wifi = {
-        scanRandMacAddress = true;
-        macAddress = "random"; # permanent, preserve, random, stable.
-      };
-    };
+  cfg_server = config.server.networkmanager;
+  cfg_thinkpad = config.thinkpad.networkmanager;
+
+in {
+
+  # Interface: defining the options that users can specify.
+  options.server.networkmanager.enable = mkOption {
+    type = types.bool;
+    default = false;
+    description = "Enable Network Manager.";
   };
 
-  #systemd.services.NetworkManager-wait-online.enable = false; # Fix for ZFS bug.
-  #services.dnsmasq.enable = true;
+  options.thinkpad.networkmanager.enable = mkOption {
+    type = types.bool;
+    default = false;
+    description = "Enable Network Manager.";
+  };
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  config = mkMerge [ 
+    (mkIf (cfg_server.enable) { networking.networkmanager.enable = true; })
+    (mkIf (cfg_thinkpad.enable) {
+      networking.networkmanager = {
+        enable = true;
+        ethernet.macAddress = "random";
+        wifi = {
+          scanRandMacAddress = true;
+          macAddress = "random"; # permanent, preserve, random, stable.
+        };
+      };
+    })
+  ];
 
 }
