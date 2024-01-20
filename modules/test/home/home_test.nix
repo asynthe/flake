@@ -3,6 +3,10 @@
   home.packages = builtins.attrValues {
     inherit (pkgs)
       
+      # Testing
+      calcurse
+      wayfire
+
       # GNU TOOLS
       #at
       #cowsay

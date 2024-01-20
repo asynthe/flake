@@ -1,8 +1,14 @@
 { config, hostname, ... }: {
 
-  networking.hostName = "${hostname}";
+
+  # System setup
+  networking.hostName = "thinknya"; # Set up as "${hostname}" if you've set a custom hostname.
+  networkconfig.thinkpad.enable = true;
 
   imports = [
+
+    # Networking - Test
+    ../../../modules/test/nix/nm.nix # Disable other networkmanager
 
     # Test
     ../../../modules/test/nix/fingerprint/t480_fingerprint.nix
@@ -10,7 +16,6 @@
     # Test - make so it works on Home instead.
     ../../../modules/test/nix/steam.nix
     ../../../modules/test/nix/gaming.nix
-
     # Move to like home or smth
     #../../../modules/nix/1_to_home/gaming.nix
     #../../../modules/nix/1_to_home/mpd.nix
@@ -47,7 +52,7 @@
     #../../../modules/nix/daemon/podman.nix
     #../../../modules/nix/daemon/postgres.nix
     #../../../modules/nix/daemon/syncthing.nix
-    #../../../modules/nix/daemon/wine.nix
+    ../../../modules/nix/daemon/wine.nix
     #../../../modules/nix/daemon/xmr.nix
 
     # Drivers - Nvidia
@@ -84,7 +89,7 @@
     ../../../modules/nix/net/ssh/ssh.nix
     #../../../modules/nix/net/dns.nix
     #../../../modules/nix/net/elastic.nix
-    ../../../modules/nix/net/nm.nix # Network Manager.
+    #../../../modules/nix/net/nm.nix # Network Manager.
 
     # Network - VPN
     ../../../modules/nix/net/vpn/mullvad.nix

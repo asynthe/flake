@@ -1,9 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
+
   home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-      # Steam
-      
+    inherit (pkgs)
+
+      # Steam  
       steam
       steam-tui
       gamescope
@@ -15,13 +15,11 @@
       protonup-ng
       xboxdrv
       ;
-    inherit
-      (pkgs.steamPackages)
+
+    inherit (pkgs.steamPackages)
       steamcmd
       #steam-runtime
-      
       #steam-runtime-wrapped
-      
       ;
   };
 }

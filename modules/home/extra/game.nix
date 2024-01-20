@@ -1,9 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
+
   home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
+    inherit (pkgs)
+
       # Tools
-      
       mangohud # Vulkan and OpenGL overlay for monitoring.
       lutris #lutris-free #lutris-unwrapped # Frontend to manage games.
       gamemode # Better performance on games, use with `gamemoderun`.
