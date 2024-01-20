@@ -1,11 +1,12 @@
 { config, pkgs, ... }: {
 
   imports = [
-    
-    ./modules.nix
     ./hardware.nix
-
+    ../modules_list.nix
   ];
+
+  networking.hostName = "server";
+  server.networkmanager.enable = true;
 
   # List of packages I want to have on any computer.
   nixpkgs.config.allowUnfree = true;
@@ -23,9 +24,5 @@
       binutils
       ;
   };
-
-    # Move ?
-    #../timers.nix # Enable custom systemd services / timers.
-    #../../../modules/nix/nix/cachix.nix # Cachix.
 
 }
