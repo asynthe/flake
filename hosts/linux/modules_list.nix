@@ -18,7 +18,8 @@
     #../../modules/nix/sys/locale/jp.nix # Japanese (日本語)
 
     # System - Users
-    ../../modules/nix/sys/fonts.nix
+    ../../modules/nix/sys/env.nix # Environment configuration.
+    ../../modules/nix/sys/fonts.nix # Fonts.
     ../../modules/nix/sys/ime.nix # Fcitx5 + mozc.
     ../../modules/nix/sys/user.nix # Main user module.
 
