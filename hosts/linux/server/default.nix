@@ -1,7 +1,10 @@
 { config, pkgs, ... }: {
 
   networking.hostName = "server";
-  server.networkmanager.enable = true;
+  server = {
+    user.enable = true; # both 'rizuki' 'ben'.
+    networkmanager.enable = true;
+  };
 
   imports = [
     ./hardware.nix

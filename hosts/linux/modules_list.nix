@@ -2,7 +2,8 @@
 
   imports = [
 
-    # Test
+    # Test - temporary
+    ../../modules/nix/sys/wheretoput.nix # Change later.
     # Test - make so it works on Home instead.
     ../../modules/test/nix/steam.nix
     ../../modules/test/nix/gaming.nix
@@ -17,9 +18,9 @@
     #../../modules/nix/sys/locale/jp.nix # Japanese (日本語)
 
     # System - Users
-    #../../modules/nix/sys/user/basic.nix # Simple user for a server.
-    ../../modules/nix/sys/user/asynthe.nix # My customized user.
-    ../../modules/nix/sys/user/ime.nix # Fcitx5 + mozc.
+    ../../modules/nix/sys/fonts.nix
+    ../../modules/nix/sys/ime.nix # Fcitx5 + mozc.
+    ../../modules/nix/sys/user.nix # Main user module.
 
     # Audio
     ../../modules/nix/audio/bluetooth.nix

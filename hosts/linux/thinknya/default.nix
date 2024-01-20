@@ -8,6 +8,7 @@
   networking.hostName = "thinknya"; # Set up as "${hostname}" if you've defined a custom hostname.
 
   thinkpad = {
+    user.enable = true; # Asynthe user
     networkmanager.enable = true;
     lid_switch.enable = true; # Custom configuration for the laptop lid action.
     t480.fingerprint.enable = true;
