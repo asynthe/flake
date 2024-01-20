@@ -1,12 +1,27 @@
 { config, pkgs, ... }: {
 
-  imports = [
-    ./hardware.nix
-    ../modules_list.nix
-  ];
-
   networking.hostName = "server";
   server.networkmanager.enable = true;
+
+  imports = [
+    ./hardware.nix
+
+    # Bootloader
+    ../../../modules/nix/boot/systemd_boot.nix
+
+    # System language
+    ../../../modules/nix/sys/locale/en_jp.nix # English and Japanese
+
+    # Drivers
+    ../../../modules/nix/driver/intel.nix
+
+    # Network
+    ../../../modules/nix/net/nm.nix # Network Manager configuration.
+    ../../../modules/nix/net/ssh.nix
+    ../../../modules/nix/net/vpn/mullvad.nix
+    ../../../modules/nix/net/vpn/tailscale.nix
+    ../../../modules/nix/daemon/printing.nix # Printer
+  ];
 
   # List of packages I want to have on any computer.
   nixpkgs.config.allowUnfree = true;
