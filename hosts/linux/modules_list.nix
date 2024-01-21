@@ -37,7 +37,7 @@
 
     # Daemon
     #../../modules/nix/daemon/android.nix
-    #../../modules/nix/daemon/cups.nix
+    ../../modules/nix/daemon/cups.nix
     #../../modules/nix/daemon/docker.nix
     #../../modules/nix/daemon/flatpak.nix
     #../../modules/nix/daemon/locate.nix

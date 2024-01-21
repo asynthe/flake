@@ -20,10 +20,11 @@
 
     # Network
     ../../../modules/nix/net/nm.nix # Network Manager configuration.
-    ../../../modules/nix/net/ssh.nix
+    ../../../modules/nix/net/ssh/ssh.nix
     ../../../modules/nix/net/vpn/mullvad.nix
     ../../../modules/nix/net/vpn/tailscale.nix
-    ../../../modules/nix/daemon/printing.nix # Printer
+    ../../../modules/nix/daemon/cups.nix # Printer
+    ../../../modules/sys/user.nix
   ];
 
   # List of packages I want to have on any computer.
