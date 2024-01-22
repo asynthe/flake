@@ -11,17 +11,20 @@
 
     # Bootloader
     ../../../modules/nix/boot/systemd_boot.nix
-    # System language
+
+    # System
     ../../../modules/nix/sys/locale/en_jp.nix # English and Japanese
+    ../../../modules/nix/sys/user.nix
+
     # Drivers
     ../../../modules/nix/driver/intel.nix
+
     # Network
     ../../../modules/nix/net/nm.nix # Network Manager configuration.
     ../../../modules/nix/net/ssh/ssh.nix
     ../../../modules/nix/net/vpn/mullvad.nix
     ../../../modules/nix/net/vpn/tailscale.nix
     ../../../modules/nix/daemon/cups.nix # Printer
-    ../../../modules/sys/user.nix
 
     # Services
     ./services/qbittorrent.nix
