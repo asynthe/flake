@@ -72,9 +72,9 @@
     #../../modules/nix/fs/raid/raid1.nix
 
     # Network
-    #../../modules/nix/net/anon/i2p.nix
+    ../../modules/nix/net/anon/i2p.nix
     #../../modules/nix/net/anon/proxychains.nix
-    #../../modules/nix/net/anon/tor.nix
+    ../../modules/nix/net/anon/tor.nix
     #../../modules/nix/net/irc/irc.nix
     #../../modules/nix/net/irc/server.nix
     #../../modules/nix/net/remote/vnc.nix
