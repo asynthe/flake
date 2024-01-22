@@ -11,13 +11,10 @@
 
     # Bootloader
     ../../../modules/nix/boot/systemd_boot.nix
-
     # System language
     ../../../modules/nix/sys/locale/en_jp.nix # English and Japanese
-
     # Drivers
     ../../../modules/nix/driver/intel.nix
-
     # Network
     ../../../modules/nix/net/nm.nix # Network Manager configuration.
     ../../../modules/nix/net/ssh/ssh.nix
@@ -25,6 +22,9 @@
     ../../../modules/nix/net/vpn/tailscale.nix
     ../../../modules/nix/daemon/cups.nix # Printer
     ../../../modules/sys/user.nix
+
+    # Services
+    ./services/qbittorrent.nix
   ];
 
   # List of packages I want to have on any computer.
@@ -36,12 +36,7 @@
       git # Git must be installed before flakes.
       cachix
       tmux
-      firefox
-      pavucontrol
       neovim
-      libgccjit
-      binutils
       ;
   };
-
 }

@@ -23,11 +23,9 @@
       git # Git must be installed before flakes.
       cachix
       tmux
-      firefox ungoogled-chromium
+      ungoogled-chromium
       pavucontrol
       neovim
-      libgccjit
-      binutils
       ;
   };
 
