@@ -13,8 +13,9 @@
     ../../../modules/nix/boot/systemd_boot.nix
 
     # System
-    ../../../modules/nix/sys/locale/en_jp.nix # English and Japanese
-    ../../../modules/nix/sys/user.nix
+    ../../../modules/nix/nix/settings.nix # Nix daemon settings.
+    ../../../modules/nix/sys/locale/en_jp.nix # English and Japanese.
+    ../../../modules/nix/sys/user.nix # Users.
 
     # Drivers
     ../../../modules/nix/driver/intel.nix
@@ -28,6 +29,7 @@
 
     # Services
     ./services/qbittorrent.nix
+    #./services/postgresql.nix
   ];
 
   # List of packages I want to have on any computer.
