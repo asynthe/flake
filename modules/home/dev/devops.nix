@@ -9,6 +9,10 @@
       #terraformer
       #terraforming
       #terraform-lsp
+
+      # Pulumi
+      pulumi
+      pulumictl
       ;
   };
 

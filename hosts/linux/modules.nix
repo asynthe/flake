@@ -36,7 +36,7 @@
     ../../modules/nix/boot/systemd_boot.nix
 
     # Daemon
-    #../../modules/nix/daemon/android.nix
+    ../../modules/nix/daemon/android.nix
     ../../modules/nix/daemon/cups.nix
     #../../modules/nix/daemon/docker.nix
     #../../modules/nix/daemon/flatpak.nix
@@ -72,13 +72,13 @@
     #../../modules/nix/fs/raid/raid1.nix
 
     # Network
-    ../../modules/nix/net/anon/i2p.nix
+    #../../modules/nix/net/anon/i2pd.nix
     #../../modules/nix/net/anon/proxychains.nix
     ../../modules/nix/net/anon/tor.nix
     #../../modules/nix/net/irc/irc.nix
     #../../modules/nix/net/irc/server.nix
     #../../modules/nix/net/remote/vnc.nix
-    #../../modules/nix/net/ssh/mosh.nix
+    ../../modules/nix/net/ssh/mosh.nix
     ../../modules/nix/net/ssh/ssh.nix
     #../../modules/nix/net/dns.nix
     #../../modules/nix/net/elastic.nix

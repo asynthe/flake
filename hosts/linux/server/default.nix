@@ -4,6 +4,9 @@
   server = {
     user.enable = true; # both 'rizuki' 'ben'.
     networkmanager.enable = true;
+    #services = {
+      #qbittorent = true;
+    #};
   };
 
   imports = [

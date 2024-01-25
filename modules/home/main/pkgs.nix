@@ -81,10 +81,8 @@
 
       # Browser
       librewolf #librewolf-unwrapped
-      #firefox
-      #ungoogled-chromium #chromium
-      #tor tor-browser-bundle-bin
-      #mullvad-browser
+      mullvad-browser
+      #ungoogled-chromium #chromium # Already on default list.
 
       # Torrents
       #aria #ariang

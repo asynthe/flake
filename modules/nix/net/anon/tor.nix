@@ -2,9 +2,7 @@
 
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
-    tor
-    tor-browser-bundle
-    arti
+    tor-browser
     ;
   };
 }
