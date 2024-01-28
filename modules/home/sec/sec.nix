@@ -3,15 +3,20 @@
   home.packages = builtins.attrValues {
     inherit (pkgs)
 
+      # Nmap
+      # A utility for network discovery and security auditing.
+      nmap
+      rustscan
+
       # Removing fingerprints
       exiftool
 
-      # Linux Basics for Hackers
+      # from Linux Basics for Hackers
       metasploit
       aircrack-ng
       snort
 
-      # Ethical Hacking
+      # from Ethical Hacking
       arp-scan
       macchanger
       netdiscover

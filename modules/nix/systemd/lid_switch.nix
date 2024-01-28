@@ -33,8 +33,8 @@ in {
 
   config = mkIf cfg.enable {
     services.logind = {
-      lidSwitch = "suspend";
-      lidSwitchDocked = "suspend";
+      lidSwitch = "ignore";
+      lidSwitchDocked = "ignore";
     };
   };
 

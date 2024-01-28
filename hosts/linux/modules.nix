@@ -2,6 +2,9 @@
 
   imports = [
 
+    # Secrets
+    ../../secrets/secrets.nix
+
     # Test - temporary
     ../../modules/nix/sys/wheretoput.nix # Change later.
     # Test - make so it works on Home instead.
@@ -93,7 +96,6 @@
 
     # Nix configuration
     ../../modules/nix/nix/settings.nix
-    ../../secrets/secrets.nix # Secrets (SSH, zerotier)
 
     # Cybersecurity
     ../../modules/nix/sec/gpg.nix
@@ -107,7 +109,7 @@
 
     # Virtual Machines
     ../../modules/nix/vm/libvirt.nix # Virt-manager / libvirt.
-    #../../modules/nix/tools/virtualbox.nix
+    ../../modules/nix/vm/virtualbox.nix
 
     # Window Managers
     ../../modules/nix/wm/hyprland.nix

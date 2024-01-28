@@ -6,8 +6,9 @@
       # Where to put this
       #qgis #qgis-ltr
 
+      # Download / torrent
+      aria2 # A lightweight multi-protocol & multi-source command-line download utility
       wirelesstools # Maybe replace in future?
-
       #socat # replacement of openbsd-netcat
       bc
       nethogs
@@ -15,8 +16,6 @@
       iperf3
       dnsutils # `dig` + `nslookup`
       ldns # replacement of `dig`, it provide the command `drill`
-      aria2 # A lightweight multi-protocol & multi-source command-line download utility
-      nmap # A utility for network discovery and security auditing
       ipcalc # it is a calculator for the IPv4/v6 addresses
       #inetutils
       dnsmasq

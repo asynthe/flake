@@ -13,6 +13,7 @@ outputs = inputs @ {
   hyprland,
   musnix,
   nixos-06cb-009a-fingerprint-sensor,
+  sops-nix,
   ...
 	}: let
 
@@ -35,13 +36,20 @@ nixosConfigurations = {
 
 server = nixpkgs.lib.nixosSystem {
   system = "${hostname}";
-  specialArgs = {inherit username hostname inputs;};
-  modules = [ ./hosts/linux/server ];
+  specialArgs = { inherit
+    username
+    hostname
+    inputs
+    ;
+  };
+  modules = [
+    ./hosts/linux/server
+  ];
 };
 
 thinknya = nixpkgs.lib.nixosSystem {
   system = "${hostname}";
-  specialArgs = {inherit
+  specialArgs = { inherit
     username
     hostname
     inputs
@@ -86,7 +94,11 @@ ${hostname_mac} = nix-darwin.lib.darwinSystem {
 homeConfigurations = {
   ${username} = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
-    extraSpecialArgs = {inherit username inputs;};
+    extraSpecialArgs = {inherit
+      username
+      inputs
+      ;
+    };
     modules = [ ./hosts/home ];
   };
 };
@@ -108,6 +120,8 @@ home-manager = {
   #url = "github:t184256/nix-on-droid/release-23.05";
   #inputs.nixpkgs.follows = "nixpkgs-stable";
   #};
+
+sops-nix.url = "github:Mic92/sops-nix";
 
 hyprland.url = "github:hyprwm/Hyprland";
 

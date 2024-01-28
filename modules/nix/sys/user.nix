@@ -57,7 +57,6 @@ in {
 	isNormalUser = true;
 	description = "にゃ！";
 	extraGroups = [ "wheel" "video" "audio" "networkmanager" "lp" "scanner" "input" ];
-	initialPassword = "password";
       };
       programs.zsh.enable = true; # Needed by users.users.${username}.shell
 

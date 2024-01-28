@@ -53,6 +53,8 @@
     ../../modules/home/media/video.nix # Tools for editing and creating videos.
 
     ../../modules/home/net/net.nix # Networking tools.
+    ../../modules/home/net/xmpp.nix # XMPP Chat.
+    
     ../../modules/home/sec/sec.nix # Cybersecurity tools.
     #../../modules/home/timer/systemd.nix # systemd Timers (enable timers here or on default.nix?)
 

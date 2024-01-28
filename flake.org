@@ -63,6 +63,7 @@ outputs = inputs @ {
   hyprland,
   musnix,
   nixos-06cb-009a-fingerprint-sensor,
+  sops-nix,
   ...
 	}: let
 
@@ -83,44 +84,39 @@ outputs = inputs @ {
 #+end_src
 
 *In {* is here as it gives me more flexibility for moving the org boxes.
-
-* Machines
-** Linux
-
 #+begin_src nix
   nixosConfigurations = {
 #+end_src
 
+* Machines
+** Linux
 *** Server
 
-This basic server configures:
-- Networking
-- Filesystems
+PC Server that I currently manage and connect to.
 
 #+begin_src nix
-  server = nixpkgs.lib.nixosSystem {
-    system = "${hostname}";
-    specialArgs = {inherit username hostname inputs;};
-    modules = [ ./hosts/linux/server ];
+server = nixpkgs.lib.nixosSystem {
+  system = "${hostname}";
+  specialArgs = { inherit
+    username
+    hostname
+    inputs
+    ;
   };
+  modules = [
+    ./hosts/linux/server
+  ];
+};
 #+end_src
 
 *** Thinkpad (thinknya)
 
-This import points at server but also add's a list of imports that configure more things, such as:
-- Audio
-- Drivers
-- More networking
-- systemd Timers
-- Services
-- Window Managers
-- Extra
-- Tools
+Thinkpad T480 and probably a Thinkpad P1 Gen 6 with a RTX 3090. (Let's hope so)
 
 #+begin_src nix
 thinknya = nixpkgs.lib.nixosSystem {
   system = "${hostname}";
-  specialArgs = {inherit
+  specialArgs = { inherit
     username
     hostname
     inputs
@@ -207,28 +203,24 @@ darwin-rebuild switch --flake .
 111#+end_src
 
 ** Home Manager
+*** asynthe
 
-_note_: GNU coreutils is replaced with Rust's [[https://github.com/uutils/coreutils][uutils]].
+_note_:
+- GNU coreutils is replaced with Rust's [[https://github.com/uutils/coreutils][uutils]].
 
-Home Manager as a Standalone
 #+begin_src nix
-  homeConfigurations = {
-    ${username} = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      extraSpecialArgs = {inherit username inputs;};
-      modules = [ ./hosts/home ];
-    };
-  };
-#+end_src
-
-only-user? (check pls)
-##+begin_src nix
-  only_user = home-manager.lib.homeManagerConfiguration {
+homeConfigurations = {
+  ${username} = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
-    extraSpecialArgs = {inherit username inputs;};
-    modules = [ ./modules/home/user ];
+    extraSpecialArgs = {inherit
+      username
+      inputs
+      ;
+    };
+    modules = [ ./hosts/home ];
   };
-##+end_src
+};
+#+end_src
 
 * Inputs
 ** Opening Bracket
@@ -276,6 +268,12 @@ only-user? (check pls)
 #+end_src
 
 ** Apps and Repos
+
+sops-nix
+> [[https://github.com/Mic92/sops-nix][github page]]
+#+begin_src nix
+sops-nix.url = "github:Mic92/sops-nix";
+#+end_src
 
 Hyprland
 > [[https://github.com/hyprwm/Hyprland][github page]]
