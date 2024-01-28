@@ -34,6 +34,10 @@
         owner = username;
       };
 
+      "ssh/user/asynthe" = {
+        owner = username;
+      };
+
     };
   };
 
@@ -41,7 +45,7 @@
   #services.zerotierone.joinNetworks = [ "e3918dbb4836ec1ae" ];
 
   # Converting to sops-nix
-  #services.zerotierone.joinNetworks = [ "${config.sops.secrets."tailscale.personal_network"}" ];
+  services.zerotierone.joinNetworks = [ "${config.sops.secrets."tailscale.personal_network"}" ];
 
   # User passwords
   #users.users.asynthe.password = config.sops.secrets."password/user/asynthe".path;

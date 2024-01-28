@@ -40,7 +40,7 @@ in {
 
       systemd.user.services."sshfs_automount" = {
         serviceConfig.Type = "oneshot";
-	path = with pkgs; [ bash ];
+	path = with pkgs; [ bash sshfs ];
 	script = ''
 	  bash /home/${username}/sync/dots/script/bash/timer/sshfs_automount.sh
 	'';
