@@ -10,12 +10,13 @@
   };
 
   # MOVE TO SECRETS!
+  users.users.ben.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID761bx4q+wpwKmTKUZxM/m7ciQMYTBQs4qFsO4qnmLg bendunstan@skiff.com" ];
+
   services.openssh = {
-    knownHosts = {
-      thinknya.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID761bx4q+wpwKmTKUZxM/m7ciQMYTBQs4qFsO4qnmLg bendunstan@skiff.com";
-      #rizuki.publicKey = "...";
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
     };
-    settings.PasswordAuthentication = false;
   };
 
   imports = [
