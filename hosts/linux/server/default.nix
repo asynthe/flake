@@ -12,12 +12,12 @@
   # MOVE TO SECRETS!
   users.users.ben.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID761bx4q+wpwKmTKUZxM/m7ciQMYTBQs4qFsO4qnmLg bendunstan@skiff.com" ];
 
-  services.openssh = {
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-    };
-  };
+  #services.openssh = {
+    #settings = {
+      #PasswordAuthentication = false;
+      #KbdInteractiveAuthentication = false;
+    #};
+  #};
 
   imports = [
     ./hardware.nix

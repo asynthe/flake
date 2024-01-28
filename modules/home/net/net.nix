@@ -22,7 +22,6 @@
       traceroute
       networkmanagerapplet
       filezilla
-      sshfs
       dig
       netcat-openbsd #netcat #netcat-gnu
       socat #websocat
