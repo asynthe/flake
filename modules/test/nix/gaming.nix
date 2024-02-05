@@ -8,7 +8,7 @@
   hardware.xpadneo.enable = true; # Xbox one controller bluetooth driver.
 
   # Gamemode - better performance on games. Use with gamemoderun.
-  users.users.${username}.extraGroups = [ "gamemode" ];
+  #users.users.${username}.extraGroups = [ "gamemode" ];
   #programs.gamemode = {
   #enable = true;
   #enableRenice = true;

@@ -14,11 +14,11 @@
       #kid3
 
       # Tools
+      sox
+      mediainfo
       #losslessaudiochecker # LAC
       #exactaudiocopy # EAC
-      mediainfo
-      #sox
-      friture # Real-time audio analyzer.
+      #friture # Real-time audio analyzer.
 
       # CD / DVD Tools
       #cdemu-client #cdemu-daemon

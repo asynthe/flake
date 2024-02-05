@@ -1,11 +1,11 @@
 { config, pkgs, ... }: {
 
   imports = [
-    ./test/sshfs_automount.nix
+    #./test/sshfs_automount.nix
     ./test/outside.nix
 
     ./hardware.nix
-    ../modules.nix
+    ./modules.nix
   ];
 
   networking.hostName = "thinknya"; # Set up as "${hostname}" if you've defined a custom hostname.
@@ -15,7 +15,7 @@
     networkmanager.enable = true;
     lid_switch.enable = true; # Custom configuration for the laptop lid action.
     t480.fingerprint.enable = true;
-    server.automount.systemd = true;
+    #server.automount.systemd = true;
   };
 
   # List of packages I want to have on any computer.

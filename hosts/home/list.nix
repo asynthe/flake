@@ -8,15 +8,15 @@
 
     # Apps
     #../../modules/home/app/dots.nix
-    ../../modules/home/app/nvim
     ../../modules/home/app/emacs.nix
-    #../../modules/home/app/nvim.nix
+    ../../modules/home/app/music_player.nix
+    ../../modules/home/app/ncmpcpp.nix
     #../../modules/home/app/neomutt.nix
+    #../../modules/home/app/nvim.nix
 
     # Audio
     ../../modules/home/audio/daw.nix # Audio and sound packages.
     ../../modules/home/audio/mpd.nix
-    ../../modules/home/audio/music_player.nix
     ../../modules/home/audio/pkgs.nix # Audio apps and packages.
     ../../modules/home/audio/tools.nix
 
@@ -34,7 +34,7 @@
     # Extra
     ../../modules/home/extra/comms.nix # Discord, IRC, Signal, Telegram.
     ../../modules/home/extra/emulation.nix # Emulators.
-    ../../modules/home/extra/game.nix # Videogames.
+    #../../modules/home/extra/game.nix # Videogames.
     #../../modules/home/extra/steam.nix # Steam. (also managed by Nix)
 
     # Main

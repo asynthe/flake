@@ -3,15 +3,19 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
-      weechat #weechat-unwrapped
-      #irssi
       #gajim # XMPP client
       signal-desktop
       telegram-desktop
-      webcord
+
+      # IRC
+      weechat #weechat-unwrapped
+      #irssi
+
+      # Discord, fuck discord.
+      #webcord
+      #armcord
+      #gtkcord4
       #discord 
-      armcord
-      gtkcord4
       ;
   };
 }
