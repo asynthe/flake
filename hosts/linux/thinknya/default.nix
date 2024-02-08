@@ -14,7 +14,7 @@
     user.enable = true; # Personal user.
     networkmanager.enable = true;
     lid_switch.enable = true; # Custom configuration for the laptop lid action.
-    t480.fingerprint.enable = true;
+    #t480.fingerprint.enable = true;
     #server.automount.systemd = true;
   };
 

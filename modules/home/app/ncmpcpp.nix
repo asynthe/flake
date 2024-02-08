@@ -52,7 +52,7 @@
       progressbar_look = "─╼";
       
       # NOW PLAYING
-      now_playing_prefix = ">_";
+      now_playing_prefix = ''"> "''; # Can also do "\"> \""
       centered_cursor = "yes";
     };
 

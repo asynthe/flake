@@ -1,4 +1,5 @@
-{pkgs-darwin, ...}: {
+{ pkgs-darwin, ... }: {
+
   services.yabai = {
     enable = true;
     #enableScriptingAddition = ; # false by default
@@ -6,8 +7,8 @@
     #extraConfig
   };
 
-  homebrew.brews = [
+  #homebrew.brews = [
     #koekeishiya/formulae/yabai # enabled by service?
-    koekeishiya/formulae/shkd
-  ];
+    #koekeishiya/formulae/shkd
+  #];
 }

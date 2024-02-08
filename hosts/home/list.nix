@@ -24,7 +24,7 @@
     #../../modules/home/dev/3d.nix # 3D viewers and tools.
     #../../modules/home/dev/assembly.nix
     ../../modules/home/dev/devops.nix
-    #../../modules/home/dev/latex.nix
+    ../../modules/home/dev/latex.nix
     #../../modules/home/dev/lua.nix
     ../../modules/home/dev/python.nix
     ../../modules/home/dev/rust.nix
