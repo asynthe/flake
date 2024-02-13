@@ -94,6 +94,7 @@
 
     # Nix configuration
     ../../../modules/nix/nix/settings.nix
+    #../../../modules/nix/nix/nixops.nix
 
     # Cybersecurity
     ../../../modules/nix/sec/gpg.nix

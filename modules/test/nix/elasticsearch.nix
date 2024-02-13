@@ -1,10 +1,14 @@
 { config, pkgs, ... }: {
 
-  services.elasticsearch = {
-    enable = true;
-    #dataDir = ""
-    #extraConf = ""
-    #logging = ""
+  services = {
+    logstash = {
+      enable = true;
+      #dataDir = "/home/${username}"
+    };
+    elasticsearch = {
+      enable = true;
+      #dataDir = "/home/${username}"; # Default "var/lib/elasticsearch"
+    };
   };
 
 }

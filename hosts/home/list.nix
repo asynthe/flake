@@ -2,6 +2,9 @@
 
   imports = [
 
+    # Temp
+    ../../modules/nix/vm/home_cursor_fix.nix
+
     ../../modules/test/home/home_test.nix # Temp file to test stuff
     ../../modules/test/home/xone_home.nix
     ../../modules/test/home/ai.nix
