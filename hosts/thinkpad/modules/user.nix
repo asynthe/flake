@@ -1,7 +1,6 @@
 { config, pkgs, ... }: {
 
   users.users.ben = {
-    shell = pkgs.zsh;
     isNormalUser = true;
     description = "にゃ！";
     initialPassword = "pw123";
@@ -13,8 +12,11 @@
       ueberzugpp
       fzf skim
       zoxide
+      unimatrix
     ];
   };
-  
-  programs.zsh.enable = true; # Required by users.users.<name>.shell
+
+  # ZSH
+  #users.users.ben.shell = pkgs.zsh;
+  #programs.zsh.enable = true; # Required by users.users.<name>.shell
 }
