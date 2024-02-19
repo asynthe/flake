@@ -12,7 +12,7 @@
       #irssi
 
       # Discord, fuck discord.
-      #webcord
+      webcord
       #armcord
       #gtkcord4
       #discord 

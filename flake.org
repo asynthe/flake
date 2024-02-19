@@ -1,6 +1,3 @@
-:PROPERTIES:
-:ID:       fd9a97e4-acc3-4bb1-aa66-6a170e5cf9ae
-:END:
 #+title: Asynthe's systems flake
 #+property: header-args :tangle flake.nix
 #+auto_tangle: t
@@ -11,14 +8,12 @@
 - [[#outputs][Outputs]]
 - [[#machines][Machines]]
   - [[#linux][Linux]]
-  - [[#macos-apple-silicon][MacOS (Apple Silicon)]]
   - [[#home-manager][Home Manager]]
+  - [[#nix-darwin---m1-macbook-apple-silicon][Nix Darwin - M1 Macbook (Apple Silicon)]]
 - [[#inputs][Inputs]]
   - [[#opening-bracket][Opening Bracket]]
-  - [[#nixpkgs-and-nixpkgs-stable][Nixpkgs and Nixpkgs Stable]]
-  - [[#home-manager-1][Home Manager]]
-  - [[#apps-and-repos][Apps and Repos]]
-  - [[#nix-configuration-not-added][Nix Configuration (Not added)]]
+  - [[#inputs-1][Inputs]]
+  - [[#uncommented][Uncommented]]
 - [[#end---closing-bracket][End - Closing bracket]]
 - [[#not-used-for-now][Not Used for Now]]
   - [[#android-nix-on-droid][Android (Nix On Droid)]]
@@ -54,16 +49,16 @@ Start!
 outputs = inputs @ {
   self,
   nixpkgs,
-  #nixpkgs-stable,
-  #nixpkgs-wayland,
-  #nix-on-droid,
-  nix-darwin,
-  #nix-gaming,
   home-manager,
-  hyprland,
   musnix,
-  nixos-06cb-009a-fingerprint-sensor,
   sops-nix,
+  impermanence,
+  #hyprland,
+  #nix-darwin,
+  #nixpkgs-wayland,
+  #nixos-06cb-009a-fingerprint-sensor,
+  #nix-gaming,
+  #nix-on-droid,
   ...
 	}: let
 
@@ -105,77 +100,66 @@ server = nixpkgs.lib.nixosSystem {
   };
   modules = [
     ./hosts/linux/server
+    impermanence.nixosModules.impermanence
   ];
 };
 #+end_src
 
-*** Thinkpad (thinknya)
+*** Thinkpad
 
 Thinkpad T480 and probably a Thinkpad P1 Gen 6 with a RTX 3090. (Let's hope so)
 
 #+begin_src nix
-thinknya = nixpkgs.lib.nixosSystem {
-  system = "${hostname}";
+thinkpad = nixpkgs.lib.nixosSystem {
+  system = "thinkpad";
   specialArgs = { inherit
-    username
-    hostname
     inputs
-    nixos-06cb-009a-fingerprint-sensor
     ;
   };
   modules = [
-    ./hosts/linux/thinknya
-    inputs.musnix.nixosModules.musnix
+    ./hosts/thinkpad
+    musnix.nixosModules.musnix
+    impermanence.nixosModules.impermanence
     # Home Manager as Module goes here !
     ];
   };
 };
 #+end_src
 
-*** Home Manager as Module
+** Home Manager
 
-Disabled for now, but you can play around with it.
-
-#+begin_src nix
-      #home-manager.nixosModules.home-manager {
-      #home-manager = {
-      #useGlobalPkgs = true;
-      #useUserPackages = true;
-      #users.${username} = import ./nix/home/linux/home.nix;
-      #};
-      #}
-
-      # Testing Specialargs on Home Manager Module
-      #nixosConfigurations.${hostname} = { nixpkgs.lib.nixosSystem rec {
-      #({ config, lib, ... }: {
-      #options.home-manager.users = lib.mkOption {
-      #type = with lib.types; attrsOf (submoduleWith {
-      #specialArgs = { super = config; inherit helix; };
-      #});
-      #};
-      #})
-#+end_src
-
-** MacOS (Apple Silicon)
-*** M1 Macbook
+_note_:
+- GNU coreutils is replaced with Rust's [[https://github.com/uutils/coreutils][uutils]].
 
 #+begin_src nix
-  darwinConfigurations = {
+homeConfigurations = {
+  ben = home-manager.lib.homeManagerConfiguration {
+    inherit pkgs;
+    extraSpecialArgs = {inherit
+      inputs
+      ;
+    };
+    modules = [ ./modules/home/users/ben ];
+  };
+};
 #+end_src
+
+** Nix Darwin - M1 Macbook (Apple Silicon)
 
 *Resources*
-+ [[https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050][Setup nix, nix-darwin and home-manager from scratch on an M1 Macbook Pro - gist.github.com]]
-+ [[https://github.com/MatthiasBenaets/nixos-config#nix-darwin-installation-guide][nixos-config / MatthiasBenaets - github]]
+> [[https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050][Setup nix, nix-darwin and home-manager from scratch on an M1 Macbook Pro - gist.github.com]]
+> [[https://github.com/MatthiasBenaets/nixos-config#nix-darwin-installation-guide][nixos-config / MatthiasBenaets - github]]
 
 darwin-rebuild switch --flake .
 
 #+begin_src nix
-  ${hostname_mac} = nix-darwin.lib.darwinSystem {
-    system = "${apple_silicon}";
-    specialArgs = {inherit username_mac inputs;};
-      modules = [ ./hosts/macos ];
-  };
-};
+  #darwinConfigurations = {
+  #${hostname_mac} = nix-darwin.lib.darwinSystem {
+    #system = "${apple_silicon}";
+    #specialArgs = {inherit username_mac inputs;};
+      #modules = [ ./hosts/macos ];
+  #};
+#};
 #+end_src
 
   macOS configuration
@@ -202,26 +186,6 @@ darwin-rebuild switch --flake .
       };
 111#+end_src
 
-** Home Manager
-*** asynthe
-
-_note_:
-- GNU coreutils is replaced with Rust's [[https://github.com/uutils/coreutils][uutils]].
-
-#+begin_src nix
-homeConfigurations = {
-  ${username} = home-manager.lib.homeManagerConfiguration {
-    inherit pkgs;
-    extraSpecialArgs = {inherit
-      username
-      inputs
-      ;
-    };
-    modules = [ ./hosts/home ];
-  };
-};
-#+end_src
-
 * Inputs
 ** Opening Bracket
 
@@ -230,36 +194,55 @@ homeConfigurations = {
  inputs = {
 #+end_src
 
-** Nixpkgs and Nixpkgs Stable
+** Inputs
 
+nixpkgs
+> [[https://github.com/NixOS/nixpkgs][nixpkgs github repo]]
 #+begin_src nix
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
+  nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable.
+  #nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable.
 #+end_src
 
-** Home Manager
-
+Home Manager
 #+begin_src nix
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs"; 
-      # Follows the nixpkgs channel defined before, 
-      # to avoid different versions of nixpkgs deps problems.
-    };
+home-manager = {
+  url = "github:nix-community/home-manager"; # Follows nixpkgs unstable.
+  #url = "github:nix-community/home-manager/release-23.11"; # Follows nixpkgs stable.
+  inputs.nixpkgs.follows = "nixpkgs"; 
+  # Follows the nixpkgs channel defined before, 
+  # to avoid different versions of nixpkgs deps problems.
+};
 #+end_src
 
-*NIX DARWIN*
-##+begin_src nix
-    # For MacOS
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
-    nix-darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
-    };
-  };
-##+end_src
+*Other Inputs*
+#+begin_src nix
+impermanence.url = "github:nix-community/impermanence";
+sops-nix.url = "github:Mic92/sops-nix";
+musnix.url = "github:musnix/musnix";
+#+end_src
 
-*NIX ON DROID*
+** Uncommented
+
+#+begin_src nix
+#nil.url = "github:oxalica/nil";
+#nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+#nix-gaming.url = "github:fufexan/nix-gaming";
+#helix.url = "github:helix-editor/helix/23.05";
+#hyprland.url = "github:hyprwm/Hyprland";
+#rust-overlay.url = "github:oxalica/rust-overlay";
+#+end_src
+
+Darwin
+for macOS.
+#+begin_src nix
+#nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
+#nix-darwin = {
+  #url = "github:lnl7/nix-darwin";
+  #inputs.nixpkgs.follows = "nixpkgs-darwin";
+#};
+#+end_src
+
+Nix on Droid
 #+begin_src nix
     #nix-on-droid = {
       #url = "github:t184256/nix-on-droid/release-23.05";
@@ -267,56 +250,15 @@ homeConfigurations = {
       #};
 #+end_src
 
-** Apps and Repos
-
-sops-nix
-> [[https://github.com/Mic92/sops-nix][github page]]
-#+begin_src nix
-sops-nix.url = "github:Mic92/sops-nix";
-#+end_src
-
-Hyprland
-> [[https://github.com/hyprwm/Hyprland][github page]]
-#+begin_src nix
-hyprland.url = "github:hyprwm/Hyprland";
-#+end_src
-
-musnix
-> [[https://github.com/musnix/musnix][github page]]
-#+begin_src nix
-musnix.url = "github:musnix/musnix";
-#+end_src
-
-nil - Nix Language server
-> [[https://github.com/oxalica/nil][github page]]
-#+begin_src nix
-nil.url = "github:oxalica/nil";
-#+end_src
-
-rust-overlay
-> [[https://github.com/oxalica/rust-overlay][github page]]
-#+begin_src nix
-rust-overlay.url = "github:oxalica/rust-overlay";
-#+end_src
-
 nixos-06cb:009-fingerprint-sensor
 > [[https://github.com/ahbnr/nixos-06cb-009a-fingerprint-sensor][github page]]
 #+begin_src nix
-nixos-06cb-009a-fingerprint-sensor = {
-  url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
-  inputs.nixpkgs.follows = "nixpkgs";
-};
+#nixos-06cb-009a-fingerprint-sensor = {
+  #url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+  #inputs.nixpkgs.follows = "nixpkgs";
+#};
 #+end_src
 
-*** Uncommented
-
-#+begin_src nix
-    #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    #nix-gaming.url = "github:fufexan/nix-gaming";
-    #helix.url = "github:helix-editor/helix/23.05";
-#+end_src
-
-** Nix Configuration (Not added)
 * End - Closing bracket
 
 Thanks for Reading!

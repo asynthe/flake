@@ -1,10 +1,6 @@
 { config, username, ... }: {
 
   system = {
-    #autoUpgrade = {
-      #enable = true;
-      #channel = "https://nixos.org/channels/nixos-unstable"; # Needed?
-    #};
     stateVersion = "22.11";
   };
 
@@ -27,6 +23,7 @@
       #experimental-features = ["nix-command" "flakes" "recursive-nix"];
       warn-dirty = false;
 
+      # -> CACHIX ?
       substituters = [
         "https://cache.nixos.org/" # The main cache, you can replace w one closer to you.
         "https://hyprland.cachix.org"

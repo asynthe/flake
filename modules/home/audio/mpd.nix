@@ -1,8 +1,9 @@
-{ config, pkgs, username, ... }: {
+{ config, pkgs, ... }: {
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/${username}/music";
+    musicDirectory = "/home/ben/music";
+    #musicDirectory = "/home/${username}/music";
     #network.startWhenNeeded = false; # Socket activation.
     extraConfig = ''
 

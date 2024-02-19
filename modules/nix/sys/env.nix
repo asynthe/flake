@@ -3,7 +3,7 @@
   # Environment and locale
   environment = {
     shells = builtins.attrValues { inherit (pkgs) zsh; };
-    binsh = "${pkgs.dash}/bin/dash"; # change sh for dash.
+    binsh = "${pkgs.dash}/bin/dash"; # Change sh for dash.
     variables = {
       TERMINAL = "Alacritty";
       EDITOR = "nvim";
