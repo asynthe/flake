@@ -15,6 +15,7 @@
 
       # GUI
       qbittorrent
+      pcmanfm
 
       # Pass
       wl-clipboard
