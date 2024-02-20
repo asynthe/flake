@@ -5,9 +5,10 @@ outputs = inputs @ {
   self,
   nixpkgs,
   home-manager,
-  musnix,
-  sops-nix,
+  disko,
   impermanence,
+  sops-nix,
+  musnix,
   #hyprland,
   #nix-darwin,
   #nixpkgs-wayland,
@@ -63,6 +64,19 @@ thinkpad = nixpkgs.lib.nixosSystem {
   };
 };
 
+hyperv = nixpkgs.lib.nixosSystem {
+  system = "hyperv";
+  specialArgs = { inherit
+    inputs
+    ;
+  };
+  modules = [
+    ./hosts/hyperv
+    impermanence.nixosModules.impermanence
+    ];
+  };
+};
+
 homeConfigurations = {
   ben = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
@@ -85,9 +99,12 @@ homeConfigurations = {
 };
  inputs = {
 
+# nixpkgs
+# https://github.com/NixOS/nixpkgs
 nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable.
 #nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable.
 
+# Home Manager
 home-manager = {
   url = "github:nix-community/home-manager"; # Follows nixpkgs unstable.
   #url = "github:nix-community/home-manager/release-23.11"; # Follows nixpkgs stable.
@@ -96,7 +113,13 @@ home-manager = {
   # to avoid different versions of nixpkgs deps problems.
 };
 
+# Inputs
 impermanence.url = "github:nix-community/impermanence";
+disko = {
+  url = "github:nix-community/disko";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
+
 sops-nix.url = "github:Mic92/sops-nix";
 musnix.url = "github:musnix/musnix";
 

@@ -2,8 +2,8 @@
 
   imports = [
 
-    # Disko test
-    ./disko/ext4
+    ./disks.nix
+    ./anywhere.nix
 
   ];
 }
