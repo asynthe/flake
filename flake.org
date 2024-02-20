@@ -101,29 +101,9 @@ server = nixpkgs.lib.nixosSystem {
   };
   modules = [
     ./hosts/linux/server
+    disko.nixosModules.disko
     impermanence.nixosModules.impermanence
   ];
-};
-#+end_src
-
-*** Thinkpad
-
-Thinkpad T480 and probably a Thinkpad P1 Gen 6 with a RTX 3090. (Let's hope so)
-
-#+begin_src nix
-thinkpad = nixpkgs.lib.nixosSystem {
-  system = "thinkpad";
-  specialArgs = { inherit
-    inputs
-    ;
-  };
-  modules = [
-    ./hosts/thinkpad
-    musnix.nixosModules.musnix
-    impermanence.nixosModules.impermanence
-    # Home Manager as Module goes here !
-    ];
-  };
 };
 #+end_src
 
@@ -141,7 +121,29 @@ hyperv = nixpkgs.lib.nixosSystem {
   };
   modules = [
     ./hosts/hyperv
+    disko.nixosModules.disko
     impermanence.nixosModules.impermanence
+    ];
+};
+#+end_src
+
+*** Thinkpad
+
+Thinkpad T480 and probably a Thinkpad P1 Gen 6 with a RTX 3090. (Let's hope so)
+
+#+begin_src nix
+thinkpad = nixpkgs.lib.nixosSystem {
+  system = "thinkpad";
+  specialArgs = { inherit
+    inputs
+    ;
+  };
+  modules = [
+    ./hosts/thinkpad
+    disko.nixosModules.disko
+    impermanence.nixosModules.impermanence
+    musnix.nixosModules.musnix
+    # Home Manager as Module goes here !
     ];
   };
 };

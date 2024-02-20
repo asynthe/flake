@@ -45,23 +45,9 @@ server = nixpkgs.lib.nixosSystem {
   };
   modules = [
     ./hosts/linux/server
+    disko.nixosModules.disko
     impermanence.nixosModules.impermanence
   ];
-};
-
-thinkpad = nixpkgs.lib.nixosSystem {
-  system = "thinkpad";
-  specialArgs = { inherit
-    inputs
-    ;
-  };
-  modules = [
-    ./hosts/thinkpad
-    musnix.nixosModules.musnix
-    impermanence.nixosModules.impermanence
-    # Home Manager as Module goes here !
-    ];
-  };
 };
 
 hyperv = nixpkgs.lib.nixosSystem {
@@ -72,7 +58,23 @@ hyperv = nixpkgs.lib.nixosSystem {
   };
   modules = [
     ./hosts/hyperv
+    disko.nixosModules.disko
     impermanence.nixosModules.impermanence
+    ];
+};
+
+thinkpad = nixpkgs.lib.nixosSystem {
+  system = "thinkpad";
+  specialArgs = { inherit
+    inputs
+    ;
+  };
+  modules = [
+    ./hosts/thinkpad
+    disko.nixosModules.disko
+    impermanence.nixosModules.impermanence
+    musnix.nixosModules.musnix
+    # Home Manager as Module goes here !
     ];
   };
 };
