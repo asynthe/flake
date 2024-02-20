@@ -3,7 +3,7 @@
   imports = [
 
     # Temp
-    ../../modules/nix/vm/home_cursor_fix.nix # -> gtk? theme?
+    ../../../nix/vm/home_cursor_fix.nix # -> gtk? theme?
 
     #../../modules/test/home/home_test.nix # Temp file to test stuff
     #../../modules/test/home/xone_home.nix
