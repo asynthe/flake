@@ -1,6 +1,6 @@
 
 幽玄 (yuugen)
 
-/noun, Na-adjective (keiyodoshi)/ mysterious profundity; quiet beauty; the subtle and profound.
+/noun, Na-adjective (keiyodoshi)/ *mysterious profundity*; *quiet beauty*; *the subtle and profound*.
 
 See the literate configuration for my systems [[https://github.com/asynthe/yuugen/blob/main/flake.org][here]].
