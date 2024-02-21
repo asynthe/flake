@@ -6,11 +6,14 @@
     eza
     starship
     ueberzugpp
+    fd ripgrep
     fzf skim
     zoxide
     unimatrix
     pipes-rs
     cava cli-visualizer
+    acpi
+    zathura
     ;
   };
 }
