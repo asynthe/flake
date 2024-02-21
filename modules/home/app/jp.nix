@@ -1,10 +1,10 @@
 { config, pkgs, ... }: {
 
   home.packages = builtins.attrValues {
-    inherit (pkgs)
-
-      # LLM
-      ollama
+    inherit
+      (pkgs)
+      memento
+      #anki-bin
       ;
   };
 }

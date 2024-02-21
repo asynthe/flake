@@ -1,4 +1,10 @@
-{ config, pkgs, username, ... }: {
+{ config, pkgs, ... }: 
+
+let
+
+  username = "ben";
+
+in {
  
   # Manage the virtualization services
   virtualisation.libvirtd = {
@@ -6,7 +12,7 @@
     qemu = {
       swtpm.enable = true;
       ovmf.enable = true;
-      ovmf.packages = [pkgs.OVMFFull.fd];
+      ovmf.packages = [ pkgs.OVMFFull.fd ];
     };
   };
   virtualisation.spiceUSBRedirection.enable = true;

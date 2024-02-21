@@ -1,4 +1,4 @@
-{ username, pkgs, ... }: {
+{ config, pkgs, ... }: {
 
   # Fix for nixpkgs.allowUnfree = true
   # https://discourse.nixos.org/t/unfree-packages-on-flake-based-home-manager/30231
@@ -11,16 +11,18 @@
     ];
   };
 
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+
   home = {
-    username = username;
-    homeDirectory = "/home/${username}";
-    stateVersion = "23.05";
+    username = "ben";
+    #username = username; # From old home config.
+    homeDirectory = "/home/ben";
+    #homeDirectory = "/home/${username}"; # From old home config.
+    stateVersion = "23.11";
     #sessionVariables = {
     # MOVE ALL USER SESSION VARIABLES HERE!
     # EDITOR = "emacs";
     #};
   };
-
-  programs.home-manager.enable = true; # Let Home Manager install and manage itself.
-
 }

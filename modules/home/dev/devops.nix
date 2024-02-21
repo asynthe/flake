@@ -1,27 +1,34 @@
 { pkgs, ... }: {
 
-  home.packages = builtins.attrValues {
-    inherit (pkgs)
+    home.packages = builtins.attrValues {
+        inherit (pkgs)
+            # Pulumi
+            #pulumi
+            #pulumictl
 
-      # AWS
-      #awscli
-      awscli2
+	    # Nix
+	    deploy-rs
+	    nixops_unstable #nixops
+	    direnv
+	    nix-direnv
 
-      # Ansible
-      ansible
-      ansible-lint
+	    # Use as `nom`, works like `nix` but with more details.
+	    nix-output-monitor 
 
-      # Terraform
-      terraform
-      #terraformer
-      #terraforming
-      #terraform-lsp
-      opentofu
+            # AWS
+            #awscli
+            #awscli2
 
-      # Pulumi
-      pulumi
-      pulumictl
-      ;
-  };
+            # Ansible
+            #ansible 
+	    #ansible-lint
 
+            # Terraform
+            opentofu terraform
+            #terraformer
+            #terraforming
+            #terraform-lsp
+	    #vagrant
+        ;
+    };
 }

@@ -29,6 +29,11 @@
       grim slurp # Screenshot.
       ripdrag
 
+      # Music
+      cmus
+      mpd
+      ncmpcpp
+
       waybar # Bar
       swayidle # Idle daemon
       mako libnotify # Notification daemon

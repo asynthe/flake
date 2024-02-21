@@ -1,21 +1,28 @@
 { pkgs, ... }: {
 
-  home.packages = with pkgs; [
-    (pkgs.python311.withPackages (ps:
-      with ps; [
-        pip
-	      faker
-	      pandas
-	      scapy
-	      requests # CVE
-	      datetime
-	      pyftpdlib
-	      #uploadserver
-	      openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
-	      defusedxml # defusing XML bombs and other exploits
-    ]))
-  ];
+    home.packages = builtins.attrValues {
+        inherit (pkgs)
+            python3
+        ;
+    };
 
+    #home.packages = with pkgs; [
+        #(pkgs.python311.withPackages (ps:
+            #with ps; [
+             #pip
+	      #faker
+	      #pandas
+	      #scapy
+	      #requests # CVE
+	      #datetime
+	      #pyftpdlib
+	      #uploadserver
+	      #openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
+	      #defusedxml # defusing XML bombs and other exploits
+        #]))
+  #];
+
+  # Testing how to do this
   #home.packages = builtins.attrValues {
     #inherit
       #(pkgs.python3.withPackages (ps:
@@ -53,5 +60,4 @@
   #psutil # eaf-system-monitor
   #retry # eaf-markdown-previewer
   #];
-  #in
 }
