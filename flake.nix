@@ -35,34 +35,6 @@ outputs = inputs @ {
 
 nixosConfigurations = {
 
-server = nixpkgs.lib.nixosSystem {
-  system = "${hostname}";
-  specialArgs = { inherit
-    username
-    hostname
-    inputs
-    ;
-  };
-  modules = [
-    ./hosts/linux/server
-    disko.nixosModules.disko
-    impermanence.nixosModules.impermanence
-  ];
-};
-
-hyperv = nixpkgs.lib.nixosSystem {
-  system = "hyperv";
-  specialArgs = { inherit
-    inputs
-    ;
-  };
-  modules = [
-    ./hosts/hyperv
-    disko.nixosModules.disko
-    impermanence.nixosModules.impermanence
-    ];
-};
-
 thinkpad = nixpkgs.lib.nixosSystem {
   system = "thinkpad";
   specialArgs = { inherit
@@ -74,7 +46,6 @@ thinkpad = nixpkgs.lib.nixosSystem {
     disko.nixosModules.disko
     impermanence.nixosModules.impermanence
     musnix.nixosModules.musnix
-    # Home Manager as Module goes here !
     ];
   };
 };
@@ -86,7 +57,7 @@ homeConfigurations = {
       inputs
       ;
     };
-    modules = [ ./modules/home/users/ben ];
+    modules = [ ./home/ben ];
   };
 };
 

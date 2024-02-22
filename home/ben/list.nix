@@ -4,7 +4,7 @@
 
     # Main
     ../../modules/home/pkgs.nix
-    ../../modules/home/pkgs_main.nix
+    #../../modules/home/pkgs_full.nix
     #../../modules/home/pkgs_test.nix
 
     # Testing, delete when finished
@@ -40,7 +40,7 @@
     #../../modules/home/dev/assembly.nix
     #../../modules/home/dev/devops.nix
     #../../modules/home/dev/gamedev.nix
-    ../../modules/home/dev/latex.nix
+    #../../modules/home/dev/latex.nix
     #../../modules/home/dev/lua.nix
     ../../modules/home/dev/python.nix
     #../../modules/home/dev/rust.nix

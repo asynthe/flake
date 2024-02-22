@@ -1,15 +1,18 @@
-#+title: Asynthe's systems flake
+#+title: Asynthe's flake
 #+property: header-args :tangle flake.nix
 #+auto_tangle: t
 
+Links
+> [Trello]()
+
 * Table of Contents :toc:
 - [[#description][Description]]
-- [[#start][Start]]
+- [[#start][Start!]]
 - [[#outputs][Outputs]]
 - [[#machines][Machines]]
-  - [[#linux][Linux]]
+  - [[#thinkpad][Thinkpad]]
   - [[#home-manager][Home Manager]]
-  - [[#nix-darwin---m1-macbook-apple-silicon][Nix Darwin - M1 Macbook (Apple Silicon)]]
+  - [[#macbook-apple-silicon][Macbook (Apple Silicon)]]
 - [[#inputs][Inputs]]
   - [[#opening-bracket][Opening Bracket]]
   - [[#inputs-1][Inputs]]
@@ -33,9 +36,8 @@ Home manager
 - hacking tools
 home-manager replaces coreutils with the rust uutils
 
-* Start
+* Start!
 
-Start!
 #+begin_src nix
 {
   description = "asynthe's system flake";
@@ -83,49 +85,7 @@ outputs = inputs @ {
 #+end_src
 
 * Machines
-** Linux
-*** Server
-
-PC Server that I currently manage and connect to.
-
-#+begin_src nix
-server = nixpkgs.lib.nixosSystem {
-  system = "${hostname}";
-  specialArgs = { inherit
-    username
-    hostname
-    inputs
-    ;
-  };
-  modules = [
-    ./hosts/linux/server
-    disko.nixosModules.disko
-    impermanence.nixosModules.impermanence
-  ];
-};
-#+end_src
-
-*** Hyper-V (temporary)
-
-This is my first try of disko and nixos-anywhere.
-With also building straight from github repo
-
-#+begin_src nix
-hyperv = nixpkgs.lib.nixosSystem {
-  system = "hyperv";
-  specialArgs = { inherit
-    inputs
-    ;
-  };
-  modules = [
-    ./hosts/hyperv
-    disko.nixosModules.disko
-    impermanence.nixosModules.impermanence
-    ];
-};
-#+end_src
-
-*** Thinkpad
+** Thinkpad
 
 Thinkpad T480 and probably a Thinkpad P1 Gen 6 with a RTX 3090. (Let's hope so)
 
@@ -141,7 +101,6 @@ thinkpad = nixpkgs.lib.nixosSystem {
     disko.nixosModules.disko
     impermanence.nixosModules.impermanence
     musnix.nixosModules.musnix
-    # Home Manager as Module goes here !
     ];
   };
 };
@@ -160,12 +119,12 @@ homeConfigurations = {
       inputs
       ;
     };
-    modules = [ ./modules/home/users/ben ];
+    modules = [ ./home/ben ];
   };
 };
 #+end_src
 
-** Nix Darwin - M1 Macbook (Apple Silicon)
+** Macbook (Apple Silicon)
 
 *Resources*
 > [[https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050][Setup nix, nix-darwin and home-manager from scratch on an M1 Macbook Pro - gist.github.com]]

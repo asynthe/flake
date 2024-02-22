@@ -14,6 +14,11 @@
     cava cli-visualizer
     acpi
     zathura
+
+    bluez
+    bluez-tools
+    bluetuith
+    mpv
     ;
   };
 }
