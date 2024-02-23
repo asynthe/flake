@@ -12,13 +12,15 @@
     unimatrix
     pipes-rs
     cava cli-visualizer
-    acpi
     zathura
 
     bluez
     bluez-tools
     bluetuith
     mpv
+
+    zip
+    unar
     ;
   };
 }

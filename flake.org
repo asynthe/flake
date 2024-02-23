@@ -2,9 +2,6 @@
 #+property: header-args :tangle flake.nix
 #+auto_tangle: t
 
-Links
-> [Trello]()
-
 * Table of Contents :toc:
 - [[#description][Description]]
 - [[#start][Start!]]

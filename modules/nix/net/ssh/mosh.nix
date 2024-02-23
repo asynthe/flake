@@ -1,8 +1,7 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
-  programs.mosh = {
-    enable = true;
-    withUtempter = true; # Default true.
-  };
-
+    programs.mosh = {
+        enable = true;
+        #withUtempter = false; # Default true.
+    };
 }

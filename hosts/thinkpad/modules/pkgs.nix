@@ -3,6 +3,9 @@
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
 
+      # freeimage ?
+      #imv # Image viewer.
+
       # Programs
       alacritty kitty
       neovim
@@ -25,7 +28,6 @@
       wofi # App launcher.
       swww # Wallpaper.
       mpvpaper # Video wallpaper.
-      imv # Image viewer.
       grim slurp # Screenshot.
       ripdrag
 
@@ -51,7 +53,7 @@
     inherit (pkgs.libsForQt5.qt5) qtwayland;
     #inherit (pkgs.qt6) qtwayland; # Qt Wayland Support
     #inherit (pkgs.xorg) xlsclients; # Check for apps running on xwayland
-    inherit (pkgs.xfce) xfce4-terminal mousepad;
+    #inherit (pkgs.xfce) xfce4-terminal mousepad;
   };
 
 }

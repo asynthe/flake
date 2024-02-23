@@ -8,7 +8,6 @@
     #../../modules/home/pkgs_test.nix
 
     # Testing, delete when finished
-    #../../modules/home/test_mpd.nix
     #../../modules/home/test_tmux.nix
     #../../modules/home/test_xone.nix
 
@@ -33,7 +32,7 @@
     #../../modules/home/audio/pkgs.nix # Audio apps and packages.
     #../../modules/home/audio/tools.nix
     #../../modules/home/audio/ncmpcpp.nix
-    #../../modules/home/audio/mpd.nix
+    ../../modules/home/audio/mpd.nix
 
     # Developer tools
     ../../modules/home/dev/ai.nix

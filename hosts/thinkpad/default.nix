@@ -4,7 +4,6 @@
 
     ./hardware-configuration.nix
     ./modules.nix
-    ./modules-list.nix # Old list of modules (fix)
     ./bluetooth.nix
 
   ];

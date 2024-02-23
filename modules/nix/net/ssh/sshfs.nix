@@ -1,10 +1,13 @@
 { config, pkgs, username, ... }: {
 
-  # Allow SFTP, which is used by SSHFS.
-  services.openssh.allowSFTP = true;
+    users.users.ben.extraGroups = [ "fuse" ]; # Add to FUSE group and enable allow_other.
+    #users.users.${username}.extraGroups = [ "fuse" ];
+    programs.fuse.userAllowOther = true;
+    services.openssh.allowSFTP = true; # Allow SFTP, which is used by SSHFS.
 
-  # Add to FUSE group and enable allow_other.
-  users.users.${username}.extraGroups = [ "fuse" ];
-  programs.fuse.userAllowOther = true;
-
+    environment.systemPackages = builtins.attrValues {
+        inherit (pkgs)
+	    sshfs
+	    ;
+    };
 }

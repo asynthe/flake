@@ -35,5 +35,4 @@
       pulseaudio # Needed by Pipewire.
       ;
   };
-
 }
