@@ -2,9 +2,11 @@
 
     imports = [
 
+	./modules/network.nix
         ./modules/pkgs.nix
 	./modules/qbittorrent.nix
-	./modules/network.nix
+	./modules/settings.nix
+	./modules/user.nix
 
     ];
 }

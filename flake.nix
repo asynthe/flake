@@ -36,13 +36,27 @@ outputs = inputs @ {
 nixosConfigurations = {
 
 thinkpad = nixpkgs.lib.nixosSystem {
-  system = "thinkpad";
+  system = "x86_64-linux";
   specialArgs = { inherit
     inputs
     ;
   };
   modules = [
     ./hosts/thinkpad
+    disko.nixosModules.disko
+    impermanence.nixosModules.impermanence
+    musnix.nixosModules.musnix
+  ];
+};
+
+server = nixpkgs.lib.nixosSystem {
+  system = "x86_64-linux";
+  specialArgs = { inherit
+    inputs
+    ;
+  };
+  modules = [
+    ./hosts/server
     disko.nixosModules.disko
     impermanence.nixosModules.impermanence
     musnix.nixosModules.musnix

@@ -8,6 +8,7 @@
 - [[#outputs][Outputs]]
 - [[#machines][Machines]]
   - [[#thinkpad][Thinkpad]]
+  - [[#server][Server]]
   - [[#home-manager][Home Manager]]
   - [[#macbook-apple-silicon][Macbook (Apple Silicon)]]
 - [[#inputs][Inputs]]
@@ -88,13 +89,33 @@ Thinkpad T480 and probably a Thinkpad P1 Gen 6 with a RTX 3090. (Let's hope so)
 
 #+begin_src nix
 thinkpad = nixpkgs.lib.nixosSystem {
-  system = "thinkpad";
+  system = "x86_64-linux";
   specialArgs = { inherit
     inputs
     ;
   };
   modules = [
     ./hosts/thinkpad
+    disko.nixosModules.disko
+    impermanence.nixosModules.impermanence
+    musnix.nixosModules.musnix
+  ];
+};
+#+end_src
+
+** Server
+
+PC Server where i save music and media.
+
+#+begin_src nix
+server = nixpkgs.lib.nixosSystem {
+  system = "x86_64-linux";
+  specialArgs = { inherit
+    inputs
+    ;
+  };
+  modules = [
+    ./hosts/server
     disko.nixosModules.disko
     impermanence.nixosModules.impermanence
     musnix.nixosModules.musnix
