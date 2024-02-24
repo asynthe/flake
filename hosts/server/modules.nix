@@ -2,6 +2,7 @@
 
     imports = [
 
+	./modules/boot.nix
 	./modules/network.nix
         ./modules/pkgs.nix
 	./modules/qbittorrent.nix
