@@ -11,6 +11,7 @@
             fd ripgrep
             fzf skim
             zoxide
+	    wl-clipboard
 
             # Tools
 	    yt-dlp
