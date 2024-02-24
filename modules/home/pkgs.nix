@@ -1,26 +1,38 @@
 { config, pkgs, ... }: {
 
-  home.packages = builtins.attrValues {
-    inherit (pkgs)
-    direnv
-    eza
-    starship
-    ueberzugpp
-    fd ripgrep
-    fzf skim
-    zoxide
-    unimatrix
-    pipes-rs
-    cava cli-visualizer
-    zathura
+    home.packages = builtins.attrValues {
+        inherit (pkgs)
 
-    bluez
-    bluez-tools
-    bluetuith
-    mpv
+            # Shell
+            direnv
+            eza
+            starship
+            ueberzugpp
+            fd ripgrep
+            fzf skim
+            zoxide
 
-    zip
-    unar
-    ;
-  };
+            # Tools
+	    yt-dlp
+            ncdu
+
+            # Tools - GUI
+            mpv
+            zathura
+
+            # Tools - Compressing
+            zip
+            unar
+
+            # Bluetooth
+            bluez
+            bluez-tools
+            bluetuith
+
+            # Fun
+            unimatrix
+            pipes-rs
+            cava cli-visualizer
+        ;
+    };
 }

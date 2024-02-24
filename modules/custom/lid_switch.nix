@@ -37,5 +37,4 @@ in {
       lidSwitchDocked = "ignore";
     };
   };
-
 }

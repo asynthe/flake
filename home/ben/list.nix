@@ -22,7 +22,7 @@
     ../../modules/home/app/jp.nix # Packages for japanese learning / immersion.
     #../../modules/home/app/neomutt.nix
     #../../modules/home/app/nvim.nix
-    #../../modules/home/app/steam.nix
+    ../../modules/home/app/steam.nix
     #../../modules/home/app/subtitle.nix # Subtitle editors.
     #../../modules/home/app/video.nix # Tools for editing and creating videos.
 

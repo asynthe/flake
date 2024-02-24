@@ -8,6 +8,7 @@
         # Original imports
         ./modules/audio.nix
         ./modules/boot.nix
+	./modules/bluetooth.nix
         ./modules/hyprland.nix
         ./modules/net.nix
         ./modules/pkgs.nix
@@ -112,7 +113,7 @@
         #../../modules/nix/sec/monitoring/prometheus.nix
 
         # systemd
-        #../../modules/nix/systemd/lid_switch.nix # Lid switch action for laptops.
+        ../../modules/nix/sysd/lid_switch.nix # Lid switch action for laptops.
 
         # Virtual Machines
         ../../modules/nix/vm/libvirt.nix # Virt-manager / libvirt.
