@@ -15,6 +15,7 @@
 
             # Tools
 	    yt-dlp
+	    libqalculate
             ncdu
 
             # Tools - GUI

@@ -7,7 +7,7 @@
     time.timeZone = "Australia/Perth";
 
     imports = [
-        ./hardware-configuration.nix
+        ./hardware.nix
         ./modules.nix
     ];
 }
