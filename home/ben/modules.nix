@@ -20,6 +20,7 @@
     #../../modules/home/app/game.nix
     #../../modules/home/app/image.nix # Tools for inspection of images.
     ../../modules/home/app/jp.nix # Packages for japanese learning / immersion.
+    #../../modules/home/app/lf.nix
     #../../modules/home/app/neomutt.nix
     #../../modules/home/app/nvim.nix
     ../../modules/home/app/steam.nix
@@ -39,7 +40,7 @@
     #../../modules/home/dev/assembly.nix
     #../../modules/home/dev/devops.nix
     #../../modules/home/dev/gamedev.nix
-    #../../modules/home/dev/latex.nix
+    ../../modules/home/dev/latex.nix
     #../../modules/home/dev/lua.nix
     ../../modules/home/dev/python.nix
     #../../modules/home/dev/rust.nix

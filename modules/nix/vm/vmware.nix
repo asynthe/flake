@@ -1,5 +1,9 @@
 { config, pkgs, ... }: {
 
+    # `vmware-vmx` will cause kcompactd0 due to `Transparent Hugepages` feature in kernel.
+    # Apply the next to disable it.
+    #boot.kernelParams = [ "transparent_hugepage=never" ];
+
     virtualisation.vmware = {
         host = {
 	    enable = true;
@@ -12,8 +16,4 @@
 	    #headless = true;
 	#};
     };
-
-    # `vmware-vmx` will cause kcompactd0 due to `Transparent Hugepages` feature in kernel.
-    # Apply the next to disable it.
-    #boot.kernelParams = [ "transparent_hugepage=never" ];
 }

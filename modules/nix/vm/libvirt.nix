@@ -1,46 +1,34 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, user, ... }: {
 
-let
+    users.users.${user}.extraGroups = [ "libvirtd" ];
+    programs.dconf.enable = true; # Enable dconf (System Management Tool)
+    virtualisation.spiceUSBRedirection.enable = true;
+    services.spice-vdagentd.enable = true;
+    boot.extraModprobeConfig = "options kvm_intel nested=1"; # Run KVM Hypervisors inside KVM Hypervisors
 
-  username = "ben";
-
-in {
- 
-  # Manage the virtualization services
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      swtpm.enable = true;
-      ovmf.enable = true;
-      ovmf.packages = [ pkgs.OVMFFull.fd ];
+    virtualisation = {
+        libvirtd = {
+            enable = true;
+            qemu = {
+                swtpm.enable = true;
+                ovmf.enable = true;
+                ovmf.packages = [ pkgs.OVMFFull.fd ];
+            };
+        };
     };
-  };
-  virtualisation.spiceUSBRedirection.enable = true;
-  services.spice-vdagentd.enable = true;
 
-  # Enable dconf (System Management Tool)
-  programs.dconf.enable = true;
-
-  # Add user to libvirtd group
-  users.users.${username}.extraGroups = [ "libvirtd" ];
-
-  # Install necessary packages
-  environment.systemPackages = builtins.attrValues {
-    inherit
-      (pkgs)
-      virt-manager
-      virt-viewer
-      spice
-      spice-gtk
-      spice-protocol
-      win-virtio
-      win-spice
-      xorriso
-      libguestfs
-      ;
-    inherit (pkgs.gnome) adwaita-icon-theme; # Needed if not running gnome.
-  };
-
-  # Run KVM Hypervisors inside KVM Hypervisors
-  boot.extraModprobeConfig = "options kvm_intel nested=1";
+    environment.systemPackages = builtins.attrValues {
+        inherit (pkgs)
+            virt-manager
+            virt-viewer
+            spice
+            spice-gtk
+            spice-protocol
+            win-virtio
+            win-spice
+            xorriso
+            libguestfs
+            ;
+        inherit (pkgs.gnome) adwaita-icon-theme; # Needed if not running gnome.
+    };
 }

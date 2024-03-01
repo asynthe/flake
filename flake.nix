@@ -40,6 +40,7 @@ thinkpad = nixpkgs.lib.nixosSystem {
   specialArgs = { inherit
     inputs
     ;
+    user = "ben";
   };
   modules = [
     ./hosts/thinkpad

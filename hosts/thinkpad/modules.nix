@@ -116,7 +116,7 @@
         ../../modules/nix/sysd/lid_switch.nix # Lid switch action for laptops.
 
         # Virtual Machines
-        ../../modules/nix/vm/libvirt.nix # Virt-manager / libvirt.
+        ../../modules/nix/vm/libvirt.nix
         #../../modules/nix/vm/virtualbox.nix
 	../../modules/nix/vm/vmware.nix
 
