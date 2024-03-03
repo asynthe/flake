@@ -93,7 +93,7 @@
         #../../modules/nix/net/nm.nix # Network Manager.
 
         # Network - VPN
-        #../../modules/nix/net/vpn/mullvad.nix
+        ../../modules/nix/net/vpn/mullvad.nix
         #../../modules/nix/net/vpn/openvpn.nix
         #../../modules/nix/net/vpn/tailscale.nix
         #../../modules/nix/net/vpn/wireguard.nix
