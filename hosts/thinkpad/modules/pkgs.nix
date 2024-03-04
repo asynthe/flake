@@ -16,6 +16,7 @@
       pavucontrol
       wget curl
       killall
+      tree
 
       # GUI
       qbittorrent

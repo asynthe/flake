@@ -3,6 +3,7 @@
     home.packages = builtins.attrValues {
         inherit (pkgs)
             python3
+	    twine
         ;
     };
 
