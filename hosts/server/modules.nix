@@ -4,6 +4,7 @@
 
 	./modules/boot.nix
 	./modules/fs.nix
+	#./modules/locate.nix
 	./modules/network.nix
         ./modules/pkgs.nix
 	./modules/qbittorrent.nix

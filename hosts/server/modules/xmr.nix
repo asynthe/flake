@@ -1,8 +1,8 @@
-{ config, pkgs, username, ... }: {
+{ config, pkgs, user, ... }: {
 
     services.monero = {
         enable = true;
-        dataDir = "/home/${username}/xmr";
+        dataDir = "/home/${user}/sync/xmr/blockchain";
         #priorityNodes = [ "" ];
         #exclusiveNodes = [ "" ];
         #extraNodes = [ "" ];
@@ -30,15 +30,15 @@
         #mining.address = "";
     #};
 
-    #environment.systemPackages = builtins.attrValues {
-        #inherit (pkgs)
+    environment.systemPackages = builtins.attrValues {
+        inherit (pkgs)
+            monero-cli
             #monero-gui
-            #monero-cli
 
             # Mining
             #xmrig #xmrig-proxy
             #p2pool      
             #xmr-stak
-        #;
-    #};
+        ;
+    };
 }
