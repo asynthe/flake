@@ -118,7 +118,7 @@
         # Virtual Machines
         ../../modules/nix/vm/libvirt.nix
         #../../modules/nix/vm/virtualbox.nix
-	../../modules/nix/vm/vmware.nix
+	#../../modules/nix/vm/vmware.nix
 
         # Window Managers
         #../../modules/nix/wm/hyprland.nix

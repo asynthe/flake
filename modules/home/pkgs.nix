@@ -18,13 +18,31 @@
 	    libqalculate
             ncdu
 
+	    # Tools - Presenting
+	    slides
+	    #zoom-us
+	    #slack #slack-cli #slack-term # ?
+
             # Tools - GUI
             mpv
             zathura
+	    obs-studio
+	    #obsidian
+	    hypnotix # TV
 
             # Tools - Compressing
-            zip
-            unar
+            zip unzip
+            unar # Unzipping with Unicode characters.
+	    p7zip
+	    #xz
+	    #rar #unrar #rar2fs
+	    #torrent7z
+	    #mdf2iso
+
+	    # Tools - Partitioning / Formatting
+	    gparted
+	    ventoy-full #ventoy
+	    #etcher
 
             # Bluetooth
             bluez

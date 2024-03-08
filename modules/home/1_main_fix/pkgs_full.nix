@@ -60,19 +60,6 @@
       kitty-themes
       cool-retro-term
 
-      # Utils
-      gparted
-      ventoy-full #ventoy
-      #etcher
-
-      # Bluetooth
-      bluez
-      bluez-tools
-      bluetuith # bluetooth ncurses frontend
-      
-      # GUI
-      obsidian
-
       # PDF
       zathura # minimalistic pdf viewer
       xournalpp
@@ -87,7 +74,6 @@
       # Torrents
       #aria #ariang
       qbittorrent #qbittorrent-nox
-
       #radarr #lidarr #sonarr
       
       # Astronomy
@@ -95,17 +81,6 @@
       celestia
       libnova
 
-      # OCR
-      tesseract
-      qt-box-editor # OCR engine
-      #easyocr
-      
-      # Officematics
-      #libreoffice
-      slides
-      #zoom-us
-      #slack #slack-cli #slack-term # testing
-      
       # Archives
       zip unzip 
       unar # Allows for unzipping with Unicode characters.
