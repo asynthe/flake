@@ -37,6 +37,7 @@
       cmus
       mpd
       ncmpcpp
+      spotify
 
       waybar # Bar
       swayidle # Idle daemon

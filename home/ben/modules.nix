@@ -9,6 +9,7 @@
         ../../modules/home/app/comms.nix # Discord, IRC, Signal, Telegram.
         ../../modules/home/app/emacs.nix
         ../../modules/home/app/jp.nix # Packages for japanese learning / immersion.
+	../../modules/home/app/lf.nix
 
         # Audio
         ../../modules/home/audio/mpd.nix
