@@ -3,6 +3,10 @@
     home.packages = builtins.attrValues {
         inherit (pkgs)
 
+	    # Temporary
+	    brave # Brave browser
+	    firefox
+
             # Shell
             direnv
             eza
