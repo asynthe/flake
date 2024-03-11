@@ -8,6 +8,7 @@
 - [[#outputs][Outputs]]
 - [[#machines][Machines]]
   - [[#thinkpad][Thinkpad]]
+  - [[#wsl][wsl]]
   - [[#server][Server]]
   - [[#home-manager][Home Manager]]
   - [[#macbook-apple-silicon][Macbook (Apple Silicon)]]
@@ -52,6 +53,7 @@ outputs = inputs @ {
   impermanence,
   sops-nix,
   musnix,
+  nixos-wsl,
   #hyprland,
   #nix-darwin,
   #nixpkgs-wayland,
@@ -100,6 +102,26 @@ thinkpad = nixpkgs.lib.nixosSystem {
     disko.nixosModules.disko
     impermanence.nixosModules.impermanence
     musnix.nixosModules.musnix
+  ];
+};
+#+end_src
+
+** wsl
+
+#+begin_src nix
+wsl = nixpkgs.lib.nixosSystem {
+  system = "x86_64-linux";
+  specialArgs = { inherit
+    inputs
+    ;
+    user = "ben";
+  };
+  modules = [
+    ./hosts/wsl
+    disko.nixosModules.disko
+    impermanence.nixosModules.impermanence
+    musnix.nixosModules.musnix
+    nixos-wsl.nixosModules.wsl
   ];
 };
 #+end_src
@@ -209,6 +231,12 @@ home-manager = {
   inputs.nixpkgs.follows = "nixpkgs"; 
   # Follows the nixpkgs channel defined before, 
   # to avoid different versions of nixpkgs deps problems.
+};
+
+# WSL
+nixos-wsl = {
+  url = "github:nix-community/NixOS-WSL";
+  inputs.nixpkgs.follows = "nixpkgs";
 };
 
 # Inputs

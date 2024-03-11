@@ -119,6 +119,12 @@ home-manager = {
   # to avoid different versions of nixpkgs deps problems.
 };
 
+# WSL
+nixos-wsl = {
+  url = "github:nix-community/NixOS-WSL";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
+
 # Inputs
 impermanence.url = "github:nix-community/impermanence";
 disko = {
@@ -128,12 +134,6 @@ disko = {
 
 sops-nix.url = "github:Mic92/sops-nix";
 musnix.url = "github:musnix/musnix";
-
-# NixOS-WSL
-nixos-wsl = {
-  url = "github:nix-community/NixOS-WSL";
-  inputs.nixpkgs.follows = "nixpkgs";
-};
 
 #nil.url = "github:oxalica/nil";
 #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
