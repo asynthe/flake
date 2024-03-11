@@ -14,7 +14,7 @@ in {
   # Add option to start WSL from ~ instead of current windows path.
   wsl = {
     enable = true;
-    #defaultUser = "${defaultUser}";
+    defaultUser = "${defaultUser}";
     nativeSystemd = true;
     startMenuLaunchers = true; # shortcuts for GUI applications in the windows start menu.
 
@@ -24,7 +24,6 @@ in {
 
     wslConf = {
       #automount.root = "${automountPath}"; # Directory where windows drives are mounted.
-      automount.root = "/home/${defaultUser}/windows";
       #interop.enabled = true; # Run windows binaries from the linux shell.
       #interop.appendWindowsPath = false;
     };
