@@ -1,98 +1,117 @@
 {
-  description = "asynthe's system flake";
+    description = "asynthe's system flake";
 
-outputs = inputs @ {
-  self,
-  nixpkgs,
-  home-manager,
-  disko,
-  impermanence,
-  sops-nix,
-  musnix,
-  nixos-wsl,
-  #hyprland,
-  #nix-darwin,
-  #nixpkgs-wayland,
-  #nixos-06cb-009a-fingerprint-sensor,
-  #nix-gaming,
-  #nix-on-droid,
-  ...
-	}: let
+    outputs = inputs @ {
 
-  # Linux / Home
-  username = "asynthe";
-  hostname = "thinknya";
+        self,
+        nixpkgs,
+        home-manager,
+        disko,
+        impermanence,
+        sops-nix,
+        musnix,
+        nixos-wsl,
+	home-manager-wsl,
 
-  # Darwin
-  username_mac = "benjamindunstan";
-  hostname_mac = "Benjis-Macbook";
+        #hyprland,
+        #nix-darwin,
+        #nixpkgs-wayland,
+        #nixos-06cb-009a-fingerprint-sensor,
+        #nix-gaming,
+        #nix-on-droid,
+        ...
+    
+    }: let
 
-  # pkgs
-  linux_64 = "x86_64-linux";
-  apple_silicon = "aarch64-darwin";
-  pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    # Linux / Home
+    username = "asynthe";
+    hostname = "thinknya";
+
+    # Darwin
+    username_mac = "benjamindunstan";
+    hostname_mac = "Benjis-Macbook";
+
+    # pkgs
+    linux_64 = "x86_64-linux";
+    apple_silicon = "aarch64-darwin";
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
   
-  in {
+    in {
 
-nixosConfigurations = {
+    nixosConfigurations = {
 
-thinkpad = nixpkgs.lib.nixosSystem {
-  system = "x86_64-linux";
-  specialArgs = { inherit
-    inputs
-    ;
-    user = "ben";
-  };
-  modules = [
-    ./hosts/thinkpad
-    disko.nixosModules.disko
-    impermanence.nixosModules.impermanence
-    musnix.nixosModules.musnix
-  ];
-};
+        # Thinkpad
+        thinkpad = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+                inputs
+                ;
+                user = "ben";
+            };
+            modules = [
+                ./hosts/thinkpad
+                disko.nixosModules.disko
+                impermanence.nixosModules.impermanence
+                musnix.nixosModules.musnix
+            ];
+        };
 
-wsl = nixpkgs.lib.nixosSystem {
-  system = "x86_64-linux";
-  specialArgs = { inherit
-    inputs
-    ;
-    user = "ben";
-  };
-  modules = [
-    ./hosts/wsl
-    disko.nixosModules.disko
-    impermanence.nixosModules.impermanence
-    musnix.nixosModules.musnix
-    nixos-wsl.nixosModules.wsl
-  ];
-};
+	# WSL
+        wsl = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+                inputs
+                ;
+                user = "ben";
+            };
+            modules = [
+                ./hosts/wsl
+                disko.nixosModules.disko
+                nixos-wsl.nixosModules.wsl
+	        home-manager-wsl.homeModules.default
+            ];
+        };
 
-server = nixpkgs.lib.nixosSystem {
-  system = "x86_64-linux";
-  specialArgs = { inherit
-    inputs
-    ;
-    user = "server";
-  };
-  modules = [
-    ./hosts/server
-    disko.nixosModules.disko
-    impermanence.nixosModules.impermanence
-    musnix.nixosModules.musnix
-    ];
-  };
-};
-
-homeConfigurations = {
-  ben = home-manager.lib.homeManagerConfiguration {
-    inherit pkgs;
-    extraSpecialArgs = {inherit
-      inputs
-      ;
+	# PC Server
+        server = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+                inputs
+                ;
+                user = "server";
+            };
+            modules = [
+                ./hosts/server
+                disko.nixosModules.disko
+                impermanence.nixosModules.impermanence
+                musnix.nixosModules.musnix
+            ];
+        };
     };
-    modules = [ ./home/ben ];
-  };
-};
+
+    homeConfigurations = {
+        ben = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = { inherit
+                inputs
+                ;
+            };
+            modules = [ 
+	        ./home/ben 
+	    ];
+        };
+
+        wsl = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+	    extraSpecialArgs = { inherit
+	        inputs
+	        ;
+	    };
+	    modules = [
+	        ./home/wsl
+	    ];
+        };
+    };
 
 #darwinConfigurations = {
   #${hostname_mac} = nix-darwin.lib.darwinSystem {
@@ -124,6 +143,8 @@ nixos-wsl = {
   url = "github:nix-community/NixOS-WSL";
   inputs.nixpkgs.follows = "nixpkgs";
 };
+
+home-manager-wsl.url = "github:viperML/home-manager-wsl";
 
 # Inputs
 impermanence.url = "github:nix-community/impermanence";
