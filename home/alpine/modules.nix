@@ -5,8 +5,10 @@
       ./modules/pkgs.nix
 
       # App
-      ./modules/gpg.nix
-      ./modules/ssh.nix
+      ./modules/app/git.nix
+      ./modules/app/gpg.nix
+      ./modules/app/lf.nix
+      ./modules/app/ssh.nix
 
       # Dev
       ./modules/dev/python.nix

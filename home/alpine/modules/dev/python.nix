@@ -21,7 +21,7 @@
 	    scipy
 
 	    # Fun
-	    cbeams
+	    #cbeams
 	;
     };
 
