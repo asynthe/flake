@@ -68,7 +68,6 @@
                 ./hosts/wsl
                 disko.nixosModules.disko
                 nixos-wsl.nixosModules.wsl
-	        home-manager-wsl.homeModules.default
             ];
         };
 
@@ -101,90 +100,89 @@
 	    ];
         };
 
-        wsl = home-manager.lib.homeManagerConfiguration {
+        alpine = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
 	    extraSpecialArgs = { inherit
 	        inputs
 	        ;
 	    };
 	    modules = [
-	        ./home/wsl
+	        ./home/alpine
+		home-manager-wsl.homeModules.default
 	    ];
         };
     };
 
-#darwinConfigurations = {
-  #${hostname_mac} = nix-darwin.lib.darwinSystem {
-    #system = "${apple_silicon}";
-    #specialArgs = {inherit username_mac inputs;};
-      #modules = [ ./hosts/macos ];
-  #};
-#};
+    #darwinConfigurations = {
+        
+        #${hostname_mac} = nix-darwin.lib.darwinSystem {
+            #system = "${apple_silicon}";
+            #specialArgs = { inherit 
+		#inputs
+	        #username_mac 
+		#;
+	    #};
+            #modules = [ 
+	        #./hosts/macos 
+	    #];
+        #};
+    #};
+    };
 
-};
- inputs = {
+    inputs = {
 
-# nixpkgs
-# https://github.com/NixOS/nixpkgs
-nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable.
-#nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable.
+        # nixpkgs
+        # https://github.com/NixOS/nixpkgs
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable.
+        #nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable.
 
-# Home Manager
-home-manager = {
-  url = "github:nix-community/home-manager"; # Follows nixpkgs unstable.
-  #url = "github:nix-community/home-manager/release-23.11"; # Follows nixpkgs stable.
-  inputs.nixpkgs.follows = "nixpkgs"; 
-  # Follows the nixpkgs channel defined before, 
-  # to avoid different versions of nixpkgs deps problems.
-};
+        # Home Manager
+        home-manager = {
+            url = "github:nix-community/home-manager"; # Follows nixpkgs unstable.
+            #url = "github:nix-community/home-manager/release-23.11"; # Follows nixpkgs stable.
+            inputs.nixpkgs.follows = "nixpkgs"; 
+            # Follows the nixpkgs channel defined before, 
+            # to avoid different versions of nixpkgs deps problems.
+        };
 
-# WSL
-nixos-wsl = {
-  url = "github:nix-community/NixOS-WSL";
-  inputs.nixpkgs.follows = "nixpkgs";
-};
+        # WSL
+        nixos-wsl = {
+            url = "github:nix-community/NixOS-WSL";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+        home-manager-wsl.url = "github:viperML/home-manager-wsl";
 
-home-manager-wsl.url = "github:viperML/home-manager-wsl";
+        # Inputs
+        impermanence.url = "github:nix-community/impermanence";
+        disko = {
+            url = "github:nix-community/disko";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
 
-# Inputs
-impermanence.url = "github:nix-community/impermanence";
-disko = {
-  url = "github:nix-community/disko";
-  inputs.nixpkgs.follows = "nixpkgs";
-};
+        sops-nix.url = "github:Mic92/sops-nix";
+        musnix.url = "github:musnix/musnix";
 
-sops-nix.url = "github:Mic92/sops-nix";
-musnix.url = "github:musnix/musnix";
+        #nil.url = "github:oxalica/nil";
+        #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+        #nix-gaming.url = "github:fufexan/nix-gaming";
+        #helix.url = "github:helix-editor/helix/23.05";
+        #hyprland.url = "github:hyprwm/Hyprland";
+        #rust-overlay.url = "github:oxalica/rust-overlay";
+ 
+        #nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
+        #nix-darwin = {
+            #url = "github:lnl7/nix-darwin";
+            #inputs.nixpkgs.follows = "nixpkgs-darwin";
+        #};
 
-#nil.url = "github:oxalica/nil";
-#nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-#nix-gaming.url = "github:fufexan/nix-gaming";
-#helix.url = "github:helix-editor/helix/23.05";
-#hyprland.url = "github:hyprwm/Hyprland";
-#rust-overlay.url = "github:oxalica/rust-overlay";
+        #nix-on-droid = {
+            #url = "github:t184256/nix-on-droid/release-23.05";
+            #inputs.nixpkgs.follows = "nixpkgs-stable";
+        #};
 
-#nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
-#nix-darwin = {
-  #url = "github:lnl7/nix-darwin";
-  #inputs.nixpkgs.follows = "nixpkgs-darwin";
-#};
-
-#nix-on-droid = {
-  #url = "github:t184256/nix-on-droid/release-23.05";
-  #inputs.nixpkgs.follows = "nixpkgs-stable";
-  #};
-
-#nixos-06cb-009a-fingerprint-sensor = {
-  #url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
-  #inputs.nixpkgs.follows = "nixpkgs";
-#};
-
-};
+        #nixos-06cb-009a-fingerprint-sensor = {
+            #url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+            #inputs.nixpkgs.follows = "nixpkgs";
+        #};
+    };
 }
-
-#nixOnDroidConfigurations.default =
-  #nix-on-droid.lib.nixOnDroidConfiguration {
-    #modules = [
-      #./nix/nix-on-droid
-    #];
-  #};
