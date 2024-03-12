@@ -1,169 +1,188 @@
 {
-  description = "asynthe's system flake";
+    description = "asynthe's system flake";
 
-outputs = inputs @ {
-  self,
-  nixpkgs,
-  home-manager,
-  disko,
-  impermanence,
-  sops-nix,
-  musnix,
-  nixos-wsl,
-  #hyprland,
-  #nix-darwin,
-  #nixpkgs-wayland,
-  #nixos-06cb-009a-fingerprint-sensor,
-  #nix-gaming,
-  #nix-on-droid,
-  ...
-	}: let
+    outputs = inputs @ {
 
-  # Linux / Home
-  username = "asynthe";
-  hostname = "thinknya";
+        self,
+        nixpkgs,
+        home-manager,
+        disko,
+        impermanence,
+        sops-nix,
+        musnix,
+        nixos-wsl,
+	home-manager-wsl,
 
-  # Darwin
-  username_mac = "benjamindunstan";
-  hostname_mac = "Benjis-Macbook";
+        #hyprland,
+        #nix-darwin,
+        #nixpkgs-wayland,
+        #nixos-06cb-009a-fingerprint-sensor,
+        #nix-gaming,
+        #nix-on-droid,
+        ...
+    
+    }: let
 
-  # pkgs
-  linux_64 = "x86_64-linux";
-  apple_silicon = "aarch64-darwin";
-  pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    # Linux / Home
+    username = "asynthe";
+    hostname = "thinknya";
+
+    # Darwin
+    username_mac = "benjamindunstan";
+    hostname_mac = "Benjis-Macbook";
+
+    # pkgs
+    linux_64 = "x86_64-linux";
+    apple_silicon = "aarch64-darwin";
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
   
-  in {
+    in {
 
-nixosConfigurations = {
+    nixosConfigurations = {
 
-thinkpad = nixpkgs.lib.nixosSystem {
-  system = "x86_64-linux";
-  specialArgs = { inherit
-    inputs
-    ;
-    user = "ben";
-  };
-  modules = [
-    ./hosts/thinkpad
-    disko.nixosModules.disko
-    impermanence.nixosModules.impermanence
-    musnix.nixosModules.musnix
-  ];
-};
+        # Thinkpad
+        thinkpad = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+                inputs
+                ;
+                user = "ben";
+            };
+            modules = [
+                ./hosts/thinkpad
+                disko.nixosModules.disko
+                impermanence.nixosModules.impermanence
+                musnix.nixosModules.musnix
+            ];
+        };
 
-wsl = nixpkgs.lib.nixosSystem {
-  system = "x86_64-linux";
-  specialArgs = { inherit
-    inputs
-    ;
-    user = "ben";
-  };
-  modules = [
-    ./hosts/wsl
-    disko.nixosModules.disko
-    impermanence.nixosModules.impermanence
-    musnix.nixosModules.musnix
-    nixos-wsl.nixosModules.wsl
-  ];
-};
+	# WSL
+        wsl = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+                inputs
+                ;
+                user = "ben";
+            };
+            modules = [
+                ./hosts/wsl
+                disko.nixosModules.disko
+                nixos-wsl.nixosModules.wsl
+            ];
+        };
 
-server = nixpkgs.lib.nixosSystem {
-  system = "x86_64-linux";
-  specialArgs = { inherit
-    inputs
-    ;
-    user = "server";
-  };
-  modules = [
-    ./hosts/server
-    disko.nixosModules.disko
-    impermanence.nixosModules.impermanence
-    musnix.nixosModules.musnix
-    ];
-  };
-};
-
-homeConfigurations = {
-  ben = home-manager.lib.homeManagerConfiguration {
-    inherit pkgs;
-    extraSpecialArgs = {inherit
-      inputs
-      ;
+	# PC Server
+        server = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+                inputs
+                ;
+                user = "server";
+            };
+            modules = [
+                ./hosts/server
+                disko.nixosModules.disko
+                impermanence.nixosModules.impermanence
+                musnix.nixosModules.musnix
+            ];
+        };
     };
-    modules = [ ./home/ben ];
-  };
-};
 
-#darwinConfigurations = {
-  #${hostname_mac} = nix-darwin.lib.darwinSystem {
-    #system = "${apple_silicon}";
-    #specialArgs = {inherit username_mac inputs;};
-      #modules = [ ./hosts/macos ];
-  #};
-#};
+    homeConfigurations = {
+        ben = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = { inherit
+                inputs
+                ;
+            };
+            modules = [ 
+	        ./home/ben 
+	    ];
+        };
 
-};
- inputs = {
+        alpine = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+	    extraSpecialArgs = { inherit
+	        inputs
+	        ;
+	    };
+	    modules = [
+	        ./home/alpine
+		home-manager-wsl.homeModules.default
+	    ];
+        };
+    };
 
-# nixpkgs
-# https://github.com/NixOS/nixpkgs
-nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable.
-#nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable.
+    #darwinConfigurations = {
+        
+        #${hostname_mac} = nix-darwin.lib.darwinSystem {
+            #system = "${apple_silicon}";
+            #specialArgs = { inherit 
+		#inputs
+	        #username_mac 
+		#;
+	    #};
+            #modules = [ 
+	        #./hosts/macos 
+	    #];
+        #};
+    #};
+    };
 
-# Home Manager
-home-manager = {
-  url = "github:nix-community/home-manager"; # Follows nixpkgs unstable.
-  #url = "github:nix-community/home-manager/release-23.11"; # Follows nixpkgs stable.
-  inputs.nixpkgs.follows = "nixpkgs"; 
-  # Follows the nixpkgs channel defined before, 
-  # to avoid different versions of nixpkgs deps problems.
-};
+    inputs = {
 
-# WSL
-nixos-wsl = {
-  url = "github:nix-community/NixOS-WSL";
-  inputs.nixpkgs.follows = "nixpkgs";
-};
+        # nixpkgs
+        # https://github.com/NixOS/nixpkgs
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable.
+        #nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable.
 
-# Inputs
-impermanence.url = "github:nix-community/impermanence";
-disko = {
-  url = "github:nix-community/disko";
-  inputs.nixpkgs.follows = "nixpkgs";
-};
+        # Home Manager
+        home-manager = {
+            url = "github:nix-community/home-manager"; # Follows nixpkgs unstable.
+            #url = "github:nix-community/home-manager/release-23.11"; # Follows nixpkgs stable.
+            inputs.nixpkgs.follows = "nixpkgs"; 
+            # Follows the nixpkgs channel defined before, 
+            # to avoid different versions of nixpkgs deps problems.
+        };
 
-sops-nix.url = "github:Mic92/sops-nix";
-musnix.url = "github:musnix/musnix";
+        # WSL
+        nixos-wsl = {
+            url = "github:nix-community/NixOS-WSL";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+        home-manager-wsl.url = "github:viperML/home-manager-wsl";
 
-#nil.url = "github:oxalica/nil";
-#nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-#nix-gaming.url = "github:fufexan/nix-gaming";
-#helix.url = "github:helix-editor/helix/23.05";
-#hyprland.url = "github:hyprwm/Hyprland";
-#rust-overlay.url = "github:oxalica/rust-overlay";
+        # Inputs
+        impermanence.url = "github:nix-community/impermanence";
+        disko = {
+            url = "github:nix-community/disko";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
 
-#nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
-#nix-darwin = {
-  #url = "github:lnl7/nix-darwin";
-  #inputs.nixpkgs.follows = "nixpkgs-darwin";
-#};
+        sops-nix.url = "github:Mic92/sops-nix";
+        musnix.url = "github:musnix/musnix";
 
-#nix-on-droid = {
-  #url = "github:t184256/nix-on-droid/release-23.05";
-  #inputs.nixpkgs.follows = "nixpkgs-stable";
-  #};
+        #nil.url = "github:oxalica/nil";
+        #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+        #nix-gaming.url = "github:fufexan/nix-gaming";
+        #helix.url = "github:helix-editor/helix/23.05";
+        #hyprland.url = "github:hyprwm/Hyprland";
+        #rust-overlay.url = "github:oxalica/rust-overlay";
+ 
+        #nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
+        #nix-darwin = {
+            #url = "github:lnl7/nix-darwin";
+            #inputs.nixpkgs.follows = "nixpkgs-darwin";
+        #};
 
-#nixos-06cb-009a-fingerprint-sensor = {
-  #url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
-  #inputs.nixpkgs.follows = "nixpkgs";
-#};
+        #nix-on-droid = {
+            #url = "github:t184256/nix-on-droid/release-23.05";
+            #inputs.nixpkgs.follows = "nixpkgs-stable";
+        #};
 
-};
+        #nixos-06cb-009a-fingerprint-sensor = {
+            #url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+            #inputs.nixpkgs.follows = "nixpkgs";
+        #};
+    };
 }
-
-#nixOnDroidConfigurations.default =
-  #nix-on-droid.lib.nixOnDroidConfiguration {
-    #modules = [
-      #./nix/nix-on-droid
-    #];
-  #};

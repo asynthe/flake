@@ -1,10 +1,18 @@
 { pkgs, ... }: {
 
-    home.packages = builtins.attrValues {
+    environment.systemPackages = builtins.attrValues {
         inherit (pkgs)
             python3
-	    twine
         ;
+	inherit (pkgs.python311Packages)
+	    pandas
+	    scapy
+	    requests
+	    datetime
+	    pyftpdlib
+	    openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
+	    defusedxml # defusing XML bombs and other exploits
+	;
     };
 
     #home.packages = with pkgs; [
