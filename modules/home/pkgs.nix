@@ -6,6 +6,7 @@
 	    # Temporary
 	    brave # Brave browser
 	    firefox
+	    gimp
 
             # Shell
             direnv

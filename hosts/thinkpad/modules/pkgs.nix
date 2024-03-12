@@ -5,6 +5,7 @@
 
       # freeimage ?
       #imv # Image viewer.
+      imv
 
       # Programs
       alacritty kitty
