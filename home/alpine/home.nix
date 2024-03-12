@@ -1,5 +1,6 @@
 { config, inputs, pkgs, ... }: {
 
+    wsl.baseDistro = "ubuntu";
     programs.home-manager.enable = true;
 
     home = {
