@@ -13,7 +13,7 @@
       git
       tmux lf htop
       librewolf ungoogled-chromium
-      tor-browser
+      #tor-browser
       pavucontrol
       wget curl
       killall
