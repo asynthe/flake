@@ -14,6 +14,11 @@
         # Audio
         ../../modules/home/audio/mpd.nix
 
+	# Game
+	#../../modules/home/game/emulators.nix
+	#../../modules/home/game/games.nix
+	#../../modules/home/game/tools.nix
+
         # Developer tools
         ../../modules/home/dev/ai.nix
         ../../modules/home/dev/latex.nix

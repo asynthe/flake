@@ -20,6 +20,7 @@
       # GUI
       qbittorrent
       pcmanfm
+      pinta
 
       # CLI
       ffmpeg

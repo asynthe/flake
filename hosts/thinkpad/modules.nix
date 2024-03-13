@@ -17,10 +17,23 @@
         ./modules/user.nix
         ./modules/vpn.nix
 
+        ../../modules/nix/game/steam.nix
+        ../../modules/nix/sys/fstrim.nix
+        ../../modules/nix/vm/libvirt.nix
+
+        ../../modules/nix/net/ssh/mosh.nix
+        ../../modules/nix/net/ssh/ssh.nix
+        ../../modules/nix/net/ssh/sshfs.nix
+
+	../../modules/nix/driver/acpi.nix
+        ../../modules/nix/net/vpn/mullvad.nix
+        ../../modules/nix/sysd/lid_switch.nix # Lid switch action for laptops.
+
+	# REWRITE FROM HERE DOWN BELOW #
+
         # Test - make so it works on Home instead.
         #../../modules/test/nix/elasticsearch.nix
         #../../modules/test/nix/fluent-bit.nix
-        #../../modules/test/nix/steam.nix
         #../../modules/test/nix/gaming.nix
 
         # System - Locale 
@@ -33,7 +46,6 @@
         #../../modules/nix/sys/dbus.nix
         #../../modules/nix/sys/env.nix # Environment configuration.
         #../../modules/nix/sys/fonts.nix # Fonts.
-        ../../modules/nix/sys/fstrim.nix
         #../../modules/nix/sys/ime.nix # Fcitx5 + mozc.
 	#../../modules/nix/sys/pam.nix
         #../../modules/nix/sys/user.nix # Main user module.
@@ -71,7 +83,6 @@
         # Drivers
         #../../modules/nix/driver/fingerprint/t480.nix
         #../../modules/nix/driver/accelerated_video_playback.nix
-	../../modules/nix/driver/acpi.nix
         #../../modules/nix/driver/amd.nix
         #../../modules/nix/driver/displaylink.nix.
         #../../modules/nix/driver/intel.nix
@@ -84,16 +95,12 @@
         #../../modules/nix/net/irc/server.nix
         #../../modules/nix/net/remote/vnc.nix
 
-        ../../modules/nix/net/ssh/mosh.nix
-        ../../modules/nix/net/ssh/ssh.nix
-        ../../modules/nix/net/ssh/sshfs.nix
 
         #../../modules/nix/net/dns.nix
         #../../modules/nix/net/elastic.nix
         #../../modules/nix/net/nm.nix # Network Manager.
 
         # Network - VPN
-        ../../modules/nix/net/vpn/mullvad.nix
         #../../modules/nix/net/vpn/openvpn.nix
         #../../modules/nix/net/vpn/tailscale.nix
         #../../modules/nix/net/vpn/wireguard.nix
@@ -113,10 +120,8 @@
         #../../modules/nix/sec/monitoring/prometheus.nix
 
         # systemd
-        ../../modules/nix/sysd/lid_switch.nix # Lid switch action for laptops.
 
         # Virtual Machines
-        ../../modules/nix/vm/libvirt.nix
         #../../modules/nix/vm/virtualbox.nix
 	#../../modules/nix/vm/vmware.nix
 
