@@ -107,17 +107,15 @@ let
             lf "$@" 3>&-
         fi '';
 
-    # LFCD
+    # IN PROGRESS
+    # -> lfub + lfcd
 
 in {
 
     programs.lf.extraConfig = ''
         #set previewer = ${preview}/bin/previewer.sh
-        set cleaner = ${cleaner}/bin/cleaner.sh"
+        #set cleaner = ${cleaner}/bin/cleaner.sh
     '';
-
-    # IN PROGRESS
-    # -> lfub + lfcd
 
     # IN PROGRESS
     #programs.zsh.shellAliases = { programs.zsh.shellAliases ++ ''
