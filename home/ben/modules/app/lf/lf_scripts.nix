@@ -27,9 +27,9 @@ let
             fi
         }
 
-        CACHE="${config.home.homeDirectory}/.cache/lf/thumbnail.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | awk '{print $1}'))"
+        CACHE="${config.home.homeDirectory}/.cache/lf/thumbnail.$(${pkgs.coreutils}/bin/stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(${pkgs.util-linux}/bin/readlink -f "$1")" | ${pkgs.coreutils}/bin/sha256sum | ${pkgs.gawk}/bin/awk '{print $1}'))"
 
-        case "$(printf "%s\n" "$(readlink -f "$1")" | tr '[:upper:]' '[:lower:]')" in
+        case "$(printf "%s\n" "$(readlink -f "$1")" | ${pkgs.coreutils}/bin/tr '[:upper:]' '[:lower:]')" in
             *.tgz | *.tar.gz) ${pkgs.gnutar}/bin/tar tzf "$1" ;;
             *.tar.bz2 | *.tbz2) ${pkgs.gnutar}/bin/tar tjf "$1" ;;
             *.tar.txz | *.txz) ${pkgs.xz}/bin/xz --list "$1" ;;
@@ -37,7 +37,7 @@ let
             *.zip | *.jar | *.war | *.ear | *.oxt) ${pkgs.unzip}/bin/unzip -l "$1" ;;
             *.rar) ${pkgs.unrar}/bin/unrar l "$1" ;;
             *.7z) ${pkgs.p7zip}/bin/7z l "$1" ;;
-            *.[1-8]) ${pkgs.man}/bin/man "$1" | col -b ;;
+            *.[1-8]) ${pkgs.man}/bin/man "$1" | ${pkgs.util-linux}/bin/col -b ;;
             *.o) nm "$1" ;;
             # *.torrent) transmission-show "$1" ;;
             *.iso) ${pkgs.libcdio}/bin/iso-info --no-header -l "$1" ;;
