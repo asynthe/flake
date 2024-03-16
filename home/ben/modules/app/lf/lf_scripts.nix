@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 
 let
-    cleaner = pkgs.writeShellScriptBin "cleaner" ''
-        #!/bin/sh
-	${pkgs.ueberzugpp}/bin/ueberzugpp cmd -s SUB_SOCKET -a remove -i PREVIEW '';
+    cleaner = pkgs.writeShellScriptBin "cleaner.sh" ''
+	${pkgs.ueberzugpp}/bin/ueberzugpp cmd -s SUB_SOCKET -a remove -i PREVIEW 
+    '';
 
-    preview = pkgs.writeShellScriptBin "previewer" ''
+    preview = pkgs.writeShellScriptBin "previewer.sh" ''
 
         image() {
             FILE_PATH="$1"
@@ -27,7 +27,7 @@ let
             fi
         }
 
-        CACHE="$HOME/.cache/lf/thumbnail.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | awk '{print $1}'))"
+        CACHE="${config.home.homeDirectory}/.cache/lf/thumbnail.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | awk '{print $1}'))"
 
         case "$(printf "%s\n" "$(readlink -f "$1")" | tr '[:upper:]' '[:lower:]')" in
             *.tgz | *.tar.gz) ${pkgs.gnutar}/bin/tar tzf "$1" ;;
@@ -96,7 +96,7 @@ let
             lf "$@"
         else
 
-            [ ! -d "$HOME/.cache/lf" ] && mkdir -p "$HOME/.cache/lf"
+            [ ! -d "${config.home.homeDirectory}/.cache/lf" ] && mkdir -p "${config.home.homeDirectory}/.cache/lf"
             UB_PID_FILE="$UEBERZUG_TMP_DIR/.$(uuidgen)"
             ${pkgs.ueberzugpp}/bin/ueberzugpp layer --silent --no-stdin --use-escape-codes --pid-file "$UB_PID_FILE"
             UB_PID=$(cat "$UB_PID_FILE")
@@ -113,9 +113,8 @@ let
 in {
 
     programs.lf.extraConfig = ''
-        #set previewer = ${preview}/bin/previewer.sh
-        #set cleaner = ${cleaner}/bin/cleaner.sh
-    '';
+        set previewer = ${preview}/bin/previewer.sh
+        set cleaner = ${cleaner}/bin/cleaner.sh '';
 
     # IN PROGRESS
     #programs.zsh.shellAliases = { programs.zsh.shellAliases ++ ''
