@@ -107,7 +107,7 @@ let
             lf "$@" 3>&-
         fi '';
 
-    # ADD LFCD !
+    # LFCD
 
 in {
 
@@ -122,6 +122,5 @@ in {
     # IN PROGRESS
     #programs.zsh.shellAliases = { programs.zsh.shellAliases ++ ''
         #lf = "${lfub}/bin/lfub.sh";
-	# DO LFUB + LFCD, HOW ?
     #'';
 }
