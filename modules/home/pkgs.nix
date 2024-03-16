@@ -7,6 +7,7 @@
 	    brave # Brave browser
 	    firefox
 	    gimp
+	    barrier # Open-source KVM software.
 
             # Shell
             direnv

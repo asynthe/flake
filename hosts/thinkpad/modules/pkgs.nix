@@ -7,7 +7,6 @@
       alacritty kitty
       neovim
       git
-      tmux lf htop
 
       librewolf ungoogled-chromium
       #tor-browser
@@ -16,6 +15,11 @@
       wget curl
       killall
       tree
+
+      # Terminal
+      htop
+      tmux tmuxp
+      lf ueberzugpp
 
       # GUI
       qbittorrent
@@ -34,6 +38,9 @@
       mpd
       ncmpcpp
       spotify
+
+      # Security
+      bleachbit
       ;
   };
 

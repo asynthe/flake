@@ -29,6 +29,9 @@
         ../../modules/nix/net/vpn/mullvad.nix
         ../../modules/nix/sysd/lid_switch.nix # Lid switch action for laptops.
 
+	# Security
+	../../modules/nix/sec/clamav.nix
+
 	# REWRITE FROM HERE DOWN BELOW #
 
         # Test - make so it works on Home instead.
