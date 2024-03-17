@@ -1,5 +1,7 @@
 { config, pkgs, ... }: {
 
+    environment.binsh = "${pkgs.dash}/bin/dash"; # Change sh for dash.
+
     # Fonts
     fonts.packages = builtins.attrValues {
         inherit (pkgs)
@@ -35,33 +37,6 @@
                 fcitx5-mozc
                 fcitx5-configtool
             ];
-        };
-    };
-
-    # Environment variables
-    environment = {
-        binsh = "${pkgs.dash}/bin/dash"; # Change sh for dash.
-        variables = {
-            TERMINAL = "Kitty";
-            EDITOR = "nvim";
-            VISUAL = "nvim";
-        };
-    
-        sessionVariables = rec {
-
-            # XDG
-            #PATH = [ "\${XDG_BIN_HOME" ];
-            #XDG_CACHE_HOME = "\${HOME}/.cache";
-            #XDG_CONFIG_HOME = "\${HOME}/.config";
-            #XDG_BIN_HOME = "\${HOME}/.local/bin";
-            #XDG_DATA_HOME = "\${HOME}/.local/share";
-            #XDG_STATE_HOME = "\${HOME}/.local.state";
-
-            # IME
-            XMODIFIERS = "@im=fcitx";
-            QT_IM_MODULE = "fcitx";
-            SDL_IM_MODULE = "fcitx";
-            GLFW_IM_MODULE = "ibus";
         };
     };
 }
