@@ -4,11 +4,11 @@
         inherit (pkgs)
             python3
 	    twine
+	    pdfminer
         ;
 
 	inherit (pkgs.python311Packages)
 	    faker
-	    pandas
 	    scapy
 	    requests
 	    datetime
@@ -16,6 +16,10 @@
 	    openpyxl # read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
 	    defusedxml # defusing XML bombs and other exploits
 	    #web-server
+
+	    # Data
+	    pandas
+	    pdfminer-six
 
 	    # Math
 	    scipy
