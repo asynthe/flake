@@ -1,9 +1,11 @@
 { config, ... }: {
 
-  imports = [
+    programs.home-manager.enable = true;
 
-    ./home.nix # Home Manager configuration and settings.
-    ./modules.nix # List of packages to enable.
+    imports = [
+
+        ./home.nix
+        ./modules.nix
 
   ];
 }

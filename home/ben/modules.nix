@@ -2,31 +2,24 @@
 
     imports = [
 
-        # Modules folder
+        ./modules/pkgs.nix
+
 	./modules/app/lf
+        ./modules/app/comms.nix # Discord, IRC, Signal, Telegram.
+        ./modules/app/emacs.nix
+        ./modules/app/jp.nix # Packages for japanese learning / immersion.
 
-        # Main
-        ../../modules/home/pkgs.nix
+        ./modules/audio/mpd.nix
 
-        # Apps
-        ../../modules/home/app/comms.nix # Discord, IRC, Signal, Telegram.
-        ../../modules/home/app/emacs.nix
-        ../../modules/home/app/jp.nix # Packages for japanese learning / immersion.
+	#./modules/game/emulators.nix
+	./modules/game/games.nix
+	#./modules/game/tools.nix
 
-        # Audio
-        ../../modules/home/audio/mpd.nix
+        ./modules/dev/ai.nix
+        ./modules/dev/latex.nix
+        ./modules/dev/python.nix
 
-	# Game
-	#../../modules/home/game/emulators.nix
-	../../modules/home/game/games.nix
-	#../../modules/home/game/tools.nix
-
-        # Developer tools
-        ../../modules/home/dev/ai.nix
-        ../../modules/home/dev/latex.nix
-        ../../modules/home/dev/python.nix
-
-        # System
-        ../../modules/home/sys/gtk.nix
+	./modules/sys/nix_settings.nix
+        ./modules/sys/gtk.nix
     ];
 }

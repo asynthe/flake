@@ -23,13 +23,13 @@
     
     }: let
 
-    # Linux / Home
-    username = "asynthe";
-    hostname = "thinknya";
+    # Global variables
+    #username = "asynthe";
+    #hostname = "thinknya";
 
     # Darwin
-    username_mac = "benjamindunstan";
-    hostname_mac = "Benjis-Macbook";
+    #username_mac = "benjamindunstan";
+    #hostname_mac = "Benjis-Macbook";
 
     # pkgs
     linux_64 = "x86_64-linux";
@@ -94,6 +94,7 @@
             extraSpecialArgs = { inherit
                 inputs
                 ;
+		username = "ben";
             };
             modules = [ 
 	        ./home/ben 

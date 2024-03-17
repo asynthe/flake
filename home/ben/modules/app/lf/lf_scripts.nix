@@ -27,7 +27,7 @@ let
             fi
         }
 
-        CACHE="${config.home.homeDirectory}/.cache/lf/thumbnail.$(${pkgs.coreutils}/bin/stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(${pkgs.util-linux}/bin/readlink -f "$1")" | ${pkgs.coreutils}/bin/sha256sum | ${pkgs.gawk}/bin/awk '{print $1}'))"
+        CACHE="${config.home.homeDirectory}/.cache/lf/thumbnail.$(${pkgs.coreutils}/bin/stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(${pkgs.coreutils}/bin/readlink -f "$1")" | ${pkgs.coreutils}/bin/sha256sum | ${pkgs.gawk}/bin/awk '{print $1}'))"
 
         case "$(printf "%s\n" "$(readlink -f "$1")" | ${pkgs.coreutils}/bin/tr '[:upper:]' '[:lower:]')" in
             *.tgz | *.tar.gz) ${pkgs.gnutar}/bin/tar tzf "$1" ;;

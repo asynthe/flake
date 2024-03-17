@@ -10,16 +10,16 @@ in {
     
     programs.lf = {
         enable = true;
-	#settings = {
+	settings = {
 	    #icons = true;
 	    #ignorecase = true;
-	    #preview = true;
+	    preview = true;
 
 	    #tabstop = 4;
 	    #hidden = true;
 	    #number = true;
 	    #ratios = [ 1 1 2 ];
-	#};
+	};
 
 	#commands = {
 	    #editor-open = ''$$EDITOR $f'';
