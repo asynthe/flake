@@ -90,6 +90,7 @@
 
     homeConfigurations = {
         ben = home-manager.lib.homeManagerConfiguration {
+            #pkgs = nixpkgs.legacyPackages.x86_64-linux;
             inherit pkgs;
             extraSpecialArgs = { inherit
                 inputs
@@ -101,15 +102,16 @@
 	    ];
         };
 
-        alpine = home-manager.lib.homeManagerConfiguration {
+        missingno = home-manager.lib.homeManagerConfiguration {
+            #pkgs = nixpkgs.legacyPackages.x86_64-linux;
             inherit pkgs;
 	    extraSpecialArgs = { inherit
 	        inputs
 	        ;
+		username = "missingno";
 	    };
 	    modules = [
-	        ./home/alpine
-		home-manager-wsl.homeModules.default
+	        ./home/missingno
 	    ];
         };
     };

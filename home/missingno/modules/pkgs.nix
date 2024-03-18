@@ -11,6 +11,11 @@
 
 	    # GUI
             emacs29-pgtk
+	    zathura
+
+	    # Test
+	    gopass
+	    pass-wayland
         ;
     };
 }

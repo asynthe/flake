@@ -3,6 +3,7 @@
     imports = [
 
       ./modules/pkgs.nix
+      ./modules/fonts.nix
 
       # App
       ./modules/app/git.nix

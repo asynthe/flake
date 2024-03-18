@@ -1,10 +1,9 @@
 { config, inputs, pkgs, ... }: {
 
-    wsl.baseDistro = "ubuntu";
     programs.home-manager.enable = true;
 
     home = {
-        username = "alpine";
+        username = "missingno";
         homeDirectory = "/home/${config.home.username}";
         stateVersion = "23.11";
         packages = [ pkgs.nix ];
@@ -13,10 +12,10 @@
         };
     };
 
-    xdg.configFile = {
-        "home-manager-wsl/flake".source = ./.;
-        "nix/nixpkgs".source = inputs.nixpkgs;
-    };
+    #xdg.configFile = {
+        #"home-manager-wsl/flake".source = ./.;
+        #"nix/nixpkgs".source = inputs.nixpkgs;
+    #};
 
     nix = {
         package = pkgs.nix;
