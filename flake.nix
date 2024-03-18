@@ -38,82 +38,79 @@
   
     in {
 
-    nixosConfigurations = {
-
-        # Thinkpad
-        thinkpad = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit
-                inputs
-                ;
-                user = "ben";
-            };
-            modules = [
-                ./hosts/thinkpad
-                disko.nixosModules.disko
-                impermanence.nixosModules.impermanence
-                musnix.nixosModules.musnix
-            ];
+    # Thinkpad
+    nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit
+            inputs
+            ;
+            user = "ben";
         };
-
-	# WSL
-        wsl = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit
-                inputs
-                ;
-                user = "ben";
-            };
-            modules = [
-                ./hosts/wsl
-                disko.nixosModules.disko
-                nixos-wsl.nixosModules.wsl
-            ];
-        };
-
-	# PC Server
-        server = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit
-                inputs
-                ;
-                user = "server";
-            };
-            modules = [
-                ./hosts/server
-                disko.nixosModules.disko
-                impermanence.nixosModules.impermanence
-                musnix.nixosModules.musnix
-            ];
-        };
+        modules = [
+            ./hosts/thinkpad
+            disko.nixosModules.disko
+            impermanence.nixosModules.impermanence
+            musnix.nixosModules.musnix
+        ];
     };
 
-    homeConfigurations = {
-        ben = home-manager.lib.homeManagerConfiguration {
-            #pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            inherit pkgs;
-            extraSpecialArgs = { inherit
-                inputs
-                ;
-		username = "ben";
-            };
-            modules = [ 
-	        ./home/ben 
-	    ];
+    # Thinkpad - User
+    homeConfigurations.ben = home-manager.lib.homeManagerConfiguration {
+        #pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        inherit pkgs;
+        extraSpecialArgs = { inherit
+            inputs
+            ;
+	    username = "ben";
         };
+        modules = [ 
+	    ./home/ben 
+	];
+    };
 
-        missingno = home-manager.lib.homeManagerConfiguration {
-            #pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            inherit pkgs;
-	    extraSpecialArgs = { inherit
-	        inputs
-	        ;
-		username = "missingno";
-	    };
-	    modules = [
-	        ./home/missingno
-	    ];
+    # WSL
+    nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit
+            inputs
+            ;
+            user = "ben";
         };
+        modules = [
+            ./hosts/wsl
+            disko.nixosModules.disko
+            nixos-wsl.nixosModules.wsl
+        ];
+    };
+
+    # WSL - User
+    homeConfigurations.missingno = home-manager.lib.homeManagerConfiguration {
+        #pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        inherit pkgs;
+	extraSpecialArgs = { inherit
+	    inputs
+	    ;
+	    username = "missingno";
+	};
+	modules = [
+	    ./home/missingno
+	];
+    };
+
+    # PC Server
+    nixosConfigurations.server = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit
+            inputs
+            ;
+            user = "server";
+        };
+        modules = [
+            ./hosts/server
+            disko.nixosModules.disko
+            impermanence.nixosModules.impermanence
+            musnix.nixosModules.musnix
+        ];
     };
 
     #darwinConfigurations = {
