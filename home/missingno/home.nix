@@ -1,12 +1,11 @@
-{ config, inputs, pkgs, ... }: {
+{ config, inputs, pkgs, username, ... }: {
 
     programs.home-manager.enable = true;
 
     home = {
         username = "missingno";
-        homeDirectory = "/home/${config.home.username}";
-        stateVersion = "23.11";
-        packages = [ pkgs.nix ];
+        homeDirectory = "/home/${username}";
+        packages = [ pkgs.nix ]; # ?
         sessionVariables = {
             NIX_PATH = "nixpkgs=${config.xdg.configHome}/nix/nixpkgs";
         };

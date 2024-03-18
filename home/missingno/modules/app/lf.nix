@@ -7,4 +7,14 @@
 	#settings = ;
 	#extraConfig = ;
     };
+
+    #programs.zsh = {
+        #initExtra = config.programs.zsh.initExtra // {
+	    #.
+	#};
+
+    programs.zsh.shellAliases = {
+	    lf = "lfcd";
+	#};
+    };
 }
