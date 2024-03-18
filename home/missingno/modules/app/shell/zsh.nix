@@ -12,7 +12,10 @@
 
 	# Configuration
 	autocd = true;
-	history.size = 10000;
+	history = {
+	    size = 10000;
+	    path = "${config.xdg.configHome}/zsh/zsh_history";
+	};
 
 	# Variables
 	sessionVariables = {
@@ -30,18 +33,18 @@
 
 	};
 
-	# ...
-	#initExtra = {
-	    #TMOUT=420;
-            #TRAPALRM() { unimatrix -s 93 }
-            #TRAPALRM() { pipes-rs }
-	#};
+	initExtra = ''
+	  # Run after 5 minutes of inactivity.
+	  TMOUT=300;
+          TRAPALRM() { ${pkgs.pipes-rs}/bin/pipes-rs }
+          #TRAPALRM() { unimatrix -s 93 }
+	'';
 
         # Aliases
         shellAliases = {
 	    ssh = "ssh -i /home/${username}/sync/pass/ssh/wsl/wsl"; # SECRET
-	    lf = "lfcd";
 	    py = "python3";
+	    pdf = "zathura";
 
 	    # Nix
 	    update = "nix flake update ${config.xdg.configHome}/yuugen";
@@ -69,5 +72,11 @@
 	skim.enableZshIntegration = true;
         #pyenv.enableZshIntegration = true;
 	zoxide.enableZshIntegration = true;
+    };
+
+    home.packages = builtins.attrValues {
+        inherit (pkgs)
+	    pipes-rs
+	;
     };
 }
