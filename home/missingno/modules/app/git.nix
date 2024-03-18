@@ -8,11 +8,11 @@
 
     #programs.git = {
         #enable = true;
-	#userEmail = "bendunstan@protonmail.com"; # SECRET
+	#userEmail = "person@email.com"; # SECRET
 	#userName = "kali-wsl";
 	#userName = "${username}"
-	#extraConfig = '' # SECRET
-	    #git config --global core.sshCommand 'ssh -i <path/to/ssh>
+	#extraConfig = ''
+	    #git config --global core.sshCommand 'ssh -i <path/to/ssh> # SECRET
 	#'';
     #};
 }

@@ -52,6 +52,7 @@
 	    #upgrade-home = "home-manager switch --flake ${config.xdg.configHome}/yuugen#ben"; 
 	    upgrade-wsl = "home-manager switch --flake ${config.xdg.configHome}/yuugen#missingno";
 	    gc = "sudo nix-collect-garbage -d";
+	    gc-home = "nix-env --delete-generations 7d && nix-store --gc";
         };
 
 	# Plugins
