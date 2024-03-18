@@ -4,6 +4,8 @@
 
         ./modules/pkgs.nix
 
+	#./modules/app/nvim
+	./modules/app/lf
         ./modules/app/comms.nix # Discord, IRC, Signal, Telegram.
         ./modules/app/emacs.nix
         ./modules/app/jp.nix # Packages for japanese learning / immersion.
