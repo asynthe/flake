@@ -14,6 +14,7 @@
 	    zathura
 
 	    # Test
+	    alacritty kitty
 	    gopass
 	    pass-wayland
         ;
