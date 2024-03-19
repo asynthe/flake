@@ -15,7 +15,8 @@
       ./modules/app/ssh.nix
 
       # Dev
-      ./modules/dev/python.nix
+      ./modules/dev/latex.nix
+      #./modules/dev/python.nix # Managed by kali's apt for now.
 
       # System
       ./modules/sys/nix_settings.nix
