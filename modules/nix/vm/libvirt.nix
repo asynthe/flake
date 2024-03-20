@@ -1,6 +1,6 @@
-{ config, pkgs, user, ... }: {
+{ config, pkgs, username, ... }: {
 
-    users.users.${user}.extraGroups = [ "libvirtd" ];
+    users.users.${username}.extraGroups = [ "libvirtd" ];
     programs.dconf.enable = true; # Enable dconf (System Management Tool)
     virtualisation.spiceUSBRedirection.enable = true;
     services.spice-vdagentd.enable = true;

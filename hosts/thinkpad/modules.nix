@@ -6,6 +6,7 @@
         #../../secrets/secrets.nix
 
         # Original imports
+	./modules/android.nix
         ./modules/audio.nix
         ./modules/boot.nix
 	./modules/bluetooth.nix
@@ -97,7 +98,6 @@
         #../../modules/nix/net/irc/irc.nix
         #../../modules/nix/net/irc/server.nix
         #../../modules/nix/net/remote/vnc.nix
-
 
         #../../modules/nix/net/dns.nix
         #../../modules/nix/net/elastic.nix

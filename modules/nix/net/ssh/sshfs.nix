@@ -1,7 +1,6 @@
 { config, pkgs, username, ... }: {
 
-    users.users.ben.extraGroups = [ "fuse" ]; # Add to FUSE group and enable allow_other.
-    #users.users.${username}.extraGroups = [ "fuse" ];
+    users.users.${username}.extraGroups = [ "fuse" ]; # Add to FUSE group and enable allow_other.
     programs.fuse.userAllowOther = true;
     services.openssh.allowSFTP = true; # Allow SFTP, which is used by SSHFS.
 

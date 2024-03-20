@@ -8,13 +8,14 @@
 	#extraConfig = ;
     };
 
-    #programs.zsh = {
-        #initExtra = config.programs.zsh.initExtra // {
-	    #.
-	#};
-
-    programs.zsh.shellAliases = {
+    programs.zsh = {
+        initExtra = ''
+	  lfcd () {
+            cd "$(command lf -print-last-dir "$@")"
+          }
+	'';
+	shellAliases = {
 	    lf = "lfcd";
-	#};
+	};
     };
 }

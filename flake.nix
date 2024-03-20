@@ -46,7 +46,7 @@
             specialArgs = { inherit
                 inputs
                 ;
-                user = "ben";
+                username = "ben";
             };
             modules = [
                 ./hosts/thinkpad
