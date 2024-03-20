@@ -10,6 +10,7 @@
 	    firefox
 	    gimp
 	    barrier # Open-source KVM software.
+	    pinta
 
             # Shell
             direnv
