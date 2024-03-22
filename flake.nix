@@ -1,184 +1,6 @@
 {
     description = "asynthe's system flake";
 
-    outputs = inputs @ {
-
-        self,
-        nixpkgs,
-        home-manager,
-        disko,
-        impermanence,
-        sops-nix,
-        musnix,
-        nixos-wsl,
-	home-manager-wsl,
-
-        #hyprland,
-        #nix-darwin,
-        #nixpkgs-wayland,
-        #nixos-06cb-009a-fingerprint-sensor,
-        #nix-gaming,
-        #nix-on-droid,
-        ...
-    
-    }: let
-
-    # Global variables
-    #username = "asynthe";
-    #hostname = "thinknya";
-
-    # Darwin
-    #username_mac = "benjamindunstan";
-    #hostname_mac = "Benjis-Macbook";
-
-    # pkgs
-    linux_64 = "x86_64-linux";
-    apple_silicon = "aarch64-darwin";
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
-  
-    in {
-
-<<<<<<< HEAD
-    nixosConfigurations = {
-
-        # Thinkpad
-        thinkpad = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit
-                inputs
-                ;
-                username = "ben";
-            };
-            modules = [
-                ./hosts/thinkpad
-                disko.nixosModules.disko
-                impermanence.nixosModules.impermanence
-                musnix.nixosModules.musnix
-            ];
-        };
-
-	# WSL
-        wsl = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit
-                inputs
-                ;
-                user = "ben";
-            };
-            modules = [
-                ./hosts/wsl
-                disko.nixosModules.disko
-                nixos-wsl.nixosModules.wsl
-            ];
-        };
-
-	# PC Server
-        server = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit
-                inputs
-                ;
-                user = "server";
-            };
-            modules = [
-                ./hosts/server
-                disko.nixosModules.disko
-                impermanence.nixosModules.impermanence
-                musnix.nixosModules.musnix
-            ];
-=======
-    # Thinkpad
-    nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit
-            inputs
-            ;
-            user = "ben";
->>>>>>> f69fbd7fd7ca7b1a65e11e9d3f4ee8830eba9568
-        };
-        modules = [
-            ./hosts/thinkpad
-            disko.nixosModules.disko
-            impermanence.nixosModules.impermanence
-            musnix.nixosModules.musnix
-        ];
-    };
-
-    # Thinkpad - User
-    homeConfigurations.ben = home-manager.lib.homeManagerConfiguration {
-        #pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        inherit pkgs;
-        extraSpecialArgs = { inherit
-            inputs
-            ;
-	    username = "ben";
-        };
-        modules = [ 
-	    ./home/ben 
-	];
-    };
-
-    # WSL
-    nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit
-            inputs
-            ;
-            user = "ben";
-        };
-        modules = [
-            ./hosts/wsl
-            disko.nixosModules.disko
-            nixos-wsl.nixosModules.wsl
-        ];
-    };
-
-    # WSL - User
-    homeConfigurations.missingno = home-manager.lib.homeManagerConfiguration {
-        #pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        inherit pkgs;
-	extraSpecialArgs = { inherit
-	    inputs
-	    ;
-	    username = "missingno";
-	};
-	modules = [
-	    ./home/missingno
-	];
-    };
-
-    # PC Server
-    nixosConfigurations.server = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit
-            inputs
-            ;
-            user = "server";
-        };
-        modules = [
-            ./hosts/server
-            disko.nixosModules.disko
-            impermanence.nixosModules.impermanence
-            musnix.nixosModules.musnix
-        ];
-    };
-
-    #darwinConfigurations = {
-        
-        #${hostname_mac} = nix-darwin.lib.darwinSystem {
-            #system = "${apple_silicon}";
-            #specialArgs = { inherit 
-		#inputs
-	        #username_mac 
-		#;
-	    #};
-            #modules = [ 
-	        #./hosts/macos 
-	    #];
-        #};
-    #};
-    };
-
     inputs = {
 
         # nixpkgs
@@ -235,4 +57,141 @@
             #inputs.nixpkgs.follows = "nixpkgs";
         #};
     };
+
+    outputs = inputs @ {
+
+        self,
+        nixpkgs,
+        home-manager,
+        disko,
+        impermanence,
+        sops-nix,
+        musnix,
+        nixos-wsl,
+	home-manager-wsl,
+
+        #hyprland,
+        #nix-darwin,
+        #nixpkgs-wayland,
+        #nixos-06cb-009a-fingerprint-sensor,
+        #nix-gaming,
+        #nix-on-droid,
+        ...
+    
+    }: let
+
+        # Global variables
+        #username = "asynthe";
+        #hostname = "thinknya";
+
+        # Darwin
+        #username_mac = "benjamindunstan";
+        #hostname_mac = "Benjis-Macbook";
+
+        # pkgs
+        linux_64 = "x86_64-linux";
+        apple_silicon = "aarch64-darwin";
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+  
+    in {
+
+    nixosConfigurations = {
+
+        # Thinkpad
+        thinkpad = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+                inputs
+                ;
+                username = "ben";
+            };
+            modules = [
+                ./hosts/thinkpad
+                disko.nixosModules.disko
+                impermanence.nixosModules.impermanence
+                musnix.nixosModules.musnix
+            ];
+        };
+
+	# WSL
+        wsl = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+                inputs
+                ;
+                user = "ben";
+            };
+            modules = [
+                ./hosts/wsl
+                disko.nixosModules.disko
+                nixos-wsl.nixosModules.wsl
+            ];
+        };
+
+	# PC Server
+        server = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+                inputs
+                ;
+                user = "server";
+            };
+            modules = [
+                ./hosts/server
+                disko.nixosModules.disko
+                impermanence.nixosModules.impermanence
+                musnix.nixosModules.musnix
+            ];
+	};
+    };
+
+    homeConfigurations = {
+
+            # Thinkpad - User
+            ben = home-manager.lib.homeManagerConfiguration {
+                #pkgs = nixpkgs.legacyPackages.x86_64-linux;
+                inherit pkgs;
+                extraSpecialArgs = { inherit
+                    inputs
+                    ;
+	            username = "ben";
+                };
+                modules = [ 
+	            ./home/ben 
+	        ];
+            };
+ 
+            # WSL - User
+            missingno = home-manager.lib.homeManagerConfiguration {
+                #pkgs = nixpkgs.legacyPackages.x86_64-linux;
+                inherit pkgs;
+	        extraSpecialArgs = { inherit
+	            inputs
+	            ;
+	            username = "missingno";
+	        };
+	        modules = [
+	            ./home/missingno
+	        ];
+            };
+        };
+
+    # Closing `Outputs` bracket.
+    };
+
+    #darwinConfigurations = {
+
+        # Apple Silicon M1
+        #silicon = nix-darwin.lib.darwinSystem {
+            #system = "${apple_silicon}";
+            #specialArgs = { inherit 
+		#inputs
+	        #username_mac 
+		#;
+	    #};
+            #modules = [ 
+	        #./hosts/macos 
+	    #];
+        #};
+    #};
 }

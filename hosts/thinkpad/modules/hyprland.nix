@@ -19,7 +19,7 @@
 	    wl-clipboard # Clipboard.
             swww # Wallpaper.
             mpvpaper # Video wallpaper.
-            waybar #eww-wayland # Bar.
+            #waybar #eww-wayland # Bar.
             swayidle # Idle daemon.
             grim slurp # Screenshot.
             ripdrag # Drag & Drop.

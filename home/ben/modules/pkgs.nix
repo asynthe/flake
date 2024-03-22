@@ -1,13 +1,10 @@
 { config, pkgs, ... }: {
 
-    
-
     home.packages = builtins.attrValues {
         inherit (pkgs)
 
 	    # Temporary
 	    brave # Brave browser
-	    firefox
 	    gimp
 	    barrier # Open-source KVM software.
 	    pinta
