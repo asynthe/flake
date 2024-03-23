@@ -26,9 +26,10 @@
             spice-protocol
             win-virtio
             win-spice
-            xorriso
             libguestfs
-            ;
+            xorriso
+	    virtiofsd
+        ;
         inherit (pkgs.gnome) adwaita-icon-theme; # Needed if not running gnome.
     };
 }

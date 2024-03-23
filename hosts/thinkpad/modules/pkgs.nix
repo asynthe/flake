@@ -18,7 +18,7 @@
 
       # Terminal
       htop
-      tmux tmuxp
+      tmux #tmuxp
       lf ueberzugpp
 
       # GUI
