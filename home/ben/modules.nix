@@ -23,5 +23,8 @@
 
 	./modules/sys/nix_settings.nix
         ./modules/sys/gtk.nix
+
+	# systemd services + timers
+	./modules/sysd/backup_bookmarks.nix
     ];
 }
