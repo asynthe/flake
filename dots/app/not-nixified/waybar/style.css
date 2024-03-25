@@ -1,0 +1,114 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Fira Code Nerd Font, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+}
+
+window#waybar {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition-property: background-color;
+    transition-duration: .3s;
+}
+/* border-bottom: 3px solid rgba(100, 114, 125, 0.5); # THIS GOES INSIDE */
+
+/* window#waybar.hidden {
+	opacity: 0.2;
+} */
+
+/* Only one window open */
+window#waybar.solo {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition-duration: .3s;
+    transition-property: background-color;
+}
+
+window#waybar.tiling {
+    background-color: transparent;
+}
+
+/* No windows open */
+window#waybar.empty {
+    background-color: transparent;
+}
+
+window#waybar.firefox {
+    background-color: rgba(0, 0, 0, 1);
+    border: none;
+}
+
+window#waybar.virt-manager {
+    background-color: rgba(0, 0, 0, 1);
+    border: none;
+}
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+    padding: 0 10px;
+}
+
+#window,
+#workspaces {
+    color: white;
+    margin: 0 4px;
+
+}
+
+/* #clock {
+    background-color: transparent;
+    color: #ffffff;
+} */
+
+
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network.disconnected {
+    background-color: #f53c3c;
+}
+
+
+#tray {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: rgba(0, 0, 0, 0.8);
+
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}

@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+while [ true ]; do
+    cat vercelperc | pv -qL 200
+done

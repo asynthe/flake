@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Copy a signed message to the wayland clipboard
+echo "Enter message:"
+read message
+
+echo "$message" | gpg --clearsign | wl-copy

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+pkill gpg-agent
+gpg-agent --pinentry-program=$HOME/.nix-profile/bin/pinentry-curses --daemon

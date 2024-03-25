@@ -1,0 +1,11 @@
+session_name: sysmonitor
+windows:
+  - window_name: sysmonitor
+      #focus: true
+    layout: even-vertical
+    options:
+      main-pane-width: 35
+    panes:
+      - htop
+      - doas iftop
+      - doas iotop

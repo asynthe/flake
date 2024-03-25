@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+os=$(uname -s)
+
+# Linux
+if [ "$os" = "Linux" ]; then
+    echo "This is a Linux system."
+
+    # Emacs
+    git -C ~/sync/dots/emacs add -A
+    git -C ~/sync/dots/emacs commit -m 'update'
+    git -C ~/sync/dots/emacs push
+
+    # Flake
+    git -C ~/sync/dots/flake add -A
+    git -C ~/sync/dots/flake commit -m 'update'
+    git -C ~/sync/dots/flake push
+
+    # Notes
+    git -C ~/sync/notes add -A
+    git -C ~/sync/notes commit -m 'update'
+    git -C ~/sync/notes push
+
+    # Dots
+    git -C ~/sync/dots add -A
+    git -C ~/sync/dots commit -m 'update'
+    git -C ~/sync/dots push
+
+    # Study
+    git -C ~/sync/study add -A
+    git -C ~/sync/study commit -m 'update'
+    git -C ~/sync/study push
+
+# macOS
+elif [ "$os" = "Darwin" ]; then
+
+    echo "This is a macOS system."
+
+    # Emacs - In progress
+    #git -C ~/ben/dots/emacs add -A
+    #git -C ~/ben/dots/emacs commit -m 'update'
+    #git -C ~/ben/dots/emacs push
+
+    # Flake
+    git -C ~/ben/dots/flake add -A
+    git -C ~/ben/dots/flake commit -m 'update'
+    git -C ~/ben/dots/flake push
+
+    # Dots
+    git -C ~/ben/dots add -A
+    git -C ~/ben/dots commit -m 'update'
+    git -C ~/ben/dots push
+
+    # Notes
+    git -C ~/ben/notes add -A
+    git -C ~/ben/notes commit -m 'update'
+    git -C ~/ben/notes push
+
+    # Study
+    git -C ~/ben/study add -A
+    git -C ~/ben/study commit -m 'update'
+    git -C ~/ben/study push
+
+else
+    echo "Unsupported operating system: $os"
+    exit 1
+fi
+
+

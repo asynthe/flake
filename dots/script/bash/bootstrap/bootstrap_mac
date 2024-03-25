@@ -1,0 +1,2 @@
+ln -sf ~/ben/wm/yabai ~/.config/yabai
+ln -sf ~/ben/wm/skhd ~/.config/skhd

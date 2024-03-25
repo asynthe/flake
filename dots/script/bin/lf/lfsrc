@@ -1,0 +1,7 @@
+# You need to either copy the content of this file to your shell rc file
+# (e.g. ~/.bashrc) or source this file directly:
+
+LFCD="~/ben/dots/script/bin/lf/lfcd"
+if [ -f "$LFCD" ]; then
+    source "$LFCD"
+fi

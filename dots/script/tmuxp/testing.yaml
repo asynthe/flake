@@ -1,0 +1,9 @@
+session_name: meh
+windows:
+  - layout: main-vertical
+    options:
+      main-pane-width: '40%'
+    panes:
+      - pane
+      - pane
+      - pane

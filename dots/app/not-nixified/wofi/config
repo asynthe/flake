@@ -1,0 +1,21 @@
+prompt=「何を探しているのですか？」
+term=alacritty
+line_wrap=word
+#print_command=true
+#display_generic=false
+#gtk_dark=true
+#layer=overlay
+
+# Configuration
+show=drun
+width=30%
+lines=30
+sort_order=alphabetical
+location=top_right
+hide_scroll=true
+key_expand=Tab
+#insensitive=false
+
+# Icons
+allow_images=true
+image_size=18

@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+os=$(uname -s)
+
+# Linux
+if [ "$os" = "Linux" ]; then
+
+    echo "This is a Linux system."
+
+    if [ -z "$HOME/sync" ] ;
+    then mkdir -p $HOME/sync/{dots,notes,study}
+    fi
+
+    # Dots
+    git clone --recurse-submodules git@github.com:asynthe/dots.git $HOME/sync/dots
+
+    # Notes
+    git clone --recurse-submodules git@github.com:asynthe/notes.git $HOME/sync/notes
+
+    # Study
+    git clone --recurse-submodules git@github.com:asynthe/study.git $HOME/sync/study
+
+# macOS
+elif [ "$os" = "Darwin" ]; then
+
+    echo "This is a macOS system."
+
+    if [ -z "$HOME/ben" ] ;
+    then mkdir -p $HOME/ben/{dots,notes,study}
+    fi
+
+    # Dots
+    git clone --recurse-submodules git@github.com:asynthe/dots.git $HOME/ben/dots
+
+    # Notes
+    git clone --recurse-submodules git@github.com:asynthe/notes.git $HOME/ben/notes
+
+    # Study
+    git clone --recurse-submodules git@github.com:asynthe/study.git $HOME/ben/study
+
+else
+    echo "Unsupported operating system: $os"
+    exit 1
+fi
+
+

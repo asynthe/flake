@@ -1,0 +1,41 @@
+window#eDP-1 {
+	background-image: url("/tmp/eDP-1.png");
+}
+
+window#HDMI-A-2 {
+	background-image: url("/tmp/HDMI-A-2.png");
+}
+
+#window-box {
+	padding: 50px;
+	color: grey; /* text color */
+	background-color: black; /* box color */
+
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 12px; 
+	/* Box shadow
+	*/
+
+	/* Round border
+	border: 1px solid black;
+	border-radius: 4px;
+	*/
+}
+
+/* Add any extra monitor like this
+
+window#DP-1 {
+	background-image: url("/tmp/DP-1.png");
+} */
+
+/* Window decorations
+ 
+   window {
+   background-image: url("/tmp/eDP-1.png")
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-color: black;
+} 
+*/
+
+

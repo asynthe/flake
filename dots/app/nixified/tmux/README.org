@@ -1,0 +1,523 @@
+#+title: tmux
+#+property: header-args :tangle tmux.conf
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#resources][Resources]]
+- [[#usage][Usage]]
+- [[#tips][Tips]]
+  - [[#detach-a-session-that-youre-using-return-to-regular-shell][Detach a session that you're using, return to regular shell]]
+- [[#configuration][Configuration]]
+  - [[#true-color-support-kitty--tmux][True Color Support (kitty + tmux)]]
+  - [[#main][Main]]
+  - [[#bar][Bar]]
+- [[#keybinds][Keybinds]]
+  - [[#default-keybindings-table][Default Keybindings Table]]
+  - [[#personal-keybindings-table][Personal Keybindings Table]]
+  - [[#keybinds--prefix][Keybinds / Prefix]]
+  - [[#extra][Extra]]
+  - [[#panes][Panes]]
+  - [[#windows][Windows]]
+  - [[#sessions][Sessions]]
+
+* Resources
+
+*Wiki*
+- [[https://github.com/tmux/tmux/wiki][github wiki]]
+- [[https://wiki.gentoo.org/wiki/Tmux][gentoo wiki]]
+- [[https://wiki.archlinux.org/title/Tmux][arch wiki]]
+
+*Cheatsheet*
+- [[https://gist.github.com/andreyvit/2921703][tmux cheat sheet - andreyvit GitHub Gist]]
+- [[https://www.stationx.net/tmux-cheat-sheet][Tmux Cheat Sheet: Essential Commands And Quick References - StationX]]
+
+*Tutorial*
+- [[https://www.howtogeek.com/671422/how-to-use-tmux-on-linux-and-why-its-better-than-screen/][How to Use tmux on Linux (and Why It's Better Than Screen) - How-To Geek]]
+- [[https://www.redhat.com/sysadmin/tips-using-tmux][Tips for using tmux - Red Hat]]
+
+* Usage
+
+All of tmux configuration is done inside
+~/.tmux.conf
+or
+~/.config/tmux/tmux.conf
+
+* Tips
+** Detach a session that you're using, return to regular shell
+
+- [[https://superuser.com/questions/249659/how-to-detach-a-tmux-session-that-itself-already-in-a-tmux][How to detach a tmux session that iself already in a tmux? - StackExchange]]
+
+Do with ~Ctrl b + d~
+Use ~tmux detach~ then ~tmux ls~ to see the number of the session, attach with ~tmux -a <number>~
+
+* Configuration
+** True Color Support (kitty + tmux)
+
+First, remove any ~export TERM~ from ~.zshrc~, ~.bashrc~, etc.
+Then, set up the next options in the tmux texturation file
+
+##+begin_src tmux
+set-g default-terminal "screen-256color"
+set-option -sa terminal-overrides ",xterm-kitty:RGB"
+##+end_src
+
+Kill tmux, close kitty and reopen. It should be enabled now.
+
+** Main
+
+- *mode-keys vi*: Vi key mode
+- *base-index*: Start number windows from 1 instead from 0
+- *history-limit*: History limit
+- *clipboard*: Clipboard
+- *mouse*: Enable mouse click and scroll
+
+#+begin_src text
+setw -g mode-keys vi
+set -g base-index 1
+set -g history-limit 10000
+set -g set-clipboard on
+set -g mouse on
+set -g status off
+
+# Image Preview
+set -g allow-passthrough on
+set -ga update-environment TERM
+set -ga update-environment TERM_PROGRAM
+#+end_src
+
+*** Disable border
+
+*Prefix + t* will enable the status bar.
+
+#+begin_src text
+bind t set -g status
+#+end_src
+
+*** True Color
+
+*Alacritty*
+#+begin_src text
+set -g default-terminal "tmux-256color"
+#+end_src
+
+#set -ag terminal-overrides ",xterm-256color:RGB" # or
+#set -ag terminal-overrides ",*:RGB" # Some users have reported that this works better.
+#set -ag terminal-overrides ",$TERM:RGB" # You can also set the env variable from the terminal, useful when using different machines.
+
+*Kitty*
+Set up ... in *kitty.text*
+...
+#set -g default-terminal "screen-256color" # This works in Alacritty!
+#set-option -sa terminal-overrides ",xterm-kitty:RGB"
+...
+
+*** Border Color
+
+Change pane border color
+
+#+begin_src text
+#set -g pane-active-border-style fg='#6272a4'
+#set -g pane-border-style-fg='#ff79c6'
+#+end_src
+
+*** Shell
+
+Find out which shells are currently installed in your system with:
+*$ cat /etc/shells*
+
+For regular linux, this is the bash shell location:
+*/bin/bash*
+
+In the case of running NixOS, your current system's bash shell will be located in:
+*/run/current/system/sw/bin/bash*
+or
+*~/.nix-profile/bin/bash* (home-manager)
+
+#+begin_src text
+set-option -g default-shell /run/current-system/sw/bin/zsh
+#+end_src
+
+** Bar
+*** Top / Bottom
+
+Set bar on top instead of bottom.
+
+#+begin_src text
+set-option -g status-position top
+#+end_src
+
+/Other option/:
+set-option -g status-position bottom
+
+*** Color (Transparent)
+
++ [[https://stackoverflow.com/questions/22303820/tmux-transparent-status-bar][Tmux transparent status bar - StackOverflow]]
+
+Mine is setup with a transparent background, and blue letters.
+
+#+begin_src text
+set -g status-bg default
+set-option -g status-style fg=color20,bg=default
+#+end_src
+
+#set -g status-style fg=color241,bg=color233 # grey background, white-grey foreground.
+#set -g window-status-current-style fg=#eee8d5,bold,bg=#b58900
+
+*** Widgets
+
+#+begin_src text
+#set -g status-right "${wg_funkyprefix} ${wg_date} ${wg_time}"
+set -g status-right "${wg_funkyprefix}"
+
+#wg_prefix="#{?client_prefix,<Prefix>,}"
+#+end_src
+
+*** Time / Date
+
+#+begin_src text
+#wg_date="#[fg=color20,bold,bg=default]%d-%b-%Y#[none]"
+#wg_time="#[fg=color20,bold,bg=default]%H:%M"
+
+#wg_date="#[fg=color231,bold,bg=default]%d-%b-%Y#[none]"
+#wg_time="#[fg=color231,bold,bg=default]%H:%M"
+#+end_src
+
+*** Uptime
+
+- [[https://unix.stackexchange.com/questions/83404/how-do-i-show-simple-uptime-in-tmuxs-status-bar?rq=1][How do I show simple uptime in tmux's status bar? - StackExchange]]
+
+I'll set up after, i'm too lazy now
+  
+#+begin_src text
+
+#+end_src
+
+*** Prefix Indicator
+
+#+begin_src text
+wg_funkyprefix="#{?client_prefix,#[reverse]● #[noreverse],#[reverse]○ #[noreverse]}"
+#+end_src
+* Keybinds
+** Default Keybindings Table
+
+Default prefix: *Ctrl b*
+
+See the keybindings with
+*$ tmux list-keys*
+or *:list-keys* or *Ctrl + b ?*
+
+*PANES*
+|----------------------------+---------------------|
+| Keybind                    | Description         |
+|----------------------------+---------------------|
+| Prefix + arrow keys        | Move around panes.  |
+| Prefix (hold) + arrow keys | Resize panes.       |
+| Prefix + %                 | Split vertically.   |
+| Prefix + "                 | Split horizontally. |
+|----------------------------+---------------------|
+
+panes overview
+ctrl b w
+
+see help
+ctrl b ?
+
+*WINDOWS*
+|-------------------+-------------------|
+| Keybind           | Description       |
+|-------------------+-------------------|
+| Prefix + c        | New window.       |
+| Prefix + <number> | Switch to window. |
+| Prefix + ,        | Rename window     |
+| Prefix +          |                   |
+|----------------------------+---------------------|
+
+*SESSIONS*
+|------------+---------------------|
+| Keybind    | Description         |
+|------------+---------------------|
+| Prefix + d | Detach from session |
+|            |                     |
+|------------+---------------------|
+
+** Personal Keybindings Table
+
+It looks like the super key (aka windows key) is not supported as most terminals don't identify it.
+You can check it's code with *$ showkey -a*
+
+*PREFIXES*
+|------+------------|
+| Code | Key        |
+|------+------------|
+| M-   | Alt (Meta) |
+| S-   | Shift      |
+| C-   | Control    |
+|------+------------|
+
+*PERSONAL KEYBINDS*
+|-------------+---------------|
+| Key         | Desc          |
+|-------------+---------------|
+| Ctrl + X    | Prefix        |
+| Pfx + Space | Change layout |
+|             |               |
+|-------------+---------------|
+
+detach session
+~ctrl b d~
+
+see sessions (in terminal)
+~$ tmux ls~
+
+re-attach to session (enter session)
+~$ tmux attach -t <number>~
+~attach~ or ~a~
+~-t~ -> target
+
+rename a session
+~$ tmux rename-session -t <number> <name>~
+
+create a session with custom name
+~$ tmux new -s <name>~
+example: ~$ tmux new -s docker~
+
+delete a session
+~$ tmux kill-session -t <name>~
+example: ~$ tmux kill-session -t docker~
+
+_note_: sessions will remain until system reboots
+
+** Keybinds / Prefix
+
+#+begin_src text
+unbind C-b
+set -g prefix C-x
+bind C-x send-prefix 
+#+end_src
+
+Reload configuration file.
+#+begin_src text
+bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded tmux configuration file"
+#+end_src
+
+Unbinds
+#+begin_src text
+unbind q
+unbind s
+#+end_src
+
+** Extra
+
+Change Layout
+#+begin_src text
+bind space next-layout
+#+end_src
+
+Clear terminal
+#+begin_src text
+#bind -n C-b send-keys C-l
+#bind -n C-w send-keys C-l \; run-shell "sleep .3s" \; clear-history
+#+end_src
+
+** Panes
+*** Display pane number
+
+Display panes on your current window.
+#+begin_src text
+#bind d display-panes
+#+end_src
+
+*** Move to another window
+
+#+begin_src text
+bind b break-pane
+#+end_src
+
+*** Send to different window
+
+Send pane to a different window
+#+begin_src text
+bind-key o command-prompt -p "join-pane from:" "join-pane -s '%%'"
+bind-key p command-prompt -p "send pane to:" "join-pane -t '%%'"
+#+end_src
+
+*** Split
+
+- [[https://unix.stackexchange.com/questions/101949/new-tmux-panes-go-to-the-same-directory-as-the-current-pane-new-tmux-windows-go/109255#109255][New Tmux Panes go to the same directory as the current pane; new tmux windows go to home directory? [duplicate] - StackExchange]]
+
+Horizontal and vertical.
+
+_note_: tmux's default is to start a pane in the directory from where tmux was entered. This can be a little bit of a nuisance when we are working in a specific directory.
+
+
+#+begin_src text
+bind '|' split-window -v -c "#{pane_current_path}"
+bind '\' split-window -h -c "#{pane_current_path}"
+#+end_src
+
+*** Change focus
+
+Changing pane focus
+#+begin_src text
+bind -n C-h select-pane -L
+bind -n C-j select-pane -D
+bind -n C-k select-pane -U
+bind -n C-l select-pane -R
+#+end_src
+
+*** Maximize
+
+Temporarily maximizing a pane
+#+begin_src text
+bind -n C-z resize-pane -Z
+#+end_src
+
+*** Swap
+
+Move and swap panes with each other.
+
+#+begin_src text
+bind J swap-pane -D \; switch-client -T prefix
+bind K swap-pane -U \; switch-client -T prefix
+
+bind -n C-n swap-pane -D
+#+end_src
+
+*** Resize
+
+- [[https://superuser.com/questions/1560523/how-do-i-resize-tmux-pane-by-holding-down-prefix-and-arrow-key-for-a-while][How do I resize tmux pane by holding down prefix and arrow key for a while? - StackExchange]]
+
+By default you can resize the pane with:
+*prefix + Alt + arrow key*
+doing it fast will let you do various steps.
+
+But you can also resize panes on specified steps.
+
+#+begin_src text
+bind h resize-pane -L 3 \; switch-client -T prefix
+bind j resize-pane -D 2 \; switch-client -T prefix
+bind k resize-pane -U 2 \; switch-client -T prefix
+bind l resize-pane -R 3 \; switch-client -T prefix
+
+bind C-h resize-pane -L 3 \; switch-client -T prefix
+bind C-j resize-pane -D 2 \; switch-client -T prefix
+bind C-k resize-pane -U 2 \; switch-client -T prefix
+bind C-l resize-pane -R 3 \; switch-client -T prefix
+#+end_src
+
+*** Close Pane
+
+#+begin_src text
+#bind C-k kill-pane
+#bind k kill-pane
+#+end_src
+
+** Windows
+*** Change
+
+The *\; switch-client -T prefix* will let you change windows without exiting the prefix, i've disabled it for now.
+
+*,* and *.* to change windows
+#+begin_src text
+unbind ,
+unbind .
+bind , previous-window \; switch-client -T prefix
+bind . next-window \; switch-client -T prefix
+
+bind [ select-window -t -1
+bind ] select-window -t +1
+#+end_src
+
+*WM-like keybinds*
+#+begin_src text
+bind-key 1 if-shell 'tmux select-window -t :1' '' 'new-window -t :1'
+bind-key 2 if-shell 'tmux select-window -t :2' '' 'new-window -t :2'
+bind-key 3 if-shell 'tmux select-window -t :3' '' 'new-window -t :3'
+bind-key 4 if-shell 'tmux select-window -t :4' '' 'new-window -t :4'
+bind-key 5 if-shell 'tmux select-window -t :5' '' 'new-window -t :5'
+bind-key 6 if-shell 'tmux select-window -t :6' '' 'new-window -t :6'
+bind-key 7 if-shell 'tmux select-window -t :7' '' 'new-window -t :7'
+bind-key 8 if-shell 'tmux select-window -t :8' '' 'new-window -t :8'
+bind-key 9 if-shell 'tmux select-window -t :9' '' 'new-window -t :9'
+bind-key 0 if-shell 'tmux select-window -t :0' '' 'new-window -t :0'
+
+#bind-key 1 if-shell 'tmux select-window -t :1' '' 'new-window -t :1 -c "#{pane_current_path}"'
+#bind-key 2 if-shell 'tmux select-window -t :2' '' 'new-window -t :2 -c "#{pane_current_path}"'
+#bind-key 3 if-shell 'tmux select-window -t :3' '' 'new-window -t :3 -c "#{pane_current_path}"'
+#bind-key 4 if-shell 'tmux select-window -t :4' '' 'new-window -t :4 -c "#{pane_current_path}"'
+#bind-key 5 if-shell 'tmux select-window -t :5' '' 'new-window -t :5 -c "#{pane_current_path}"'
+#bind-key 6 if-shell 'tmux select-window -t :6' '' 'new-window -t :6 -c "#{pane_current_path}"'
+#bind-key 7 if-shell 'tmux select-window -t :7' '' 'new-window -t :7 -c "#{pane_current_path}"'
+#bind-key 8 if-shell 'tmux select-window -t :8' '' 'new-window -t :8 -c "#{pane_current_path}"'
+#bind-key 9 if-shell 'tmux select-window -t :9' '' 'new-window -t :9 -c "#{pane_current_path}"'
+#bind-key 0 if-shell 'tmux select-window -t :0' '' 'new-window -t :0 -c "#{pane_current_path}"'
+
+#bind-key 1 if-shell 'tmux select-window -t :1' '' 'new-window -t :1' \; switch-client -T prefix
+#bind-key 2 if-shell 'tmux select-window -t :2' '' 'new-window -t :2' \; switch-client -T prefix
+#bind-key 3 if-shell 'tmux select-window -t :3' '' 'new-window -t :3' \; switch-client -T prefix
+#bind-key 4 if-shell 'tmux select-window -t :4' '' 'new-window -t :4' \; switch-client -T prefix
+#bind-key 5 if-shell 'tmux select-window -t :5' '' 'new-window -t :5' \; switch-client -T prefix
+#bind-key 6 if-shell 'tmux select-window -t :6' '' 'new-window -t :6' \; switch-client -T prefix
+#bind-key 7 if-shell 'tmux select-window -t :7' '' 'new-window -t :7' \; switch-client -T prefix
+#bind-key 8 if-shell 'tmux select-window -t :8' '' 'new-window -t :8' \; switch-client -T prefix
+#bind-key 9 if-shell 'tmux select-window -t :9' '' 'new-window -t :9' \; switch-client -T prefix
+#bind-key 0 if-shell 'tmux select-window -t :0' '' 'new-window -t :0' \; switch-client -T prefix
+#+end_src
+
+*** Close
+
+#+begin_src text
+bind Q kill-window
+bind e confirm kill-window \; switch-client -T prefix
+bind E confirm kill-server
+#+end_src
+
+** Sessions
+
+Change the tmux session with *PREFIX* + *[*, *]*
+
+*** Change
+
+#+begin_src text
+#bind [ previous-session
+#bind ] next-session
+
+#bind ";" previous-session
+#bind "'" next-session
+#+end_src
+
+*** List (Tab)
+
+Change the session by just pressing Tab.
+#+begin_src text
+bind Tab choose-tree
+#+end_src
+
+*** Rename
+
+bind R
+
+*** Create
+
+Create a new session.
+
+#+begin_src text
+bind N new-session
+#+end_src
+
+*** Close
+
+Because tmux will exit if you kill the session you're currently in, best way or way that i recommend is to *choose-tree* (default *Ctrl + b* then *s*, or just *Tab* in this texturation)
+
+Once you are in the menu, you can tag sessions or windows with *t*, then kill tagged with *X*, or just the one cursor is currently in with *x*.
+
+#+begin_src text
+#bind K textconfirm kill-session
+#+end_src
+
+*** Detach
+
+#+begin_src text
+bind Q detach
+#+end_src
+

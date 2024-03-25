@@ -1,0 +1,25 @@
+:PROPERTIES:
+:ID:       388e399d-90ea-43a7-9343-b44392574e54
+:END:
+#+title: dots
+#+author: Asynthe
+
+[anime pic]
+
+Welcome to my dotfiles repository!
+
+- Other Repos
+  > [[https://github.com/asynthe/emacs][Emacs]] (My emacs configuration.)
+  > [[https://github.com/asynthe/flakes/tree/fb4de88c7bde2d28f84bee9b71b86f196ddc9c86][Flakes]] (My flakes and system configurations.)
+  > [[https://github.com/asynthe/yuugen][yuugen]] (My own system flake.)
+
+- Window Managers
+  > [[https://github.com/asynthe/dots/tree/main/wm/hypr][Hyprland]]
+  > [[https://github.com/asynthe/dots/tree/main/wm/xmonad][Yabai]] / [[https://github.com/asynthe/dots/blob/main/wm/skhd/README.org][skhd]] (macOS)
+
+- Text Editors
+  > Neovim [IN PROGRESS]
+
+- Shell
+  > [[https://github.com/asynthe/dots/blob/main/app/zsh/README.org][ZSH]]
+  > [[https://github.com/asynthe/dots/blob/main/app/tmux/README.org][tmux]]

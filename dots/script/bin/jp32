@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+export WINE_PREFIX=~/sync/system/wine/wine_jp_32
+
+wine $@

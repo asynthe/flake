@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+export WINEARCH=win64
+export WINEPREFIX=~/.wine64.ableton
+
+./a

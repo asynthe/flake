@@ -1,0 +1,43 @@
+# QUICKLY BUILD THIS FLAKE SCRIPT WITH
+# $ nix --extra-experimental-features 'nix-command flakes' ...
+
+# ADD TO A NIX FLAKE THAT CAN BE REBUILD
+# - git
+
+# HOW WILL I RUN A SUDO NIXOS IF NOT ROOT?
+
+# All this Git Add and Commit stuff is for when you edit the flake, in this case the flake should be ready.
+# But still remember to do it if you edited the files.
+#echo "What is your git email?"
+#echo "What is your git username?"
+#git add -A; git commit 'adding'
+
+echo "NOTE: As nixos-rebuild will be executed, you will need to introduce your root password."
+echo "What is the current user?"
+echo "What is the hostname?"
+
+echo "Choose the system:"
+echo "1. Basic"
+echo "2. Laptop"
+echo "3. Macbook"
+choice "> "
+
+echo "# Cloning the git repository"
+git clone https://github.com/asynthe/flake.git
+
+echo "# Changing file user for specified user."
+sed flake.nix username 
+echo "# Changing file hostname for specified hostname."
+sed flake.nix hostname
+
+if -f /etc/nixos/hardware-configuration.nix
+then
+	rm ~/flake/machines/linux/basic/hardware-configuration.nix
+	cp /etc/nixos/hardware-configuration.nix ~/flake/machines/linux/basic
+fi
+
+echo "..."
+
+echo "# Time to build the System!"
+
+sudo nixos-rebuild switch --flake $HOME/flake#${choice}

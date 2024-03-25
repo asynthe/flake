@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+nix flake update ~/flake &&
+doas nixos-rebuild switch --flake ~/flake &&
+home-manager switch --flake ~/flake
+
+# Here std error output error
+# If std correct output ascii art
+echo "Update completed!"
+echo "INSERT NIXOS ASCII ART HERE!!!"
+

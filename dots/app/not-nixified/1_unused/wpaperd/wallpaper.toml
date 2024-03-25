@@ -1,0 +1,12 @@
+[default]
+path = "/home/asynthe/wallpaper/favourite/windows_xp/1920x1200"
+duration = "2m"
+sorting = "random"
+
+#[eDP-1]
+#path = "/home/danyspin97/Pictures/Wallpapers/github_octupus.png"
+#apply-shadow = true
+
+#[HDMI-A-2]
+#path = "/home/danyspin97/Pictures/Landscapes/"
+#sorting = "descending"

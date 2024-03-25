@@ -1,0 +1,121 @@
+#!/usr/bin/env bash
+
+###### TEMP TO FIX ######
+#
+# - Cloning repos to a specific directory, will they use the directory or still make a folder?
+# - Add ascii art at the end
+# - For the dots try option (public script) it could have a
+#   - find the dots you have and put them in a temporary folder called previous-dotfiles
+#   - if this old folder is found then change it to old
+# - script that's also for regular linux systems (could be good)
+#   - download and copies fonts from fonts to /usr/share/fonts
+#
+#########################
+
+# -----------------------------
+# PRE-REQUISITES
+# -----------------------------
+
+# Creating a SSH key.
+# $ ssh-keygen -t ed25519 -C "<email>
+
+# Adding to the agent.
+# $ eval $(ssh-agent -s)
+# $ ssh-add -k ~/.ssh/id_ed25519
+
+# Add the key to GitHub user
+# https://github.com
+
+# Test the GitHub connection
+# ssh -T git@github.com
+
+Some config
+git config --global user.email "<email>"
+git config --global user.name "<name>"
+git config --global core.sshCommand 'ssh -i /path/to/private/key'
+
+# -----------------------------
+# 1. FLAKE
+# -----------------------------
+
+# Setting up the folders.
+mkdir -p ~/sync/{ben,archive/{anime,book,game,jp,movies,music,vm,vn,wallpaper}}
+
+# Cloning the dots repo.
+git clone --recurse-submodules git@github.com:asynthe/dots.git
+
+# Building the system.
+cd sync/dots/flake
+sudo nixos-rebuild switch --flake .
+
+# -----------------------------
+# 2. HOME MANAGER
+# -----------------------------
+
+# Home Manager quick setup guide
+# https://nix-community.github.io/home-manager/
+# https://itsfoss.com/home-manager-nixos/
+
+# Add the channel.
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
+# note: Add stable as it is usually the case for nixos installs, then you can change to unstable.
+
+# Update the channel.
+nix-channel --update
+
+# Finally, install it.
+nix-shell '<home-manager>' -A install
+
+# Now, reboot your system and install the flake home-manager
+# After that, you can delete the added channel with:
+nix-channel --remove home-manager
+
+# -----------------------------
+# SCRIPT
+# -----------------------------
+
+echo "This script will override your dotfiles! Continue? (Y/N)"
+
+# Cloning the rest of repos.
+git clone git@github.com:asynthe/pass.git $HOME/sync/ben/pass
+git clone git@github.com:asynthe/notes.git $HOME/sync/notes
+git clone --recurse-submodules git@github.com:asynthe/study.git $HOME/sync/study
+
+echo 'Creating symlinks...'; sleep 0.3; echo '...'
+
+# Dots symbolic links.
+ln -sf ~/sync/dots/wm/* ~/.config # Window Managers.
+ln -sf ~/sync/dots/app/* ~/.config # Apps and Programs.
+
+# Symbolic links.
+ln -sf $HOME/sync/archive/{anime,jp,movies,music,series,vn} $HOME
+ln -sf $HOME/sync/archive/book/reading $HOME/book
+ln -sf $HOME/sync/{flake,study} $HOME
+
+# Specific cases.
+ln -sf $HOME/sync/dots/emacs $HOME/.config
+
+# ZSH
+echo 'Doing some ZSH stuff...'
+
+rm $HOME/{.zsh*,.zcompdump}
+mkdir $HOME/.cache/zsh
+export 'ZDOTDIR=$HOME/.config/zsh' > $HOME/.zshenv
+
+echo 'Done!'
+
+# Emacs
+rm -r $HOME/.emacs.d
+ln -sf $HOME/sync/dots/emacs $HOME/.config/emacs
+
+# mpd / ncmpcpp
+touch ~/.config/mpd/playlists
+
+# -----------------------------
+# Apps bootstraps
+# -----------------------------
+
+# doas
+# sudo echo 'permit nopass $USER' > /etc/doas.conf
+
+##### enjoy! #####

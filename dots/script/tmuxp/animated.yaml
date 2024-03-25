@@ -1,0 +1,11 @@
+session_name: test
+windows:
+  - window_name: test
+    #focus: true
+    layout: main-vertical
+    options:
+      main-pane-width: 35
+    panes:
+      - cmatrix
+      - vis
+      - pipes-rs
