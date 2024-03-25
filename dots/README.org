@@ -1,4 +1,7 @@
 /In the realm where dotfiles roam, Home Manager reigns, a guiding gnome./
+
 /From chaos to order, paths weaved with art, a symphony of configs, each a part./
+
 /Through Nix's grace, they find their home, in structured harmony, they no longer roam./
+
 /A transformation complete, beauty from the command line's heart, in Linux's vast domain, a masterful art./
