@@ -1,31 +1,29 @@
 { config, ... }: {
 
     imports = [
+        ../modules/home/pkgs.nix
+        ../modules/home/fonts.nix
 
-      ./modules/pkgs.nix
-      ./modules/fonts.nix
+        # Apps
+        ../modules/home/app/android.nix # adb + waydroid.
+        #../modules/home/app/bash.nix # bash shell.
+        ../modules/home/app/git.nix
+        ../modules/home/app/gpg.nix
+        ../modules/home/app/lf.nix
+        ../modules/home/app/ssh.nix
+        ../modules/home/app/starship.nix
+        ../modules/home/app/tmux.nix
+        ../modules/home/app/zathura.nix
+        ../modules/home/app/zsh.nix
 
-      # Apps
-      ./modules/app/android.nix # adb + waydroid.
-      #./modules/app/bash.nix # bash shell.
-      ./modules/app/git.nix
-      ./modules/app/gpg.nix
-      ./modules/app/lf.nix
-      ./modules/app/ssh.nix
-      ./modules/app/starship.nix
-      ./modules/app/tmux.nix
-      ./modules/app/zathura.nix
-      ./modules/app/zsh.nix
+        # Dev
+        ../modules/home/dev/ai.nix
+        #../modules/home/dev/assembly.nix
+        ../modules/home/dev/python.nix
+        ../modules/home/dev/latex.nix
+        #../modules/home/dev/python.nix # Managed by kali's apt for now.
 
-      # Dev
-      ./modules/dev/ai.nix
-      ./modules/dev/latex.nix
-      ./modules/dev/python.nix
-      ./modules/dev/latex.nix
-      #./modules/dev/python.nix # Managed by kali's apt for now.
-
-      # System
-      ./modules/sys/nix_settings.nix
-
+        # System
+        ../modules/home/sys/nix_settings.nix
     ];
 }

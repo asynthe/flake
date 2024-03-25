@@ -1,30 +1,42 @@
 { config, ... }: {
 
     imports = [
+        ../../modules/home/pkgs_ben.nix
+        ../../modules/home/fonts.nix
+                
+        # Apps
+	../../modules/home/app/alacritty.nix
+        ../../modules/home/app/android.nix # adb + waydroid.
+        #../../modules/home/app/bash.nix # bash shell.
+        #../../modules/home/app/emacs.nix
+        ../../modules/home/app/git.nix
+        ../../modules/home/app/gpg.nix
+        ../../modules/home/app/lf.nix
+        ../../modules/home/app/mpd.nix
+        ../../modules/home/app/social.nix # Discord, IRC, Signal, Telegram.
+        ../../modules/home/app/ssh.nix
+        ../../modules/home/app/starship.nix
+        ../../modules/home/app/tmux.nix
+        #../../modules/home/app/yazi.nix
+        ../../modules/home/app/zathura.nix
+        ../../modules/home/app/zsh.nix
 
-        ./modules/pkgs.nix
+        # Dev
+        ../../modules/home/dev/ai.nix
+        #../../modules/home/dev/assembly.nix
+        ../../modules/home/dev/python.nix
+        ../../modules/home/dev/latex.nix
 
-	#./modules/app/nvim
-	./modules/app/lf
-        ./modules/app/comms.nix # Discord, IRC, Signal, Telegram.
-        ./modules/app/emacs.nix
-        ./modules/app/jp.nix # Packages for japanese learning / immersion.
-	./modules/app/yazi.nix
+	# Game
+        #../../modules/home/game/emulators.nix
+        ../../modules/home/game/games.nix
+        #../../modules/home/game/tools.nix
 
-        ./modules/audio/mpd.nix
-
-	#./modules/game/emulators.nix
-	./modules/game/games.nix
-	#./modules/game/tools.nix
-
-        ./modules/dev/ai.nix
-        ./modules/dev/latex.nix
-        ./modules/dev/python.nix
-
-	./modules/sys/nix_settings.nix
-        ./modules/sys/gtk.nix
-
-	# systemd services + timers
-	./modules/sysd/backup_bookmarks.nix
+	# System
+        ../../modules/home/sys/nix_settings.nix
+        ../../modules/home/sys/gtk.nix
+        
+        # systemd services + timers
+        ../../modules/home/sysd/backup_bookmarks.nix
     ];
 }

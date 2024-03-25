@@ -1,11 +1,10 @@
 { config, ... }: {
 
-    programs.home-manager.enable = true;
+    #home.configuration.ben.enable = true;
 
     imports = [
-
         ./home.nix
-        ./modules.nix
-
-  ];
+	./modules.nix
+        #../modules.nix
+    ];
 }

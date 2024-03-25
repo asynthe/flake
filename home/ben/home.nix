@@ -1,5 +1,7 @@
 { config, pkgs, username, ... }: {
 
+    programs.home-manager.enable = true;
+
     home = {
         username = username;
         homeDirectory = "/home/${username}";
@@ -23,7 +25,7 @@
             QT_IM_MODULE = "fcitx";
             SDL_IM_MODULE = "fcitx";
             GLFW_IM_MODULE = "ibus";
-	    GTK_IM_MODULE = "";
+	    GTK_IM_MODULE = ""; # ?
         };
     };
 }

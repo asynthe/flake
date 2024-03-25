@@ -59,6 +59,10 @@
             unimatrix
             pipes-rs
             cava cli-visualizer
+
+	    # Japanese
+	    memento
+	    #anki-bin
         ;
     };
 }
