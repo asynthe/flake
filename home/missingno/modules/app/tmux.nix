@@ -46,8 +46,9 @@
 	  bind N new-session # ?
 
 	  ## Split window
-	  bind '|' split-window -v -c "#={pane_current_path}"
-	  bind '\' split-window -h -c "#={pane_current_path}"
+	  bind n new-window -c "#{pane_current_path}"
+	  bind '|' split-window -v -c "#{pane_current_path}"
+	  bind '\' split-window -h -c "#{pane_current_path}"
 
 	  ## Change focused pane
 	  bind -n C-h select-pane -L
