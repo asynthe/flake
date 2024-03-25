@@ -4,8 +4,6 @@
         inherit (pkgs)
 
 	    nix # lol
-	    lf
-            tmux
             neovim
             git
 
