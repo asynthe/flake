@@ -42,9 +42,33 @@
 
         # Aliases
         shellAliases = {
+	
+	    sl = "eza --icons --group-directories-first";
+	    ls = "eza --icons --group-directories-first";
+	    la = "eza -a --icons --group-directories-first";
+	    ll = "eza --long --group-directories-first";
+	    lla = "eza -a --long --group-directories-first";
+	    lg = "eza --long --git --group-directories-first";
+
 	    ssh = "ssh -i /home/${username}/sync/pass/ssh/wsl/wsl"; # SECRET
 	    py = "python3";
 	    pdf = "zathura";
+
+	    # Tools
+	    bt = "${pkgs.bluetuith}/bin/bluetuith";
+	    yt = "${pkgs.yt-dlp}/bin/yt-dlp -f  'bv[ext=mp4]+ba[ext=m4a]' --merge-output-format mp4";
+	    yt-mp3 = "${pkgs.yt-dlp}/bin/yt-dlp -f 'ba' -x --audio-format mp3";
+
+	    # move to wm/hyprland.nix
+	    wall = "${pkgs.fd}/bin/fd . ${config.xdg.configHome}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | xargs ${pkgs.swww}/bin/swww img";
+	    wallp = "${pkgs.fd}/bin/fd . ${config.xdg.configHome}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | tee >(${pkgs.pywal}/bin/wal -i) >(xargs ${pkgs.swww}/bin/swww img)";
+	    video = "${pkgs.fd}/bin/fd . ${config.xdg.configHome}/sync/archive/wallpaper/video -e mp4 | ${pkgs.skim}/bin/sk | xargs ${pkgs.mpvpaper}/bin/mpvpaper -v -p -o 'loop-file=inf' '*'";
+
+	    # Learning and entertainment
+	    book = "${pkgs.fd}/bin/fd . ~/sync/archive/book --type f -e 'pdf' -e 'epub' | ${pkgs.skim}/bin/sk | xargs zathura";
+	    rickroll = "${pkgs.curl}/bin/curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master.roll.sh | ${pkgs.bash}/bin/bash";
+	    tv-jp = "${pkgs.mpv}/bin/mpv https://iptv-org.github.io/iptv/countries/jp.m3u";
+	    tv-cl = "${pkgs.mpv}/bin/mpv https://iptv-org.github.io/iptv/countries/jp.m3u";
 
 	    # Nix
 	    update = "nix flake update ${config.xdg.configHome}/yuugen";
@@ -66,18 +90,12 @@
     };
 
     programs = {
-        broot.enableZshIntegration = true;
-        direnv.enableZshIntegration = true;
-        eza.enableZshIntegration = true;
-        fzf.enableZshIntegration = true;
-	skim.enableZshIntegration = true;
-        #pyenv.enableZshIntegration = true;
-	zoxide.enableZshIntegration = true;
-    };
-
-    home.packages = builtins.attrValues {
-        inherit (pkgs)
-	    pipes-rs
-	;
+        broot.enableZshIntegration = config.programs.zsh.enable;
+        direnv.enableZshIntegration = config.programs.zsh.enable;
+        eza.enableZshIntegration = config.programs.zsh.enable;
+        fzf.enableZshIntegration = config.programs.zsh.enable;
+	skim.enableZshIntegration = config.programs.zsh.enable;
+        #pyenv.enableZshIntegration = config.programs.zsh.enable;
+	zoxide.enableZshIntegration = config.programs.zsh.enable;
     };
 }
