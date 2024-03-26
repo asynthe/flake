@@ -9,7 +9,7 @@
 	#options = [ ];
     };
 
-    programs.zsh.initExtra = ''
-      eval "$(zoxide init zsh)"
+    programs.zsh.initExtra = '' 
+      eval "$(zoxide init --cmd cd zsh)"
     '';
 }

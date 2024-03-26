@@ -20,16 +20,16 @@
 	# Variables
 	sessionVariables = {
 
-	    #TERM="xterm-256color"; # ?
-	    BROWSER="firefox";
-	    READER="zathura";
-	    FILE="lf";
-	    EDITOR="nvim";
+	    #TERM = "xterm-256color"; # ?
+	    BROWSER = "firefox";
+	    READER = "zathura";
+	    FILE = "lf";
+	    EDITOR = "nvim";
 
-	    #GNUPGHOME="/home/${username}/sync/pass/gpg"; # SECRET
-	    #PASSWORD_STORE_DIR="/home/${username}/sync/pass/pass" # SECRET
-	    #STARSHIP_CONFIG="/home/${username}/.config/starship/starship.toml"
-	    #WAYFIRE_CONFIG_FILE="/home/${username}/.config/wayfire/wayfire.ini" # -> wayfire.nix
+	    #GNUPGHOME = "/home/${username}/sync/pass/gpg"; # SECRET
+	    #PASSWORD_STORE_DIR = "/home/${username}/sync/pass/pass" # SECRET
+	    #STARSHIP_CONFIG = "/home/${username}/.config/starship/starship.toml"
+	    #WAYFIRE_CONFIG_FILE = "/home/${username}/.config/wayfire/wayfire.ini" # -> wayfire.nix
 
 	};
 
