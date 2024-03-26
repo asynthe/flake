@@ -17,6 +17,9 @@
 	    defusedxml # defusing XML bombs and other exploits
 	    #web-server
 
+	    # Web
+	    django
+
 	    # Data
 	    pandas
 	    pdfminer-six
