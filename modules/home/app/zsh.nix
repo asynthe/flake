@@ -33,22 +33,8 @@
 
 	};
 
-	initExtra = ''
-	  # Run after 5 minutes of inactivity.
-	  TMOUT=300;
-          TRAPALRM() { ${pkgs.pipes-rs}/bin/pipes-rs }
-          #TRAPALRM() { unimatrix -s 93 }
-	'';
-
         # Aliases
         shellAliases = {
-	
-	    sl = "${pkgs.eza}/bin/eza --icons --group-directories-first";
-	    ls = "${pkgs.eza}/bin/eza --icons --group-directories-first";
-	    la = "${pkgs.eza}/bin/eza -a --icons --group-directories-first";
-	    ll = "${pkgs.eza}/bin/eza --long --group-directories-first";
-	    lla = "${pkgs.eza}/bin/eza -a --long --group-directories-first";
-	    lg = "${pkgs.eza}/bin/eza --long --git --group-directories-first";
 
 	    ssh = "ssh -i /home/${username}/sync/pass/ssh/wsl/wsl"; # SECRET
 	    py = "python3";
@@ -87,15 +73,24 @@
 	    #file = ;
 	    #src = ;
 	#};
+
+	initExtra = ''
+	  # Run after 5 minutes of inactivity.
+	  TMOUT=300;
+          TRAPALRM() { ${pkgs.pipes-rs}/bin/pipes-rs }
+          #TRAPALRM() { unimatrix -s 93 }
+	'';
     };
 
+
+    # fzf and skim
+    programs.fzf.enableZshIntegration = config.programs.zsh.enable;
+    programs.skim.enableZshIntegration = config.programs.zsh.enable;
+
+    # Other
     programs = {
         broot.enableZshIntegration = config.programs.zsh.enable;
         direnv.enableZshIntegration = config.programs.zsh.enable;
-        eza.enableZshIntegration = config.programs.zsh.enable;
-        fzf.enableZshIntegration = config.programs.zsh.enable;
-	skim.enableZshIntegration = config.programs.zsh.enable;
         #pyenv.enableZshIntegration = config.programs.zsh.enable;
-	zoxide.enableZshIntegration = config.programs.zsh.enable;
     };
 }

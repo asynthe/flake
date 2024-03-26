@@ -1,8 +1,12 @@
 { config, pkgs, ... }: {
 
+    programs.zsh.initExtra = ''
+      eval "$(starship init zsh)"
+    '';
+
     programs.starship = {
         enable = config.programs.zsh.enable;
-	enableZshIntegration = config.programs.starship.enable;
+	enableZshIntegration = config.programs.zsh.enable;
 	settings = {
 
 	    # Get editor completions based on the config schem

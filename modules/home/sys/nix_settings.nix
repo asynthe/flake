@@ -1,7 +1,10 @@
 { config, pkgs, ... }: {
 
     nix.package = pkgs.nix;
-    nix.settings.extra-experimental-features = [ "nix-command" "flakes" ];
+    nix.settings = {
+        warn-dirty = false;
+        extra-experimental-features = [ "nix-command" "flakes" ];
+    };
 
     # Fix for nixpkgs.allowUnfree = true
     # https://discourse.nixos.org/t/unfree-packages-on-flake-based-home-manager/30231
