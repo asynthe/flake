@@ -2,7 +2,7 @@
 
     programs.zsh = {
         enable = true;
-	defaultKeymap = "vicmd"; # `emacs`, `vicmd`, `viins`.
+	defaultKeymap = "viins"; # `emacs`, `vicmd`, `viins`.
 
 	# No comments...
 	dotDir = ".config/zsh";
@@ -43,12 +43,12 @@
         # Aliases
         shellAliases = {
 	
-	    sl = "eza --icons --group-directories-first";
-	    ls = "eza --icons --group-directories-first";
-	    la = "eza -a --icons --group-directories-first";
-	    ll = "eza --long --group-directories-first";
-	    lla = "eza -a --long --group-directories-first";
-	    lg = "eza --long --git --group-directories-first";
+	    sl = "${pkgs.eza}/bin/eza --icons --group-directories-first";
+	    ls = "${pkgs.eza}/bin/eza --icons --group-directories-first";
+	    la = "${pkgs.eza}/bin/eza -a --icons --group-directories-first";
+	    ll = "${pkgs.eza}/bin/eza --long --group-directories-first";
+	    lla = "${pkgs.eza}/bin/eza -a --long --group-directories-first";
+	    lg = "${pkgs.eza}/bin/eza --long --git --group-directories-first";
 
 	    ssh = "ssh -i /home/${username}/sync/pass/ssh/wsl/wsl"; # SECRET
 	    py = "python3";
