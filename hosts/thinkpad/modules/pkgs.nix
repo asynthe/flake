@@ -3,6 +3,9 @@
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
 
+      # Testing
+      vulnix
+
       # Programs
       alacritty kitty
       neovim

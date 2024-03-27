@@ -30,9 +30,8 @@
 	    #slack #slack-cli #slack-term # ?
 
             # Tools - GUI
-            mpv
+	    emacs29-pgtk
             zathura
-	    obs-studio
 	    #obsidian
 	    hypnotix # TV
 

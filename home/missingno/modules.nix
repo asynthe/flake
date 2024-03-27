@@ -13,7 +13,7 @@
         ../../modules/home/app/git.nix
         ../../modules/home/app/gpg.nix
         ../../modules/home/app/lf.nix
-	../../modules/home/app/mpd.nix
+	#../../modules/home/app/mpd.nix
         ../../modules/home/app/ssh.nix
         ../../modules/home/app/starship.nix
         ../../modules/home/app/tmux.nix
@@ -25,9 +25,8 @@
         # Dev
         ../../modules/home/dev/ai.nix
         #../../modules/home/dev/assembly.nix
-        ../../modules/home/dev/python.nix
-        ../../modules/home/dev/latex.nix
         #../../modules/home/dev/python.nix # Managed by kali's apt for now.
+        ../../modules/home/dev/latex.nix
 
         # System
         ../../modules/home/sys/nix_settings.nix
