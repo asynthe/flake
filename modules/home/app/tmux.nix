@@ -24,12 +24,12 @@
 	  # Status
 	  set -g status off # Start with status off.
 	  set-option -g status-position top
-	  set-option -g status-style fg=color20,bg=default # Transparency.
+	  set-option -g status-style fg=white,bg=default # Transparency.
+	  #set-option -g status-style fg=color20,bg=default # Transparency.
 	  bind t set -g status
 
-	  # Status configuration
+	  # Status configuration # IN PROGRESS
 	  #set -g status-right "''${wg_funkyprefix}"
-	  # IN PROGRESS
 
 	  # Unbinds
 	  unbind q
@@ -44,6 +44,9 @@
 	  bind E confirm kill-server
 	  bind b break-pane
 	  bind N new-session # ?
+	  bind -n C-a send-keys C-l
+	  bind -n C-z resize-pane -Z # Maximize pane
+	  #bind -n C-a clear-history
 
 	  ## Split window
 	  bind n new-window -c "#{pane_current_path}"
@@ -67,7 +70,6 @@
 	  bind . next-window \; switch-client -T prefix
 
 	  ## Resize pane
-	  bind -n C-m resize-pane -Z # Maximize pane
 	  bind C-h resize-pane -L 3 \; switch-client -T prefix
 	  bind C-j resize-pane -D 2 \; switch-client -T prefix
 	  bind C-k resize-pane -U 2 \; switch-client -T prefix
@@ -76,8 +78,6 @@
 	  ## Swap panes
 	  bind J swap-pane -D \; switch-client -T prefix
 	  bind K swap-pane -U \; switch-client -T prefix
-	  #bind -n C-n swap-pane -D
-	  bind -n C-a send-keys C-l \; clear-history 
 
 	  ## Change window, create if not created yet.
 	  bind-key 1 if-shell 'tmux select-window -t :1' ''' 'new-window -t :1'
