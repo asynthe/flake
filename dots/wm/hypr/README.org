@@ -55,6 +55,7 @@
   - [[#qgis][QGIS]]
   - [[#firefox][Firefox]]
   - [[#wofi][wofi]]
+  - [[#waydroid][Waydroid]]
   - [[#zathura][Zathura]]
 - [[#special-workspace-rules][Special Workspace Rules]]
 - [[#fixes][Fixes]]
@@ -255,8 +256,8 @@ gaps_out = 10
 *** Border
 
 #+begin_src cpp
-#border_size = 0
-border_size=1
+border_size = 0
+#border_size=1
 no_border_on_floating=1
 #+end_src
 
@@ -943,6 +944,12 @@ windowrulev2 = pin, title:^(Picture-in-Picture)$
 
 #+begin_src cpp
 layerrule = noanim, wofi
+#+end_src
+
+** Waydroid
+
+#+begin_src cpp
+windowrulev2 = float, title:^(Waydroid)$
 #+end_src
 
 ** Zathura

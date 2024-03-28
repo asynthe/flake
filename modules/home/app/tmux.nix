@@ -67,21 +67,17 @@
 	  bind . next-window \; switch-client -T prefix
 
 	  ## Resize pane
-	  bind -n C-z resize-pane -Z # CHECK
-	  # Check if better to do like that or with CTRL.
-	  bind h resize-pane -L 3 \; switch-client -T prefix
-	  bind j resize-pane -D 2 \; switch-client -T prefix
-	  bind k resize-pane -U 2 \; switch-client -T prefix
-	  bind l resize-pane -R 3 \; switch-client -T prefix
-	  #bind C-h resize-pane -L 3 \; switch-client -T
-	  #bind C-j resize-pane -D 2 \; switch-client -T
-	  #bind C-k resize-pane -U 2 \; switch-client -T
-	  #bind C-l resize-pane -R 3 \; switch-client -T
+	  bind -n C-m resize-pane -Z # Maximize pane
+	  bind C-h resize-pane -L 3 \; switch-client -T prefix
+	  bind C-j resize-pane -D 2 \; switch-client -T prefix
+	  bind C-k resize-pane -U 2 \; switch-client -T prefix
+	  bind C-l resize-pane -R 3 \; switch-client -T prefix
 
 	  ## Swap panes
 	  bind J swap-pane -D \; switch-client -T prefix
 	  bind K swap-pane -U \; switch-client -T prefix
-	  bind -n C-n swap-pane -D
+	  #bind -n C-n swap-pane -D
+	  bind -n C-a send-keys C-l \; clear-history 
 
 	  ## Change window, create if not created yet.
 	  bind-key 1 if-shell 'tmux select-window -t :1' ''' 'new-window -t :1'

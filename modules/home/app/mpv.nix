@@ -10,18 +10,21 @@
 	];
 	config = {
 	    volume-max = "100";
-	    hls-bitrate = "max";
-	    #profile = "gpu-hq";
-	    force-window = true;
-	    cache-default = 4000000;
-	    osc = "no";
 	    save-position-on-quit = true;
-	    screenshot-directory = "~/Downloads/screenshots/";
-	    screenshot-template = "%F_$03n";
+	    hls-bitrate = "max";
+
+	    osc = true;
+	    force-window = true;
 	    fullscreen = "no";
+
+	    #cache-default = 4000000;
+	    screenshot-directory = "~/Downloads/mpv_screenshots/";
+	    screenshot-template = "%F_$03n";
 	    #"extension.flac" = "";
 	    #"extension.mkv" = "";
 	    #"extension.gif" = "";
+
+	    #profile = "gpu-hq";
 	};
 	profiles = {
 	    norm = {

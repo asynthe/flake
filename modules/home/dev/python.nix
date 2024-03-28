@@ -7,6 +7,10 @@
 	    pdfminer
         ;
 
+	inherit (pkgs.jetbrains)
+	    pycharm-community
+	;
+
 	inherit (pkgs.python311Packages)
 	    faker
 	    scapy

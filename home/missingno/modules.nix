@@ -1,7 +1,7 @@
 { config, ... }: {
 
     imports = [
-        ../../modules/home/pkgs.nix
+        ../../modules/home/pkgs_minimal.nix
         ../../modules/home/fonts.nix
 
         # Apps

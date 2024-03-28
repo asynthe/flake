@@ -36,7 +36,7 @@
         # Aliases
         shellAliases = {
 
-	    ssh = "ssh -i /home/${username}/sync/pass/ssh/wsl/wsl"; # SECRET
+	    ssh = "ssh -i ${config.home.homeDirectory}/sync/pass/ssh/wsl/wsl"; # SECRET
 	    py = "python3";
 	    pdf = "zathura";
 
@@ -46,9 +46,9 @@
 	    yt-mp3 = "${pkgs.yt-dlp}/bin/yt-dlp -f 'ba' -x --audio-format mp3";
 
 	    # move to wm/hyprland.nix
-	    wall = "${pkgs.fd}/bin/fd . ${config.xdg.configHome}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | xargs ${pkgs.swww}/bin/swww img";
-	    wallp = "${pkgs.fd}/bin/fd . ${config.xdg.configHome}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | tee >(${pkgs.pywal}/bin/wal -i) >(xargs ${pkgs.swww}/bin/swww img)";
-	    video = "${pkgs.fd}/bin/fd . ${config.xdg.configHome}/sync/archive/wallpaper/video -e mp4 | ${pkgs.skim}/bin/sk | xargs ${pkgs.mpvpaper}/bin/mpvpaper -v -p -o 'loop-file=inf' '*'";
+	    wall = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | xargs ${pkgs.swww}/bin/swww img";
+	    wallp = "${pkgs.fd}/bin/fd .${config.home.homeDirectory}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | tee >(${pkgs.pywal}/bin/wal -i) >(xargs ${pkgs.swww}/bin/swww img)";
+	    video = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/video -e mp4 | ${pkgs.skim}/bin/sk | xargs ${pkgs.mpvpaper}/bin/mpvpaper -v -p -o 'loop-file=inf' '*'";
 
 	    # Learning and entertainment
 	    book = "${pkgs.fd}/bin/fd . ~/sync/archive/book --type f -e 'pdf' -e 'epub' | ${pkgs.skim}/bin/sk | xargs zathura";

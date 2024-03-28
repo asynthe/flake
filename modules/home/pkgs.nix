@@ -3,22 +3,65 @@
     home.packages = builtins.attrValues {
         inherit (pkgs)
 
-	    nix # lol # ?
-            neovim
-            git
+	    # Temporary
+	    brave # Brave browser
+	    gimp
+	    barrier # Open-source KVM software.
+	    pinta
 
-	    # GUI
-            emacs29-pgtk
-	    zathura
-	    mpv
+            # Shell
+            direnv
+            eza
+            starship
+            ueberzugpp
+            fd ripgrep
+            fzf skim
+            zoxide
+	    wl-clipboard
 
-	    # Test
-	    alacritty kitty
-	    gopass
-	    pass-wayland
+            # Tools
+	    yt-dlp
+	    libqalculate
+            ncdu
 
-	    # Compress
-	    zip unzip unar
+	    # Tools - Presenting
+	    slides
+	    #zoom-us
+	    #slack #slack-cli #slack-term # ?
+
+            # Tools - GUI
+	    emacs29-pgtk
+            zathura
+	    #obsidian
+	    hypnotix # TV
+
+            # Tools - Compressing
+            zip unzip
+            unar # Unzipping with Unicode characters.
+	    p7zip
+	    #xz
+	    #rar #unrar #rar2fs
+	    #torrent7z
+	    #mdf2iso
+
+	    # Tools - Partitioning / Formatting
+	    gparted
+	    ventoy-full #ventoy
+	    #etcher
+
+            # Bluetooth
+            bluez
+            bluez-tools
+            bluetuith
+
+            # Fun
+            unimatrix
+            pipes-rs
+            cava cli-visualizer
+
+	    # Japanese
+	    memento
+	    #anki-bin
         ;
     };
 }
