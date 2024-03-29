@@ -6,7 +6,7 @@
         # nixpkgs
         # https://github.com/NixOS/nixpkgs
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable.
-        #nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable.
+        nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable.
 
         # Home Manager
         home-manager = {
@@ -62,6 +62,7 @@
 
         self,
         nixpkgs,
+	nixpkgs-stable,
         home-manager,
         disko,
         impermanence,
@@ -80,18 +81,17 @@
     
     }: let
 
-        # Global variables
+        # Username
         #username = "asynthe";
         #hostname = "thinknya";
-
-        # Darwin
         #username_mac = "benjamindunstan";
         #hostname_mac = "Benjis-Macbook";
 
         # pkgs
-        linux_64 = "x86_64-linux";
-        apple_silicon = "aarch64-darwin";
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+	system = "x86_64-linux";
+	lib = nixpkgs.lib;
+        pkgs = nixpkgs.legacyPackages.${system};
+	pkgs-stable = nixpkgs-stable.legacyPackages.${system};
   
     in {
 
@@ -102,6 +102,7 @@
             system = "x86_64-linux";
             specialArgs = { inherit
                 inputs
+		pkgs-stable
                 ;
                 username = "ben";
             };
@@ -118,6 +119,7 @@
             system = "x86_64-linux";
             specialArgs = { inherit
                 inputs
+		pkgs-stable
                 ;
                 user = "ben";
             };
@@ -133,6 +135,7 @@
             system = "x86_64-linux";
             specialArgs = { inherit
                 inputs
+		pkgs-stable
                 ;
                 user = "server";
             };
@@ -153,6 +156,7 @@
                 inherit pkgs;
                 extraSpecialArgs = { inherit
                     inputs
+		    pkgs-stable
                     ;
 	            username = "ben";
                 };
@@ -167,6 +171,7 @@
                 inherit pkgs;
 	        extraSpecialArgs = { inherit
 	            inputs
+		    pkgs-stable
 	            ;
 	            username = "missingno";
 	        };
@@ -175,9 +180,6 @@
 	        ];
             };
         };
-
-    # Closing `Outputs` bracket.
-    };
 
     #darwinConfigurations = {
 
@@ -194,4 +196,7 @@
 	    #];
         #};
     #};
+
+    # Closing `Outputs` bracket.
+    };
 }

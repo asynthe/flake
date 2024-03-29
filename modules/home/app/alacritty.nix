@@ -25,7 +25,7 @@
 	    };
 
 	    font = {
-	        size = 14;
+	        size = 12;
 	        normal.family = "JetBrains Mono Nerd Font";
 		normal.style = "Regular";
 	        italic.family = "JetBrains Mono Nerd Font";

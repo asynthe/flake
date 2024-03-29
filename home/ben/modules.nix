@@ -1,14 +1,16 @@
-{ config, ... }: {
-
+{
     imports = [
 
         ../../modules/home/pkgs.nix
         ../../modules/home/fonts.nix
+	../../modules/home/sec/pkgs.nix
+	../../modules/home/sec/home-security-box.nix
                 
         # Apps
 	../../modules/home/app/alacritty.nix
         ../../modules/home/app/android.nix # adb + waydroid.
         #../../modules/home/app/bash.nix # bash shell.
+	../../modules/home/app/bat.nix
         #../../modules/home/app/emacs.nix
         ../../modules/home/app/eza.nix
         ../../modules/home/app/git.nix

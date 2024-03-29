@@ -3,6 +3,10 @@
     home.packages = builtins.attrValues {
         inherit (pkgs)
 
+	    # Net
+	    netcat-openbsd
+	    socat
+
 	    # Temporary
 	    brave # Brave browser
 	    gimp

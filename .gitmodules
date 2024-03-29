@@ -1,0 +1,3 @@
+[submodule "modules/home/sec/nix-security-box"]
+	path = modules/home/sec/nix-security-box
+	url = git@github.com:asynthe/nix-security-box.git

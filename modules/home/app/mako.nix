@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
 
     services.mako = {
-        font = "JetBrains Mono Nerd Font 14";
+        font = "JetBrains Mono Nerd Font 10";
         enable = true;
 	icons = true;
 	anchor = "bottom-right";

@@ -187,7 +187,7 @@ See https://wiki.hyprland.org/Configuring/Monitors/
 #monitor = HDMI-A-2, 1920x1080@60, 1920x0, 1
 
 # eDP-1 on the right of DP-2 
-monitor = eDP-1, 1920x1080@60, 1920x0, 1
+monitor = eDP-1, 1920x1080@60, 1920x0, 1.20
 monitor = HDMI-A-2, 1920x1080@60, 0x0, 1
 
 # Disable eDP-1
