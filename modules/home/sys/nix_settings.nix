@@ -1,9 +1,11 @@
 { config, pkgs, ... }: {
 
-    nix.package = pkgs.nix;
-    nix.settings = {
-        warn-dirty = false;
-        extra-experimental-features = [ "nix-command" "flakes" ];
+    nix = {
+        package = pkgs.nix;
+        settings = {
+            warn-dirty = false;
+            extra-experimental-features = [ "nix-command" "flakes" ];
+        };
     };
 
     # Fix for nixpkgs.allowUnfree = true

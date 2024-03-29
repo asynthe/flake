@@ -20,7 +20,7 @@
             XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
             XDG_STATE_HOME = "${config.home.homeDirectory}/.local/state";
 
-	    #IME
+	    #IME # MOVE
             XMODIFIERS = "@im=fcitx";
             QT_IM_MODULE = "fcitx";
             SDL_IM_MODULE = "fcitx";

@@ -1,40 +1,5 @@
-{ config, ... }: {
-
+{
     imports = [
-
-        # Secrets
-        #../../secrets/secrets.nix
-
-        # Original imports
-	./modules/android.nix
-        ./modules/audio.nix
-        ./modules/boot.nix
-	./modules/bluetooth.nix
-        ./modules/hyprland.nix
-        ./modules/net.nix
-        ./modules/pkgs.nix
-        ./modules/settings.nix
-        ./modules/sys.nix
-        ./modules/user.nix
-        ./modules/vpn.nix
-
-        ../../modules/nix/game/steam.nix
-        ../../modules/nix/sys/fstrim.nix
-        ../../modules/nix/vm/libvirt.nix
-
-        ../../modules/nix/net/ssh/mosh.nix
-        ../../modules/nix/net/ssh/ssh.nix
-        ../../modules/nix/net/ssh/sshfs.nix
-
-	../../modules/nix/driver/acpi.nix
-        ../../modules/nix/net/vpn/mullvad.nix
-        ../../modules/nix/sysd/lid_switch.nix # Lid switch action for laptops.
-
-	# Security
-	../../modules/nix/sec/clamav.nix
-
-	# REWRITE FROM HERE DOWN BELOW #
-
         # Test - make so it works on Home instead.
         #../../modules/test/nix/elasticsearch.nix
         #../../modules/test/nix/fluent-bit.nix

@@ -246,7 +246,6 @@
             killerbee
             kismet
             kiterunner
-            knockpy
             knowsmore
             kube-score
             kubeaudit
@@ -499,7 +498,10 @@
             zzuf
 	;
 
-	# Write into a shell?
+	inherit (pkgs.nodePackages)
+            hyperpotamus
+	;
+
 	inherit (pkgs.python311Packages)
             #safety
             #angr
@@ -521,14 +523,17 @@
             #unicorn # Disabled because of non-python unicorn.
 	;
 
-	inherit (pkgs.nodePackages)
-            hyperpotamus
+	inherit (pkgs-stable.python311Packages)
+	    safety
+	    angr
+
 	;
 
 	inherit (pkgs-stable)
             #cameradar # BROKEN
             #volatility # BROKEN
             #tightvnc # CVE
+            knockpy
             skjold
 	;
     };

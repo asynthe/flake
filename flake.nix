@@ -2,20 +2,18 @@
     description = "asynthe's system flake";
 
     inputs = {
-
-        # nixpkgs
-        # https://github.com/NixOS/nixpkgs
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable.
         nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable.
+        home-manager.url = "github:nix-community/home-manager"; # Follows nixpkgs unstable.
+        home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
 
-        # Home Manager
-        home-manager = {
-            url = "github:nix-community/home-manager"; # Follows nixpkgs unstable.
-            #url = "github:nix-community/home-manager/release-23.11"; # Follows nixpkgs stable.
-            inputs.nixpkgs.follows = "nixpkgs"; 
-            # Follows the nixpkgs channel defined before, 
-            # to avoid different versions of nixpkgs deps problems.
+        impermanence.url = "github:nix-community/impermanence";
+        disko = {
+            url = "github:nix-community/disko";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
+        sops-nix.url = "github:Mic92/sops-nix";
+        musnix.url = "github:musnix/musnix";
 
         # WSL
         nixos-wsl = {
@@ -23,16 +21,6 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
         home-manager-wsl.url = "github:viperML/home-manager-wsl";
-
-        # Inputs
-        impermanence.url = "github:nix-community/impermanence";
-        disko = {
-            url = "github:nix-community/disko";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
-        sops-nix.url = "github:Mic92/sops-nix";
-        musnix.url = "github:musnix/musnix";
 
         #nil.url = "github:oxalica/nil";
         #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
@@ -81,13 +69,10 @@
     
     }: let
 
-        # Username
         #username = "asynthe";
         #hostname = "thinknya";
         #username_mac = "benjamindunstan";
         #hostname_mac = "Benjis-Macbook";
-
-        # pkgs
 	system = "x86_64-linux";
 	lib = nixpkgs.lib;
         pkgs = nixpkgs.legacyPackages.${system};
@@ -107,7 +92,7 @@
                 username = "ben";
             };
             modules = [
-                ./hosts/thinkpad
+                ./hosts/nix/thinkpad
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
                 musnix.nixosModules.musnix
@@ -124,7 +109,7 @@
                 user = "ben";
             };
             modules = [
-                ./hosts/wsl
+                ./hosts/nix/wsl
                 disko.nixosModules.disko
                 nixos-wsl.nixosModules.wsl
             ];
@@ -140,7 +125,7 @@
                 user = "server";
             };
             modules = [
-                ./hosts/server
+                ./hosts/nix/server
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
                 musnix.nixosModules.musnix
@@ -150,36 +135,36 @@
 
     homeConfigurations = {
 
-            # Thinkpad - User
-            ben = home-manager.lib.homeManagerConfiguration {
-                #pkgs = nixpkgs.legacyPackages.x86_64-linux;
-                inherit pkgs;
-                extraSpecialArgs = { inherit
-                    inputs
-		    pkgs-stable
-                    ;
-	            username = "ben";
-                };
-                modules = [ 
-	            ./home/ben 
-	        ];
+        # Thinkpad - User
+        ben = home-manager.lib.homeManagerConfiguration {
+            #pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            inherit pkgs;
+            extraSpecialArgs = { inherit
+                inputs
+		pkgs-stable
+                ;
+	        username = "ben";
             };
- 
-            # WSL - User
-            missingno = home-manager.lib.homeManagerConfiguration {
-                #pkgs = nixpkgs.legacyPackages.x86_64-linux;
-                inherit pkgs;
-	        extraSpecialArgs = { inherit
-	            inputs
-		    pkgs-stable
-	            ;
-	            username = "missingno";
-	        };
-	        modules = [
-	            ./home/missingno
-	        ];
-            };
+            modules = [ 
+	        ./hosts/home/ben 
+	    ];
         };
+ 
+        # WSL - User
+        missingno = home-manager.lib.homeManagerConfiguration {
+            #pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            inherit pkgs;
+	    extraSpecialArgs = { inherit
+	        inputs
+		pkgs-stable
+	        ;
+	        username = "missingno";
+	    };
+	    modules = [
+	        ./hosts/home/missingno
+	    ];
+        };
+    };
 
     #darwinConfigurations = {
 

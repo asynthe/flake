@@ -12,7 +12,7 @@
 	    };
 
 	    window = {
-		opacity = 0.85;
+		opacity = 0.80;
 		title = "Alacritty";
 		class.general = "Alacritty";
 		class.instance = "Alacritty";
