@@ -4,7 +4,7 @@
         ../../../modules/home/pkgs.nix
         ../../../modules/home/fonts.nix
 	../../../modules/home/sec/pkgs.nix
-	../../../modules/home/sec/home-security-box.nix
+	#../../../modules/home/sec/home-security-box.nix
                 
         # Apps
 	../../../modules/home/app/alacritty.nix
