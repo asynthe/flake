@@ -1,9 +1,12 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, username, sops-nix, ... }: {
 
-    users.users.server = {
+    sops.secrets."password/server".neededForUsers = true;
+    users.mutableUsers = false; # Required for passwords set by sops.
+
+    users.users.${username} = {
         isNormalUser = true;
-	description = "Asynthe/missingno's server configuration.";
-	initialPassword = "pw123"; # CHANGE
+	description = "Asynthe/missingno's server configuration";
+	hashedPasswordFile = config.sops.secrets."password/server".path;
 	extraGroups = [ "audio" "networkmanager" "wheel" ];
     };
 }

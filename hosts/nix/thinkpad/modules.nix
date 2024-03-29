@@ -2,7 +2,7 @@
     imports = [
 
         # Secrets
-        #../../secrets/secrets.nix
+        ../../../secrets/secrets.nix
 
 	../../../modules/nix/android.nix
         ../../../modules/nix/audio.nix

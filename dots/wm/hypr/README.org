@@ -256,30 +256,25 @@ gaps_out = 10
 *** Border
 
 #+begin_src cpp
-border_size = 0
-#border_size=1
-no_border_on_floating=1
-#+end_src
+border_size = 1
+#border_size = 0
+#no_border_on_floating=1
+no_border_on_floating=0
 
-*** Border Color
+# Border Color
 
-*Xmonad Red*
-#+begin_src cpp
-col.active_border = rgb(ff0000)
+# Active border
+col.active_border = rgb(451F67) # Purple
+#col.active_border = rgb(ff0000) # Xmonad Red
+#col.active_border = rgb(2e37fe) # Light Cobalt Blue
+#col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg # Breeze gradient
+
+# Inactive Border
 col.inactive_border = rgb(000000) # BLACK
-#col.inactive_border = rgb(dddddd) # WHITE
-#+end_src
-
-*Purple*
-#+begin_src cpp
-#col.active_border = rgb(451F67)
-#col.inactive_border = rgb(231431)
-#+end_src
-
-*Breeze Gradient*
-#+begin_src cpp
-#col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
 #col.inactive_border = rgba(595959aa)
+#col.inactive_border = rgb(231431)
+#col.inactive_border = rgb(000000) # BLACK
+#col.inactive_border = rgb(dddddd) # WHITE
 #+end_src
 
 *** Hide cursor after x seconds

@@ -5,6 +5,7 @@
             python3
 	    twine
 	    pdfminer
+	    renpy
         ;
 
 	inherit (pkgs.jetbrains)

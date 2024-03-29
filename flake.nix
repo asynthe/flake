@@ -95,6 +95,7 @@
                 ./hosts/nix/thinkpad
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
+		sops-nix.nixosModules.sops
                 musnix.nixosModules.musnix
             ];
         };

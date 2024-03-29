@@ -1,6 +1,8 @@
 {
     imports = [
 
+        ../../../secrets/secrets.nix # SECRETS
+
         ../../../modules/home/pkgs.nix
         ../../../modules/home/fonts.nix
 	../../../modules/home/sec/pkgs.nix
@@ -25,7 +27,7 @@
         ../../../modules/home/app/starship.nix
         ../../../modules/home/app/tmux.nix
         ../../../modules/home/app/wofi.nix
-        #../../../modules/home/app/yazi.nix
+        ../../../modules/home/app/yazi.nix
         ../../../modules/home/app/zathura.nix
         ../../../modules/home/app/zoxide.nix
         ../../../modules/home/app/zsh.nix

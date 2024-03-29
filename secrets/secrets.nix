@@ -1,0 +1,37 @@
+{ config, pkgs, sops-nix, ... }: {
+
+    environment.systemPackages = builtins.attrValues {
+        inherit (pkgs)
+	    sops
+	    age
+	    ssh-to-age
+	    ssh-to-pgp
+	;
+    };
+
+    # Here environment variable that sets SOPS_AGE_FILE
+
+    sops = {
+        defaultSopsFile = ./secrets.yaml;
+	defaultSopsFormat = "yaml";
+        validateSopsFiles = false;
+        age = {
+
+            # Automatically import host SSH keys as age keys.
+	    sshKeyPaths = [ "/home/ben/sync/pass/ssh/thinkpad/thinkpad" ];
+
+	    # Use a age key expected to be in filesystem.
+	    keyFile = /home/ben/sync/pass/age/ben.txt;
+
+	    # Generate a key if doesn't exist.
+	    generateKey = true;
+        };
+        secrets = {
+            "password/ben" = {
+	        owner = username;
+	    };
+            "password/server" = { };
+	    "private_key/thinkpad" = { };
+        };
+    };
+}

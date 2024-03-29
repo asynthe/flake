@@ -4,6 +4,7 @@
         inherit (pkgs)
 
 	    # Net
+	    bucklespring-libinput # Requires user in `input group`.
 	    netcat-openbsd
 	    socat
 
