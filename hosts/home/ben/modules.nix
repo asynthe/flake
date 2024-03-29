@@ -1,8 +1,6 @@
 {
     imports = [
 
-        ../../../secrets/secrets.nix # SECRETS
-
         ../../../modules/home/pkgs.nix
         ../../../modules/home/fonts.nix
 	../../../modules/home/sec/pkgs.nix

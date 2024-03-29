@@ -1,4 +1,4 @@
-{ config, pkgs, sops-nix, ... }: {
+{ config, pkgs, username, sops-nix, ... }: {
 
     environment.systemPackages = builtins.attrValues {
         inherit (pkgs)
@@ -27,9 +27,7 @@
 	    generateKey = true;
         };
         secrets = {
-            "password/ben" = {
-	        owner = username;
-	    };
+            "password/ben" = { };
             "password/server" = { };
 	    "private_key/thinkpad" = { };
         };
