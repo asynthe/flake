@@ -30,5 +30,4 @@ in {
             Timer.OnCalendar = "*:0/10"; # Every 10 minutes.
         };
     };
-
 }

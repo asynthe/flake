@@ -6,14 +6,14 @@
         ../../secrets/secrets.nix
 	#../../secrets/secrets_custom.nix
 
-	../../modules/nix/srv/boot.nix
-	../../modules/nix/srv/fs.nix
-	#../../modules/nix/srv/locate.nix
-	../../modules/nix/srv/network.nix
-        ../../modules/nix/srv/pkgs.nix
-	../../modules/nix/srv/settings.nix
-	../../modules/nix/srv/user.nix
-	#../../modules/nix/srv/xmr.nix
+	../../modules/srv/boot.nix
+	../../modules/srv/fs.nix
+	#../../modules/srv/locate.nix
+	../../modules/srv/network.nix
+        ../../modules/srv/pkgs.nix
+	../../modules/srv/settings.nix
+	../../modules/srv/user.nix
+	#../../modules/srv/xmr.nix
 
 	# systemd services + timers
 	#../../modules/nix/srv/systemd/automount_hdd.nix

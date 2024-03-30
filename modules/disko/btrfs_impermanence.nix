@@ -60,9 +60,14 @@
         "/var/log".neededForBoot = true;
     };
 
+    # Remember this copies files from /persist to where specified.
     environment.persistence."/persist" = {
         directories = [
 	    "/etc/nixos"
+	    "/var/lib/bluetooth"
+	    "/var/lib/nixos"
+	    "/var/lib/systemd/coredump"
+	    "/etc/NetworkManager/system-connections"
 	];
         files = [
 	    "/etc/machine-id"
@@ -73,12 +78,4 @@
       # rollback results in sudo lectures after each reboot
       Defaults lecture = never
     '';
-    
-    # BOOT (boot.nix)
-    boot.loader.efi.canTouchEfiVariables = true;
-    boot.loader.timeout = 5;
-    boot.loader.systemd-boot = {
-        enable = true;
-	configurationLimit = 5;
-    };
 }

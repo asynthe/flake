@@ -47,5 +47,6 @@
         
         # systemd services + timers
         ../../modules/sysd/backup_bookmarks.nix
+        #../../modules/sysd/swww_randomize.nix
     ];
 }
