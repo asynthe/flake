@@ -100,6 +100,24 @@
             ];
         };
 
+	# PC Server
+        server = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+                inputs
+		pkgs-stable
+                ;
+                username = "server";
+            };
+            modules = [
+                ./hosts/nix/server
+                disko.nixosModules.disko
+                impermanence.nixosModules.impermanence
+		sops-nix.nixosModules.sops
+                musnix.nixosModules.musnix
+            ];
+	};
+
 	# WSL
         wsl = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
@@ -115,23 +133,6 @@
                 nixos-wsl.nixosModules.wsl
             ];
         };
-
-	# PC Server
-        server = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit
-                inputs
-		pkgs-stable
-                ;
-                user = "server";
-            };
-            modules = [
-                ./hosts/nix/server
-                disko.nixosModules.disko
-                impermanence.nixosModules.impermanence
-                musnix.nixosModules.musnix
-            ];
-	};
     };
 
     homeConfigurations = {

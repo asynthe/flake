@@ -1,8 +1,8 @@
-{ config, pkgs, user, ... }: {
+{ config, pkgs, username, ... }: {
 
     services.monero = {
         enable = true;
-        dataDir = "/home/${user}/sync/xmr/blockchain";
+        dataDir = "/home/${username}/sync/xmr/blockchain";
         #priorityNodes = [ "" ];
         #exclusiveNodes = [ "" ];
         #extraNodes = [ "" ];

@@ -8,6 +8,7 @@
             cachix
             tmux
             neovim
+	    lf
         ;
     };
 }
