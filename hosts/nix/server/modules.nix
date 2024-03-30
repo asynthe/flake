@@ -1,6 +1,10 @@
-{
+{ config, ... }: {
+
+    server.secrets.enable = true;
+
     imports = [
-        ../../../secrets/secrets.nix # Secrets
+        ../../../secrets/secrets.nix
+	../../../secrets/secrets_custom.nix
 
 	../../../modules/nix/srv/boot.nix
 	../../../modules/nix/srv/fs.nix

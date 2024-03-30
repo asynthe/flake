@@ -1,8 +1,11 @@
 { 
+
+    thinkpad.secrets.enable = true;
+
     imports = [
 
-        # Secrets
         ../../../secrets/secrets.nix
+	../../../secrets/secrets_custom.nix
 
 	../../../modules/nix/android.nix
         ../../../modules/nix/audio.nix
