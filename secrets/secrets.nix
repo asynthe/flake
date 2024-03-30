@@ -14,11 +14,11 @@
 	defaultSopsFormat = "yaml";
         validateSopsFiles = false;
         age = {
-
             # Automatically import host SSH keys as age keys.
-	    #sshKeyPaths = [ "/home/ben/sync/pass/ssh/thinkpad/thinkpad" ];
+	    sshKeyPaths = [ "/home/ben/sync/pass/ssh/thinkpad/thinkpad" ];
+
 	    # Use a age key expected to be in filesystem.
-	    #keyFile = /home/ben/sync/pass/age/ben.txt;
+	    keyFile = /home/ben/sync/pass/age/ben.txt;
 
 	    # Generate a key if doesn't exist.
 	    generateKey = true;
