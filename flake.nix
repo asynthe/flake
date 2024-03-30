@@ -92,7 +92,7 @@
                 username = "ben";
             };
             modules = [
-                ./hosts/nix/thinkpad
+                ./hosts/thinkpad
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
 		sops-nix.nixosModules.sops
@@ -110,7 +110,7 @@
                 username = "server";
             };
             modules = [
-                ./hosts/nix/server
+                ./hosts/server
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
 		sops-nix.nixosModules.sops
@@ -128,7 +128,7 @@
                 user = "ben";
             };
             modules = [
-                ./hosts/nix/wsl
+                ./hosts/wsl
                 disko.nixosModules.disko
                 nixos-wsl.nixosModules.wsl
             ];
@@ -148,7 +148,7 @@
 	        username = "ben";
             };
             modules = [ 
-	        ./hosts/home/ben 
+	        ./home/hosts/ben 
 	    ];
         };
  
@@ -163,7 +163,7 @@
 	        username = "missingno";
 	    };
 	    modules = [
-	        ./hosts/home/missingno
+	        ./home/hosts/missingno
 	    ];
         };
     };
