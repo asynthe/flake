@@ -15,7 +15,8 @@
             right_format = "」にゃ~(white)";
             continuation_prompt = "▶▶";
 	    add_newline = true; # ?
-	    line_break.disabled = true; # ?
+	    line_break.disabled = true; # Makes prompt a single line.
+	    command_timeout = 20000;
 
             username = {
 	        disabled = false;
@@ -51,7 +52,6 @@
 
             cmd_duration = {
 	        disabled = true;
-		min_time = 4;
 		show_milliseconds = false;
 		style = "bold italic red";
 	    };

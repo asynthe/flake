@@ -45,7 +45,6 @@
 	    yt = "${pkgs.yt-dlp}/bin/yt-dlp -f  'bv[ext=mp4]+ba[ext=m4a]' --merge-output-format mp4";
 	    yt-mp3 = "${pkgs.yt-dlp}/bin/yt-dlp -f 'ba' -x --audio-format mp3";
 
-	    # move to wm/hyprland.nix
 	    wall = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | xargs ${pkgs.swww}/bin/swww img";
 	    wallp = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | tee >(xargs ${pkgs.swww}/bin/swww img) >(xargs ${pkgs.wallust}/bin/wallust run)"; 
 	    video = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/video -e mp4 | ${pkgs.skim}/bin/sk | xargs ${pkgs.mpvpaper}/bin/mpvpaper -v -p -o 'loop-file=inf' '*'";
@@ -68,18 +67,27 @@
 	# Plugins
 	autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
-	#plugins.<> = {
-	    #name = ;
-	    #file = ;
-	    #src = ;
-	#};
+	plugins = [
+	    {
+	        name = "vi-mode";
+	        src = pkgs.zsh-vi-mode;
+	        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+	    }
+	];
 
 	initExtra = ''
 	  # Run after 5 minutes of inactivity.
 	  TMOUT=300;
           TRAPALRM() { ${pkgs.pipes-rs}/bin/pipes-rs }
           #TRAPALRM() { unimatrix -s 93 }
-	'';
+
+	  function zvm_config() {
+          ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+          ZVM_CURSOR_STYLE_ENABLED=true
+          ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+          ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
+          } 
+        '';
     };
 
 

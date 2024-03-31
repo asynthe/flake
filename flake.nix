@@ -148,7 +148,7 @@
 	        username = "ben";
             };
             modules = [ 
-	        ./home/hosts/ben 
+	        ./home/ben 
 	    ];
         };
  
@@ -163,7 +163,7 @@
 	        username = "missingno";
 	    };
 	    modules = [
-	        ./home/hosts/missingno
+	        ./home/missingno
 	    ];
         };
     };
