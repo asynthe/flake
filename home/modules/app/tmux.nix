@@ -45,8 +45,8 @@
 	  bind b break-pane
 	  bind N new-session # ?
 
-	  bind -n C-f send-keys C-l
 	  #bind -n C-a clear-history
+	  bind -n C-a send-keys C-l
 	  bind -n C-z resize-pane -Z # Maximize pane
 	  bind -n C-n swap-pane -D \; switch-client -T prefix
 

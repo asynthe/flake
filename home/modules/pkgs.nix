@@ -4,29 +4,28 @@
     home.packages = builtins.attrValues {
         inherit (pkgs)
 
-	    # Net
-	    bucklespring-libinput # Requires user in `input` group.
-	    netcat-openbsd
-	    socat
-
 	    # Temporary
+	    bucklespring-libinput # Requires user in `input` group.
 	    brave # Brave browser
 	    gimp
 	    barrier # Open-source KVM software.
 	    pinta
+	    # Net
+	    netcat-openbsd
+	    socat
 
             # Shell
-            ueberzugpp
             fd ripgrep
             fzf skim
 
             # Tools - GUI
 	    emacs29-pgtk
-            zathura
 	    #obsidian
 	    hypnotix # TV
+	    keepassxc
 
             # Tools - CLI
+	    imagemagick
 	    libqalculate
             ncdu
 
@@ -63,28 +62,8 @@
 	    memento
 	    #anki-bin
 
-	    # Wayland
-	    wallust # pywal, but mantained.
-	    imv # Image Viewer.
-            wofi # App launcher.
-	    wl-clipboard # Clipboard.
-            swww # Wallpaper.
-            mpvpaper # Video wallpaper.
-            #waybar #eww-wayland # Bar.
-            swayidle # Idle daemon.
-            grim slurp # Screenshot.
-            ripdrag # Drag & Drop.
-            mako libnotify # Notification daemon.
-            wdisplays #wlr-randr #kanshi
-            brightnessctl #brillo
-            #gtklock
-	    #swaylock-effects
-            #wlogout
+	    # Astronomy
+	    stellarium
 	;
-        inherit (pkgs.libsForQt5) polkit-kde-agent; # Authentication Agent
-        inherit (pkgs.libsForQt5.qt5) qtwayland;
-        #inherit (pkgs.qt6) qtwayland; # Qt Wayland Support
-        #inherit (pkgs.xorg) xlsclients; # Check for apps running on xwayland
-        #inherit (pkgs.xfce) xfce4-terminal mousepad;
     };
 }
