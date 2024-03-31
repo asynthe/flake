@@ -47,7 +47,7 @@
 
 	    # move to wm/hyprland.nix
 	    wall = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | xargs ${pkgs.swww}/bin/swww img";
-	    wallp = "${pkgs.fd}/bin/fd .${config.home.homeDirectory}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | tee >(${pkgs.pywal}/bin/wal -i) >(xargs ${pkgs.swww}/bin/swww img)";
+	    wallp = "${pkgs.fd}/bin/fd .${config.home.homeDirectory}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | tee >(${pkgs.wallust}/bin/wallust run) >(xargs ${pkgs.swww}/bin/swww img)";
 	    video = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/video -e mp4 | ${pkgs.skim}/bin/sk | xargs ${pkgs.mpvpaper}/bin/mpvpaper -v -p -o 'loop-file=inf' '*'";
 
 	    # Learning and entertainment
@@ -57,7 +57,7 @@
 	    tv-cl = "${pkgs.mpv}/bin/mpv https://iptv-org.github.io/iptv/countries/jp.m3u";
 
 	    # Nix
-	    update = "nix flake update ${config.xdg.configHome}/yuugen";
+	    update = "nix flake update '${config.home.homeDirectory}/yuugen' && home-manager switch --flake '${config.home.homeDirectory}/yuugen#ben' && sudo nixos-rebuild switch --flake '${config.home.homeDirectory}/yuugen#thinkpad'";
 	    #upgrade = "sudo nixos-rebuild switch --flake ${config.xdg.configHome}/yuugen#thinkpad"; 
 	    #upgrade-home = "home-manager switch --flake ${config.xdg.configHome}/yuugen#ben"; 
 	    upgrade-wsl = "home-manager switch --flake ${config.xdg.configHome}/yuugen#missingno";

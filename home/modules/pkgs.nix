@@ -1,10 +1,11 @@
 { config, pkgs, ... }: {
 
+
     home.packages = builtins.attrValues {
         inherit (pkgs)
 
 	    # Net
-	    bucklespring-libinput # Requires user in `input group`.
+	    bucklespring-libinput # Requires user in `input` group.
 	    netcat-openbsd
 	    socat
 
@@ -15,17 +16,17 @@
 	    pinta
 
             # Shell
-            direnv
-            eza
-            starship
             ueberzugpp
             fd ripgrep
             fzf skim
-            zoxide
-	    wl-clipboard
 
-            # Tools
-	    yt-dlp
+            # Tools - GUI
+	    emacs29-pgtk
+            zathura
+	    #obsidian
+	    hypnotix # TV
+
+            # Tools - CLI
 	    libqalculate
             ncdu
 
@@ -33,12 +34,6 @@
 	    slides
 	    #zoom-us
 	    #slack #slack-cli #slack-term # ?
-
-            # Tools - GUI
-	    emacs29-pgtk
-            zathura
-	    #obsidian
-	    hypnotix # TV
 
             # Tools - Compressing
             zip unzip
@@ -67,6 +62,29 @@
 	    # Japanese
 	    memento
 	    #anki-bin
-        ;
+
+	    # Wayland
+	    wallust # pywal, but mantained.
+	    imv # Image Viewer.
+            wofi # App launcher.
+	    wl-clipboard # Clipboard.
+            swww # Wallpaper.
+            mpvpaper # Video wallpaper.
+            #waybar #eww-wayland # Bar.
+            swayidle # Idle daemon.
+            grim slurp # Screenshot.
+            ripdrag # Drag & Drop.
+            mako libnotify # Notification daemon.
+            wdisplays #wlr-randr #kanshi
+            brightnessctl #brillo
+            #gtklock
+	    #swaylock-effects
+            #wlogout
+	;
+        inherit (pkgs.libsForQt5) polkit-kde-agent; # Authentication Agent
+        inherit (pkgs.libsForQt5.qt5) qtwayland;
+        #inherit (pkgs.qt6) qtwayland; # Qt Wayland Support
+        #inherit (pkgs.xorg) xlsclients; # Check for apps running on xwayland
+        #inherit (pkgs.xfce) xfce4-terminal mousepad;
     };
 }

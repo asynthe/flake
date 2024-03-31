@@ -7,6 +7,7 @@
         ../../secrets/secrets.nix
 	#../../secrets/secrets_custom.nix
 
+        #../../modules/disko/btrfs_persist.nix
 	../../modules/android.nix
         ../../modules/audio.nix
         ../../modules/boot.nix
