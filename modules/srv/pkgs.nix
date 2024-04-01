@@ -5,10 +5,10 @@
             alacritty kitty # Always good to have some extra terminals.
             wget curl
             git # Git must be installed before flakes.
-            cachix
-            tmux
-            neovim
 	    lf
+	    ncdu
+            neovim tmux
+            cachix
         ;
     };
 }

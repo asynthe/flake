@@ -90,6 +90,7 @@
 		pkgs-stable
                 ;
                 username = "ben";
+		device = "/dev/nvme0n1";
             };
             modules = [
                 ./hosts/thinkpad
@@ -108,6 +109,7 @@
 		pkgs-stable
                 ;
                 username = "server";
+		device = "/dev/sda";
             };
             modules = [
                 ./hosts/server
