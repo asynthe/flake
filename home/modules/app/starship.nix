@@ -36,7 +36,7 @@
 	    directory = {
 	        disabled = false;
 		format = "in [$path]($style) ";
-		truncation_length = 3;
+		truncation_length = 2;
 		truncation_symbol = ".../";
 		read_only = "";
 	        substitutions = {

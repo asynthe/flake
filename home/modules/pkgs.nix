@@ -29,6 +29,9 @@
 	    libqalculate
             ncdu
 
+	    curl
+	    jq
+
 	    # Tools - Presenting
 	    slides
 	    #zoom-us
