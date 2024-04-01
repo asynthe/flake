@@ -44,7 +44,7 @@
         ../modules/sys/gtk.nix
         
         # systemd services + timers
-        ../modules/sysd/backup_bookmarks.nix
+        ../modules/sysd/backup_web.nix
         #../modules/sysd/swww_randomize.nix
     ];
 }
