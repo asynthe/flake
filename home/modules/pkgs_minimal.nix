@@ -10,7 +10,6 @@
 	    # GUI
             emacs29-pgtk
 	    zathura
-	    mpv
 
 	    # Test
 	    alacritty kitty

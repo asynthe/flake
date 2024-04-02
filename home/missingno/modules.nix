@@ -3,12 +3,15 @@
         
         ../modules/pkgs_minimal.nix
         ../modules/fonts.nix
+	../modules/sec/pkgs.nix
+	#../modules/sec/home-security-box.nix # Kali ?
 
         # Apps
 	../modules/app/alacritty.nix
         ../modules/app/android.nix # adb + waydroid.
         #../modules/app/bash.nix # bash shell.
 	../modules/app/bat.nix
+	../modules/app/direnv.nix
 	#../modules/app/emacs.nix
 	../modules/app/eza.nix
         ../modules/app/git.nix
@@ -22,6 +25,8 @@
         ../modules/app/ssh.nix
         ../modules/app/starship.nix
         ../modules/app/tmux.nix
+	../modules/app/vscode.nix
+	../modules/app/wayfire.nix
         #../modules/app/wofi.nix
         ../modules/app/yazi.nix
         ../modules/app/zathura.nix
@@ -31,8 +36,6 @@
         # Dev
         ../modules/dev/ai.nix
         #../modules/dev/assembly.nix
-        ../modules/dev/latex.nix
-        #../modules/dev/python.nix # Managed by kali's apt for now.
 
         # System
         ../modules/sys/nix_settings.nix
