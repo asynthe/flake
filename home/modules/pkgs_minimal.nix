@@ -7,14 +7,18 @@
             neovim
             git
 
-	    # GUI
-            emacs29-pgtk
-	    zathura
-
 	    # Test
 	    alacritty kitty
 	    gopass
 	    pass-wayland
+
+	    # GUI
+            emacs29-pgtk
+	    zathura
+
+	    # CLI
+	    htop btop
+	    libqalculate
 
 	    # Compress
 	    zip unzip unar
