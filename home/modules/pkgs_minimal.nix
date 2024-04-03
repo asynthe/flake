@@ -19,6 +19,7 @@
 	    # CLI
 	    htop btop
 	    libqalculate
+	    bc
 
 	    # Compress
 	    zip unzip unar

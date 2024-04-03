@@ -2,8 +2,15 @@
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
-	    #wireshark #wireshark-cli
-	    tshark
+
+	    # Scanning
+	    rustscan
+	    nmap
+
+	    # Networking
+	    wireshark #wireshark-cli
+	    #tshark
+	    macchanger
 	;
 	inherit (pkgs.unixtools)
 	    xxd
