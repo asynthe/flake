@@ -21,16 +21,18 @@
 	sessionVariables = {
 
 	    #TERM = "xterm-256color"; # ?
-	    BROWSER = "firefox";
-	    READER = "zathura";
-	    FILE = "lf";
+	    BROWSER = "librewolf";
 	    EDITOR = "nvim";
+	    FILE = "lf";
+	    READER = "zathura";
 
 	    #GNUPGHOME = "/home/${username}/sync/pass/gpg"; # SECRET
+	    #NIX_SSHOPTS = "-i /path/to/key"; # SECRET
 	    #PASSWORD_STORE_DIR = "/home/${username}/sync/pass/pass" # SECRET
+	    #SOPS_AGE_KEY_FILE  = "/path/to/age/key"; # SECRET
+
 	    #STARSHIP_CONFIG = "/home/${username}/.config/starship/starship.toml"
 	    #WAYFIRE_CONFIG_FILE = "/home/${username}/.config/wayfire/wayfire.ini" # -> wayfire.nix
-
 	};
 
         # Aliases

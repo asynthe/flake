@@ -1,4 +1,4 @@
-{ inputs, pkgs, pkgs-stable, ... }: {
+{ inputs, pkgs, pkgs, ... }: {
 
     nixpkgs.config = {
         allowBroken = true;
@@ -523,13 +523,13 @@
             #unicorn # Disabled because of non-python unicorn.
 	;
 
-	inherit (pkgs-stable.python311Packages)
+	inherit (pkgs.python311Packages)
 	    safety
 	    angr
 
 	;
 
-	inherit (pkgs-stable)
+	inherit (pkgs)
             #cameradar # BROKEN
             #volatility # BROKEN
             #tightvnc # CVE

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, ... }: {
 
     programs.zsh.initExtra = ''
       eval "$(starship init zsh)"

@@ -10,10 +10,4 @@
         enable = true;
         allowSFTP = true;
     };
-
-    # GPG
-    programs.gnupg.agent = {
-        enable = true;
-        pinentryPackage = pkgs.pinentry-curses;
-    };
 }

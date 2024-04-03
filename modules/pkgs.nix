@@ -1,50 +1,48 @@
 { config, pkgs, ... }: {
 
-  environment.systemPackages = builtins.attrValues {
-    inherit (pkgs)
+    environment.systemPackages = builtins.attrValues {
+        inherit (pkgs)
 
-      # Testing
-      vulnix
+            # Testing
+            vulnix
 
-      # Programs
-      alacritty kitty
-      neovim
-      git
+            # Programs
+            alacritty kitty
+            neovim
+            git
 
-      librewolf ungoogled-chromium
-      #tor-browser
+            librewolf ungoogled-chromium
+            #tor-browser
 
-      pavucontrol
-      wget curl
-      killall
-      tree
+            pavucontrol
+            wget curl
+            killall
+            tree
 
-      # Terminal
-      htop
-      tmux #tmuxp
-      lf ueberzugpp
+            # Terminal
+            htop
+            tmux #tmuxp
+            lf ueberzugpp
 
-      # GUI
-      qbittorrent
-      pcmanfm
-      pinta
+            # GUI
+            qbittorrent
+            pcmanfm
+            pinta
 
-      # CLI
-      ffmpeg
-      imagemagick
+            # CLI
+            ffmpeg
+            imagemagick
 
-      # Pass
-      pass-wayland
+            # Pass
+            pass-wayland
 
-      # Music
-      cmus
-      mpd
-      ncmpcpp
-      spotify
+            # Music
+            cmus
+            mpd
+            ncmpcpp
 
-      # Security
-      bleachbit
+            # Security
+            bleachbit
       ;
   };
-
 }

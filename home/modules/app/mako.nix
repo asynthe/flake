@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, ... }: {
 
     services.mako = {
         font = "JetBrains Mono Nerd Font 10";

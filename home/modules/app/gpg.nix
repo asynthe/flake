@@ -3,7 +3,6 @@
     programs.gpg = {
         enable = true;
 	#homedir = "${}" # SECRET
-	#package = ""; # ?
     };
 
     services.gpg-agent = {

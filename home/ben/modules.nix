@@ -8,7 +8,6 @@
                 
         # Apps
 	../modules/app/alacritty.nix
-        ../modules/app/android.nix # adb + waydroid.
         #../modules/app/bash.nix # bash shell.
 	../modules/app/bat.nix
 	../modules/app/direnv.nix

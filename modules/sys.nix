@@ -6,7 +6,7 @@
     fonts.packages = builtins.attrValues {
         inherit (pkgs)
 
-            corefonts
+            #corefonts
             font-awesome
 
             nerdfonts

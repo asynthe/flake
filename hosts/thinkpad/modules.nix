@@ -2,12 +2,7 @@
 
     # new xz update
     services.openssh.enable = lib.mkForce false;
-    #system.replaceRuntimeDependencies = [
-        #{
-	    #original = pkgs.xz;
-	    #replacement = pkgs-staging-next.xz
-	#}
-    #];
+    # And changed to stable.
 
     imports = [
 
@@ -27,7 +22,7 @@
         ../../modules/user.nix
         ../../modules/vpn.nix
 
-        ../../modules/game/steam.nix
+        #../../modules/game/steam.nix
         ../../modules/sys/fstrim.nix
         ../../modules/vm/libvirt.nix
 

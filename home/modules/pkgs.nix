@@ -57,7 +57,7 @@
             bluetuith
 
             # Fun
-            unimatrix
+            #unimatrix
             pipes-rs
             cava cli-visualizer
 

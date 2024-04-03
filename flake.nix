@@ -2,16 +2,17 @@
     description = "asynthe's system flake";
 
     inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable.
-        nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable.
-	#nixpkgs-staging-next.url = "";
+        
+	# Main Inputs
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+        #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
         home-manager.url = "github:nix-community/home-manager"; # Follows nixpkgs unstable.
         home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
+
+	# Other
         impermanence.url = "github:nix-community/impermanence";
-        disko = {
-            url = "github:nix-community/disko";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
+        disko.url = "github:nix-community/disko";
+        disko.inputs.nixpkgs.follows = "nixpkgs";
         sops-nix.url = "github:Mic92/sops-nix";
         musnix.url = "github:musnix/musnix";
 
@@ -23,12 +24,6 @@
             #url = "github:lnl7/nix-darwin";
             #inputs.nixpkgs.follows = "nixpkgs-darwin";
         #};
-
-        #nix-on-droid = {
-            #url = "github:t184256/nix-on-droid/release-23.05";
-            #inputs.nixpkgs.follows = "nixpkgs-stable";
-        #};
-
         #nixos-06cb-009a-fingerprint-sensor = {
             #url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
             #inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +34,6 @@
 
         self,
         nixpkgs,
-	nixpkgs-stable,
         home-manager,
         disko,
         impermanence,
@@ -55,14 +49,9 @@
     
     }: let
 
-        #username = "asynthe";
-        #hostname = "thinknya";
-        #username_mac = "benjamindunstan";
-        #hostname_mac = "Benjis-Macbook";
 	system = "x86_64-linux";
 	lib = nixpkgs.lib;
         pkgs = nixpkgs.legacyPackages.${system};
-	pkgs-stable = nixpkgs-stable.legacyPackages.${system};
   
     in {
 
@@ -73,7 +62,6 @@
             system = "x86_64-linux";
             specialArgs = { inherit
                 inputs
-		pkgs-stable
                 ;
                 username = "ben";
 		device = "/dev/nvme0n1";
@@ -91,8 +79,8 @@
         server = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit
+		pkgs
                 inputs
-		pkgs-stable
                 ;
                 username = "server";
 		device = "/dev/sda";
@@ -102,20 +90,18 @@
 		sops-nix.nixosModules.sops
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
-                musnix.nixosModules.musnix
             ];
 	};
     };
 
     homeConfigurations = {
 
-        # Thinkpad - User
+        # User
         ben = home-manager.lib.homeManagerConfiguration {
             #pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            inherit pkgs;
+	    pkgs = nixpkgs.legacyPackages.${system};
             extraSpecialArgs = { inherit
                 inputs
-		pkgs-stable
                 ;
 	        username = "ben";
             };
@@ -124,13 +110,12 @@
 	    ];
         };
  
-        # WSL - User
+        # WSL
         missingno = home-manager.lib.homeManagerConfiguration {
             #pkgs = nixpkgs.legacyPackages.x86_64-linux;
             inherit pkgs;
 	    extraSpecialArgs = { inherit
 	        inputs
-		pkgs-stable
 	        ;
 	        username = "missingno";
 	    };

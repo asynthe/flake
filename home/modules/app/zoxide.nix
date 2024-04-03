@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, ... }: {
 
     # cd -> zoxide
     programs.zoxide = {
