@@ -17,11 +17,18 @@
 	    zathura
 
 	    # CLI
+	    imagemagick
 	    htop btop
 	    libqalculate
+	    bc
 
 	    # Compress
 	    zip unzip unar
+
+	    # Fun
+	    cava
+	    cli-visualizer
+	    pulseaudioFull
         ;
     };
 }
