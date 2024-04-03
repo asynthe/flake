@@ -1,6 +1,13 @@
-{ 
+{ config, lib, ... }: {
 
-    #thinkpad.secrets.enable = true;
+    # new xz update
+    services.openssh.enable = lib.mkForce false;
+    #system.replaceRuntimeDependencies = [
+        #{
+	    #original = pkgs.xz;
+	    #replacement = pkgs-staging-next.xz
+	#}
+    #];
 
     imports = [
 

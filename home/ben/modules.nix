@@ -22,7 +22,7 @@
 	../modules/app/mpv.nix
 	../modules/app/obs.nix
         ../modules/app/social.nix # Discord, IRC, Signal, Telegram.
-        ../modules/app/ssh.nix
+        #../modules/app/ssh.nix
         ../modules/app/starship.nix
         ../modules/app/tmux.nix
         ../modules/app/vscode.nix

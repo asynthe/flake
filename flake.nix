@@ -4,9 +4,9 @@
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable.
         nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11"; # Stable.
+	#nixpkgs-staging-next.url = "";
         home-manager.url = "github:nix-community/home-manager"; # Follows nixpkgs unstable.
         home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
-
         impermanence.url = "github:nix-community/impermanence";
         disko = {
             url = "github:nix-community/disko";
@@ -15,20 +15,9 @@
         sops-nix.url = "github:Mic92/sops-nix";
         musnix.url = "github:musnix/musnix";
 
-        # WSL
-        nixos-wsl = {
-            url = "github:nix-community/NixOS-WSL";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-        home-manager-wsl.url = "github:viperML/home-manager-wsl";
-
         #nil.url = "github:oxalica/nil";
         #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
         #nix-gaming.url = "github:fufexan/nix-gaming";
-        #helix.url = "github:helix-editor/helix/23.05";
-        #hyprland.url = "github:hyprwm/Hyprland";
-        #rust-overlay.url = "github:oxalica/rust-overlay";
- 
         #nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
         #nix-darwin = {
             #url = "github:lnl7/nix-darwin";
@@ -56,15 +45,12 @@
         impermanence,
         sops-nix,
         musnix,
-        nixos-wsl,
-	home-manager-wsl,
 
         #hyprland,
         #nix-darwin,
         #nixpkgs-wayland,
         #nixos-06cb-009a-fingerprint-sensor,
         #nix-gaming,
-        #nix-on-droid,
         ...
     
     }: let
@@ -94,9 +80,9 @@
             };
             modules = [
                 ./hosts/thinkpad
+		sops-nix.nixosModules.sops
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
-		sops-nix.nixosModules.sops
                 musnix.nixosModules.musnix
             ];
         };
@@ -113,28 +99,12 @@
             };
             modules = [
                 ./hosts/server
+		sops-nix.nixosModules.sops
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
-		sops-nix.nixosModules.sops
                 musnix.nixosModules.musnix
             ];
 	};
-
-	# WSL
-        wsl = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit
-                inputs
-		pkgs-stable
-                ;
-                user = "ben";
-            };
-            modules = [
-                ./hosts/wsl
-                disko.nixosModules.disko
-                nixos-wsl.nixosModules.wsl
-            ];
-        };
     };
 
     homeConfigurations = {
