@@ -57,17 +57,17 @@
 	    };
 
 	    character = {
-		success_symbol = "[ 「](white)";
+		success_symbol = "[「](white)";
                 #success_symbol = "[>ω<〜☆](bold green)";
 
-                error_symbol = "[ >_< [ 「]()](bold red)";
+                error_symbol = "[ >_< [「]()](bold red)";
                 #error_symbol = "[ >_< 「](bold red)";
                 #error_symbol = "[ノ_<](bold red)";
 
-		vimcmd_symbol = "[ 「](white)";
-		vimcmd_replace_symbol = "[ 「](white)";
-		vimcmd_replace_one_symbol = "[ 「](white)";
-		vimcmd_visual_symbol = "[ 「](white)";
+		vimcmd_symbol = "[「](white)";
+		vimcmd_replace_symbol = "[「](white)";
+		vimcmd_replace_one_symbol = "[「](white)";
+		vimcmd_visual_symbol = "[「](white)";
 	    };
 
 	    # Disable the package module, hiding it from the prompt completely
