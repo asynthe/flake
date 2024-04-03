@@ -1,7 +1,7 @@
-{ config, pkgs-stable, username, sops-nix, ... }: {
+{ config, pkgs, username, sops-nix, ... }: {
 
     environment.systemPackages = builtins.attrValues {
-        inherit (pkgs-stable)
+        inherit (pkgs)
 	    age
 	    sops
 	    ssh-to-age

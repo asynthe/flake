@@ -18,10 +18,15 @@
 		class.instance = "Alacritty";
 
 	        dynamic_padding = false;
-	        padding.x = 2;
-	        #padding.x = 20;
+
+		# Small Padding
+		#padding.x = 2;
+		padding.x = 10;
 	        padding.y = 6;
-	        #padding.x = 15;
+
+		# Big Padding
+	        #padding.x = 20;
+	        #padding.y = 15;
 	    };
 
 	    font = {

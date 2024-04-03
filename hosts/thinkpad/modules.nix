@@ -22,7 +22,7 @@
         ../../modules/user.nix
         ../../modules/vpn.nix
 
-        #../../modules/game/steam.nix
+        ../../modules/game/steam.nix
         ../../modules/sys/fstrim.nix
         ../../modules/vm/libvirt.nix
 

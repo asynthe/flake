@@ -27,5 +27,6 @@
             GLFW_IM_MODULE = "ibus";
 	    GTK_IM_MODULE = ""; # ?
         };
+	enableNixpkgsReleaseCheck = false;
     };
 }
