@@ -1,5 +1,26 @@
 { lib, device, inputs, ... }: {
 
+    # Remember this copies files from /persist to where specified.
+    environment.persistence."/persist" = {
+        directories = [
+	    "/etc/NetworkManager/system-connections"
+	    "/etc/nixos"
+	    "/var/lib/bluetooth"
+	    "/var/lib/nixos"
+	    "/var/lib/systemd/coredump"
+	    "/var/lib/tailscale"
+	];
+        files = [
+	    "/etc/machine-id"
+	];
+    };
+
+    fileSystems = {
+        "/persist".neededForBoot = true;
+        "/var/log".neededForBoot = true;
+    };
+
+
     disko.devices = {
 	nodev."/" = {
 	    fsType = "tmpfs";
@@ -53,25 +74,6 @@
                 };
 	    };
         };
-    };
-
-    fileSystems = {
-        "/persist".neededForBoot = true;
-        "/var/log".neededForBoot = true;
-    };
-
-    # Remember this copies files from /persist to where specified.
-    environment.persistence."/persist" = {
-        directories = [
-	    "/etc/nixos"
-	    "/var/lib/bluetooth"
-	    "/var/lib/nixos"
-	    "/var/lib/systemd/coredump"
-	    "/etc/NetworkManager/system-connections"
-	];
-        files = [
-	    "/etc/machine-id"
-	];
     };
 
     security.sudo.extraConfig = ''

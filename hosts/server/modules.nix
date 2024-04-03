@@ -23,11 +23,8 @@
 	#../../modules/nix/srv/systemd/backup_and_compress.nix
 	#../../modules/nix/srv/systemd/qbittorrent.nix
 
-	###### COPIED FROM THINKPAD ######
+	###### MORE SERVICES ######
 	../../modules/sec/clamav.nix
-
-	# virtualization
-	../../modules/vim/libvirt.nix
-
+	../../modules/vm/libvirt.nix
     ];
 }
