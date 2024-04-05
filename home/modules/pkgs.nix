@@ -7,10 +7,11 @@
 	    # Temporary
 	    libreoffice
 	    bucklespring-libinput # Requires user in `input` group.
-	    brave # Brave browser
 	    gimp
 	    barrier # Open-source KVM software.
 	    pinta
+	    brave # Brave browser
+	    tor-browser
 	    # Net
 	    netcat-openbsd
 	    socat

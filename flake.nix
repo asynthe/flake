@@ -41,7 +41,6 @@
         sops-nix,
         musnix,
 
-        #hyprland,
         #nix-darwin,
         #nixpkgs-wayland,
         #nixos-06cb-009a-fingerprint-sensor,
@@ -110,6 +109,7 @@
             };
             modules = [ 
 	        ./home/ben 
+		sops-nix.homeManagerModules.sops
 	    ];
         };
  

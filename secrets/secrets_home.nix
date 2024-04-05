@@ -1,6 +1,6 @@
 { config, pkgs, username, sops-nix, ... }: {
 
-    environment.systemPackages = builtins.attrValues {
+    home.packages = builtins.attrValues {
         inherit (pkgs)
 	    age
 	    sops
@@ -9,20 +9,29 @@
 	;
     };
 
+    # Order home-manager to restart sops-nix service.
+    home.activation.setupEtc = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+      /run/current-system/sw/bin/systemctl start --user sops-nix
+    '';
+
     sops = {
+
+        age.keyFile = "/home/${username}/sync/pass/age/thinkpad";
         defaultSopsFile = ./secrets.yaml;
 	defaultSopsFormat = "yaml";
-        validateSopsFiles = false;
-        age = {
+        
+	#validateSopsFiles = false;
+        #age = {
             # Automatically import host SSH keys as age keys.
-	    sshKeyPaths = [ "/home/${username}/sync/pass/ssh/thinkpad/thinkpad" ];
+	    #sshKeyPaths = [ "/home/${username}/sync/pass/ssh/thinkpad/thinkpad" ];
 
 	    # Use a age key expected to be in filesystem.
-	    keyFile = /home/ben/sync/pass/age/thinkpad;
+	    #keyFile = /home/ben/sync/pass/age/thinkpad;
 
 	    # Generate a key if doesn't exist.
-	    generateKey = true;
-        };
+	    #generateKey = true;
+        #};
+
         secrets = {
             "password/ben" = { };
             "password/server" = { };
