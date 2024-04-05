@@ -5,6 +5,7 @@
         inherit (pkgs)
 
 	    # Temporary
+	    libreoffice
 	    bucklespring-libinput # Requires user in `input` group.
 	    brave # Brave browser
 	    gimp

@@ -26,12 +26,11 @@
 	    FILE = "lf";
 	    READER = "zathura";
 
-	    #GNUPGHOME = "/home/${username}/sync/pass/gpg"; # SECRET
-	    #NIX_SSHOPTS = "-i /path/to/key"; # SECRET
-	    #PASSWORD_STORE_DIR = "/home/${username}/sync/pass/pass" # SECRET
-	    #SOPS_AGE_KEY_FILE  = "/path/to/age/key"; # SECRET
+	    #GNUPGHOME = config.sops.secrets."environment/variables/gpg_home".path;
+	    #NIX_SSHOPTS = config.sops.secrets."environment/variables/nix_sshopts".path;
+	    #PASSWORD_STORE_DIR = config.sops.secrets."environment/variables/pass_dir".path;
+	    #SOPS_AGE_KEY_FILE  = config.sops.secrets."environment/variables/sops_age_key".path;
 
-	    #STARSHIP_CONFIG = "/home/${username}/.config/starship/starship.toml"
 	    #WAYFIRE_CONFIG_FILE = "/home/${username}/.config/wayfire/wayfire.ini" # -> wayfire.nix
 	};
 

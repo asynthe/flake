@@ -31,6 +31,7 @@
         ../../modules/net/ssh/sshfs.nix
 
 	../../modules/driver/acpi.nix
+	../../modules/driver/printer.nix
         ../../modules/net/vpn/mullvad.nix
         ../../modules/sysd/lid_switch.nix # Lid switch action for laptops.
 

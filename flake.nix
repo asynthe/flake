@@ -5,7 +5,7 @@
         
 	# Main Inputs
         nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-        #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
         home-manager.url = "github:nix-community/home-manager"; # Follows nixpkgs unstable.
         home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
 
@@ -34,6 +34,7 @@
 
         self,
         nixpkgs,
+	nixpkgs-unstable,
         home-manager,
         disko,
         impermanence,
@@ -61,6 +62,7 @@
         thinkpad = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit
+	        nixpkgs-unstable
                 inputs
                 ;
                 username = "ben";
@@ -79,7 +81,7 @@
         server = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit
-		pkgs
+	        nixpkgs-unstable
                 inputs
                 ;
                 username = "server";
@@ -101,6 +103,7 @@
             #pkgs = nixpkgs.legacyPackages.x86_64-linux;
 	    pkgs = nixpkgs.legacyPackages.${system};
             extraSpecialArgs = { inherit
+	        nixpkgs-unstable
                 inputs
                 ;
 	        username = "ben";
@@ -115,6 +118,7 @@
             #pkgs = nixpkgs.legacyPackages.x86_64-linux;
             inherit pkgs;
 	    extraSpecialArgs = { inherit
+	        nixpkgs-unstable
 	        inputs
 	        ;
 	        username = "missingno";

@@ -4,6 +4,7 @@
         inherit (pkgs)
 
             # Testing
+	    usbutils
             vulnix
 
             # Programs
