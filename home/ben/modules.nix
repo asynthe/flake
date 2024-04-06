@@ -26,7 +26,7 @@
         #../modules/app/ssh.nix
         ../modules/app/starship.nix
         ../modules/app/tmux.nix
-        ../modules/app/vscode.nix
+        #../modules/app/vscode.nix
         ../modules/app/wayfire.nix
         ../modules/app/wayland.nix
         ../modules/app/wofi.nix

@@ -29,6 +29,9 @@
             libguestfs
             xorriso
 	    virtiofsd
+
+	    iproute2
+	    bridge-utils
         ;
         inherit (pkgs.gnome) adwaita-icon-theme; # Needed if not running gnome.
     };

@@ -1,4 +1,4 @@
-#alias waifu='nsxiv -t ~/main/ベンハミン/ero/3d_girls' # FIXING
+alias waifu='nsxiv -t ~/main/ベンハミン/ero/3d_girls' # FIXING
 #alias waifu-irl='nsxiv -t ~/sync/sys/wallpapers/2d-girls' # FIXING
 #alias wall-anime-random=
 

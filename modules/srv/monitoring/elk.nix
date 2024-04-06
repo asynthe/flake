@@ -1,9 +1,9 @@
 { config, pkgs, ... }: {
 
-    #beats
-    #elastic
-    #kibana
-    #logstash
+    #environment.variables = {
+        #ES_HOME = "/home/${username}/logs/elasticsearch";
+        #ES_JAVA_HOME = "${pkgs.java}"; ?
+    #};
 
     services = {
         elasticsearch = {

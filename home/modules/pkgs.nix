@@ -12,7 +12,9 @@
 	    pinta
 	    brave # Brave browser
 	    tor-browser
-	    # Net
+
+	    # Networking Tools
+	    gns3-gui gns3-server
 	    netcat-openbsd
 	    socat
 

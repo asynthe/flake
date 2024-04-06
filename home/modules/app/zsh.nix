@@ -19,7 +19,6 @@
 
 	# Variables
 	sessionVariables = {
-
 	    #TERM = "xterm-256color"; # ?
 	    BROWSER = "librewolf";
 	    EDITOR = "nvim";
@@ -29,7 +28,6 @@
 
         # Aliases
         shellAliases = {
-
 	    py = "python3";
 	    pdf = "zathura";
 
@@ -46,8 +44,7 @@
 	    book = "${pkgs.fd}/bin/fd . ~/sync/archive/book --type f -e 'pdf' -e 'epub' | ${pkgs.skim}/bin/sk | xargs zathura";
 	    rickroll = "${pkgs.curl}/bin/curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master.roll.sh | ${pkgs.bash}/bin/bash";
 	    tv-jp = "${pkgs.mpv}/bin/mpv https://iptv-org.github.io/iptv/countries/jp.m3u";
-	    tv-cl = "${pkgs.mpv}/bin/mpv https://iptv-org.github.io/iptv/countries/jp.m3u";
-	    # TEST
+	    tv-cl = "${pkgs.mpv}/bin/mpv https://iptv-org.github.io/iptv/countries/cl.m3u";
 
 	    # Nix
 	    update = "nix flake update '${config.home.homeDirectory}/yuugen' && home-manager switch --flake '${config.home.homeDirectory}/yuugen#ben' && sudo nixos-rebuild switch --flake '${config.home.homeDirectory}/yuugen#thinkpad'";

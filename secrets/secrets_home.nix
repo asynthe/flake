@@ -10,12 +10,17 @@
     };
 
     programs.zsh = {
-        #sessionVariables = {
-            #GNUPGHOME = config.sops.secrets."environment/variables/gpg_home".path; # SECRET
-	    #NIX_SSHOPTS = config.sops.secrets."environment/variables/nix_sshopts".path; # SECRET
-	    #PASSWORD_STORE_DIR = config.sops.secrets."environment/variables/pass_dir".path; # SECRET
-	    #SOPS_AGE_KEY_FILE  = config.sops.secrets."environment/variables/sops_age_key".path; # SECRET
-	#};
+        sessionVariables = {
+            GNUPGHOME = "/home/${username}/sync/pass/gpg";
+	    NIX_SSHOPTS = "-i /home/${username}/sync/pass/ssh/thinkpad/thinkpad";
+	    PASSWORD_STORE_DIR = "/home/${username}/sync/pass/pass";
+	    SOPS_AGE_KEY_FILE  = "/home/${username}/sync/age/thinkpad";
+
+            #GNUPGHOME = config.sops.secrets."environment/variables/gpg_home".path;
+	    #NIX_SSHOPTS = config.sops.secrets."environment/variables/nix_sshopts".path;
+	    #PASSWORD_STORE_DIR = config.sops.secrets."environment/variables/pass_dir".path;
+	    #SOPS_AGE_KEY_FILE  = config.sops.secrets."environment/variables/sops_age_key".path;
+	};
 	shellAliases = {
 	    ssh = "ssh -i ${config.home.homeDirectory}/sync/pass/ssh/thinkpad/thinkpad"; # SECRET
 	};
@@ -53,10 +58,10 @@
             "password/server" = { };
 	    "private_key/thinkpad" = { };
 	    "private_key/server" = { };
-	    "environment/variables/gpg_home" = { sopsFile = ./secrets.yaml; };
-	    "environment/variables/nix_sshopts" = { sopsFile = ./secrets.yaml; };
-	    "environment/variables/pass_dir" = { sopsFile = ./secrets.yaml; };
-	    "environment/variables/sops_age_key" = { sopsFile = ./secrets.yaml; };
+	    "environment/variables/gpg_home" = { };
+	    "environment/variables/nix_sshopts" = { };
+	    "environment/variables/pass_dir" = { };
+	    "environment/variables/sops_age_key" = { };
         };
     };
 }
