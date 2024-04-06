@@ -1,0 +1,9 @@
+#+title: Gentoo Configuration
+#+author: Benjamin Dunstan
+
+asd
+as
+d
+as
+d
+a

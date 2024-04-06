@@ -1,22 +1,27 @@
 { config, pkgs, ... }: {
 
+    #beats
+    #elastic
+    #kibana
+    #logstash
+
     services = {
         elasticsearch = {
             enable = true;
-            #dataDir = ;
-            #package = ;
-            #port = ;
-            #tcp_port = ;
-            #logging = ;
-            #listenAddress = ;
-            #plugins = ;
+            #ca = ;
+            #cert = ;
+            #certificateAuthorities = ;
             #cluster_name = ;
+            #dataDir = ;
             #extraCmdLineOptions = ;
             #extraConf = ;
-            #cert = ;
-            #ca = ;
+            #listenAddress = ;
+            #logging = ;
+            #package = ;
+            #plugins = ;
+            #port = ;
+            #tcp_port = ;
             #url = ;
-            #certificateAuthorities = ;
 	};
 
         #kibana = {
@@ -31,5 +36,16 @@
             #extraConf = ;
             #key = ;
         #};
+
+	logstash = {
+	    enable = true;
+	    #package = ;
+	    #outputConfig = ;
+	    #inputConfig = ;
+	    #filterConfig = ;
+	    #plugins = ;
+	    #dataDir = ;
+	    #port = ;
+	};
     };
 }

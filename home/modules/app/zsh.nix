@@ -25,17 +25,11 @@
 	    EDITOR = "nvim";
 	    FILE = "lf";
 	    READER = "zathura";
-
-	    GNUPGHOME = config.sops.secrets."environment/variables/gpg_home".path; # SECRET
-	    NIX_SSHOPTS = config.sops.secrets."environment/variables/nix_sshopts".path; # SECRET
-	    PASSWORD_STORE_DIR = config.sops.secrets."environment/variables/pass_dir".path; # SECRET
-	    SOPS_AGE_KEY_FILE  = config.sops.secrets."environment/variables/sops_age_key".path; # SECRET
 	};
 
         # Aliases
         shellAliases = {
 
-	    ssh = "ssh -i ${config.home.homeDirectory}/sync/pass/ssh/wsl/wsl"; # SECRET
 	    py = "python3";
 	    pdf = "zathura";
 
