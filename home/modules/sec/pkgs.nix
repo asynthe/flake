@@ -4,13 +4,23 @@
         inherit (pkgs)
 
 	    # Scanning
-	    rustscan
+	    masscan	
 	    nmap
+	    rustscan
 
 	    # Networking
-	    wireshark #wireshark-cli
-	    #tshark
+	    arp-scan
 	    macchanger
+	    netcat-openbsd
+	    socat
+	    tcpdump
+	    #tshark
+	    wireshark #wireshark-cli
+
+	    # Tools
+	    bc
+	    curl
+	    jq
 	;
 	inherit (pkgs.unixtools)
 	    xxd

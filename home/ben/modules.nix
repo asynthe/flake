@@ -42,7 +42,7 @@
 
 	# System
         ../modules/sys/nix_settings.nix
-        ../modules/sys/gtk.nix
+        ../modules/sys/theme.nix
         
         # systemd services + timers
         ../modules/sysd/backup_web.nix

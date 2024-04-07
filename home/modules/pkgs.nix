@@ -4,37 +4,30 @@
     home.packages = builtins.attrValues {
         inherit (pkgs)
 
-	    # Temporary
-	    libreoffice
-	    bucklespring-libinput # Requires user in `input` group.
-	    gimp
-	    barrier # Open-source KVM software.
-	    pinta
-	    brave # Brave browser
-	    tor-browser
-
 	    # Networking Tools
 	    gns3-gui gns3-server
-	    netcat-openbsd
-	    socat
+
+	    # Temporary
+	    bucklespring-libinput # Requires user in `input` group.
+	    barrier # Open-source KVM software.
+	    pinta
+	    tor-browser
 
             # Shell
             fd ripgrep
             fzf skim
 
             # Tools - GUI
-	    emacs29-pgtk
 	    #obsidian
+	    emacs29-pgtk
 	    hypnotix # TV
 	    keepassxc
+	    libreoffice
 
             # Tools - CLI
 	    imagemagick
 	    libqalculate
             ncdu
-
-	    curl
-	    jq
 
 	    # Tools - Presenting
 	    slides
@@ -42,32 +35,32 @@
 	    #slack #slack-cli #slack-term # ?
 
             # Tools - Compressing
-            zip unzip
-            unar # Unzipping with Unicode characters.
-	    p7zip
-	    #xz
+	    #mdf2iso
 	    #rar #unrar #rar2fs
 	    #torrent7z
-	    #mdf2iso
+	    #xz
+	    p7zip
+            unar # Unzipping with Unicode characters.
+            zip unzip
 
 	    # Tools - Partitioning / Formatting
+	    #etcher
 	    gparted
 	    ventoy-full #ventoy
-	    #etcher
 
             # Bluetooth
+            bluetuith
             bluez
             bluez-tools
-            bluetuith
 
             # Fun
             #unimatrix
-            pipes-rs
             cava cli-visualizer
+            pipes-rs
 
 	    # Japanese
-	    memento
 	    #anki-bin
+	    memento
 
 	    # Astronomy
 	    stellarium
