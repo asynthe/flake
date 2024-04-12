@@ -40,8 +40,9 @@
         #../modules/game/tools.nix
 
 	# System
-        ../modules/sys/nix_settings.nix
+        ../modules/sys/settings.nix
         ../modules/sys/theme.nix
+        ../modules/sys/var.nix
         
         # systemd services + timers
         ../modules/sysd/backup_web.nix
