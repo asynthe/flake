@@ -4,7 +4,6 @@
         ../../secrets/secrets_home.nix
 
         ../modules/pkgs.nix
-        ../modules/fonts.nix
 	../modules/sec/pkgs.nix
 	#../modules/sec/home-security-box.nix
                 

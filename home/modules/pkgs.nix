@@ -1,7 +1,10 @@
-{ config, pkgs, ... }: {
-
+{ config, pkgs, pkgs-unstable, ... }: {
 
     home.packages = builtins.attrValues {
+        inherit (pkgs-unstable)
+	    ciscoPacketTracer8
+	    unimatrix
+	;
         inherit (pkgs)
 
 	    # Networking Tools
@@ -18,9 +21,8 @@
             fzf skim
 
             # Tools - GUI
-	    #obsidian
 	    emacs29-pgtk
-	    hypnotix # TV
+	    hypnotix
 	    keepassxc
 	    libreoffice
 
@@ -57,6 +59,8 @@
             #unimatrix
             cava cli-visualizer
             pipes-rs
+	    figlet
+	    lolcat
 
 	    # Japanese
 	    #anki-bin

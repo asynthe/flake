@@ -1,13 +1,6 @@
 { config, pkgs, ... }: {
 
     home = {
-        packages = builtins.attrValues {
-            inherit (pkgs)
-	        adwaita-qt
-	        dconf
-	    ;
-        };
-
         pointerCursor = {
             gtk.enable = true;
             package = pkgs.capitaine-cursors;
@@ -17,33 +10,36 @@
         };
     };
 
-    dconf = {
-        enable = true;
-	settings = {
-	    "org/gnome/desktop/interface" = {
-	        color-scheme = "prefer-dark";
-	    };
-	};
-    };
-
     gtk = {
         enable = true;
         theme = {
-	    name = "adwaita-dark";
-	    package = pkgs.adwaita-qt;
-            #name = "Materia-dark";
-            #package = pkgs.materia-theme;
+            name = "Materia-dark";
+            package = pkgs.materia-theme;
+	    #name = "Adwaita-dark";
+	    #package = pkgs.adwaita-qt;
         };
     };
 
     qt = {
         enable = true;
 	platformTheme = "gtk";
-	style = {
-	    name = "adwaita-dark";
-	    package = pkgs.adwaita-qt;
-            #name = "Materia-dark";
-            #package = pkgs.materia-theme;
-	};
+    };
+
+    dconf.enable = true;
+    fonts.fontconfig.enable = true;
+    home.packages = builtins.attrValues {
+        inherit (pkgs)
+
+	    #corefonts
+	    font-awesome
+	    nerdfonts
+
+	    # Japanese
+	    ipafont
+	    kochi-substitute
+	    noto-fonts
+	    noto-fonts-cjk
+	    noto-fonts-emoji
+	;
     };
 }

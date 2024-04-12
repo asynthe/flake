@@ -41,7 +41,7 @@
 	    video = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/video -e mp4 | ${pkgs.skim}/bin/sk | xargs ${pkgs.mpvpaper}/bin/mpvpaper -v -p -o 'loop-file=inf' '*'";
 
 	    # Learning and entertainment
-	    book = "${pkgs.fd}/bin/fd . ~/sync/archive/book --type f -e 'pdf' -e 'epub' | ${pkgs.skim}/bin/sk | xargs zathura";
+	    book = "${pkgs.fd}/bin/fd . ~/sync/study/book --type f -e 'pdf' -e 'epub' | ${pkgs.skim}/bin/sk | xargs zathura";
 	    rickroll = "${pkgs.curl}/bin/curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master.roll.sh | ${pkgs.bash}/bin/bash";
 	    tv-jp = "${pkgs.mpv}/bin/mpv https://iptv-org.github.io/iptv/countries/jp.m3u";
 	    tv-cl = "${pkgs.mpv}/bin/mpv https://iptv-org.github.io/iptv/countries/cl.m3u";

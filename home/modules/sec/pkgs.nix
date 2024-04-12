@@ -1,7 +1,14 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, pkgs-unstable, ... }: {
 
     home.packages = builtins.attrValues {
+        inherit (pkgs-unstable)
+	    tshark
+	;
         inherit (pkgs)
+
+	    # CLI
+	    lsof
+	    usbutils
 
 	    # Scanning
 	    masscan	
@@ -15,7 +22,7 @@
 	    socat
 	    tcpdump
 	    #tshark
-	    wireshark #wireshark-cli
+	    #wireshark #wireshark-cli
 
 	    # Tools
 	    bc
