@@ -1,4 +1,4 @@
-{ lib, device, inputs, ... }: {
+{ device, ... }: {
 
     # Remember this copies files from /persist to where specified.
     environment.persistence."/persist" = {
