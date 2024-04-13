@@ -3,6 +3,12 @@
     sops.secrets."password/server".neededForUsers = true;
     users.mutableUsers = false; # Required for passwords set by sops.
 
+    users.users.testing = {
+        isNormalUser = true;
+	initialPassword = "meow123";
+	extraGroups = [ "wheel" ];
+    };
+
     users.users = {
         ${username} = {
             isNormalUser = true;
