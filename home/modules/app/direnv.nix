@@ -16,7 +16,9 @@
     };
 
     programs.zsh = lib.mkIf config.programs.direnv.enableZshIntegration {
-        initExtra =  
-          ''eval "$(direnv hook zsh)"'';
+        initExtra = ''
+	  eval "$(direnv hook zsh)"
+	  export DIRENV_LOG_FORMAT=""
+	'';
     };
 }

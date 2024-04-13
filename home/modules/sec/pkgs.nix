@@ -17,12 +17,16 @@
 
 	    # Networking
 	    arp-scan
+	    netdiscover
 	    macchanger
 	    netcat-openbsd
 	    socat
 	    tcpdump
 	    #tshark
 	    #wireshark #wireshark-cli
+
+	    # Recon
+	    gobuster
 
 	    # Tools
 	    bc

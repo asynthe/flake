@@ -3,6 +3,7 @@
     home.packages = builtins.attrValues {
         inherit (pkgs)
 	    git
+	    bfg-repo-cleaner
 	;
     };
 

@@ -13,8 +13,10 @@
 	    # Temporary
 	    bucklespring-libinput # Requires user in `input` group.
 	    barrier # Open-source KVM software.
-	    pinta
 	    tor-browser
+
+	    gimp pinta
+	    img2pdf
 
             # Shell
             fd ripgrep
@@ -27,7 +29,7 @@
 	    libreoffice
 
             # Tools - CLI
-	    imagemagick
+	    imagemagickBig #imagemagick
 	    libqalculate
             ncdu
 
