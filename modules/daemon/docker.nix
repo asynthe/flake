@@ -15,9 +15,9 @@
         #setSocketVariable = true;
     #};
 
-    environment.systemPackages = builtins.attrValues {
-        inherit (pkgs) 
-            docker-compose
-	;
-    };
+    #environment.systemPackages = builtins.attrValues {
+        #inherit (pkgs) 
+            #docker-compose
+	#;
+    #};
 }

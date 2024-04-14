@@ -15,9 +15,6 @@
 	    barrier # Open-source KVM software.
 	    tor-browser
 
-	    gimp pinta
-	    img2pdf
-
             # Shell
             fd ripgrep
             fzf skim
@@ -27,11 +24,13 @@
 	    hypnotix
 	    keepassxc
 	    libreoffice
+	    gimp pinta
 
             # Tools - CLI
 	    imagemagickBig #imagemagick
 	    libqalculate
             ncdu
+	    img2pdf
 
 	    # Tools - Presenting
 	    slides
