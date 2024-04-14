@@ -6,6 +6,18 @@
 	;
         inherit (pkgs)
 
+	    # Image
+	    exiftool
+
+	    # Assess
+	    seclists
+	    wfuzz
+	    whatweb
+	    ffuf
+
+	    # Proxy
+	    burpsuite
+
 	    # CLI
 	    lsof
 	    usbutils
