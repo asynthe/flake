@@ -6,7 +6,6 @@
     nsxiv # Image viewer
     nitrogen
     picom-jonaburg
-
     ;
   };
 

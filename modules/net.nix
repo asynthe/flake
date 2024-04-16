@@ -3,6 +3,7 @@
     networking = {
        networkmanager.enable = true; # NetworkManager.
        #wireless.enable = true; # wpa_supplicant.
+       firewall.enable = false;
     };
 
     # SSH

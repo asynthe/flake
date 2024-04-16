@@ -1,18 +1,5 @@
 { pkgs, ... }: {
 
-  #programs.zsh = {
-  #enable = true;
-  #enableAutosuggestions = true;
-  #syntaxHighlighting = {
-  #enable = true;
-  #styles = ;
-  #package = ;
-  #};
-  #initExtra = ''
-  #bindkey '^f' autosuggest-accept
-  #'';
-  #};
-
   # Packages
   home.packages = builtins.attrValues {
     inherit
@@ -27,12 +14,6 @@
       powershell
       nushell
       nu_scripts
-
-      # Replacements
-      bat # for cat
-      eza # for ls
-      zoxide # for cd
-      fd # for find
       
       # Tools
       starship
@@ -41,8 +22,6 @@
       neovim #vim
       skim #fzf
 
-      # From other note
-      
       # Apps
       lf
       ueberzugpp # file manager

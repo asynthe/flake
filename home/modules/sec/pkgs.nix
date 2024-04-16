@@ -3,6 +3,7 @@
     home.packages = builtins.attrValues {
         inherit (pkgs-unstable)
 	    tshark
+	    burpsuite
 	;
         inherit (pkgs)
 
@@ -16,7 +17,7 @@
 	    ffuf
 
 	    # Proxy
-	    burpsuite
+	    #burpsuite
 
 	    # CLI
 	    lsof

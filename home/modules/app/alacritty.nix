@@ -4,7 +4,7 @@
         enable = true;
 	settings = {
 	    env.TERM = "xterm-256color";
-	    live_config_reload = true;
+	    #live_config_reload = true;
 
 	    cursor = {
 	        style = "Block";
@@ -12,7 +12,8 @@
 	    };
 
 	    window = {
-		opacity = 0.80;
+		opacity = 1;
+		#opacity = 0.80;
 		title = "Alacritty";
 		class.general = "Alacritty";
 		class.instance = "Alacritty";

@@ -14,10 +14,7 @@
 	    bucklespring-libinput # Requires user in `input` group.
 	    barrier # Open-source KVM software.
 	    tor-browser
-
-            # Shell
-            fd ripgrep
-            fzf skim
+	    brave
 
             # Tools - GUI
 	    emacs29-pgtk
@@ -26,7 +23,12 @@
 	    libreoffice
 	    gimp pinta
 
+            # CLI
+            fd ripgrep
+            fzf skim
+
             # Tools - CLI
+	    hyperfine
 	    imagemagickBig #imagemagick
 	    libqalculate
             ncdu
@@ -68,6 +70,8 @@
 	    memento
 
 	    # Astronomy
+	    #celestia
+	    #libnova
 	    stellarium
 	;
     };

@@ -13,7 +13,6 @@
       bless
       hexedit
       hexyl # Hex editor
-      libqalculate # Where to put?
       btop
       
       # Terminals
@@ -26,17 +25,7 @@
       librewolf #librewolf-unwrapped
       mullvad-browser
       #ungoogled-chromium #chromium # Already on default list.
-
-      # Torrents
-      #aria #ariang
-      qbittorrent #qbittorrent-nox
-      #radarr #lidarr #sonarr
       
-      # Astronomy
-      stellarium
-      celestia
-      libnova
-
       # Archives
       zip unzip 
       unar # Allows for unzipping with Unicode characters.
