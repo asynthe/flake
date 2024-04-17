@@ -42,7 +42,7 @@
 	# System
         ../modules/sys/settings.nix
         ../modules/sys/theme.nix
-        ../modules/sys/uutils-replace.nix
+        #../modules/sys/uutils-replace.nix
         ../modules/sys/var.nix
         
         # systemd services + timers

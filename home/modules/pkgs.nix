@@ -2,7 +2,7 @@
 
     home.packages = builtins.attrValues {
         inherit (pkgs-unstable)
-	    ciscoPacketTracer8
+	    #ciscoPacketTracer8
 	    unimatrix
 	;
         inherit (pkgs)
