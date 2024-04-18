@@ -2,7 +2,6 @@
     imports = [
         
         ../modules/pkgs_minimal.nix
-        ../modules/fonts.nix
 	../modules/sec/pkgs.nix
 	#../modules/sec/home-security-box.nix # Kali ?
 
@@ -33,11 +32,10 @@
         ../modules/app/zoxide.nix
         ../modules/app/zsh.nix
 
-        # Dev
-        ../modules/dev/ai.nix
-        #../modules/dev/assembly.nix
-
         # System
-        ../modules/sys/nix_settings.nix
+        ../modules/sys/settings.nix
+	../modules/sys/theme.nix
+	#../modules/sys/uutils-replace.nix
+	../modules/sys/var.nix
     ];
 }
