@@ -1,11 +1,11 @@
 { config, pkgs, ... }: {
 
-    home.packages = builtins.attrValues {
-        inherit (pkgs)
-	    pinentry
-	    pinentry-curses
-	;
-    };
+    #home.packages = builtins.attrValues {
+        #inherit (pkgs)
+	    #pinentry
+	    #pinentry-curses
+	#;
+    #};
 
     programs.gpg = {
         enable = true;

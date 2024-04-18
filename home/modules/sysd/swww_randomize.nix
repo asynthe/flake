@@ -1,7 +1,7 @@
-{ config, pkgs, lib, username, ... }:
+{ config, pkgs, lib, user, ... }:
 
 let
-    wallpaper_dir = "/home/${username}/sync/archive/wallpaper/img/favourite";
+    wallpaper_dir = "/home/${user}/sync/archive/wallpaper/img/favourite";
     script = pkgs.writeShellApplication {
         name = "swww_randomize.sh";
 	runtimeInputs = with pkgs; [ bash swww ];

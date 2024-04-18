@@ -4,15 +4,15 @@
     inputs = {
         
 	# Main Inputs
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-        nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
         home-manager.url = "github:nix-community/home-manager";
         home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
 
 	# Other
 	nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-        disko.inputs.nixpkgs.follows = "nixpkgs";
         disko.url = "github:nix-community/disko";
+        disko.inputs.nixpkgs.follows = "nixpkgs";
         impermanence.url = "github:nix-community/impermanence";
         musnix.url = "github:musnix/musnix";
         sops-nix.url = "github:Mic92/sops-nix";
@@ -35,7 +35,7 @@
 
         self,
         nixpkgs,
-	nixpkgs-unstable,
+	nixpkgs-stable,
         home-manager,
 
 	nixos-wsl,
@@ -54,7 +54,7 @@
 	system = "x86_64-linux";
 	lib = nixpkgs.lib;
         pkgs = nixpkgs.legacyPackages.${system};
-        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+        pkgs-stable = nixpkgs-stable.legacyPackages.${system};
   
     in {
 
@@ -64,10 +64,10 @@
         thinkpad = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit
-	        pkgs-unstable
+	        pkgs-stable
                 inputs
                 ;
-                username = "ben";
+                user = "ben";
 		device = "/dev/nvme0n1";
             };
             modules = [
@@ -83,10 +83,10 @@
         server = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit
-	        pkgs-unstable
+	        pkgs-stable
                 inputs
                 ;
-                username = "server";
+                user = "server";
 		device = "/dev/sda";
             };
             modules = [
@@ -101,7 +101,7 @@
         wsl = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit
-	        pkgs-unstable
+	        pkgs-stable
                 inputs
                 ;
                 user = "missingno";
@@ -121,10 +121,10 @@
             #pkgs = nixpkgs.legacyPackages.x86_64-linux;
 	    pkgs = nixpkgs.legacyPackages.${system};
             extraSpecialArgs = { inherit
-	        pkgs-unstable
+	        pkgs-stable
                 inputs
                 ;
-	        username = "ben";
+	        user = "ben";
             };
             modules = [ 
 	        ./home/ben 
@@ -137,10 +137,10 @@
             #pkgs = nixpkgs.legacyPackages.x86_64-linux;
             inherit pkgs;
 	    extraSpecialArgs = { inherit
-	        pkgs-unstable
+	        pkgs-stable
 	        inputs
 	        ;
-	        username = "missingno";
+	        user = "missingno";
 	    };
 	    modules = [
 	        ./home/missingno

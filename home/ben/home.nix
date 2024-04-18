@@ -1,10 +1,10 @@
-{ config, username, ... }: {
+{ config, user, ... }: {
 
     programs.home-manager.enable = true;
 
     home = {
-        username = username;
-        homeDirectory = "/home/${username}";
+        username = user;
+        homeDirectory = "/home/${user}";
         stateVersion = "23.11";
         sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
     };

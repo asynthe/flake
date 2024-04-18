@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }: {
+{ config, pkgs, user, ... }: {
 
     programs.zsh = {
         enable = true;
@@ -6,8 +6,8 @@
 
 	# No comments...
 	dotDir = ".config/zsh";
-	#dotDir = "${username}";
-	#dotDir = "/home/${username}/.config/zsh";
+	#dotDir = "${user}";
+	#dotDir = "/home/${user}/.config/zsh";
 	#dotDir = "${config.xdg.configHome}/zsh";
 
 	# Configuration

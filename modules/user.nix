@@ -1,9 +1,9 @@
-{ config, pkgs, username, sops-nix, ... }: {
+{ config, pkgs, user, sops-nix, ... }: {
 
     sops.secrets."password/ben".neededForUsers = true;
     users.mutableUsers = false; # Required for passwords set by sops.
 
-    users.users.${username} = {
+    users.users.${user} = {
         shell = pkgs.zsh;
         isNormalUser = true;
         description = "にゃ！";

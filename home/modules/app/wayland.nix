@@ -3,6 +3,9 @@
     home.packages = builtins.attrValues {
         inherit (pkgs)
 
+	    flameshot # Screenshot.
+            grim slurp # Screenshot.
+
 	    wallust # pywal, but mantained.
 	    imv # Image Viewer.
             wofi # App launcher.
@@ -11,7 +14,6 @@
             mpvpaper # Video wallpaper.
             waybar #eww-wayland # Bar.
             swayidle # Idle daemon.
-            grim slurp # Screenshot.
             ripdrag # Drag & Drop.
             mako libnotify # Notification daemon.
             wdisplays #wlr-randr #kanshi

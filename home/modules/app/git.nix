@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }: {
+{ config, pkgs, user, ... }: {
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
@@ -11,7 +11,7 @@
         #enable = true;
 	#userEmail = "person@email.com"; # SECRET
 	#userName = "kali-wsl";
-	#userName = "${username}"
+	#userName = "${user}"
 	#extraConfig = ''
 	    #git config --global core.sshCommand 'ssh -i <path/to/ssh> # SECRET
 	#'';

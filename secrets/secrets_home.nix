@@ -1,4 +1,4 @@
-{ config, pkgs, username, sops-nix, ... }: {
+{ config, pkgs, user, sops-nix, ... }: {
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
@@ -11,10 +11,10 @@
 
     programs.zsh = {
         sessionVariables = {
-            GNUPGHOME = "/home/${username}/sync/pass/gpg";
-	    NIX_SSHOPTS = "-i /home/${username}/sync/pass/ssh/thinkpad/thinkpad";
-	    PASSWORD_STORE_DIR = "/home/${username}/sync/pass/pass";
-	    SOPS_AGE_KEY_FILE  = "/home/${username}/sync/age/thinkpad";
+            GNUPGHOME = "/home/${user}/sync/pass/gpg";
+	    NIX_SSHOPTS = "-i /home/${user}/sync/pass/ssh/thinkpad/thinkpad";
+	    PASSWORD_STORE_DIR = "/home/${user}/sync/pass/pass";
+	    SOPS_AGE_KEY_FILE  = "/home/${user}/sync/age/thinkpad";
 
             #GNUPGHOME = config.sops.secrets."environment/variables/gpg_home".path;
 	    #NIX_SSHOPTS = config.sops.secrets."environment/variables/nix_sshopts".path;
@@ -33,7 +33,7 @@
 
     sops = {
 
-        age.keyFile = "/home/${username}/sync/pass/age/thinkpad";
+        age.keyFile = "/home/${user}/sync/pass/age/thinkpad";
         defaultSopsFile = ./secrets.yaml;
 	defaultSopsFormat = "yaml";
 
@@ -44,7 +44,7 @@
 	#validateSopsFiles = false;
         #age = {
             # Automatically import host SSH keys as age keys.
-	    #sshKeyPaths = [ "/home/${username}/sync/pass/ssh/thinkpad/thinkpad" ];
+	    #sshKeyPaths = [ "/home/${user}/sync/pass/ssh/thinkpad/thinkpad" ];
 
 	    # Use a age key expected to be in filesystem.
 	    #keyFile = /home/ben/sync/pass/age/thinkpad;

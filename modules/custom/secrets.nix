@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, sops-nix, ... }: 
+{ config, lib, pkgs, user, sops-nix, ... }: 
 
 with lib;
 let
@@ -11,13 +11,13 @@ in {
     # Custom Options
     config = mkMerge [
         (mkIf (cfg_server.enable) { 
-	    sops.age.sshKeyPaths = [ "/home/${username}/sync/pass/ssh/server/server" ];
-	    sops.age.keyFile = /home/${username}/sync/pass/age/ben.txt;
+	    sops.age.sshKeyPaths = [ "/home/${user}/sync/pass/ssh/server/server" ];
+	    sops.age.keyFile = /home/${user}/sync/pass/age/ben.txt;
             # Here environment variable that sets SOPS_AGE_FILE
 	})
 	(mkIf (cfg_thinkpad.enable) { 
-	    sops.age.sshKeyPaths = [ "/home/${username}/sync/pass/ssh/thinkpad/thinkpad" ];
-	    sops.age.keyFile = /home/${username}/sync/pass/age/ben.txt;
+	    sops.age.sshKeyPaths = [ "/home/${user}/sync/pass/ssh/thinkpad/thinkpad" ];
+	    sops.age.keyFile = /home/${user}/sync/pass/age/ben.txt;
             # Here environment variable that sets SOPS_AGE_FILE
 	})
     ];

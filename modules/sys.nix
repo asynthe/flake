@@ -1,5 +1,6 @@
 { config, pkgs, ... }: {
 
+    services.gvfs.enable = true; # Needed for almost all file explorers.
     environment.binsh = "${pkgs.dash}/bin/dash"; # Change sh for dash.
 
     # Fonts

@@ -1,4 +1,4 @@
-{ config, username, ... }: {
+{ config, user, ... }: {
 
     services.mpd = {
         enable = true;
@@ -24,8 +24,8 @@
     # OLD FROM DOWN HERE ! - DELETE
     #services.mpd = {
         #enable = true;
-        #user = "${username}";
-        #musicDirectory = "/home/${username}/music";
+        #user = "${user}";
+        #musicDirectory = "/home/${user}/music";
         #extraConfig = ''
         #  audio_output {
         #  type "pipewire"
@@ -38,7 +38,7 @@
     #services.mpd = {
        #enable = true;
        #musicDirectory = "/home/ben/music";
-       #musicDirectory = "/home/${username}/music";
+       #musicDirectory = "/home/${user}/music";
        #network.startWhenNeeded = false; # Socket activation.
        #extraConfig = ''
 

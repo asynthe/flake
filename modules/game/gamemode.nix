@@ -1,7 +1,7 @@
-{ config, username, ... }: {
+{ config, user, ... }: {
 
     # Better performance on games. Use with `gamemoderun`.
-    users.users.${username}.extraGroups = [ "gamemode" ];
+    users.users.${user}.extraGroups = [ "gamemode" ];
     programs.gamemode = {
         enable = true;
 	enableRenice = true;

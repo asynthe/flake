@@ -1,13 +1,15 @@
-{ config, pkgs, pkgs-unstable, ... }: {
+{ config, pkgs, pkgs-stable, ... }: {
 
     home.packages = builtins.attrValues {
-        inherit (pkgs-unstable)
-	    #ciscoPacketTracer8
-	    unimatrix
+        inherit (pkgs-stable)
+
+	    # ...
+
 	;
         inherit (pkgs)
 
 	    # Networking Tools
+	    ciscoPacketTracer8
 	    gns3-gui gns3-server
 
 	    # Temporary
@@ -59,11 +61,11 @@
             bluez-tools
 
             # Fun
-            #unimatrix
-            cava cli-visualizer
-            pipes-rs
 	    figlet
 	    lolcat
+	    unimatrix
+            cava cli-visualizer
+            pipes-rs
 
 	    # Japanese
 	    #anki-bin

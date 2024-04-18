@@ -1,6 +1,6 @@
-{ config, username, ... }: {
+{ config, user, ... }: {
 
-    users.extraGroups.vboxusers.members = [ "${username}" ];
+    users.extraGroups.vboxusers.members = [ "${user}" ];
     virtualisation.virtualbox = {
         # Host Configuration
         host = {

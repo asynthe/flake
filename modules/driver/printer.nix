@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }: {
+{ config, pkgs, user, ... }: {
 
     environment.systemPackages = builtins.attrValues {
         inherit (pkgs)
@@ -6,7 +6,7 @@
 	;
     };
 
-    users.users.${username}.extraGroups = [ "cups" "scanner" "lp" ];
+    users.users.${user}.extraGroups = [ "cups" "scanner" "lp" ];
     services.printing = { # Printing
         enable = true;
         drivers = [ pkgs.hplipWithPlugin ];
@@ -24,7 +24,7 @@
     # Autodiscovery of network printers
     services.avahi = {
         enable = true;
-        nssmdns = true;
+        nssmdns4 = true;
         openFirewall = true;
     };
 }

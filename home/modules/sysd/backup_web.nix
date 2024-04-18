@@ -1,4 +1,4 @@
-{ config, pkgs, lib, username, ... }: 
+{ config, pkgs, lib, user, ... }: 
 
 let
 
@@ -9,13 +9,13 @@ let
 
 	  # Firefox bookmarks
 	  rsync -a --delete \
-	  /home/${username}/.librewolf/sbm2zibt.default/bookmarkbackups/ \
-	  /home/${username}/sync/study/backup/bookmarks
+	  /home/${user}/.librewolf/sbm2zibt.default/bookmarkbackups/ \
+	  /home/${user}/sync/study/backup/bookmarks
 
 	  # Simple tab groups backup
 	  rsync -a --delete \
-	  /home/${username}/Downloads/tab-group-backups/ \
-	  /home/${username}/sync/study/backup/tab-groups
+	  /home/${user}/Downloads/tab-group-backups/ \
+	  /home/${user}/sync/study/backup/tab-groups
 	'';
     };
 

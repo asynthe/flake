@@ -1,59 +1,51 @@
-{ config, pkgs, pkgs-unstable, ... }: {
+{ config, pkgs, pkgs-stable, ... }: {
 
     home.packages = builtins.attrValues {
-        inherit (pkgs-unstable)
-	    #tshark
+        inherit (pkgs-stable)
+
+	    # ...
+
 	;
         inherit (pkgs)
-
-	    # Testing
-	    inetutils
-	    vsftpd
-
-	    # Brute Forcing
-	    thc-hydra
-
-	    # Image
-	    exiftool
-
-	    # Assess
-	    seclists
-	    wfuzz
-	    whatweb
-	    ffuf
-
-	    # Proxy
-	    #burpsuite
-
-	    # CLI
-	    lsof
-	    usbutils
-
-	    # Scanning
-	    masscan	
-	    nmap
-	    rustscan
-
-	    # Networking
-	    arp-scan
-	    netdiscover
-	    macchanger
-	    netcat-openbsd
-	    socat
-	    tcpdump
-	    #tshark
-	    wireshark #wireshark-cli
-
-	    # Recon
-	    gobuster
 
 	    # Tools
 	    bc
 	    curl
 	    jq
+	    lsof
+	    usbutils
+
+	    # Brute Forcing
+	    seclists
+	    thc-hydra
+
+	    # Image
+	    exiftool
+
+	    # Networking
+	    arp-scan
+	    macchanger
+	    netcat-openbsd
+	    netdiscover
+	    socat
+	    tcpdump
+	    #tshark
+	    wireshark #wireshark-cli
+
+	    # Networking - Port Scanning
+	    masscan	
+	    nmap
+	    rustscan
 
 	    # Web
 	    burpsuite
+	    whatweb
+
+	    # Web - Fuzzing
+	    ffuf
+	    gobuster
+	    wfuzz
+
 	;
 	inherit (pkgs.unixtools)
 	    xxd

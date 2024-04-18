@@ -1,11 +1,11 @@
-{ config, pkgs, username, ... }: {
+{ config, pkgs, user, ... }: {
 
     programs.home-manager.enable = true;
 
     home = {
-        username = "missingno";
-        homeDirectory = "/home/${username}";
-        packages = [ pkgs.nix ]; # ?
+        username = user;
+        homeDirectory = "/home/${user}";
+        packages = [ pkgs.nix ];
         sessionVariables = {
             NIX_PATH = "nixpkgs=${config.xdg.configHome}/nix/nixpkgs";
         };

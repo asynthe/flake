@@ -1,11 +1,11 @@
-{ config, pkgs, username, ... }: {
+{ config, pkgs, user, ... }: {
 
     # Waydroid
     virtualisation.waydroid.enable = true;
 
     # adb
     programs.adb.enable = true;
-    users.users.${username}.extraGroups = ["adbusers"];
+    users.users.${user}.extraGroups = [ "adbusers" ];
     environment.systemPackages = builtins.attrValues {
         inherit (pkgs)
             scrcpy
