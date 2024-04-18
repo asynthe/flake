@@ -104,12 +104,12 @@
 	        pkgs-unstable
                 inputs
                 ;
-                username = "server";
+                user = "missingno";
 		device = "/dev/sda";
             };
             modules = [
                 ./hosts/wsl
-		nixos-wsl.nixosModules.nixos-wsl
+		nixos-wsl.nixosModules.default
             ];
 	};
     };

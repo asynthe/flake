@@ -1,8 +1,8 @@
-{ config, inputs, pkgs, ... }: {
+{ config, inputs, pkgs, user, ... }: {
 
     wsl = {
         enable = true;
-	defaultUser = "nixos";
+	defaultUser = "${user}";
     };
 
     environment.systemPackages = builtins.attrValues {
