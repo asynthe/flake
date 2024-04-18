@@ -63,6 +63,7 @@
             # Fun
 	    figlet
 	    lolcat
+	    nhentai # ( ͡° ͜ʖ ͡°) 
 	    unimatrix
             cava cli-visualizer
             pipes-rs

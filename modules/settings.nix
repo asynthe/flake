@@ -1,12 +1,14 @@
-{ config, pkgs, user, ... }: {
+{ config, lib, pkgs, user, ... }: {
 
-    environment.sessionVariables = { FLAKE = "/home/${user}/yuugen"; };
     programs.nh = {
         enable = true;
 	clean.enable = true;
 	clean.extraArgs = "--keep-since 4d --keep 3";
 	flake = "/home/${user}/yuugen";
     };
+    #environment.sessionVariables = { 
+        #FLAKE = "/home/${user}/sync/yuugen"; 
+    #};
 
     nix = {
         settings = {
