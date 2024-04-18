@@ -2,7 +2,7 @@
 
     wsl = {
         enable = true;
-	defaultUser = "${user}";
+	defaultUser = "nixos";
     };
 
     environment.systemPackages = builtins.attrValues {
