@@ -2,10 +2,16 @@
 
     home.packages = builtins.attrValues {
         inherit (pkgs-unstable)
-	    tshark
-	    burpsuite
+	    #tshark
 	;
         inherit (pkgs)
+
+	    # Testing
+	    inetutils
+	    vsftpd
+
+	    # Brute Forcing
+	    thc-hydra
 
 	    # Image
 	    exiftool
@@ -36,7 +42,7 @@
 	    socat
 	    tcpdump
 	    #tshark
-	    #wireshark #wireshark-cli
+	    wireshark #wireshark-cli
 
 	    # Recon
 	    gobuster
@@ -45,6 +51,9 @@
 	    bc
 	    curl
 	    jq
+
+	    # Web
+	    burpsuite
 	;
 	inherit (pkgs.unixtools)
 	    xxd
