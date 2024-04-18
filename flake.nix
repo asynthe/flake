@@ -10,11 +10,12 @@
         home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
 
 	# Other
-        impermanence.url = "github:nix-community/impermanence";
-        disko.url = "github:nix-community/disko";
+	nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
         disko.inputs.nixpkgs.follows = "nixpkgs";
-        sops-nix.url = "github:Mic92/sops-nix";
+        disko.url = "github:nix-community/disko";
+        impermanence.url = "github:nix-community/impermanence";
         musnix.url = "github:musnix/musnix";
+        sops-nix.url = "github:Mic92/sops-nix";
 
         #nil.url = "github:oxalica/nil";
         #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
@@ -92,6 +93,22 @@
 		sops-nix.nixosModules.sops
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
+            ];
+	};
+
+	# WSL
+        wsl = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+	        pkgs-unstable
+                inputs
+                ;
+                username = "server";
+		device = "/dev/sda";
+            };
+            modules = [
+                ./hosts/wsl
+		nixos-wsl.nixosModules.nixos-wsl
             ];
 	};
     };
