@@ -37,11 +37,12 @@
         nixpkgs,
 	nixpkgs-unstable,
         home-manager,
+
+	nixos-wsl,
         disko,
         impermanence,
-        sops-nix,
         musnix,
-
+        sops-nix,
         #nix-darwin,
         #nixpkgs-wayland,
         #nixos-06cb-009a-fingerprint-sensor,
