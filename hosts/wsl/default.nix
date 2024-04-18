@@ -8,8 +8,8 @@
 
     imports = [
 
+	./configuration.nix
         ./modules.nix
-	./hardware.nix
 
     ];
 }
