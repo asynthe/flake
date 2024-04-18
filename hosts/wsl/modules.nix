@@ -1,5 +1,6 @@
 { config, ... }: {
 
-    # ...
-
+    import = [
+        ./user.nix
+    ];
 }
