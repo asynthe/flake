@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs-stable, ... }: {
 
     networking.networkmanager.enable = true;
     services = {

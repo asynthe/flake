@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, ... }: {
 
     networking.hostName = "server";
     system.stateVersion = "23.11";

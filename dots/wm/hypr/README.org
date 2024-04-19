@@ -260,8 +260,9 @@ no_border_on_floating=0
 # Border Color
 
 # Active border
-col.active_border = rgb(451F67) # Purple
+#col.active_border = rgb(451F67) # Purple
 #col.active_border = rgb(ff0000) # Xmonad Red
+col.active_border = rgb(8B0000) # Dark Red
 #col.active_border = rgb(2e37fe) # Light Cobalt Blue
 #col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg # Breeze gradient
 

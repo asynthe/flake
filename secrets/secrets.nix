@@ -15,10 +15,10 @@
         validateSopsFiles = false;
         age = {
             # Automatically import host SSH keys as age keys.
-	    sshKeyPaths = [ "/home/${user}/sync/pass/ssh/thinkpad/thinkpad" ];
+	    sshKeyPaths = [ "/home/ben/sync/pass/ssh/thinkpad/thinkpad" ];
 
 	    # Use a age key expected to be in filesystem.
-	    keyFile = /home/${user}/sync/pass/age/thinkpad;
+	    keyFile = /home/ben/sync/pass/age/thinkpad;
 
 	    # Generate a key if doesn't exist.
 	    generateKey = true;

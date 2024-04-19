@@ -1,7 +1,7 @@
-{ config, pkgs, ... }: {
+{ config, pkgs-stable, ... }: {
 
     environment.systemPackages = builtins.attrValues {
-        inherit (pkgs)
+        inherit (pkgs-stable)
 	    ntfs3g;
     };
 }

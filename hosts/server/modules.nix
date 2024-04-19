@@ -1,11 +1,9 @@
-{ config, ... }: {
-
-    #server.secrets.enable = true;
-
+{
     imports = [
-        ../../secrets/secrets.nix
-	#../../secrets/secrets_custom.nix
 
+        ../../secrets/secrets.nix
+
+        # Disk configuration
 	../../modules/disko/btrfs_persist.nix
 
 	# Server

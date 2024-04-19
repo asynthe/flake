@@ -1,14 +1,15 @@
-{ config, pkgs, ... }: {
+{ config, pkgs-stable, ... }: {
 
     environment.systemPackages = builtins.attrValues {
-        inherit (pkgs)
-            alacritty kitty # Always good to have some extra terminals.
-            wget curl
-            git # Git must be installed before flakes.
+        inherit (pkgs-stable)
+	    fzf skim
 	    lf
 	    ncdu
-            neovim tmux
+            alacritty kitty # Always good to have some extra terminals.
             cachix
+            git # Git must be installed before flakes.
+            neovim tmux
+            wget curl
         ;
     };
 }

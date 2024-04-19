@@ -1,8 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, pkgs-stable, ... }: {
 
     #environment.variables = {
         #ES_HOME = "/home/${username}/logs/elasticsearch";
-        #ES_JAVA_HOME = "${pkgs.java}"; ?
+        #ES_JAVA_HOME = "${pkgs-stable.java}"; ?
     #};
 
     services = {

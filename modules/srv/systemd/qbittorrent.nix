@@ -1,8 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, pkgs-stable, ... }: {
 
     # Create a systemd service and timer that runs qbittorrent
     environment.systemPackages = builtins.attrValues { 
-        inherit (pkgs) 
+        inherit (pkgs-stable) 
 	    qbittorrent-nox
 	; 
     };

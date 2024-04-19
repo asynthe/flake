@@ -8,6 +8,9 @@
 	;
         inherit (pkgs)
 
+	    # SMB / Samba
+	    samba
+
 	    # Tools
 	    bc
 	    curl
@@ -39,13 +42,19 @@
 
 	    # Web
 	    burpsuite
-	    whatweb
+	    openssl
 
 	    # Web - Fuzzing
+	    dirb
+	    dirbuster
 	    ffuf
 	    gobuster
 	    wfuzz
 
+	    # Web - Recon
+	    whatweb
+	    #sslyze # Not on nixpkgs.
+	    sslscan
 	;
 	inherit (pkgs.unixtools)
 	    xxd

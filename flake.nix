@@ -80,7 +80,7 @@
         };
 
 	# PC Server
-        server = nixpkgs.lib.nixosSystem {
+        server = nixpkgs-stable.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit
 	        pkgs-stable
