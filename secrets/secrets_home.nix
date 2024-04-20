@@ -11,7 +11,7 @@
 
     programs.zsh = {
         sessionVariables = {
-            GNUPGHOME = "/home/${user}/sync/pass/gpg";
+            GNUPGHOME = "/home/${user}/sync/pass/gpg/settings";
 	    NIX_SSHOPTS = "-i /home/${user}/sync/pass/ssh/thinkpad/thinkpad";
 	    PASSWORD_STORE_DIR = "/home/${user}/sync/pass/pass";
 	    SOPS_AGE_KEY_FILE  = "/home/${user}/sync/age/thinkpad";
