@@ -9,7 +9,19 @@
         inherit (pkgs)
 
 	    # SMB / Samba
+	    cifs-utils
 	    samba
+	    smbmap
+
+	    # Pentesting
+	    crackmapexec netexec
+	    exploitdb
+
+	    # SQL Injection
+	    sqlmap
+
+	    # Framework
+	    metasploit
 
 	    # Tools
 	    bc
@@ -28,7 +40,7 @@
 	    # Networking
 	    arp-scan
 	    macchanger
-	    netcat-openbsd
+	    netcat-openbsd rlwrap
 	    netdiscover
 	    socat
 	    tcpdump
@@ -55,6 +67,10 @@
 	    whatweb
 	    #sslyze # Not on nixpkgs.
 	    sslscan
+
+	    # CMS
+	    wpscan
+	    joomscan
 	;
 	inherit (pkgs.unixtools)
 	    xxd

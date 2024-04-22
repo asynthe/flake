@@ -252,10 +252,9 @@ gaps_out = 10
 *** Border
 
 #+begin_src cpp
-border_size = 1
-#border_size = 0
-#no_border_on_floating=1
-no_border_on_floating=0
+#border_size = 1
+border_size = 0
+no_border_on_floating=1
 
 # Border Color
 
@@ -955,7 +954,7 @@ windowrulev2 = noanim,class:(org.pwmt.zathura)$
 * Special Workspace Rules
 
 #+begin_src cpp
-workspace = special, border: 1
+workspace = special, border: 0
 #+end_src
 
 * Fixes

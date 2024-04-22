@@ -11,12 +11,12 @@
             #clonehero # NOT WORKING (17-09-2023)
 
 	    # Marathon
-	    alephone
-	    alephone-marathon
-	    alephone-durandal
-	    alephone-infinity
+	    #alephone
+	    #alephone-marathon
+	    #alephone-durandal
+	    #alephone-infinity
 
-	    alephone-eternal
+	    #alephone-eternal
 	    #alephone-evil
 	    #alephone-apotheosis-x # Needs nix-store importing, get from `https://www.moddb.com/mods/apotheosis-x/downloads`.
 	    #alephone-rubicon-x

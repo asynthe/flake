@@ -11,7 +11,7 @@
             font-awesome
 
             nerdfonts
-            #(nerdfonts.override { fonts = [ 
+            #(nerdfonts.override { fonts = [  # DELETE -> HOME
               #"FiraCode"
               #"FiraMono"
               #"Iosevka"

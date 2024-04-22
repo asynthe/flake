@@ -32,7 +32,17 @@
 
 	    #corefonts
 	    font-awesome
+
 	    nerdfonts
+            #(nerdfonts.override { fonts = [ # IMPLEMENT
+              #"FiraCode"
+              #"FiraMono"
+              #"Iosevka"
+              #"IosevkaTerm"
+              #"JetBrainsMono"
+              #"Meslo"
+            #]; })
+
 
 	    # Japanese
 	    ipafont

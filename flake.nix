@@ -10,6 +10,8 @@
         home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
 
 	# Other
+	nixvim.url = "github:nix-community/nixvim";
+	nixvim.inputs.nixpkgs.follows = "nixpkgs";
 	nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
         disko.url = "github:nix-community/disko";
         disko.inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +40,7 @@
 	nixpkgs-stable,
         home-manager,
 
+	nixvim,
 	nixos-wsl,
         disko,
         impermanence,
@@ -129,6 +132,7 @@
             modules = [ 
 	        ./home/ben 
 		sops-nix.homeManagerModules.sops
+		nixvim.homeManagerModules.nixvim
 	    ];
         };
  

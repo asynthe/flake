@@ -17,13 +17,15 @@
 	    barrier # Open-source KVM software.
 	    tor-browser
 	    brave
+	    php
 
             # Tools - GUI
 	    emacs29-pgtk
+	    gimp pinta
 	    hypnotix
 	    keepassxc
 	    libreoffice
-	    gimp pinta
+	    obsidian
 
             # CLI
             fd ripgrep

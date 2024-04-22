@@ -20,6 +20,7 @@
         ../modules/app/mako.nix
         #../modules/app/mpd.nix
 	../modules/app/mpv.nix
+	../modules/app/nvim.nix
 	../modules/app/obs.nix
         ../modules/app/social.nix # Discord, IRC, Signal, Telegram.
         #../modules/app/ssh.nix
@@ -36,7 +37,7 @@
 
 	# Game
         #../modules/game/emulators.nix
-        ../modules/game/games.nix
+        #../modules/game/games.nix
         #../modules/game/tools.nix
 
 	# System

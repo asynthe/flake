@@ -10,7 +10,7 @@
 
             #gajim # XMPP client
             signal-desktop
-            #telegram-desktop
+            telegram-desktop
 
             # IRC
             weechat
