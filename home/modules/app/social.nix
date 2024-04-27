@@ -8,7 +8,7 @@
             #gtkcord4
             #discord 
 
-            #gajim # XMPP client
+            gajim # XMPP client
             signal-desktop
             telegram-desktop
 

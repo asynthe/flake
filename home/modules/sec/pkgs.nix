@@ -8,20 +8,14 @@
 	;
         inherit (pkgs)
 
-	    # SMB / Samba
-	    cifs-utils
-	    samba
-	    smbmap
+	    # Framework
+	    metasploit
 
+	    # OSINT
+	    maltego
 	    # Pentesting
 	    crackmapexec netexec
 	    exploitdb
-
-	    # SQL Injection
-	    sqlmap
-
-	    # Framework
-	    metasploit
 
 	    # Tools
 	    bc
@@ -67,6 +61,14 @@
 	    whatweb
 	    #sslyze # Not on nixpkgs.
 	    sslscan
+
+	    # SQL Injection
+	    sqlmap
+
+	    # SMB / Samba
+	    cifs-utils
+	    samba
+	    smbmap
 
 	    # CMS
 	    wpscan

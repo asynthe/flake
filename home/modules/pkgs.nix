@@ -32,11 +32,12 @@
             fzf skim
 
             # Tools - CLI
+	    ascii
 	    hyperfine
 	    imagemagickBig #imagemagick
+	    img2pdf
 	    libqalculate
             ncdu
-	    img2pdf
 
 	    # Tools - Presenting
 	    slides

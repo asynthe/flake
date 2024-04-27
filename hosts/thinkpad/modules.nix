@@ -9,10 +9,11 @@
         ../../secrets/secrets.nix
 	#../../secrets/secrets_custom.nix
 
-	# daemon
+	# Daemon
 	../../modules/daemon/android.nix
 	../../modules/daemon/docker.nix
 	../../modules/daemon/locate.nix
+	../../modules/daemon/sql.nix
 
 	# Driver
 	../../modules/driver/acpi.nix
