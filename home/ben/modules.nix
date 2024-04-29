@@ -4,8 +4,8 @@
         ../../secrets/secrets_home.nix
 
         ../modules/pkgs.nix
-	../modules/sec/pkgs.nix
-	#../modules/sec/home-security-box.nix
+        ../modules/pkgs_minimal.nix # No GUI.
+	../modules/pkgs_sec.nix
                 
         # Apps
 	../modules/app/alacritty.nix

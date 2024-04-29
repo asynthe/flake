@@ -13,6 +13,8 @@
 
 	    # OSINT
 	    maltego
+	    sherlock
+
 	    # Pentesting
 	    crackmapexec netexec
 	    exploitdb

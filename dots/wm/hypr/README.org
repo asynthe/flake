@@ -440,6 +440,12 @@ dim_around = 0.4
 misc {
 #+end_src
 
+*** Don't focus unless i want to
+
+#+begin_src cpp
+focus_on_activate = false
+#+end_src
+
 *** Window Swallowing
 
 Hide the terminal when i open software from it, thanks.

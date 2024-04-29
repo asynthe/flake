@@ -8,16 +8,21 @@
 	;
         inherit (pkgs)
 
-	    # Networking Tools
+	    # Temporary
+	    barrier # Open-source KVM software.
+	    brave
+	    bucklespring-libinput # Requires user in `input` group.
+	    gnumake
+	    gopass # -> pass !
+	    pass-wayland # -> pass !
+	    tor-browser
+
+	    # Networking
 	    ciscoPacketTracer8
 	    gns3-gui gns3-server
 
-	    # Temporary
-	    bucklespring-libinput # Requires user in `input` group.
-	    barrier # Open-source KVM software.
-	    tor-browser
-	    brave
-	    php
+	    # Terminal
+	    alacritty kitty
 
             # Tools - GUI
 	    emacs29-pgtk
@@ -27,31 +32,10 @@
 	    libreoffice
 	    obsidian
 
-            # CLI
-            fd ripgrep
-            fzf skim
-
-            # Tools - CLI
-	    ascii
-	    hyperfine
-	    imagemagickBig #imagemagick
-	    img2pdf
-	    libqalculate
-            ncdu
-
 	    # Tools - Presenting
 	    slides
 	    #zoom-us
 	    #slack #slack-cli #slack-term # ?
-
-            # Tools - Compressing
-	    #mdf2iso
-	    #rar #unrar #rar2fs
-	    #torrent7z
-	    #xz
-	    p7zip
-            unar # Unzipping with Unicode characters.
-            zip unzip
 
 	    # Tools - Partitioning / Formatting
 	    #etcher
@@ -62,14 +46,6 @@
             bluetuith
             bluez
             bluez-tools
-
-            # Fun
-	    figlet
-	    lolcat
-	    nhentai # ( ͡° ͜ʖ ͡°) 
-	    unimatrix
-            cava cli-visualizer
-            pipes-rs
 
 	    # Japanese
 	    #anki-bin
