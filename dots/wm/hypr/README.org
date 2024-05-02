@@ -198,7 +198,7 @@ monitor = HDMI-A-2, 1920x1080@60, 0x0, 1
 
 For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 
-+ Caps lock replaced with Escape
+> Caps lock replaced with Escape
 
 #+begin_src cpp
 input {
@@ -237,13 +237,6 @@ general {
 
 *** Gaps
 
-Gaps
-##+begin_src cpp
-gaps_in = 4
-gaps_out = 10
-#+end_src
-
-No gaps
 #+begin_src cpp
 gaps_in = 4
 gaps_out = 10
@@ -254,7 +247,7 @@ gaps_out = 10
 #+begin_src cpp
 border_size = 1
 #border_size = 0
-#no_border_on_floating=1
+no_border_on_floating=1
 
 # Border Color
 
@@ -328,7 +321,7 @@ animation = specialWorkspace, 1, 3, default, fade
 dwindle {
 #pseudotile = true
 preserve_split = true # You probably want this.
-#no_gaps_when_only = true # Smart gaps, no gaps when only one window.
+no_gaps_when_only = true # Smart gaps, no gaps when only one window.
 smart_split = false
 smart_resizing = false
 special_scale_factor = 0.97 # Scale of the windows at the Special Workspace.
@@ -347,9 +340,10 @@ no_gaps_when_only = true
 
 ** Gestures
 
+See https://wiki.hyprland.org/Configuring/Variables/ for more
+
 #+begin_src cpp
 gestures {
-# See https://wiki.hyprland.org/Configuring/Variables/ for more
 workspace_swipe = on
 }
 #+end_src
@@ -440,19 +434,13 @@ dim_around = 0.4
 misc {
 #+end_src
 
-*** Don't focus unless i want to
-
-#+begin_src cpp
-focus_on_activate = false
-#+end_src
-
 *** Window Swallowing
 
 Hide the terminal when i open software from it, thanks.
 
 #+begin_src cpp
 enable_swallow = true
-  swallow_regex = ^(Alacritty|kitty|footclient)$
+  swallow_regex = ^(Alacritty|kitty)$
 #+end_src
 
 *** Default Hyprland logo (When no Wallpaper)
