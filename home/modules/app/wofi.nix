@@ -15,7 +15,7 @@
 	    #layer = "overlay";
 	    
 	    key_expand = "Tab";
-	    #insensitive = false;
+	    insensitive = true;
 	    show = "drun";
 	    width = "30%";
 	    location = "top_right";

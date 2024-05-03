@@ -12,8 +12,8 @@
 	    };
 
 	    window = {
-		opacity = 1;
-		#opacity = 0.80;
+		#opacity = 1;
+		opacity = 0.80;
 		title = "Alacritty";
 		class.general = "Alacritty";
 		class.instance = "Alacritty";

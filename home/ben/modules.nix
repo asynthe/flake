@@ -6,8 +6,11 @@
         ../modules/pkgs.nix
         ../modules/pkgs_minimal.nix # No GUI.
 	../modules/pkgs_sec.nix
+
+	# Apps
+	../modules/app/nvim
                 
-        # Apps
+        # Apps - Single Files
 	../modules/app/alacritty.nix
         #../modules/app/bash.nix # bash shell.
 	../modules/app/bat.nix
@@ -20,11 +23,11 @@
         ../modules/app/mako.nix
         #../modules/app/mpd.nix
 	../modules/app/mpv.nix
-	../modules/app/nvim.nix
 	../modules/app/obs.nix
         ../modules/app/social.nix # Discord, IRC, Signal, Telegram.
         #../modules/app/ssh.nix
         ../modules/app/starship.nix
+        ../modules/app/swayidle.nix
         ../modules/app/tmux.nix
         #../modules/app/vscode.nix
         ../modules/app/wayfire.nix

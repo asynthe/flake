@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
@@ -17,7 +17,7 @@
 	    ncdu
 	    vim
 
-            # Tools - Compressing
+        # Tools - Compressing
 	    #mdf2iso
 	    p7zip
 	    #rar #unrar #rar2fs
@@ -35,7 +35,7 @@
 	    peaclock tty-clock
 	    pulsemixer #pulseaudioFull
 	    unimatrix
-            pipes-rs
+        pipes-rs
         ;
     };
 }
