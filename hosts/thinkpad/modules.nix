@@ -6,12 +6,12 @@
 
     imports = [
 
-        ../../secrets/secrets.nix
+    ../../secrets/secrets.nix
 	#../../secrets/secrets_custom.nix
 
 	# Daemon
 	../../modules/daemon/android.nix
-	../../modules/daemon/docker.nix
+	#../../modules/daemon/docker.nix
 	../../modules/daemon/locate.nix
 	../../modules/daemon/sql.nix
 

@@ -34,10 +34,14 @@
 	lsp = {
 	    enable = true;
 	    servers = {
-		bashls.enable = true;
-		lua-ls.enable = true; # Lua
-		nil_ls.enable = true; # Nix
-		rust-analyzer.enable = true; # Rust
+		    bashls.enable = true;
+		    lua-ls.enable = true; # Lua
+		    nil_ls.enable = true; # Nix
+		    rust-analyzer = {
+                enable = true; # Rust
+                installCargo = true;
+                installRustc = true;
+            };
 	    };
 	};
 	cmp = {

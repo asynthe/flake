@@ -245,8 +245,8 @@ gaps_out = 10
 *** Border
 
 #+begin_src cpp
-border_size = 1
-#border_size = 0
+#border_size = 1
+border_size = 0
 no_border_on_floating=1
 
 # Border Color
@@ -930,6 +930,7 @@ windowrulev2 = pin, title:^(Picture-in-Picture)$
 
 #+begin_src cpp
 layerrule = noanim, wofi
+layerrule = noanim, wshowkeys
 #+end_src
 
 ** Waydroid

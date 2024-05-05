@@ -16,6 +16,9 @@
 	        gopass # -> pass !
 	        pass-wayland # -> pass !
 	        tor-browser
+            screenkey
+            cpu-x
+            wshowkeys showmethekey
 
 	        # Networking
 	        ciscoPacketTracer8
@@ -30,7 +33,7 @@
 	        gimp pinta
 	        hypnotix
 	        keepassxc
-	        libreoffice
+	        #libreoffice
 	        obsidian
 
 	        # Tools - Presenting
@@ -56,6 +59,7 @@
 	        #celestia
 	        #libnova
 	        stellarium
+            starfetch
 	    ;
     };
 }

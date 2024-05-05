@@ -22,7 +22,7 @@
 
     qt = {
         enable = true;
-	platformTheme = "gtk";
+	    platformTheme.name = "gtk";
     };
 
     dconf.enable = true;
