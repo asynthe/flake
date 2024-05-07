@@ -18,6 +18,9 @@
 	    # Pentesting
 	    crackmapexec netexec
 	    exploitdb
+        
+        # Social Engineering
+        social-engineer-toolkit
 
 	    # Tools
 	    bc

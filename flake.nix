@@ -19,6 +19,7 @@
         musnix.url = "github:musnix/musnix";
         sops-nix.url = "github:Mic92/sops-nix";
 
+        #hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
         #nil.url = "github:oxalica/nil";
         #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
         #nix-gaming.url = "github:fufexan/nix-gaming";

@@ -245,16 +245,16 @@ gaps_out = 10
 *** Border
 
 #+begin_src cpp
-#border_size = 1
-border_size = 0
+border_size = 1
+#border_size = 0
 no_border_on_floating=1
 
 # Border Color
 
 # Active border
-#col.active_border = rgb(451F67) # Purple
+col.active_border = rgb(451F67) # Purple
 #col.active_border = rgb(ff0000) # Xmonad Red
-col.active_border = rgb(8B0000) # Dark Red
+#col.active_border = rgb(8B0000) # Dark Red
 #col.active_border = rgb(2e37fe) # Light Cobalt Blue
 #col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg # Breeze gradient
 
@@ -439,8 +439,8 @@ misc {
 Hide the terminal when i open software from it, thanks.
 
 #+begin_src cpp
-enable_swallow = true
-  swallow_regex = ^(Alacritty|kitty)$
+#enable_swallow = true
+  #swallow_regex = ^(Alacritty|kitty)$
 #+end_src
 
 *** Default Hyprland logo (When no Wallpaper)
@@ -462,6 +462,13 @@ Must be a monitor with G-SYNC for NVIDIA GPU's, or FreeSync for AMD GPU's.
 
 #+begin_src cpp
 vrr = 1
+#+end_src
+
+*** Open app on workspace it was opened on
+
+#+begin_src cpp
+#hide_cursor_on_key_press = 1
+#initial_workspace_tracking = 1
 #+end_src
 
 *** Closing Bracket
