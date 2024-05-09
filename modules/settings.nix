@@ -1,27 +1,29 @@
-{ config, lib, pkgs, user, ... }: {
+{ user, ... }: {
 
     programs.nh = {
         enable = true;
-	clean.enable = true;
-	clean.extraArgs = "--keep-since 4d --keep 3";
-	flake = "/home/${user}/sync/yuugen";
+	    flake = "/home/${user}/sync/yuugen";
+	    clean = {
+            enable = true;
+	        extraArgs = "--keep-since 4d --keep 3";
+        };
     };
 
     nix = {
         settings = {
-          auto-optimise-store = true;
-          allowed-users = [ "${user}" ]; # Required for installing Home Manager?
-          trusted-users = [ "${user}" ];
-          experimental-features = [ "nix-command" "flakes" ];
-          warn-dirty = false;
+            auto-optimise-store = true;
+            allowed-users = [ "${user}" ]; # Required for installing Home Manager?
+            trusted-users = [ "${user}" ];
+            experimental-features = [ "nix-command" "flakes" ];
+            warn-dirty = false;
         };
-
     };
 
     # Hanging at rebuild and wait-online service failing.
     # See nixpkgs#180175
     systemd.services.NetworkManager-wait-online.enable = false;
 
+    # The next is replaced by nh.
     # Garbage collection
     #nix.gc = {
         #automatic = true;

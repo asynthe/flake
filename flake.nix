@@ -3,23 +3,22 @@
 
     inputs = {
         
-	# Main Inputs
+	    # Main Inputs
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
         nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
         home-manager.url = "github:nix-community/home-manager";
         home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
 
-	# Other
-	nixvim.url = "github:nix-community/nixvim";
-	nixvim.inputs.nixpkgs.follows = "nixpkgs";
-	nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+	    # Other
+	    nixvim.url = "github:nix-community/nixvim";
+	    nixvim.inputs.nixpkgs.follows = "nixpkgs";
         disko.url = "github:nix-community/disko";
         disko.inputs.nixpkgs.follows = "nixpkgs";
+        hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
         impermanence.url = "github:nix-community/impermanence";
         musnix.url = "github:musnix/musnix";
         sops-nix.url = "github:Mic92/sops-nix";
 
-        #hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
         #nil.url = "github:oxalica/nil";
         #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
         #nix-gaming.url = "github:fufexan/nix-gaming";
@@ -38,12 +37,12 @@
 
         self,
         nixpkgs,
-	nixpkgs-stable,
+	    nixpkgs-stable,
         home-manager,
 
-	nixvim,
-	nixos-wsl,
+	    nixvim,
         disko,
+        hyprland,
         impermanence,
         musnix,
         sops-nix,
@@ -68,15 +67,15 @@
         thinkpad = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit
-	        pkgs-stable
+	            pkgs-stable
                 inputs
                 ;
                 user = "ben";
-		device = "/dev/nvme0n1";
+		        device = "/dev/nvme0n1";
             };
             modules = [
                 ./hosts/thinkpad
-		sops-nix.nixosModules.sops
+		        sops-nix.nixosModules.sops
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
                 musnix.nixosModules.musnix
@@ -113,7 +112,6 @@
             };
             modules = [
                 ./hosts/wsl
-		nixos-wsl.nixosModules.default
             ];
 	};
     };

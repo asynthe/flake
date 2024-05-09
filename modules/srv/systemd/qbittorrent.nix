@@ -1,4 +1,4 @@
-{ config, pkgs-stable, ... }: {
+{ pkgs-stable, ... }: {
 
     # Create a systemd service and timer that runs qbittorrent
     environment.systemPackages = builtins.attrValues { 

@@ -1,4 +1,6 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
+
+    programs.wshowkeys.enable = true;
 
     environment.systemPackages = builtins.attrValues {
         inherit (pkgs)
