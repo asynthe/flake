@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ lib, ... }: {
 
     # The system imprint.
     networking.hostName = "thinkpad";
@@ -6,6 +6,9 @@
     nixpkgs.config.allowUnfree = lib.mkForce true;
     i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "Australia/Perth";
+
+    # Custom configuration.
+    language.english.enable = true;
 
     imports = [
         ./hardware.nix

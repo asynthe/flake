@@ -1,76 +1,3 @@
-:PROPERTIES:
-:ID:       67afec02-62ae-4ed8-b9fa-2bbe294aa69e
-:END:
-#+title: Hyprland
-#+property: header-args :tangle hyprland.conf
-#+auto_tangle: t
-
-REMOVED
-Hide cursor after x seconds
-~cursor_inactive_timeout = 2~
-
-* Table Of Contents :toc:
-- [[#system][System]]
-  - [[#environment-variables][Environment Variables]]
-  - [[#startup][Startup]]
-  - [[#scripts][Scripts]]
-  - [[#monitors][Monitors]]
-  - [[#input-keyboard][Input (Keyboard)]]
-  - [[#keywords-][Keywords (?)]]
-- [[#rice][Rice]]
-  - [[#general][General]]
-  - [[#animations][Animations]]
-- [[#configuration][Configuration]]
-  - [[#dwindle-layout-configuration-bspwm-like][Dwindle layout configuration (BSPWM-like)]]
-  - [[#master-layout-configuration-xmonad-like][Master layout configuration (Xmonad like)]]
-  - [[#gestures][Gestures]]
-  - [[#decoration][Decoration]]
-  - [[#misc][Misc]]
-- [[#keybinds][Keybinds]]
-  - [[#modifier-key][Modifier Key]]
-  - [[#shortcuts][Shortcuts]]
-  - [[#multimedia-keys][Multimedia Keys]]
-  - [[#windows][Windows]]
-  - [[#workspaces][Workspaces]]
-  - [[#special-workspace-scratchpad][Special Workspace (Scratchpad)]]
-  - [[#master--dwindle-mode][Master / Dwindle mode]]
-- [[#apps][Apps]]
-  - [[#lockscreen-gtklock][Lockscreen (gtklock)]]
-  - [[#idle-daemon-swayidle][Idle Daemon (swayidle)]]
-  - [[#screenshots-grim--slurp][Screenshots (grim + slurp)]]
-  - [[#recording-wf-recorder--slurp][Recording (wf-recorder + slurp)]]
-  - [[#bar-waybar][Bar (waybar)]]
-- [[#window-rules][Window Rules]]
-  - [[#floating-mode][Floating mode]]
-  - [[#pin-to-screen][Pin to screen]]
-  - [[#fakefullscreen][Fakefullscreen]]
-  - [[#transparency-disabled-for-now][Transparency (disabled for now)]]
-  - [[#firefox--libreoffice---auto-maximize-bug][Firefox / LibreOffice - Auto-maximize bug]]
-- [[#window-rules---per-app][Window Rules - Per App]]
-  - [[#anki][Anki]]
-  - [[#alacritty][Alacritty]]
-  - [[#hypnotix][Hypnotix]]
-  - [[#keepassxc][KeepassXC]]
-  - [[#steam][Steam]]
-  - [[#qbittorrent][qbittorrent]]
-  - [[#pavucontrol][pavucontrol]]
-  - [[#ueberzugpp][Ueberzugpp]]
-  - [[#qgis][QGIS]]
-  - [[#firefox][Firefox]]
-  - [[#wofi][wofi]]
-  - [[#waydroid][Waydroid]]
-  - [[#zathura][Zathura]]
-- [[#special-workspace-rules][Special Workspace Rules]]
-- [[#fixes][Fixes]]
-  - [[#monitor][Monitor]]
-
-* System
-** Environment Variables
-*** NVIDIA
-
-Note: can be run if running through a login manager, specially GDDM or greetd
-
-#+begin_src cpp
 # env = JAVA_AWT_WM_NOREPARENTING,1
 # env = SDL_VIDEODRIVER,wayland
 # env = GDK_BACKEND,wayland,x11
@@ -84,70 +11,28 @@ Note: can be run if running through a login manager, specially GDDM or greetd
 # env = __GL_GSYNC_ALLOWED, 1
 # env = __GL_VRR_ALLOWED, 1
 # env = __GLX_VENDOR_LIBRARY_NAME, nvidia
-#+end_src
 
-Nvidia Offloading
-#+begin_src cpp
 # env = __NV_PRIME_RENDER_OFFLOAD, 1
 # env = __NV_PRIME_RENDER_OFFLOAD_PROVIDER, NVIDIA-G0
 # env = __VK_LAYER_NV_optimus, NVIDIA_only
-#+end_src
 
-Theme
-#+begin_src cpp
 #env = XCURSOR_THEME,Breeze
 #env = XCURSOR_SIZE,24
 #env = GTK_THEME,Orchis-Dark-Compact
-#+end_src
 
-Fix for mouse cursor not appearing when using nvidia drivers.
-#+begin_src cpp
 env = WLR_NO_HARDWARE_CURSORS,1
-#+end_src
 
-*** Screen Sharing (XDG Desktop Portal Hyprland)
-
-What's going to be needed for Screen Sharing is 
-
-#+begin_src cpp
 env = XDG_SESSION_TYPE, wayland
 env = XDG_CURRENT_DESKTOP, Hyprland
 env = XDG_SESSION_DESKTOP, Hyprland
 exec-once = wl-clipboard-history -t
-#+end_src
 
-A script for restarting and starting correctly (future)
-
-#+begin_src cpp
 #exec-once = ~/sync/system/script
-#+end_src
 
-_The script_
-
-!/usr/bin/env bash
-
-sleep 1
-killall xdg-desktop-portal-hyprland
-killall xdg-desktop-portal-gnome
-killall xdg-desktop-portal-wlr
-killall xdg-desktop-portal
-/usr/libexec/xdg-desktop-portal-hyprland &
-sleep 2
-/usr/lib/xdg-desktop-portal &
-
-*** Xwayland
-
-Don't scale xwayland apps, they look bad.
-
-#+begin_src cpp
 xwayland {
     force_zero_scaling = true
 }
-#+end_src
 
-** Startup
-
-#+begin_src cpp
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # dbus
 exec-once = fcitx5 -d & # Fcitx5 + mozc
 
@@ -161,25 +46,11 @@ exec-once = env XDG_CURRENT_DESKTOP="Sway" flameshot &
 exec-once = swww init &
 #exec-once = swww init; swww img "$HOME/sync/archive/wallpaper/img/like/cool_grey.png" &
 #exec-once = mpvpaper -f -o "loop-file=inf" eDP-1 ~/main/system/wallpapers/video/loops_1920x1080/retrowave_1920x1080.mp4 &
-#+end_src
 
-Open in Special Workspace
-#+begin_src cpp
 #exec-once = tmux new-session -d -s weechat weechat
-#+end_src
 
-** Scripts
-
-Multi-monitor tmuxp hacker setup.
-#+begin_src cpp
 #exec-once = ~/script/bash/hypr/tmux_setup.sh
-#+end_src
 
-** Monitors
-
-See https://wiki.hyprland.org/Configuring/Monitors/
-
-#+begin_src cpp
 # eDP-1 on the left of DP-2
 #monitor = eDP-1, 1920x1080@60, 0x0, 1.20
 #monitor = HDMI-A-2, 1920x1080@60, 1920x0, 1
@@ -195,15 +66,7 @@ monitor = HDMI-A-2, 1920x1080@60, 0x0, 1
 
 # Vertical
 #monitor = HDMI-A-2, 1920x1080@60, 0x0, 1, transform, 1
-#+end_src
 
-** Input (Keyboard)
-
-For all categories, see https://wiki.hyprland.org/Configuring/Variables/
-
-> Caps lock replaced with Escape
-
-#+begin_src cpp
 input {
     kb_layout = us
     kb_variant =
@@ -216,39 +79,15 @@ input {
     }
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 }
-#+end_src
 
-** Keywords (?)
-
-See https://wiki.hyprland.org/Configuring/Keywords/ for more information.
-
-* Rice
-** General
-
-It belongs to the general section, so here's the entry bracket.
-
-Source a file (multi-file configs)
-source = ~/.config/hypr/myColors.conf
-
-See https://wiki.hyprland.org/Configuring/Keywords/ for more
-See https://wiki.hyprland.org/Configuring/Variables/ for more
-
-#+begin_src cpp
 general {
-layout = dwindle
-#+end_src
 
-Gaps
-#+begin_src cpp
 gaps_in = 4
 gaps_out = 10
-#+end_src
 
-Border
-#+begin_src cpp
 border_size = 1
 #border_size = 0
-#no_border_on_floating=1
+no_border_on_floating=1
 
 # Border Color
 
@@ -265,28 +104,13 @@ col.inactive_border = rgb(000000) # BLACK
 #col.inactive_border = rgb(231431)
 #col.inactive_border = rgb(000000) # BLACK
 #col.inactive_border = rgb(dddddd) # WHITE
-#+end_src
 
-Closing Bracket
-#+begin_src cpp
+cursor_inactive_timeout = 2
+
+layout = dwindle
+
 }
-#+end_src
 
-** Animations
-
-Some default animations,
-see https://wiki.hyprland.org/Configuring/Animations for more.
-
-Disable animations with ~Super key + a~
-
-Animations types list:
-- slide
-- slidevert
-- fade
-- slidefade
-- slidefadevert
-
-#+begin_src cpp
 #bind = SUPER, a, exec, hyprctl keyword animations:enabled 0
 
 animations {
@@ -301,12 +125,7 @@ animation = fade, 1, 7, default
 animation = workspaces, 1, 6, default, slide
 animation = specialWorkspace, 1, 3, default, fade
 }
-#+end_src
 
-* Configuration
-** Dwindle layout configuration (BSPWM-like)
-
-#+begin_src cpp
 dwindle {
 #pseudotile = true
 preserve_split = true # You probably want this.
@@ -315,47 +134,30 @@ smart_split = false
 smart_resizing = false
 special_scale_factor = 0.97 # Scale of the windows at the Special Workspace.
 }
-#+end_src
 
-** Master layout configuration (Xmonad like)
-
-#+begin_src cpp
 master {
 new_is_master = true
 inherit_fullscreen = true
 no_gaps_when_only = true
 }
-#+end_src
 
-** Gestures
-
-See https://wiki.hyprland.org/Configuring/Variables/ for more
-
-#+begin_src cpp
 gestures {
 workspace_swipe = on
 }
-#+end_src
 
-** Decoration
+#device:basilisk-x-mouse {
+#sensitivity = -100
+#}
 
-See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-*** Opening Bracket
+#device:basilisk-x-hyperspeed-mouse {
+#sensitivity = -100
+#}
 
-#+begin_src cpp
 decoration {
-#+end_src
 
-*** Border rounding
-
-#+begin_src cpp
 rounding = 0
-#+end_src
 
-*** Blur
-
-#+begin_src cpp
 blur {
   enabled = true
   size = 3
@@ -364,114 +166,43 @@ blur {
   xray = false
   special = false
 }
-#+end_src
 
-*** Shadows
-
-#+begin_src cpp
 drop_shadow = false
 shadow_range = 4
 shadow_render_power = 3
 shadow_ignore_window = true
 col.shadow = rgba(1a1a1aee)
 #col.shadow_inactive = ...
-#+end_src
 
-*** Opacity
-
-#+begin_src cpp
 active_opacity = 1.0
 inactive_opacity = 1.0
 fullscreen_opacity = 1.0
-#+end_src
 
-*** Dim
-
-#+begin_src cpp
 dim_inactive = false
 dim_strength = 0.5
 dim_special = 0.4
 dim_around = 0.4
-#+end_src
 
-*** Closing Bracket
-
-#+begin_src cpp
 }
-#+end_src
 
-** Misc
-*** Opening Bracket
-
-#+begin_src cpp
 misc {
-#+end_src
 
-*** Window Swallowing
-
-Hide the terminal when i open software from it, thanks.
-
-#+begin_src cpp
 #enable_swallow = true
   #swallow_regex = ^(Alacritty|kitty)$
-#+end_src
 
-*** Default Hyprland logo (When no Wallpaper)
-
-You can disable it if you want it, it will show you just a grey screen.
-
-#+begin_src cpp
 disable_hyprland_logo = true
 #force_hypr_chan = false
 disable_splash_rendering = true
-#+end_src
 
-*** VRR (Variable Refresh Rate)
-
-https://wiki.archlinux.org/title/Variable_refresh_rate
-
-Enable VRR on monitors that support it.
-Must be a monitor with G-SYNC for NVIDIA GPU's, or FreeSync for AMD GPU's.
-
-#+begin_src cpp
 vrr = 1
-#+end_src
 
-*** Open app on workspace it was opened on
-
-#+begin_src cpp
 #hide_cursor_on_key_press = 1
 #initial_workspace_tracking = 1
-#+end_src
 
-*** Closing Bracket
-
-#+begin_src cpp
 }
-#+end_src
 
-* Keybinds
-** Modifier Key
-
-Find the used key convention on the next link:
-https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
-
-Set up the modifier key!
-#+begin_src cpp
 $mainMod = ALT
-#+end_src
 
-** Shortcuts
-
-Here are my main system keybindings.
-
-FIX
-# Alt + s -> screenshot
-# Alt + Shift + s -> dpms off (screen off)
-# CAREFUL, can't turn screen back on.
-#bindl = $mainMod SHIFT, s, exec, sleep 1 && hyprctl dispatch dpms off
-
-#+begin_src cpp
 bind = $mainMod SHIFT, return, exec, alacritty
 bind = $mainMod SHIFT, c, killactive,
 
@@ -500,119 +231,59 @@ bind = $mainMod, n, fakefullscreen,
 bind = $mainMod, d, togglesplit, # dwindle
 bind = $mainMod, g, pseudo, # dwindle
 bind = $mainMod SHIFT, p, pin,
-#+end_src
 
-** Multimedia Keys
-
-*Audio - Pipewire / Wireplumber*
-#+begin_src cpp
 binde =, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+ 
 binde =, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bind =, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-#+end_src
 
-Mute mic disabled as i don't seem to have a mute mic key
-#+begin_src cpp
 #bind =, XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-#+end_src
 
-*Brightness - brightnessctl*
-#+begin_src cpp
 binde =, XF86MonBrightnessUp, exec, brightnessctl set 20%+
 binde =, XF86MonBrightnessDown, exec, brightnessctl set 20%-
-#+end_src
 
-*Audio - playerctl*
-#+begin_src cpp
 bind =, XF86AudioPlay, exec, playerctl play-pause
 bind =, XF86AudioNext, exec, playerctl next
 bind =, XF86AudioPrev, exec, playerctl previous
 #bind =, XF86AudioStop, exec, playerctl stop
-#+end_src
 
-** Windows
-
-Alt + Comma / Period = Change monitor focus
-Alt + Shift + Comma / Period = Change workspace
-Alt + Tab = Change window focus
-
-#+begin_src cpp
 binde = $mainMod, comma, workspace, e-1
 binde = $mainMod, period, workspace, e+1
 binde = $mainMod SHIFT, comma, focusmonitor, -1
 binde = $mainMod SHIFT, period, focusmonitor, +1
 
 binde = $mainMod, TAB, movefocus, r
-#+end_src
 
-*** Change Focus
-
-Vi motions for changing the window focus.
-#+begin_src cpp
 binde = $mainMod, h, movefocus, l
 binde = $mainMod, j, movefocus, d
 binde = $mainMod, k, movefocus, u
 binde = $mainMod, l, movefocus, r
-#+end_src
 
-Arrow keys for changing window focus.
-/Currently disable for usage of keys in Emacs Org Mode./
-
-#+begin_src cpp
 #binde = $mainMod, left, movefocus, l
 #binde = $mainMod, down, movefocus, d
 #binde = $mainMod, up, movefocus, u
 #binde = $mainMod, right, movefocus, r
-#+end_src
 
-*** Swap
-
-It needs to be in *Tiling mode* for windows to be swapped around
-#+begin_src cpp
 bind = $mainMod SHIFT, h, movewindow, l
 bind = $mainMod SHIFT, j, movewindow, d
 bind = $mainMod SHIFT, k, movewindow, u
 bind = $mainMod SHIFT, l, movewindow, r
-#+end_src
 
-*** Resize
-
-#+begin_src cpp
 binde = $mainMod CTRL, h, resizeactive, -45 0
 binde = $mainMod CTRL, j, resizeactive, 0 45
 binde = $mainMod CTRL, k, resizeactive, 0 -45
 binde = $mainMod CTRL, l, resizeactive, 45 0
-#+end_src
 
-Resize with Arrow Keys
-#+begin_src cpp
 binde = $mainMod CTRL, left, resizeactive, -45 0
 binde = $mainMod CTRL, down, resizeactive, 0 45
 binde = $mainMod CTRL, up, resizeactive, 0 -45
 binde = $mainMod CTRL, right, resizeactive, 45 0
-#+end_src
 
-*** Move / Resize with Mouse
-
-Move a window with main mod + left mouse click
-Resize a window with main mod + right mouse click
-
-#+begin_src cpp
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
-#+end_src
 
-** Workspaces
-*** Switch
-
-Scroll through workspaces with ALT + Mouse scroll
-#+begin_src cpp
 bind = $mainMod, mouse_up, workspace, e-1
 bind = $mainMod, mouse_down, workspace, e+1
-#+end_src
 
-Change workspaces with main mod + number row
-#+begin_src cpp
 bind = $mainMod, 1, workspace, 1
 bind = $mainMod, 2, workspace, 2
 bind = $mainMod, 3, workspace, 3
@@ -623,11 +294,7 @@ bind = $mainMod, 7, workspace, 7
 bind = $mainMod, 8, workspace, 8
 bind = $mainMod, 9, workspace, 9
 bind = $mainMod, 0, workspace, 10
-#+end_src
 
-*** Move windows to workspaces
-
-#+begin_src cpp
 bind = $mainMod SHIFT, 1, movetoworkspacesilent, 1
 bind = $mainMod SHIFT, 2, movetoworkspacesilent, 2
 bind = $mainMod SHIFT, 3, movetoworkspacesilent, 3
@@ -638,199 +305,55 @@ bind = $mainMod SHIFT, 7, movetoworkspacesilent, 7
 bind = $mainMod SHIFT, 8, movetoworkspacesilent, 8
 bind = $mainMod SHIFT, 9, movetoworkspacesilent, 9
 bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
-#+end_src
 
-** Special Workspace (Scratchpad)
-
-Execute tmux inside alacritty
-
-#+begin_src cpp
 bind = $mainMod, s, togglespecialworkspace
 bind = $mainMod SHIFT, s, movetoworkspace, special
-#+end_src
 
-bind = $mainMod SHIFT, return, exec, alacritty
 
-** Master / Dwindle mode
 
-Add here a keybind that chanes master and dwindle mode.
-
-#+begin_src cpp
-
-#+end_src
-
-* Apps
-** Lockscreen (gtklock)
-
-- [[https://github.com/jovanlanik/gtklock][gtklock - github page]]
-- [[https://github.com/swaywm/swayidle][swayidle - github page]]
-
-I've set up a script that starts swayidle and:
-- Turns off the screen after 20 seconds of inactivity.
-- Runs gtklock after 300 seconds (5 minutes) of inactivity.
-If there's any activity, it will turn on the screen again.
-  
-#+begin_src cpp
 # Turn lockscreen with Alt + Escape (fix)
 #bind = $mainMod, Escape, exec, #/home/asynthe/sync/system/script/dots/gtklock_wp.sh
-#+end_src
 
-*Execute gtklock when closing and reopening the laptop lid.*
-#+begin_src cpp
 #bindl=,switch:on:Lid Switch,exec,~/sync/system/script/dots/lock_wp.sh
-#+end_src
 
-** Idle Daemon (swayidle)
+exec-once = ~/sync/system/script/bash/idle &
 
-Run the script
-#+begin_src cpp
-exec-once = ~/sync/system/script/bash/idle & 
-#+end_src
-
-*Don't run swayidle if i'm watching something on _mpv_ (fullscreen or focused) or when _Steam_ is opened*.
-
-Options for idleinhibit
-+ none
-+ always
-+ focus
-+ fullscreen
-
-#+begin_src cpp
 windowrulev2 = idleinhibit always, class:^(steam)$
 windowrulev2 = idleinhibit fullscreen, class:^(mpv)$
-windowrulev2 = idleinhibit focus, class:^(mpv)$  
-#+end_src
+windowrulev2 = idleinhibit focus, class:^(mpv)$
 
-** Screenshots (grim + slurp)
-
-#grim -g "$(slurp)" -o screenshot.png
-
-#+begin_src cpp
 bind = SUPER, s, exec, grim -g "$(slurp -d)"
 bind = SUPER SHIFT, s, exec, grim -o eDP-1
 bind = SUPER, c, exec, grim -g "$(slurp -d)" - | wl-copy -t image/png
 bind = SUPER SHIFT, c, exec, grim - | wl-copy
-#+end_src
 
-*Flameshot test*
-#+begin_src cpp
 #windowrulev2 = move 0 0,title:^(flameshot)
 #windowrulev2 = nofullscreenrequest,title:^(flameshot)
-#+end_src
 
-** Recording (wf-recorder + slurp)
-
-- [[https://github.com/ammen99/wf-recorder][wf-recorder - GitHub page]]
-
-#+begin_src cpp
 bind = SUPER, r, exec, wf-recorder -g "$(slurp)" -f ~/videos/recording_area.mp4
 bind = SUPER, t, exec, pkill wf-recorder
 bind = SUPER SHIFT, r, exec, wf-recorder -g "$(slurp)" -f ~/videos/recording_screen.mp4
 bind = SUPER SHIFT, t, exec, pkill wf-recorder
-#+end_src
 
-** Bar (waybar)
-
-Start it with *Win key + b*.
-
-#+begin_src 
-bind = SUPER, b, exec, pkill waybar || waybar
-#+end_src 
-
-* Window Rules
-
-See https://wiki.hyprland.org/Configuring/Window-Rules/ for more information.
-
-Example windowrule v1
-*windowrule = float, ^(kitty)$*
-Example windowrule v2
-*windowrulev2 = float,class:^(kitty)$,title:^(kitty)$*
-
-** Floating mode
-
-Don't animate floating windows.
-
-#+begin_src cpp
 windowrulev2 = noanim, floating: 1
-#+end_src
 
-** Pin to screen
-
-#+begin_src cpp
 windowrulev2 = pin, title:Kitty
-#+end_src
 
-** Fakefullscreen
-
-Fullscreen just inside the window, don't take the entire screen.
-
-#+begin_src cpp
 windowrulev2 = fakefullscreen,class:VirtualBoxVM
 windowrulev2 = fakefullscreen,class:org.telegram.desktop
-#+end_src
 
-** Transparency (disabled for now)
-
-#+begin_src cpp
 #windowrulev2 = stayfocused, class:^(firefox)$
 #windowrulev2 = opacity 0.9, class:^(firefox)$
 #windowrulev2 = opacity 0.7, class:^(Spotify)$
-#+end_src
 
-** Firefox / LibreOffice - Auto-maximize bug
-
-The LibreOffice window rule: (.*)(- LibreOffice Calc)$
-Means match /any/ window that contains a string of "- LibreOffice Calc"
-
-#+begin_src cpp
 #windowrulev2 = nomaximizerequest,class:^(libreoffice-calc),title:(.*)(- LibreOffice Calc)$
-#+end_src
 
-* Window Rules - Per App
-
-force -> Floating when opening app.
-noanim -> No animate
-workspace <number> -> Lock to workspace
-size -> Specific size when floating
-
-** Anki
-
-#+begin_src cpp
 windowrulev2 = float,class:^(Anki)$
 windowrulev2 = move 66% 54%,class:^(Anki)$  
 windowrulev2 = noanim,class:^(Anki)$
-#+end_src
 
-** Alacritty
-
-#+begin_src cpp
 #windowrulev2 = float,class:^(Alacritty)$
-#+end_src
 
-#exec-once = [workspace special] alacritty -e tmux a
-#exec-once = [noanim] alacritty &
-#windowrulev2 = noanim,class:Alacritty.*$
-
-** Hypnotix
-
-Ctrl + K -> Keyboard Shortcuts
-F1 -> About this program
-
-|---------+-------------|
-| Keybind | Explanation |
-|---------+-------------|
-| i       | Info        |
-|         |             |
-|---------+-------------|
-
-_note_: for Wayland:
-1. Go into the mpv options, the symbol next to the sources symbol, then add the *vo=x11* option.
-   *hwdec=auto-safe vo=x11*
-   
-2. Run hypnotix like this
-   *$ GDK_BACKEND=x11 hypnotix*
-
-#+begin_src cpp
 bind = $mainMod, F1, exec, GDK_BACKEND=x11 hypnotix
 
 windowrulev2 = pin, class:^(Hypnotix.py)$
@@ -842,110 +365,46 @@ windowrulev2 = idleinhibit always,class:^(Hypnotix.py)$
 
 #windowrulev2 = move 44% 45%,class:^(Hypnotix.py)$  
 #windowrulev2 = move 849 489,class:^(Hypnotix.py)$
-#windowrulev2 = move 55% 49%,class:^(Hypnotix.py)$  
-#+end_src
+#windowrulev2 = move 55% 49%,class:^(Hypnotix.py)$
 
-** KeepassXC
-
-#+begin_src cpp
 windowrulev2 = float,class:^(org.keepassxc.KeePassXC)$
 windowrulev2 = noanim,class:^(org.keepassxc.KeePassXC)$
-#+end_src
 
-** Steam
-
-#+begin_src cpp
 windowrulev2 = stayfocused, title:^()$,class:^(steam)$
 windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
-#+end_src
 
-** qbittorrent
-
-- Silent: don't change into that workspace if opening the app.
-#+begin_src cpp
 windowrulev2 = workspace 10 silent, class:^(org.qbittorrent.qBittorrent)$
 windowrulev2 = noanim, class:^(org.qbittorrent.qBittorrent)$
-#+end_src
 
-** pavucontrol
-
-#+begin_src cpp
 windowrulev2 = size 800 500,class:^(pavucontrol)$
 windowrulev2 = noanim,class:pavucontrol.*$
 windowrulev2 = float,class:^(pavucontrol)$
-#+end_src
 
-** Ueberzugpp
-
-I don't want animation for watching pics on the terminal.
-
-#+begin_src cpp
 windowrulev2 = noanim,class:ueberzugpp.*$
-#+end_src
 
-** QGIS
-
-#+begin_src cpp
 windowrulev2 = float,class:^(org.qgis.)$
-#+end_src
 
-** Firefox
-
-#+begin_src cpp
 #windowrulev2 = nofullscreenrequest, class:(firefox)
 #windowrulev2 = nofullscreenrequest, class:(firefox), title:(Picture-in-Picture)
 #windowrulev2 = nomaximizerequest, class:(firefox), title:(Picture-in-Picture)
 #windowrulev2 = nomaximizerequest,class:^(firefox),title:(Picture-in-Picture)
-#+end_src
 
-Float and pin Picture in Picture
-
-#+begin_src cpp
 windowrulev2 = float, title:^(Picture-in-Picture)$
 windowrulev2 = noanim, title:^(Picture-in-Picture)$
 windowrulev2 = pin, title:^(Picture-in-Picture)$
-#+end_src
 
-** wofi
-
-#+begin_src cpp
 layerrule = noanim, wofi
 layerrule = noanim, wshowkeys
-#+end_src
 
-** Waydroid
-
-#+begin_src cpp
 windowrulev2 = float, title:^(Waydroid)$
-#+end_src
 
-** Zathura
-
-#+begin_src cpp
 windowrulev2 = noanim,class:(org.pwmt.zathura)$
 #windowrulev2 = opacity 0.9, class:^(org.pwmt.zathura)$
-#+end_src
 
-* Special Workspace Rules
-
-#+begin_src cpp
 workspace = special, border: 0
-#+end_src
 
-* Fixes
-** Monitor
-
-When Lid is Open.
-#+begin_src cpp
 #bindl = , switch:off:Lid Switch, exec, hyprctl keyword monitor "eDP-1, 1920x1080, 0x0, 1"
-#+end_src
 
-When Lid is Closed.
-#+begin_src cpp
 #bindl = , switch:on:Lid Switch, exec, hyprctl keyword monitor "eDP-1, disable"
-#+end_src
 
-Suspend Hyprland (systemd) when laptop lid is closed
-#+begin_src cpp
 #bindl = , switch:off:Lid Switch, exec, systemctl suspend
-#+end_src

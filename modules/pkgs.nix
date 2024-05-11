@@ -6,8 +6,9 @@
         inherit (pkgs)
 
             # Testing
-	    usbutils
+    	    usbutils
             vulnix
+            testdisk testdisk-qt
 
             # Programs
             alacritty kitty

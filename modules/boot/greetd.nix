@@ -1,21 +1,28 @@
-{ pkgs, inputs, ... }: 
-let
+{ pkgs, ... }: {
 
-    tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-    hyprland-session = "${inputs.hyprland.packages.${pkgs.system}.hyprland}/share/wayland-sessions";
+    # Note: not working for me with Hyprland master branch ver.
+    # idk why lol
 
-in {
     services.greetd = {
         enable = true;
 	    settings = {
 	    default_session = {
-	        command = "${tuigreet}/bin/tuigreet --time --remember --remember-session --greeting 'おはようございます！' --sessions ${hyprland-session}";
 		    user = "greeter";
+	        command = builtins.concatStringsSep " " [
+                "${pkgs.greetd.tuigreet}/bin/tuigreet"
+                "--time" 
+                "--asterisks"
+                "--remember" 
+                "--remember-session" 
+                "--greeting 'Welcome to NixOS! ^_^'" 
+                #"--sessions ${inputs.hyprland.packages.${pkgs.system}.hyprland}/share/wayland-sessions" # When using Hyprland master branch.
+                "--sessions ${pkgs.hyprland}/share/wayland-sessions"
+                ];
 	        };
 	    };
     };
 
-    # Clean greetd of any tty output.
+    # Clean greetd of any tty noise.
     # https://github.com/sjcobb2022/nixos-config/blob/main/hosts/common/optional/greetd.nix
     systemd.services.greetd.serviceConfig = {
         Type = "idle";

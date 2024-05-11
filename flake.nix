@@ -10,6 +10,7 @@
         home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
 
 	    # Other
+        nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 	    nixvim.url = "github:nix-community/nixvim";
 	    nixvim.inputs.nixpkgs.follows = "nixpkgs";
         disko.url = "github:nix-community/disko";
@@ -40,6 +41,7 @@
 	    nixpkgs-stable,
         home-manager,
 
+        nixos-hardware,
 	    nixvim,
         disko,
         hyprland,
@@ -79,6 +81,7 @@
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
                 musnix.nixosModules.musnix
+                nixos-hardware.nixosModules.lenovo-thinkpad-t480
             ];
         };
 

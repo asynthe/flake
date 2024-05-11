@@ -1,37 +1,43 @@
-{ config, device, inputs, ... }: {
+{ pkgs, ... }: {
 
-    # Remember this copies files from /persist to where specified.
-    environment.persistence."/persist" = {
-        directories = [
-	    "/etc/NetworkManager/system-connections"
-	    "/etc/nixos"
-	    "/tmp"
-	    "/var/lib/bluetooth"
-	    "/var/lib/nixos"
-	    "/var/lib/systemd/coredump"
-	    "/var/lib/tailscale"
-	    "/var/log"
-	];
-        files = [
-	    "/etc/machine-id"
-	];
+    boot = {
+        initrd.systemd.enable = true;
+	    loader.efi.canTouchEfiVariables = true;
+	    tmp.cleanOnBoot = true;
     };
-
-    fileSystems = {
-        "/persist".neededForBoot = true;
-        "/var/log".neededForBoot = true;
-    };
-
+    programs.fuse.userAllowOther = true;
     security.sudo.extraConfig = ''
       # rollback results in sudo lectures after each reboot
       Defaults lecture = never
     '';
 
-    programs.fuse.userAllowOther = true;
+    environment.systemPackages = builtins.attrValues {
+        inherit (pkgs)
+            testdisk testdisk-qt
+            extundelete
+            ext4magic
+        ;
+    };
 
-    boot = {
-        initrd.systemd.enable = true;
-	loader.efi.canTouchEfiVariables = true;
-	tmp.cleanOnBoot = true;
+    # Remember this copies files from /persist to where specified.
+    environment.persistence."/persist" = {
+        directories = [
+	        "/etc/NetworkManager/system-connections"
+	        "/etc/nixos"
+	        "/var/lib/bluetooth"
+	        "/var/lib/nixos"
+	        "/var/lib/systemd/coredump"
+	        "/var/lib/tailscale"
+	        "/var/log"
+	        "/tmp"
+	    ];
+        files = [
+	        "/etc/machine-id"
+	    ];
+    };
+
+    fileSystems = {
+        "/persist".neededForBoot = true;
+        "/var/log".neededForBoot = true;
     };
 }

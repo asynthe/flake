@@ -5,25 +5,26 @@
 
         ../modules/pkgs.nix
         ../modules/pkgs_minimal.nix # No GUI.
-	../modules/pkgs_sec.nix
+	    ../modules/pkgs_sec.nix
 
-	# Apps
-	../modules/app/nvim
+	    # Apps
+	    ../modules/app/nvim
                 
         # Apps - Single Files
-	../modules/app/alacritty.nix
+	    ../modules/app/alacritty.nix
         #../modules/app/bash.nix # bash shell.
-	../modules/app/bat.nix
-	../modules/app/direnv.nix
+	    ../modules/app/bat.nix
+	    ../modules/app/direnv.nix
         #../modules/app/emacs.nix
         ../modules/app/eza.nix
+        ../modules/app/fbterm.nix
         ../modules/app/git.nix
-        ../modules/app/gpg.nix
+        #../modules/app/gpg.nix
         ../modules/app/lf.nix
         ../modules/app/mako.nix
         #../modules/app/mpd.nix
-	../modules/app/mpv.nix
-	../modules/app/obs.nix
+	    ../modules/app/mpv.nix
+	    ../modules/app/obs.nix
         ../modules/app/social.nix # Discord, IRC, Signal, Telegram.
         #../modules/app/ssh.nix
         ../modules/app/starship.nix
@@ -38,12 +39,12 @@
         ../modules/app/zoxide.nix
         ../modules/app/zsh.nix
 
-	# Game
+	    # Game
         #../modules/game/emulators.nix
         #../modules/game/games.nix
         #../modules/game/tools.nix
 
-	# System
+	    # System
         ../modules/sys/settings.nix
         ../modules/sys/theme.nix
         #../modules/sys/uutils-replace.nix

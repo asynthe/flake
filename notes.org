@@ -1,0 +1,32 @@
+Installing NixOS and Home Manager
+#+begin_src text
+cd
+nix-shell -p git neovim lf
+sudo nix-channel --remove nixos
+sudo nix-channel --remove nixos-wsl
+
+git clone https://github.com/asynthe/yuugen.git
+cd yuugen
+sudo nixos-rebuild switch --flake '.#wsl'
+
+# home manager is added as one of the packages
+sudo home-manager --extra-experimental-features "nix-command flakes" switch --flake '.#missingno' # CHANGE TO USE INSIDE CONFIGURATION
+
+# Home Manager
+
+nix-shell --experimental-features "nix-command flakes" -p neovim git lf
+
+wsl -s NixOS (If not found, check how to add it in WSL note)
+wls -d NixOS
+
+nix --experimental-features "nix-command flakes" run home-manager/master -- init --switch
+
+home-manager switch 
+--experimental-features "nix-command flakes"
+--flake '.#missingno'
+
+Now it will give you an error
+
+Change to it
+su missigno -> meows
+#+end_src
