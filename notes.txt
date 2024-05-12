@@ -1,3 +1,6 @@
+
+# I
+
 Installing NixOS and Home Manager
 #+begin_src text
 cd
@@ -12,7 +15,7 @@ sudo nixos-rebuild switch --flake '.#wsl'
 # home manager is added as one of the packages
 sudo home-manager --extra-experimental-features "nix-command flakes" switch --flake '.#missingno' # CHANGE TO USE INSIDE CONFIGURATION
 
-# Home Manager
+* Installing Home Manager
 
 nix-shell --experimental-features "nix-command flakes" -p neovim git lf
 
