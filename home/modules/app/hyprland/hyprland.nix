@@ -15,14 +15,14 @@
     wayland.windowManager.hyprland = {
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-        xwayland.enable = true;
+        #xwayland.enable = true;
         systemd = {
             enable = true;
-            variables = [ "--all" ];
-            extraCommands = lib.mkBefore [
-                "systemctl --user stop graphical-session.target"
-                "systemctl --user start hyprland-session.target"
-            ];
+            #variables = [ "--all" ];
+            #extraCommands = lib.mkBefore [
+                #"systemctl --user stop graphical-session.target"
+                #"systemctl --user start hyprland-session.target"
+            #];
         };
     };
 }

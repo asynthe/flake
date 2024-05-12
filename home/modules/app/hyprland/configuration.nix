@@ -1,6 +1,18 @@
-{
+{ pkgs, ... }: let
+
+    monitor1 = "eDP-1";
+    monitor2 = "HDMI-A-2";
+
+in {
     wayland.windowManager.hyprland.settings = {
         xwayland.force_zero_scaling = true; # Xwayland apps look like shit when scaled.
+
+        exec-once = [
+            "${pkgs.fcitx5}/bin/fcitx5 -d &"
+            "${pkgs.swww}/bin/swww init &"
+            #"${pkgs.waybar}/bin/waybar"
+        ];
+
         env = [
             # NOT FROM THIS CONFIG
             # Prioritise first card (which for me is the amd iGPU)
@@ -13,7 +25,12 @@
             "XDG_SESSION_DESKTOP,Hyprland"
 
             "WLR_NO_HARDWARE_CURSORS,1" # Fix for cursor not appearing when using nvidia drivers.
-            #"MOZ_ENABLE_WAYLAND,1"
+            "MOZ_ENABLE_WAYLAND,1" # Firefox in Wayland.
+        ];
+
+        monitor = [
+            "${monitor1}, 1920x1080@60, 0x0, 1.20"
+            "${monitor2}, 1920x1080@60, 1920x0, 1"
         ];
 
         general = {
@@ -25,14 +42,9 @@
             #no_border_on_floating = 1;
 
             # Border color
-            col = {
-                # Active Border
-                active_border = "rgb(451F67)"; # Purple
-                #active_border = "rgb(ff0000)"; # Xmonad Red
-
-                # Inactive Border
-                inactive_border = "rgb(000000)"; # Black
-            };
+            "col.active_border" = "rgb(451F67)"; # Purple
+            #col.active_border = "rgb(ff0000)"; # Xmonad Red
+            "col.inactive_border" = "rgb(000000)"; # Black
         };
 
         # Animations
@@ -90,10 +102,8 @@
             shadow_range = 4;
             shadow_render_power = 3;
             shadow_ignore_window = true;
-            col = {
-                shadow = "rgba(1a1a1aee)";
-                #shadow_inactive = "...";
-            };
+            "col.shadow" = "rgba(1a1a1aee)";
+            #"col.shadow_inactive" = "...";
 
             # Dim
             dim_inactive = false;
@@ -105,7 +115,7 @@
         # Misc
         misc = {
             initial_workspace_tracking = 2; # Persistent, window + children.
-            hide_on_key_press = true; # Hide cursor on key press.
+            #hide_on_key_press = true; # Hide cursor on key press.
 
             # Window Swallowing
             enable_swallow = true;
