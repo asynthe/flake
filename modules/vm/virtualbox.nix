@@ -1,20 +1,19 @@
-{ config, user, ... }: {
+{ user, ... }: {
 
     users.extraGroups.vboxusers.members = [ "${user}" ];
-    virtualisation.virtualbox = {
+    virtualisation.virtualbox.host.enable = true;
+
+    # Requires recompilation and nixpkgs.config.allowUnfree = true.
+    #virtualisation.virtualbox.host.enableExtensionPack = true; # Required to forward usb2/usb3 to guests.
+    #virtualisation.virtualbox.guest.enable = true; # Guest Additions, both need to be enabled.
+
+    #virtualisation.virtualbox = {
         # Host Configuration
-        host = {
-            enable = true;
+        #host = {
+            #enable = true;
             #headless = ;
             #enableWebService = ;
-            enableExtensionPack = true; # Required to forward usb2/usb3 to guests. Requires nixpks.config.allowUnfree = true
             #addNetworkInterface = ; # Sets up vboxnet0
-        };
-
-        # Guest Additions, both need to be enabled.
-        guest = {
-            enable = true;
-            x11 = true;
-        };
-    };
+        #};
+    #};
 }

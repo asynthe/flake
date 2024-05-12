@@ -56,8 +56,8 @@
     
     }: let
 
-	system = "x86_64-linux";
-	lib = nixpkgs.lib;
+	    system = "x86_64-linux";
+	    lib = nixpkgs.lib;
         pkgs = nixpkgs.legacyPackages.${system};
         pkgs-stable = nixpkgs-stable.legacyPackages.${system};
   
@@ -85,7 +85,7 @@
             ];
         };
 
-	# PC Server
+	    # PC Server
         server = nixpkgs-stable.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit
@@ -93,64 +93,50 @@
                 inputs
                 ;
                 user = "server";
-		device = "/dev/sda";
+		        device = "/dev/sda";
             };
             modules = [
                 ./hosts/server
-		sops-nix.nixosModules.sops
+		        sops-nix.nixosModules.sops
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
             ];
-	};
-
-	# WSL
-        wsl = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit
-	        pkgs-stable
-                inputs
-                ;
-                user = "missingno";
-		device = "/dev/sda";
-            };
-            modules = [
-                ./hosts/wsl
-            ];
-	};
+	    };
     };
 
     homeConfigurations = {
 
-        # User
+        # ben
         ben = home-manager.lib.homeManagerConfiguration {
             #pkgs = nixpkgs.legacyPackages.x86_64-linux;
-	    pkgs = nixpkgs.legacyPackages.${system};
+	        pkgs = nixpkgs.legacyPackages.${system};
             extraSpecialArgs = { inherit
-	        pkgs-stable
+	            pkgs-stable
                 inputs
                 ;
-	        user = "ben";
-            };
+	            user = "ben";
+                };
             modules = [ 
-	        ./home/ben 
-		sops-nix.homeManagerModules.sops
-		nixvim.homeManagerModules.nixvim
-	    ];
+	            ./home/ben 
+		        nixvim.homeManagerModules.nixvim
+		        sops-nix.homeManagerModules.sops
+                hyprland.homeManagerModules.default
+	        ];
         };
  
-        # WSL
+        # missingno
         missingno = home-manager.lib.homeManagerConfiguration {
             #pkgs = nixpkgs.legacyPackages.x86_64-linux;
             inherit pkgs;
-	    extraSpecialArgs = { inherit
-	        pkgs-stable
-	        inputs
-	        ;
-	        user = "missingno";
-	    };
-	    modules = [
-	        ./home/missingno
-	    ];
+	        extraSpecialArgs = { inherit
+	            pkgs-stable
+	            inputs
+	            ;
+	            user = "missingno";
+	        };
+	        modules = [
+	            ./home/missingno
+	        ];
         };
     };
 

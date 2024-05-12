@@ -9,6 +9,7 @@
 
 	    # Apps
 	    ../modules/app/nvim
+	    ../modules/app/hyprland
                 
         # Apps - Single Files
 	    ../modules/app/alacritty.nix
@@ -29,6 +30,7 @@
         #../modules/app/ssh.nix
         ../modules/app/starship.nix
         ../modules/app/swayidle.nix
+        ../modules/app/swayosd.nix
         ../modules/app/tmux.nix
         #../modules/app/vscode.nix
         ../modules/app/wayfire.nix

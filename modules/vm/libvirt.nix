@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }: {
+{ pkgs, user, ... }: {
 
     users.users.${user}.extraGroups = [ "libvirtd" ];
     programs.dconf.enable = true; # Enable dconf (System Management Tool)

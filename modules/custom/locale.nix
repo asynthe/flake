@@ -24,8 +24,9 @@ in {
     config = mkMerge [
         (mkIf (cfg_english.enable) {
             i18n = {
-                defaultLocale = "en_US.UTF-8";
+                defaultLocale = lib.mkForce "en_US.UTF-8";
                 supportedLocales = [ "en_US.UTF-8/UTF-8" "ja_JP.UTF-8/UTF-8" ];
+                extraLocaleSettings.LC_ALL = lib.mkForce "en_US.UTF-8";
             };
         })
         (mkIf (cfg_japanese.enable) {
@@ -36,7 +37,8 @@ in {
 
             time.timeZone = lib.mkForce "Asia/Tokyo";
             i18n = {
-                defaultLocale = lib.mkForce "ja_JP.UTF-8";
+                defaultLocale = "ja_JP.UTF-8";
+                supportedLocales = [ "en_US.UTF-8/UTF-8" "ja_JP.UTF-8/UTF-8" ];
                 extraLocaleSettings.LC_ALL = "ja_JP.UTF-8"; # This one overrides all.
                 #supportedLocales = [
                     #"ja_JP.EUC-JP/EUC-JP"

@@ -4,6 +4,9 @@
         ../../secrets/secrets.nix
 	    #../../secrets/secrets_custom.nix
 
+        # -> Home Manager
+        #../../modules/hyprland.nix
+
         # Boot
         ../../modules/boot/banner.nix
         ../../modules/boot/boot.nix # systemd-boot
@@ -30,7 +33,6 @@
 
         ../../modules/audio.nix
         ../../modules/bluetooth.nix
-        ../../modules/hyprland.nix
         ../../modules/net.nix
         ../../modules/pkgs.nix
         ../../modules/settings.nix
@@ -40,7 +42,10 @@
         
         ../../modules/game/steam.nix
         ../../modules/sys/fstrim.nix
+
         ../../modules/vm/libvirt.nix
+        ../../modules/vm/virtualbox.nix
+        #../../modules/vm/vmware.nix
         
         ../../modules/net/ssh/mosh.nix
         ../../modules/net/ssh/ssh.nix

@@ -537,12 +537,10 @@ Alt + Shift + Comma / Period = Change workspace
 Alt + Tab = Change window focus
 
 #+begin_src cpp
-binde = $mainMod, comma, workspace, e-1
-binde = $mainMod, period, workspace, e+1
-binde = $mainMod SHIFT, comma, focusmonitor, -1
-binde = $mainMod SHIFT, period, focusmonitor, +1
-
-binde = $mainMod, TAB, movefocus, r
+binde = $mainMod SHIFT, comma, workspace, e-1
+binde = $mainMod SHIFT, period, workspace, e+1
+bind = $mainMod, comma, focusmonitor, -1
+bind = $mainMod, period, focusmonitor, +1
 #+end_src
 
 *** Change Focus
@@ -578,10 +576,17 @@ bind = $mainMod SHIFT, l, movewindow, r
 *** Resize
 
 #+begin_src cpp
-binde = $mainMod CTRL, h, resizeactive, -45 0
-binde = $mainMod CTRL, j, resizeactive, 0 45
-binde = $mainMod CTRL, k, resizeactive, 0 -45
-binde = $mainMod CTRL, l, resizeactive, 45 0
+binde = $mainMod CTRL, h, resizeactive, -5% 0
+binde = $mainMod CTRL, j, resizeactive, 0 5%
+binde = $mainMod CTRL, k, resizeactive, 0 -5%
+binde = $mainMod CTRL, l, resizeactive, 5% 0
+#+end_src
+
+#+begin_src cpp
+#binde = $mainMod CTRL, h, resizeactive, -45 0
+#binde = $mainMod CTRL, j, resizeactive, 0 45
+#binde = $mainMod CTRL, k, resizeactive, 0 -45
+#binde = $mainMod CTRL, l, resizeactive, 45 0
 #+end_src
 
 Resize with Arrow Keys
