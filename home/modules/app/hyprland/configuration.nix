@@ -8,9 +8,9 @@ in {
         xwayland.force_zero_scaling = true; # Xwayland apps look like shit when scaled.
 
         exec-once = [
-            "${pkgs.fcitx5}/bin/fcitx5 -d &"
-            "${pkgs.swww}/bin/swww init &"
-            #"${pkgs.waybar}/bin/waybar"
+            "mullvad-gui"
+            "${pkgs.fcitx5}/bin/fcitx5 -d"
+            "${pkgs.swww}/bin/swww init"
         ];
 
         env = [
@@ -24,12 +24,14 @@ in {
             "XDG_CURRENT_DESKTOP,Hyprland"
             "XDG_SESSION_DESKTOP,Hyprland"
 
-            "WLR_NO_HARDWARE_CURSORS,1" # Fix for cursor not appearing when using nvidia drivers.
-            "MOZ_ENABLE_WAYLAND,1" # Firefox in Wayland.
+            "WLR_NO_HARDWARE_CURSORS, 1" # Fix for cursor not appearing when using nvidia drivers.
+            "MOZ_ENABLE_WAYLAND, 1" # Firefox in Wayland.
+            "NIXOS_OZONE_WL, 1"
         ];
 
         monitor = [
-            "${monitor1}, 1920x1080@60, 0x0, 1.20"
+            "${monitor1}, 1920x1080@60, 0x0, 1"
+            #"${monitor1}, 1920x1080@60, 0x0, 1.20"
             "${monitor2}, 1920x1080@60, 1920x0, 1"
         ];
 
@@ -123,8 +125,8 @@ in {
 
             # Hyprland logo
             disable_hyprland_logo = true;
-            #force_hypr_change = false;
             disable_splash_rendering = true;
+            #force_hypr_change = false;
 
             # VRR (Variable Refresh Rate)
             # https://wiki.archlinux.org/title/Variable_refresh_rate

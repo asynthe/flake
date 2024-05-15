@@ -1,5 +1,4 @@
 { pkgs-stable, ... }: {
-
     environment.systemPackages = builtins.attrValues {
         inherit (pkgs-stable)
 	        fzf skim

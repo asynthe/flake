@@ -44,7 +44,7 @@
         ../../modules/sys/fstrim.nix
 
         ../../modules/vm/libvirt.nix
-        ../../modules/vm/virtualbox.nix
+        #../../modules/vm/virtualbox.nix
         #../../modules/vm/vmware.nix
         
         ../../modules/net/ssh/mosh.nix

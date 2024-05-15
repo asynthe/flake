@@ -11,11 +11,13 @@
             # Firefox, Picture-in-Picture
             "float, title:^(Picture-in-Picture)$"
             "noanim, title:^(Picture-in-Picture)$"
+            "noborder, title:^(Enter name of file to save to...)$"
+            "noborder, title:^(Picture-in-Picture)$"
             "pin, title:^(Picture-in-Picture)$"
 
             # hypnotix
-            "idleinhibit always,class:^(Hypnotix.py)$"
             "float,class:^(Hypnotix.py)$"
+            "idleinhibit always,class:^(Hypnotix.py)$"
             "pin, class:^(Hypnotix.py)$"
             #"size 723 408,class:^(Hypnotix.py)$
             #"move 43% 45%,class:^(Hypnotix.py)$  
@@ -34,6 +36,7 @@
             # pavucontrol
             "float,class:^(pavucontrol)$"
             "noanim,class:pavucontrol.*$"
+            "noborder,class:^(pavucontrol)$"
             "size 800 500,class:^(pavucontrol)$"
 
             # Qbittorrent

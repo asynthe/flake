@@ -24,6 +24,7 @@ in {
 
   config = mkMerge [ 
     (mkIf (cfg_server.enable) { networking.networkmanager.enable = true; })
+
     (mkIf (cfg_thinkpad.enable) {
       networking.networkmanager = {
         enable = true;

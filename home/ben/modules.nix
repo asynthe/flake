@@ -29,8 +29,8 @@
         ../modules/app/social.nix # Discord, IRC, Signal, Telegram.
         #../modules/app/ssh.nix
         ../modules/app/starship.nix
-        ../modules/app/swayidle.nix
-        ../modules/app/swayosd.nix
+        #../modules/app/swayidle.nix
+        #../modules/app/swayosd.nix
         ../modules/app/tmux.nix
         #../modules/app/vscode.nix
         ../modules/app/wayfire.nix
@@ -47,6 +47,8 @@
         #../modules/game/tools.nix
 
 	    # System
+        ../modules/sys/fonts.nix
+        ../modules/sys/ime.nix
         ../modules/sys/settings.nix
         ../modules/sys/theme.nix
         #../modules/sys/uutils-replace.nix

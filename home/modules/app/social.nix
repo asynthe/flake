@@ -3,7 +3,7 @@
     home.packages = builtins.attrValues {
         inherit (pkgs)
             # Discord, fuck discord.
-            webcord
+            #webcord
             #armcord
             #gtkcord4
             #discord 

@@ -15,10 +15,9 @@
 	        gnumake
 	        gopass # -> pass !
 	        pass-wayland # -> pass !
-	        tor-browser
-            screenkey
             cpu-x
-            wshowkeys showmethekey
+            wshowkeys
+            tectonic
 
 	        # Networking
 	        ciscoPacketTracer8
@@ -34,7 +33,7 @@
 	        hypnotix
 	        keepassxc
 	        #libreoffice
-	        obsidian
+	        #obsidian
 
 	        # Tools - Presenting
 	        slides

@@ -1,5 +1,6 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
+    dconf.enable = true;
     home = {
         pointerCursor = {
             gtk.enable = true;
@@ -10,46 +11,18 @@
         };
     };
 
-    gtk = {
-        enable = true;
-        theme = {
-            name = "Materia-dark";
-            package = pkgs.materia-theme;
-	    #name = "Adwaita-dark";
-	    #package = pkgs.adwaita-qt;
-        };
-    };
+    #gtk = {
+        #enable = true;
+        #theme = {
+	        #name = "Adwaita-dark";
+	        #package = pkgs.adwaita-qt;
+            #name = "Materia-dark";
+            #package = pkgs.materia-theme;
+        #};
+    #};
 
-    qt = {
-        enable = true;
-	    platformTheme.name = "gtk";
-    };
-
-    dconf.enable = true;
-    fonts.fontconfig.enable = true;
-    home.packages = builtins.attrValues {
-        inherit (pkgs)
-
-	    #corefonts
-	    font-awesome
-
-	    nerdfonts
-            #(nerdfonts.override { fonts = [ # IMPLEMENT
-              #"FiraCode"
-              #"FiraMono"
-              #"Iosevka"
-              #"IosevkaTerm"
-              #"JetBrainsMono"
-              #"Meslo"
-            #]; })
-
-
-	    # Japanese
-	    ipafont
-	    kochi-substitute
-	    noto-fonts
-	    noto-fonts-cjk
-	    noto-fonts-emoji
-	;
-    };
+    #qt = {
+        #enable = true;
+	    #platformTheme.name = "gtk";
+    #};
 }

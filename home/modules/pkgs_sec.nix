@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-stable, ... }: {
+{ pkgs, pkgs-stable, ... }: {
 
     home.packages = builtins.attrValues {
         inherit (pkgs-stable)

@@ -1,4 +1,3 @@
-
 # I
 
 Installing NixOS and Home Manager
@@ -22,14 +21,14 @@ nix-shell --experimental-features "nix-command flakes" -p neovim git lf
 wsl -s NixOS (If not found, check how to add it in WSL note)
 wls -d NixOS
 
-nix --experimental-features "nix-command flakes" run home-manager/master -- init --switch
+nix --experimental-features "nix-command flakes" run home-manager/master -- init --switch # If flakes is not enabled.
+nix run home-manager/master -- init --switch # If flakes is enabled.
 
-home-manager switch 
---experimental-features "nix-command flakes"
---flake '.#missingno'
+# If you have home-manager installed.
+home-manager switch --experimental-features "nix-command flakes" --flake '.ben' # If flakes is not enabled.
+home-manager switch --flake '.ben' # If flakes is not enabled.
 
+############################# FIX THIS SHIT #############################
 Now it will give you an error
-
 Change to it
 su missigno -> meows
-#+end_src

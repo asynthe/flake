@@ -1,8 +1,6 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
-    #home-manager.useGlobalPkgs = true; # NEXT UPDATE
-    home.enableNixpkgsReleaseCheck = false;
-
+    news.display = "silent";
     nix = {
         package = pkgs.nix;
         settings = {

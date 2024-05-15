@@ -1,8 +1,6 @@
 {
     description = "asynthe's system flake";
-
     inputs = {
-        
 	    # Main Inputs
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
         nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
@@ -19,7 +17,6 @@
         impermanence.url = "github:nix-community/impermanence";
         musnix.url = "github:musnix/musnix";
         sops-nix.url = "github:Mic92/sops-nix";
-
         #nil.url = "github:oxalica/nil";
         #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
         #nix-gaming.url = "github:fufexan/nix-gaming";

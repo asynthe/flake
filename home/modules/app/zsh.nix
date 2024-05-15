@@ -54,7 +54,6 @@
 	        #update = "nix flake update '${config.home.homeDirectory}/yuugen' && home-manager switch --flake '${config.home.homeDirectory}/yuugen#ben' && sudo nixos-rebuild switch --flake '${config.home.homeDirectory}/yuugen#thinkpad'";
 	        #upgrade = "sudo nixos-rebuild switch --flake ${config.xdg.configHome}/yuugen#thinkpad"; 
 	        #upgrade-home = "home-manager switch --flake ${config.xdg.configHome}/yuugen#ben"; 
-	        #upgrade-wsl = "home-manager switch --flake ${config.xdg.configHome}/yuugen#missingno";
 	        #gc = "sudo nix-collect-garbage -d";
 	        #gc-home = "nix-env --delete-generations 7d && nix-store --gc";
         };

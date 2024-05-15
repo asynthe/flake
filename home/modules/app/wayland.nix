@@ -1,23 +1,21 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
 
-	    flameshot # Screenshot.
-            grim slurp # Screenshot.
-
-	    wallust # pywal, but mantained.
-	    imv # Image Viewer.
-            wofi # App launcher.
-	    wl-clipboard # Clipboard.
-            swww # Wallpaper.
-            mpvpaper # Video wallpaper.
-            waybar #eww-wayland # Bar.
-            swayidle # Idle daemon.
-            ripdrag # Drag & Drop.
-            mako libnotify # Notification daemon.
-            wdisplays #wlr-randr #kanshi
+	        imv # Image Viewer.
+	        wallust # pywal, but mantained.
+	        wl-clipboard # Clipboard.
             brightnessctl #brillo
+            grim slurp # Screenshot.
+            mako libnotify # Notification daemon.
+            mpvpaper # Video wallpaper.
+            ripdrag # Drag & Drop.
+            swayidle # Idle daemon.
+            swww # Wallpaper.
+            #waybar #eww-wayland # Bar.
+            wdisplays #wlr-randr #kanshi
+            wofi # App launcher.
             #gtklock #swaylock-effects
             #wlogout
 	;
