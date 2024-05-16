@@ -24,9 +24,14 @@ in {
             "XDG_CURRENT_DESKTOP,Hyprland"
             "XDG_SESSION_DESKTOP,Hyprland"
 
-            "WLR_NO_HARDWARE_CURSORS, 1" # Fix for cursor not appearing when using nvidia drivers.
             "MOZ_ENABLE_WAYLAND, 1" # Firefox in Wayland.
             "NIXOS_OZONE_WL, 1"
+
+            # Cursor
+            "WLR_NO_HARDWARE_CURSORS, 1" # Fix for cursor not appearing when using nvidia drivers.
+            "HYPRCURSOR_SIZE,12"
+            "XCURSOR_SIZE,12"
+
         ];
 
         monitor = [
