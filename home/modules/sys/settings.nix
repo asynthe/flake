@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 
     news.display = "silent";
     nix = {
@@ -6,6 +6,7 @@
         settings = {
             warn-dirty = false;
             extra-experimental-features = [ "nix-command" "flakes" ];
+            substituters = lib.mkBefore [ "https://cache.nixos.org" ];
         };
     };
 
