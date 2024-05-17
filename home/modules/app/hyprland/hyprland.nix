@@ -3,7 +3,7 @@
     wayland.windowManager.hyprland = {
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-        #xwayland.enable = true;
+        xwayland.enable = true;
         systemd = {
             enable = true;
             variables = [ "--all" ];
@@ -21,7 +21,7 @@
         configPackages = [ inputs.hyprland.packages.${pkgs.system}.hyprland ];
     };
 
-    # Cachix
+    # Cachix # Move to another file for a step-by-step installation.
     nix.settings = {
         substituters = [ "https://hyprland.cachix.org" ];
         trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];

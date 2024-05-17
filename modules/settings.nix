@@ -1,4 +1,4 @@
-{ user, ... }: {
+{ user, lib, ... }: {
 
     programs.nh = {
         enable = true;
@@ -9,14 +9,14 @@
         };
     };
 
-    nix = {
-        settings = {
-            auto-optimise-store = true;
-            allowed-users = [ "${user}" ]; # Required for installing Home Manager?
-            trusted-users = [ "${user}" ];
-            experimental-features = [ "nix-command" "flakes" ];
-            warn-dirty = false;
-        };
+    nix.settings = {
+        allowed-users = [ "${user}" ]; # Required for installing Home Manager?
+        auto-optimise-store = true;
+        experimental-features = [ "nix-command" "flakes" ];
+        substituters = lib.mkBefore [ "https://cache.nixos.org" ];
+        trusted-public-keys = lib.mkBefore [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+        trusted-users = [ "${user}" ];
+        warn-dirty = false;
     };
 
     # Hanging at rebuild and wait-online service failing.

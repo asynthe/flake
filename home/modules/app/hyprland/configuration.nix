@@ -29,15 +29,27 @@ in {
 
             # Cursor
             "WLR_NO_HARDWARE_CURSORS, 1" # Fix for cursor not appearing when using nvidia drivers.
-            "HYPRCURSOR_SIZE,12"
-            "XCURSOR_SIZE,12"
+            "HYPRCURSOR_SIZE,32"
+            "XCURSOR_SIZE,32"
 
         ];
 
         monitor = [
-            "${monitor1}, 1920x1080@60, 0x0, 1"
-            #"${monitor1}, 1920x1080@60, 0x0, 1.20"
-            "${monitor2}, 1920x1080@60, 1920x0, 1"
+
+            # eDP-1 on the left
+            #"${monitor1}, 1920x1080@60, 0x0, 1" # Last one is scaling, I use 1.20 sometimes.
+            #"${monitor2}, 1920x1080@60, 1920x0, 1"
+
+            # eDP-1 on the right
+            "${monitor1}, 1920x1080@60, 1920x0, 1."
+            "${monitor2}, 1920x1080@60, 0x0, 1"
+
+            # Disable eDP-1
+            #"${monitor1}, disable"
+
+            # Vertical
+            #"${monitor2}, 1920x1080@60, 0x0, 1, transform, 1"
+
         ];
 
         general = {
@@ -75,7 +87,7 @@ in {
             #no_gaps_when_only = true; # Smart gaps, no gaps when only one window.
             smart_split = false;
             smart_resizing = false;
-            special_scale_factor = 0.97; # Scale of special workspace windows.
+            special_scale_factor = 0.98; # Scale of special workspace windows.
         };
 
         master = {

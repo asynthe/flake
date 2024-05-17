@@ -8,6 +8,17 @@
         windowrulev2 = [
             "noanim, floating: 1"
 
+            # firefox
+            # hypnotix
+            # keepassxc
+            # mpv
+            # mullvad-vpn
+            # pavucontrol
+            # qbittorrent
+            # steam
+            # waydroid
+            # zathura
+
             # Firefox, Picture-in-Picture
             "float, title:^(Picture-in-Picture)$"
             "noanim, title:^(Picture-in-Picture)$"
@@ -15,7 +26,7 @@
             "noborder, title:^(Picture-in-Picture)$"
             "pin, title:^(Picture-in-Picture)$"
 
-            # hypnotix
+            # Hypnotix
             "float,class:^(Hypnotix.py)$"
             "idleinhibit always,class:^(Hypnotix.py)$"
             "pin, class:^(Hypnotix.py)$"
@@ -56,6 +67,7 @@
             "opacity 0.9, class:(org.pwmt.zathura)$"
 
             # Other
+            "noborder,class:^(Mullvad VPN)$"
             "float,class:^(org.qgis.)$"
             "fakefullscreen,class:VirtualBoxVM"
             "fakefullscreen,class:org.telegram.desktop"

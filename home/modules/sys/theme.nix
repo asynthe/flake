@@ -11,18 +11,18 @@
         };
     };
 
-    #gtk = {
-        #enable = true;
-        #theme = {
-	        #name = "Adwaita-dark";
-	        #package = pkgs.adwaita-qt;
+    gtk = {
+        enable = true;
+        theme = {
+	        name = "Adwaita-dark";
+	        package = pkgs.adwaita-qt;
             #name = "Materia-dark";
             #package = pkgs.materia-theme;
-        #};
-    #};
+        };
+    };
 
-    #qt = {
-        #enable = true;
-	    #platformTheme.name = "gtk";
-    #};
+    qt = {
+        enable = true;
+	    platformTheme.name = "gtk";
+    };
 }
