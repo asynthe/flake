@@ -14,10 +14,10 @@
     gtk = {
         enable = true;
         theme = {
-	        name = "Adwaita-dark";
-	        package = pkgs.adwaita-qt;
-            #name = "Materia-dark";
-            #package = pkgs.materia-theme;
+	        #name = "Adwaita-dark";
+	        #package = pkgs.adwaita-qt;
+            name = "Materia-dark";
+            package = pkgs.materia-theme;
         };
     };
 

@@ -133,7 +133,7 @@ in {
 
         # Misc
         misc = {
-            initial_workspace_tracking = 2; # Persistent, window + children.
+            initial_workspace_tracking = 1; # Only first window. (2 for window + children)
             #hide_on_key_press = true; # Hide cursor on key press.
 
             # Window Swallowing
