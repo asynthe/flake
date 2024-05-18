@@ -34,6 +34,8 @@
 	        py = "python3";
             m = "ncmpcpp";
             rm = "rm -i";
+            v = "${pkgs.alsa-utils}/bin/alsamixer";
+            vv = "${pkgs.pulsemixer}/bin/pulsemixer";
 
 	        # Tools
 	        bt = "${pkgs.bluetuith}/bin/bluetuith";

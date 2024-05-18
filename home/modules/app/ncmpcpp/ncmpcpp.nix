@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
 
     imports = [
         ./bindings.nix
@@ -7,6 +7,11 @@
 
     programs.ncmpcpp = {
         enable = true;
+        package = pkgs.ncmpcpp.override {
+            visualizerSupport = true;
+            clockSupport = true;
+            #taglibSupport = true;
+        };
         settings = {
             ncmpcpp_directory = ''"${config.xdg.configHome}/ncmpcpp"'';
             #lyrics_directory = ''"~/.local/share/lyrics"'';
