@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }: {
+{ config, pkgs, ... }: {
 
     programs.zsh = {
         enable = true;
@@ -32,6 +32,7 @@
             # General
 	        pdf = "zathura";
 	        py = "python3";
+            m = "ncmpcpp";
             rm = "rm -i";
 
 	        # Tools

@@ -1,4 +1,14 @@
 { config, ... }: {
+
+    xdg = {
+        configHome = "${config.home.homeDirectory}/.config";
+        userDirs = {
+            enable = true;
+            createDirectories = false;
+            music = "${config.home.homeDirectory}/sync/archive/music";
+        };
+    };
+
     home = {
         sessionVariables = {
 	        TERMINAL = "Alacritty";

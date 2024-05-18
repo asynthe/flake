@@ -4,11 +4,12 @@
         ../../secrets/secrets.nix
 	    #../../secrets/secrets_custom.nix
 
-        # -> Home Manager
-        #../../modules/hyprland.nix
-
+        # Profiles / Custom configurations
+        ../../profiles/mullvad
+        ../../profiles/tailscale
+        ../../profiles/boot # Just banner for now, lol.
+        
         # Boot
-        ../../modules/boot/banner.nix
         ../../modules/boot/boot.nix # systemd-boot
         #../../modules/boot/console.nix
         #../../modules/boot/greetd.nix # for Hyprland
@@ -51,9 +52,6 @@
         ../../modules/net/ssh/mosh.nix
         ../../modules/net/ssh/ssh.nix
         ../../modules/net/ssh/sshfs.nix
-        ../../modules/net/vpn/mullvad.nix
-        ../../modules/net/vpn/tailscale.nix
-        
         ../../modules/sysd/lid_switch.nix # Lid switch action for laptops.
         
         # Security

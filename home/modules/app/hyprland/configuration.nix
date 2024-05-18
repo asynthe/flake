@@ -10,6 +10,7 @@ in {
         exec-once = [
             "mullvad-gui"
             "${pkgs.fcitx5}/bin/fcitx5 -d"
+            "${pkgs.qbittorrent}/bin/qbittorrent"
             "${pkgs.swww}/bin/swww init"
         ];
 

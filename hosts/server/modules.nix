@@ -1,8 +1,10 @@
 {
     imports = [
 
-        # Secrets
-        ../../secrets/secrets.nix
+        # Profiles
+        ../../profiles/mullvad
+        ../../profiles/ssh
+        ../../profiles/tailscale
 
         # Disk configuration
 	    ../../modules/disko/btrfs_persist.nix
@@ -19,9 +21,7 @@
         ../../modules/srv/monitoring/endlessh.nix
 
         # Network
-	    ../../modules/srv/net.nix
-        ../../modules/srv/vpn/mullvad.nix
-        ../../modules/srv/vpn/tailscale.nix
+	    ../../modules/srv/net/net.nix
         
         # systemd services + timers
         #../../modules/srv/systemd/automount_hdd.nix

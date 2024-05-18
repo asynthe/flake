@@ -1,9 +1,9 @@
-{
+{ user, ... }: {
     nix = {
 	    # Nix settings
         settings = {
             auto-optimise-store = true;
-            trusted-users = [ "server" ];
+            trusted-users = [ "${user}" ];
             experimental-features = ["nix-command" "flakes"];
             warn-dirty = false;
         };

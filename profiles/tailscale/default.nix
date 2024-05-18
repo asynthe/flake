@@ -1,0 +1,3 @@
+{
+    imports = [ ./tailscale.nix ];
+}

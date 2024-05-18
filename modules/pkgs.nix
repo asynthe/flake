@@ -29,7 +29,6 @@
             lf ueberzugpp
 
             # GUI
-            qbittorrent
             pcmanfm
             pinta
 

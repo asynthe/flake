@@ -58,10 +58,6 @@
 	        "environment/variables/sops_age_key" = { };
 	        "ssh/private/server" = { };
 	        "ssh/private/thinkpad" = { };
-            "ssh/public/thinkpad" = { };
-            "password/server/data" = { };
-            "password/server/root" = { };
-            "password/server/user" = { };
             "password/thinkpad" = { };
         };
     };

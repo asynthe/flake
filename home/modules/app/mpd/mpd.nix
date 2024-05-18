@@ -1,38 +1,57 @@
-{ config, user, ... }: {
+{ config, ... }: {
+
+    imports = [
+        #./mpd-discord-rpc.nix
+        #./mpdris2.nix
+    ];
+
+    # Note, run `systemctl --user start mpd.service`
 
     services.mpd = {
+        user = "${config.home.username}";
         enable = true;
-        musicDirectory = "/home/ben/music";
+        musicDirectory = config.xdg.userDirs.music;
+        network.startWhenNeeded = true;
         extraConfig = ''
-          db_file "~/.config/mpd/database"
-          log_file "~/.config/mpd/log"
-          auto_update "yes"
+          auto_update           "yes"
+          volume_normalization  "yes"
+          restore_paused        "yes"
+          filesystem_charset    "UTF-8"
 
-          # Pipewire
           audio_output {
-            type            "pipewire"
-            name            "PipeWire Sound Server"
-          } '';
+            type                "pipewire"
+            name                "PipeWire"
+          }
+
+          audio_output {
+            type                "fifo"
+            name                "Visualiser"
+            path                "/tmp/mpd.fifo"
+            format              "44100:16:2"
+          }
+
+          audio_output {
+           type		              "httpd"
+           name		              "lossless"
+           encoder		          "flac"
+           port		              "8000"
+           max_clients	        "8"
+           mixer_type	          "software"
+           format		            "44100:16:2"
+          }
+        '';
     };
 
-    # THIS DOESNT WORK ON HOME MANAGER
-    
-    #systemd.services.mpd.environment = {
-        #XDG_RUNTIME_DIR = "/run/user/1000";
-    #};
-
-    # OLD FROM DOWN HERE ! - DELETE
-    #services.mpd = {
-        #enable = true;
-        #user = "${user}";
-        #musicDirectory = "/home/${user}/music";
         #extraConfig = ''
-        #  audio_output {
-        #  type "pipewire"
-        #  name "Pipewire"
-        #  }
-        #'';
-        #startWhenNeeded = true;
+          #db_file "~/.config/mpd/database"
+          #log_file "~/.config/mpd/log"
+          #auto_update "yes"
+
+          # Pipewire
+          #audio_output {
+          #  type            "pipewire"
+          #  name            "PipeWire Sound Server"
+          #} '';
     #};
 
     #services.mpd = {

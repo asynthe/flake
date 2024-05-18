@@ -8,8 +8,10 @@
 	    ../modules/pkgs_sec.nix
 
 	    # Apps
-	    ../modules/app/nvim
 	    ../modules/app/hyprland
+	    ../modules/app/mpd
+	    ../modules/app/ncmpcpp
+	    ../modules/app/nvim
                 
         # Apps - Single Files
 	    ../modules/app/alacritty.nix
@@ -23,7 +25,6 @@
         #../modules/app/gpg.nix
         ../modules/app/lf.nix
         ../modules/app/mako.nix
-        #../modules/app/mpd.nix
 	    ../modules/app/mpv.nix
 	    ../modules/app/obs.nix
         ../modules/app/social.nix # Discord, IRC, Signal, Telegram.
