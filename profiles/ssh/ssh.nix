@@ -1,5 +1,4 @@
 {
-
     # OPTIONS
     # - server
     # - thinkpad
