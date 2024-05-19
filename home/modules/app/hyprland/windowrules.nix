@@ -34,8 +34,8 @@
             "idleinhibit fullscreen, class:^(mpv)$"
 
             # Mullvad
-            "noborder, title:^(Mullvad VPN)$"
-            "move 100%-, title:^(Mullvad VPN)$"
+            "noborder, class:$(Mullvad VPN)$"
+            "move 3520 512, class:^(Mullvad VPN)$"
 
             # pavucontrol
             "float, class:^(pavucontrol)$"

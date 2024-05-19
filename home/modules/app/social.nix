@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
@@ -15,6 +15,7 @@
 
             # IRC
             weechat
+            hexchat
             #irssi
         ;
     };

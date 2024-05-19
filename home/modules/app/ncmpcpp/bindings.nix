@@ -6,10 +6,16 @@
         { key = "h"; command = "jump_to_parent_directory"; }
         { key = "j"; command = "scroll_down"; }
         { key = "k"; command = "scroll_up"; }
-        { key = "l"; command = [ "next_column" "enter_directory" "play_item" ]; }
-        { key = "g"; command = "page_up"; }
-        { key = "G"; command = "page_down"; }
+        #{ key = "l"; command = [ "next_column" "enter_directory" "play_item" ]; }
+        { key = "l"; command = "enter_directory"; }
+        { key = "G"; command = "move_end"; }
+        { key = "g"; command = "move_home"; }
 
+        # Move item on cursor selection up or down
+        { key = "J"; command = "move_selected_items_down"; }
+        { key = "K"; command = "move_selected_items_up"; }
+
+        # Seek
         { key = "<"; command = "seek_backward"; }
         { key = ">"; command = "seek_forward"; }
 
@@ -17,16 +23,19 @@
         { key = "left"; command = [ "previous_column" "jump_to_parent_directory" ]; }
         { key = "down"; command = "scroll_down"; }
         { key = "up"; command = "scroll_up"; }
-        { key = "right"; command = [ "next_column" "enter_directory" "play_item" ]; }
+        { key = "right"; command = "enter_directory"; }
 
         # Main keys
-        #{ key = "return"; command = "pause"; }
-        { key = "q"; command = "quit"; }
-        { key = "p"; command = "pause"; }
-        { key = "tab"; command = "next_screen"; }
-        { key = "mouse"; command = "dummy"; }
-        { key = "u"; command = "update_database"; }
+        { key = "="; command = "volume_up"; } # I don't want to see the clock lol.
+        { key = "I"; command = "show_server_info"; }
+        { key = "L"; command = "play_item"; }
+        { key = "R"; command = "add_random_items"; }
         { key = "b"; command = "toggle_bitrate_visibility"; }
+        { key = "d"; command = [ "delete_playlist_items" "delete_browser_items" "delete_stored_playlist" ]; }
+        { key = "p"; command = "pause"; }
+        { key = "q"; command = "quit"; }
+        { key = "tab"; command = "next_screen"; }
+        { key = "u"; command = "update_database"; }
 
         # Views
         { key = "1"; command = "show_playlist"; }

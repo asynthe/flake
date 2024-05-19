@@ -5,10 +5,6 @@
 #+property: header-args :tangle hyprland.conf
 #+auto_tangle: t
 
-REMOVED
-Hide cursor after x seconds
-~cursor_inactive_timeout = 2~
-
 * Table Of Contents :toc:
 - [[#system][System]]
   - [[#environment-variables][Environment Variables]]
