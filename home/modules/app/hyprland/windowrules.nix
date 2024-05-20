@@ -8,7 +8,13 @@
         windowrulev2 = [
             "noanim, floating: 1"
 
+            # Chromium
+            "center, class:%(chromium), title:^(Save File)$"
+            "float, class:%(chromium), title:^(Save File)$"
+            "noborder, class:%(chromium), title:^(Save File)$"
+
             # Firefox, Picture-in-Picture
+            "center, title:^(Picture-in-Picture)$"
             "float, title:^(Picture-in-Picture)$"
             "noanim, title:^(Picture-in-Picture)$"
             "noborder, title:^(Enter name of file to save to...)$"
@@ -34,8 +40,11 @@
             "idleinhibit fullscreen, class:^(mpv)$"
 
             # Mullvad
-            "noborder, class:$(Mullvad VPN)$"
-            "move 3520 512, class:^(Mullvad VPN)$"
+            "animation popin, title:(Mullvad VPN)"
+            "float, title:(Mullvad VPN)"
+            "move 3520 512, title:(Mullvad VPN)"
+            #"move -100%, title:(Mullvad VPN)"
+            "noborder, title:(Mullvad VPN)"
 
             # pavucontrol
             "float, class:^(pavucontrol)$"
