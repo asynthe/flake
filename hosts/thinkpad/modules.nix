@@ -5,9 +5,9 @@
 	    #../../secrets/secrets_custom.nix
 
         # Profiles / Custom configurations
-        ../../profiles/mullvad
-        ../../profiles/tailscale
+        ../../profiles/vpn
         ../../profiles/boot # Just banner for now, lol.
+        ../../profiles/locale
         
         # Boot
         ../../modules/boot/boot.nix # systemd-boot
@@ -15,9 +15,6 @@
         #../../modules/boot/greetd.nix # for Hyprland
         #../../modules/boot/kmscon.nix 
         #../../modules/boot/silent.nix
-
-        # Custom
-        ../../modules/custom/locale.nix
 
 	    # Daemon
 	    ../../modules/daemon/android.nix

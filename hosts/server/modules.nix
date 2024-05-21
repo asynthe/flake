@@ -2,9 +2,8 @@
     imports = [
 
         # Profiles
-        ../../profiles/mullvad
+        ../../profiles/vpn
         ../../profiles/ssh
-        ../../profiles/tailscale
 
         # Disk configuration
 	    ../../modules/disko/btrfs_persist.nix

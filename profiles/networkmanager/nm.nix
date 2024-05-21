@@ -1,7 +1,5 @@
 { config, lib, pkgs, ... }:
-
 with lib; # Use the functions from lib, such as mkIf
-
 let
 
   cfg_server = config.server.networkmanager;

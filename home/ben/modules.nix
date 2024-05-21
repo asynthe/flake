@@ -20,7 +20,7 @@
 	    ../modules/app/direnv.nix
         #../modules/app/emacs.nix
         ../modules/app/eza.nix
-        ../modules/app/fbterm.nix
+        #../modules/app/fbterm.nix
         ../modules/app/git.nix
         #../modules/app/gpg.nix
         ../modules/app/lf.nix
@@ -30,7 +30,7 @@
         ../modules/app/social.nix # Discord, IRC, Signal, Telegram.
         #../modules/app/ssh.nix
         ../modules/app/starship.nix
-        #../modules/app/swayidle.nix
+        ../modules/app/swayidle.nix
         #../modules/app/swayosd.nix
         ../modules/app/tmux.nix
         #../modules/app/vscode.nix
