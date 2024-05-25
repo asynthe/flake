@@ -27,10 +27,10 @@
         ../../modules/audio.nix
         ../../modules/bluetooth.nix
         ../../modules/net.nix
-        ../../modules/pkgs.nix
         ../../modules/settings.nix
         ../../modules/sys.nix
         ../../modules/vpn.nix
+        ../../modules/pkgs/pkgs.nix
         
         ../../modules/game/steam.nix
         ../../modules/sys/fstrim.nix

@@ -6,7 +6,7 @@
     time.timeZone = "Australia/Perth";
 
     # Custom configuration
-    system.laptop.users = true;
+    system.laptop.users.enable = true;
     language.english.enable = true;
 
     imports = [
