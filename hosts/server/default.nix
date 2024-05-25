@@ -6,7 +6,7 @@
     time.timeZone = "Australia/Perth";
 
     # Options
-    system.server.users = true;
+    system.server.users.enable = true;
     services.qbittorrent-nox.enable = true;
 
     imports = [
