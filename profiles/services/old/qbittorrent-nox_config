@@ -1,0 +1,9 @@
+# Sets the default password to adminadmin
+# https://www.reddit.com/r/unRAID/comments/180ou0b/psa_if_you_cant_login_to_qbittorrent_pass/
+[Preferences]
+WebUI\Password_PBKDF2="@ByteArray(ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==)"
+
+"WebUI\\AuthSubnetWhitelist" = "100.0.0.0/8";
+"WebUI\\AuthSubnetWhitelistEnabled" = "true";
+"WebUI\\UseUPnP" = "false";
+

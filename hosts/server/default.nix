@@ -5,8 +5,18 @@
     i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "Australia/Perth";
 
+    # Options
+    system.server.users = true;
+    services.qbittorrent-nox.enable = true;
+
     imports = [
         ./modules.nix
 	    ./hardware.nix
+        ../options.nix
+
+        # To move to ../options.nix once optionized.
+        ../../profiles/ssh
+        ../../profiles/user
+        ../../profiles/vpn
     ];
 }

@@ -7,10 +7,10 @@
 
     # Tailscale
     services.tailscale.enable = true;
-    networking.firewall = {
-        trustedInterfaces = [ "tailscale0" ];
-        checkReversePath = "loose"; # TEST - Allow connections through mullvad exit nodes
-    };
+    #networking.firewall = {
+        #trustedInterfaces = [ "tailscale0" ];
+        #checkReversePath = "loose"; # TEST - Allow connections through mullvad exit nodes
+    #};
 
     services.mullvad-vpn = {
         enable = true;
@@ -18,6 +18,17 @@
         # pkgs.mullvad-vpn provices both CLI and GUI.
         package = pkgs.mullvad-vpn;
     };
+
+    environment.persistence."/persist".directories = [
+        "/etc/mullvad-vpn"
+        "/var/cache/mullvad-vpn"
+    ];
+
+    # IMPLEMENT SECRET
+    #sops.secrets.mullvadAccount = {
+        #sopsFile = ./secrets.yaml;
+        #path = "/etc/mullvad-vpn/account-history.json";
+    #};
 
     # Mullvad configuration
     #systemd.services."mullvad-daemon".postStart = 

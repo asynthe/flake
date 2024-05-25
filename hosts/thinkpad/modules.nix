@@ -4,11 +4,6 @@
         ../../secrets/secrets.nix
 	    #../../secrets/secrets_custom.nix
 
-        # Profiles / Custom configurations
-        ../../profiles/vpn
-        ../../profiles/boot # Just banner for now, lol.
-        ../../profiles/locale
-        
         # Boot
         ../../modules/boot/boot.nix # systemd-boot
         #../../modules/boot/console.nix
@@ -35,7 +30,6 @@
         ../../modules/pkgs.nix
         ../../modules/settings.nix
         ../../modules/sys.nix
-        ../../modules/user.nix
         ../../modules/vpn.nix
         
         ../../modules/game/steam.nix

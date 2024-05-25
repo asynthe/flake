@@ -28,11 +28,13 @@
 	    ../modules/app/mpv.nix
 	    ../modules/app/obs.nix
         ../modules/app/social.nix # Discord, IRC, Signal, Telegram.
+        ../modules/app/spotifyd.nix
         #../modules/app/ssh.nix
         ../modules/app/starship.nix
-        ../modules/app/swayidle.nix
+        #../modules/app/swayidle.nix
         #../modules/app/swayosd.nix
         ../modules/app/tmux.nix
+        ../modules/app/vis.nix
         #../modules/app/vscode.nix
         ../modules/app/wayfire.nix
         ../modules/app/wayland.nix
