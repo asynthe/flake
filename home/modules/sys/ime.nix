@@ -14,6 +14,7 @@
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
+            sarasa-gothic
             noto-fonts
             noto-fonts-cjk
             noto-fonts-cjk-sans
