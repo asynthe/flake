@@ -17,8 +17,8 @@
     # XDG Portal
     xdg.portal = {
         xdgOpenUsePortal = true;
-        extraPortals = [ inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
         configPackages = [ inputs.hyprland.packages.${pkgs.system}.hyprland ];
+        extraPortals = [ inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
     };
 
     # Cachix # Move to another file for a step-by-step installation.

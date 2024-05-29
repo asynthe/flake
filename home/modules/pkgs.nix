@@ -2,48 +2,51 @@
 
     home.packages = builtins.attrValues {
         inherit (pkgs-stable)
-
 	        # ...
-
 	    ;
         inherit (pkgs)
 
-	        # Temporary
-	        barrier # Open-source KVM software.
-	        brave
-	        bucklespring-libinput # Requires user in `input` group.
-	        gnumake
-	        gopass # -> pass !
-	        pass-wayland # -> pass !
-            cpu-x
-            wshowkeys
-            tectonic
-
-	        # Networking
+	        # Temp
 	        ciscoPacketTracer8
 	        gns3-gui gns3-server
+	        slides
+	        #zoom-us
+	        #slack #slack-cli #slack-term # ?
 
 	        # Terminal
 	        alacritty kitty
             cool-retro-term
 
-            # Tools - GUI
+            # GUI
+	        brave
 	        emacs29-pgtk
-	        gimp pinta
+	        #gimp
 	        hypnotix
 	        keepassxc
 	        #libreoffice
 	        #obsidian
-
-	        # Tools - Presenting
-	        slides
-	        #zoom-us
-	        #slack #slack-cli #slack-term # ?
-
-	        # Tools - Partitioning / Formatting
+            qbittorrent
 	        #etcher
 	        gparted
 	        ventoy-full #ventoy
+
+            # CLI
+            cpu-x
+            tectonic # LaTeX Engine
+	        htop btop
+	        hyperfine
+	        imagemagickBig #imagemagick
+	        img2pdf
+	        libqalculate
+
+            # Compress / Extract
+	        #mdf2iso
+	        p7zip
+	        #rar #unrar #rar2fs
+	        #torrent7z
+	        unar # Unzipping with Unicode characters.
+	        #xz
+	        zip unzip 
 
             # Bluetooth
             bluetuith
@@ -59,6 +62,17 @@
 	        #libnova
 	        stellarium
             starfetch
+
+	        # Fun
+	        cava
+	        cli-visualizer
+	        figlet
+	        lolcat
+	        nhentai # ( ͡° ͜ʖ ͡°) 
+	        peaclock tty-clock
+	        pulsemixer #pulseaudioFull
+	        unimatrix
+            pipes-rs
 	    ;
     };
 }
