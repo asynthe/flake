@@ -1,9 +1,9 @@
 {
     imports = [
-        
-        ../modules/pkgs_minimal.nix
-	    ../modules/sec/pkgs.nix
-	    #../modules/sec/home-security-box.nix # Kali ?
+
+		../modules/pkgs.nix
+        	../modules/pkgs_minimal.nix
+	    	../modules/pkgs_sec.nix
 
         # Apps
 	    ../modules/app/alacritty.nix
