@@ -7,7 +7,7 @@
 
         # https://tinted-theming.github.io/base16-gallery/
         # or `nix build nixpkgs#base16-schemes`
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/synth-midnight-dark.yaml";
 
         opacity = {
             #applications = 1.0;
