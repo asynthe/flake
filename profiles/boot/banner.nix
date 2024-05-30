@@ -1,10 +1,18 @@
-{ lib, ... }: {
+{ config, lib, ... }:
+with lib;
+let
+    cfg = config.boot.banner;
+in {
+    options.boot.banner.enable = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable banner on device login.";
+    };
 
-    # CONFIG
-    # Thinkpad -> system.thinkpad.banner = true;
-    # Server -> system.server.banner = true;
+    config = mkIf cfg.enable {
 
-    # Thinkpad
-    environment.etc."issue".source = lib.mkForce ./banner/cat;
-    #users.motd = "Today is Sweetmorn, the 4th day of The Aftermath in the YOLD 3178.";
+        # simple_cat
+        environment.etc."issue".source = lib.mkForce ./banner/cat;
+        #users.motd = "Today is Sweetmorn, the 4th day of The Aftermath in the YOLD 3178.";
+    };
 }

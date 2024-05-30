@@ -17,6 +17,7 @@
         impermanence.url = "github:nix-community/impermanence";
         musnix.url = "github:musnix/musnix";
         sops-nix.url = "github:Mic92/sops-nix";
+        stylix.url = "github:danth/stylix";
         #nil.url = "github:oxalica/nil";
         #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
         #nix-gaming.url = "github:fufexan/nix-gaming";
@@ -45,6 +46,7 @@
         impermanence,
         musnix,
         sops-nix,
+        stylix,
         #nix-darwin,
         #nixpkgs-wayland,
         #nixos-06cb-009a-fingerprint-sensor,
@@ -97,6 +99,7 @@
 		        sops-nix.nixosModules.sops
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
+                stylix.nixosModules.stylix
             ];
 	    };
     };

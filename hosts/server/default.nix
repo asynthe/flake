@@ -7,6 +7,7 @@
 
     # Options
     system.server.users.enable = true;
+    services.grafana.enable = true;
     services.qbittorrent-nox.enable = true;
 
     imports = [

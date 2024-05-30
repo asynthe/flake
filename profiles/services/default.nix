@@ -1,6 +1,9 @@
 {
     imports = [
+        #./endlessh.nix
+        #./grafana.nix
         ./qbittorrent-nox.nix
-        ./grafana.nix
+        ./sshfs.nix
+        #./xmr.nix
     ];
 }

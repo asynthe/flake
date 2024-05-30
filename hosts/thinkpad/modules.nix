@@ -29,7 +29,6 @@
         ../../modules/net.nix
         ../../modules/settings.nix
         ../../modules/sys.nix
-        ../../modules/vpn.nix
         ../../modules/pkgs/pkgs.nix
         
         ../../modules/game/steam.nix

@@ -1,3 +1,6 @@
 {
-    imports = [ ./banner.nix ];
+    imports = [ 
+        ./banner.nix 
+        #./boot.nix
+    ];
 }
