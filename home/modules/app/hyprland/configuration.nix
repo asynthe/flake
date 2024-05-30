@@ -10,7 +10,7 @@ in {
         exec-once = [
             "mullvad-gui"
             "${pkgs.fcitx5}/bin/fcitx5 -d"
-            "${pkgs.qbittorrent}/bin/qbittorrent"
+            #"${pkgs.qbittorrent}/bin/qbittorrent" # Not working for now.
             "${pkgs.swww}/bin/swww init"
         ];
 
@@ -61,10 +61,10 @@ in {
             #border_size = 0;
             #no_border_on_floating = 1;
 
-            # Border color
-            "col.active_border" = "rgb(451F67)"; # Purple
-            #col.active_border = "rgb(ff0000)"; # Xmonad Red
-            "col.inactive_border" = "rgb(000000)"; # Black
+            # Border color -> Stylix
+            #"col.active_border" = "rgb(451F67)"; # Purple # Stylix
+            #col.active_border = "rgb(ff0000)"; # Xmonad Red # Stylix
+            #"col.inactive_border" = "rgb(000000)"; # Black # Stylix
         };
 
         # Animations
@@ -122,7 +122,7 @@ in {
             shadow_range = 4;
             shadow_render_power = 3;
             shadow_ignore_window = true;
-            "col.shadow" = "rgba(1a1a1aee)";
+            #"col.shadow" = "rgba(1a1a1aee)"; # Stylix
             #"col.shadow_inactive" = "...";
 
             # Dim

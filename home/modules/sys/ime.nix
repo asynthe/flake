@@ -37,8 +37,8 @@
                 fcitx5-lua # Lua support.
                 fcitx5-mozc # Japanese input.
                 #fcitx5-rime # Chinese input.
-                #fcitx5-table-extra
-                #fcitx5-table-other
+                fcitx5-table-extra
+                fcitx5-table-other
             ;
             inherit (pkgs.libsForQt5)
                 fcitx5-qt # Supprort for QT-based programs.

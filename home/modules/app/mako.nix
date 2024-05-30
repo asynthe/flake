@@ -1,23 +1,23 @@
-{ config, ... }: {
-
+{
     services.mako = {
-        font = "JetBrains Mono Nerd Font 10";
         enable = true;
-	icons = true;
-	anchor = "bottom-right";
+	    icons = true;
+	    anchor = "bottom-right";
 
-	width = 350;
-	padding = "10";
-	margin = "10";
+	    width = 350;
+	    padding = "10";
+	    margin = "10";
 
-	defaultTimeout = 5000;
-	ignoreTimeout = true;
+	    defaultTimeout = 5000;
+	    ignoreTimeout = true;
 
-	borderRadius = 0;
-	borderSize = 0;
+    	borderRadius = 0;
+	    borderSize = 0;
 
-	borderColor = "#bb9af7";
-	backgroundColor = "#24283b";
-	textColor = "#a9b1d6";
+        # Moved to Stylix
+        #font = "JetBrains Mono Nerd Font 10";
+	    #borderColor = "#bb9af7"; # Stylix
+	    #backgroundColor = "#24283b";
+	    #textColor = "#a9b1d6";
     };
 }

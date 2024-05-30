@@ -99,7 +99,6 @@
 		        sops-nix.nixosModules.sops
                 disko.nixosModules.disko
                 impermanence.nixosModules.impermanence
-                stylix.nixosModules.stylix
             ];
 	    };
     };
@@ -121,6 +120,7 @@
 		        nixvim.homeManagerModules.nixvim
 		        sops-nix.homeManagerModules.sops
                 hyprland.homeManagerModules.default
+                stylix.homeManagerModules.stylix
 	        ];
         };
  
