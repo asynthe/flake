@@ -7,17 +7,22 @@
 
     # Options
     system.server.users.enable = true;
-    services.grafana.enable = true;
-    services.qbittorrent-nox.enable = true;
+
+    language.english.enable = true; 
+    # system.language = "english";
+    # system.language = "japanese";
+
+    services = {
+        #grafana.enable = true;
+        qbittorrent-nox.enable = true;
+        ssh.enable = true;
+        ssh.configuration = "server";
+        sshfs.enable = true;
+    };
 
     imports = [
         ./modules.nix
 	    ./hardware.nix
         ../options.nix
-
-        # To move to ../options.nix once optionized.
-        ../../profiles/ssh
-        ../../profiles/user
-        ../../profiles/vpn
     ];
 }

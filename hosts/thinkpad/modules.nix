@@ -39,9 +39,6 @@
         #../../modules/vm/vmware.nix
         
         # Network
-        ../../modules/net/ssh/mosh.nix
-        ../../modules/net/ssh/ssh.nix
-        ../../modules/net/ssh/sshfs.nix
         ../../modules/sysd/lid_switch.nix # Lid switch action for laptops.
         
         # Security

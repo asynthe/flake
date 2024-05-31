@@ -3,16 +3,23 @@ with lib;
 let
     cfg = config.boot.banner;
 in {
-    options.boot.banner.enable = mkOption {
-        type = types.bool;
-        default = false;
-        description = "Enable banner on device login.";
+
+    options.boot.banner = mkOption {
+        type = types.nullOr types.str;
+        default = null;
+        description = "Enable and specify a banner on device login.";
     };
 
-    config = mkIf cfg.enable {
+    #users.motd = "Today is leg day.";
 
-        # simple_cat
-        environment.etc."issue".source = lib.mkForce ./banner/cat;
-        #users.motd = "Today is Sweetmorn, the 4th day of The Aftermath in the YOLD 3178.";
+    config = mkIf (cfg != null) {
+
+        environment.etc."issue".source = lib.mkForce (
+            if cfg == "simple_cat" then ./banner/simple_cat
+            #else if cfg == "" then ./banner/.
+            #else if cfg == "" then ./banner/.
+            #else if cfg == "" then ./banner/.
+            else throw "Specified banner is not on the options list."
+        );
     };
 }

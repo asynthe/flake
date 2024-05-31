@@ -7,7 +7,7 @@
 
         # https://tinted-theming.github.io/base16-gallery/
         # or `nix build nixpkgs#base16-schemes`
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/synth-midnight-dark.yaml";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";
 
         opacity = {
             #applications = 1.0;
@@ -22,7 +22,7 @@
         };
         fonts = {
             sizes = {
-                desktop = 8; # default `10`.
+                desktop = 6; # default `10`.
                 popups = 10; # default `10`.
                 terminal = 12; # default `12`.
             };
@@ -92,11 +92,12 @@
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
+            corefonts
+            etBook # https://edwardtufte.github.io/et-book/
             font-awesome
             nerdfonts
             office-code-pro
             source-sans-pro
-            etBook # https://edwardtufte.github.io/et-book/
             #(nerdfonts.override { fonts = [  # DELETE -> HOME
               #"FiraCode"
               #"FiraMono"

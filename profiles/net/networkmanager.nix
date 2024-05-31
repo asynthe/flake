@@ -1,10 +1,8 @@
 { config, lib, pkgs, ... }:
-with lib; # Use the functions from lib, such as mkIf
+with lib;
 let
-
   cfg_server = config.server.networkmanager;
   cfg_thinkpad = config.thinkpad.networkmanager;
-
 in {
 
   # Interface: defining the options that users can specify.

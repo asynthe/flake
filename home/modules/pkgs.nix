@@ -42,7 +42,7 @@
             # Compress / Extract
 	        #mdf2iso
 	        p7zip
-	        #rar #unrar #rar2fs
+	        rar #unrar #rar2fs
 	        #torrent7z
 	        unar # Unzipping with Unicode characters.
 	        #xz

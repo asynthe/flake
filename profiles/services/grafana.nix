@@ -18,7 +18,6 @@ in {
     };
 
     config = mkIf cfg.enable {
-
         services.grafana = {
             enable = true;
             settings = {

@@ -17,9 +17,10 @@ in {
 
     config = mkIf cfg.enable {
 
+
+
         # ADD persistence option.
         environment.systemPackages = builtins.attrValues { inherit (pkgs-stable) qbittorrent-nox; };
-        fonts.packages = [ pkgs-stable.font-awesome ];
 
         networking.firewall = {
             allowedTCPPorts = [ 8080 ];
