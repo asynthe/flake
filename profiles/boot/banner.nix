@@ -1,10 +1,10 @@
 { config, lib, ... }:
 with lib;
 let
-    cfg = config.boot.banner;
+    cfg = config.system.boot.banner;
 in {
 
-    options.boot.banner = mkOption {
+    options.system.boot.banner = mkOption {
         type = types.nullOr types.str;
         default = null;
         description = "Enable and specify a banner on device login.";
@@ -13,7 +13,6 @@ in {
     #users.motd = "Today is leg day.";
 
     config = mkIf (cfg != null) {
-
         environment.etc."issue".source = lib.mkForce (
             if cfg == "simple_cat" then ./banner/simple_cat
             #else if cfg == "" then ./banner/.

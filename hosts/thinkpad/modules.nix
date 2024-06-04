@@ -5,7 +5,6 @@
 	    #../../secrets/secrets_custom.nix
 
         # Boot
-        ../../modules/boot/boot.nix # systemd-boot
         #../../modules/boot/console.nix
         #../../modules/boot/greetd.nix # for Hyprland
         #../../modules/boot/kmscon.nix 
@@ -16,7 +15,6 @@
 	    ../../modules/daemon/docker.nix
 	    ../../modules/daemon/gpg.nix
 	    #../../modules/daemon/httpd.nix
-	    ../../modules/daemon/locate.nix
 	    #../../modules/daemon/sql.nix
 
 	    # Driver

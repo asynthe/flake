@@ -23,6 +23,6 @@
     imports = [
         ./modules.nix
 	    ./hardware.nix
-        ../options.nix
+        ../../profiles
     ];
 }

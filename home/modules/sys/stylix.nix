@@ -1,4 +1,12 @@
-{ config, inputs, lib, pkgs, ... }: {
+{ lib, pkgs, ... }: {
+
+    # Overrides
+    wayland.windowManager.hyprland.settings.general = {
+        "col.active_border" = lib.mkForce "rgb(451F67)"; # Purple
+        #"col.active_border" = lib.mkForce "rgb(ff0000)"; # Xmonad Red
+        "col.inactive_border" = lib.mkForce "rgb(000000)"; # Black
+    };
+    #programs.alacritty.settings.colors.primary.background = lib.mkForce "0x000000";
 
     stylix = {
         autoEnable = true;
@@ -7,7 +15,26 @@
 
         # https://tinted-theming.github.io/base16-gallery/
         # or `nix build nixpkgs#base16-schemes`
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";
+        #base16Scheme = "${pkgs.base16-schemes}/share/themes/default-dark.yaml";
+        base16Scheme = {
+            #base00 = "181818";
+            base00 = "000000";
+            base01 = "282828";
+            base02 = "383838";
+            base03 = "585858";
+            base04 = "b8b8b8";
+            base05 = "d8d8d8";
+            base06 = "e8e8e8";
+            base07 = "f8f8f8";
+            base08 = "ab4642";
+            base09 = "dc9656";
+            base0A = "f7ca88";
+            base0B = "a1b56c";
+            base0C = "86c1b9";
+            base0D = "7cafc2";
+            base0E = "ba8baf";
+            base0F = "a16946";
+        };
 
         opacity = {
             #applications = 1.0;

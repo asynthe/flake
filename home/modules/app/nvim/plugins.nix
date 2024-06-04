@@ -2,9 +2,13 @@
 
     programs.nixvim.plugins = {
 
+    # UI
+	lightline.enable = true;
+    transparent.enable = true;
+
+    # Plugins
 	oil.enable = true; # `nvim .` will open oil instead of netrw
 	telescope.enable = true;
-	lightline.enable = true;
 	luasnip.enable = true;
 
 	# Nicer code

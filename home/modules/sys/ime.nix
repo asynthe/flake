@@ -5,8 +5,9 @@
 
     # Should be added by the i18n modules, this is just to make sure.
     systemd.user.sessionVariables = {
-        #GTK_IM_MODULE = "fcitx"; # Wayland module ?
-        QT_IM_MODULE = "fcitx";
+        #GTK_IM_MODULE = "wayland;fcitx"; # Wayland module ?
+        GTK_IM_MODULE = "wayland"; # ?
+        QT_IM_MODULE = "wayland;fcitx";
         XMODIFIERS = "@im=fcitx";
         SDL_IM_MODULE = "fcitx";
         GLFW_IM_MODULE = "ibus";

@@ -58,7 +58,6 @@ in {
             gaps_in = 4;
             gaps_out = 10;
             border_size = 1;
-            #border_size = 0;
             #no_border_on_floating = 1;
 
             # Border color -> Stylix

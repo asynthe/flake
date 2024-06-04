@@ -1,10 +1,10 @@
 { config, pkgs, lib, user, ... }: 
 with lib;
 let
-  cfg = config.services.sshfs;
+    cfg = config.services.sshfs;
 in {
     options.services.sshfs.enable = mkOption {
-        type =types.bool;
+        type = types.bool;
         default = false;
         description = ''
           Set up an automatic connection to the server through a SSHFS folder.

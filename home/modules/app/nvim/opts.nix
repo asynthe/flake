@@ -2,12 +2,20 @@
 
     programs.nixvim = {
     	clipboard = {
-		# IMPLEMENT
-		# if x -> xclip
-		# if wayland -> wl-copy
-		register = "unnamedplus";
-		providers.wl-copy.enable = true;
-	};
+		    # IMPLEMENT
+		    # if x -> xclip
+		    # if wayland -> wl-copy
+		    register = "unnamedplus";
+		    providers.wl-copy.enable = true;
+	    };
+
+    	#highlight = {
+	        #Comment.fg = "#ff00ff";
+	        #Comment.bg = "#000000";
+	        #Comment.underline = true;
+	        #Comment.bold = true;
+	    #};
+
     	opts = {
 
 		# Tab / Indentation

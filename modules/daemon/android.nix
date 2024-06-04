@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }: {
+{ pkgs, user, ... }: {
 
     # Waydroid
     virtualisation.waydroid.enable = true;
@@ -8,7 +8,8 @@
     users.users.${user}.extraGroups = [ "adbusers" ];
     environment.systemPackages = builtins.attrValues {
         inherit (pkgs)
+            jmtpfs
             scrcpy
-	;
+	    ;
     };
 }

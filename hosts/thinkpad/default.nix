@@ -5,19 +5,22 @@
     nixpkgs.config.allowUnfree = lib.mkForce true;
     time.timeZone = "Australia/Perth";
 
-    # Options
+    # Boot
+    system.boot.banner = "simple_cat"; # simple_cat, hentai
+
+    # System
     system.laptop.users.enable = true;
     #system.users = "laptop" or "server";
 
-    #boot.banner.enable = true; # simple_cat, hentai
-    boot.banner = "simple_cat";
-
+    # Language
     language.english.enable = true; 
     # system.language = "english";
     # system.language = "japanese";
 
     # Services
     services = {
+        #endlessh.enable = true;
+        #grafana.enable = true;
         qbittorrent-nox.enable = true;
         ssh.enable = true;
         ssh.configuration = "laptop";
@@ -27,10 +30,12 @@
     # Ports IN PROGRESS
     #services.ssh.port = 2001;
     #services.grafana.port = 2002;
+    #services.service1.port = 2002;
+    #services.service2.port = 2002;
 
     imports = [
         ./hardware.nix
         ./modules.nix
-        ../options.nix
+        ../../profiles
     ];
 }

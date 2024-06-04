@@ -9,6 +9,7 @@
             git # Git must be installed before flakes.
             htop btop
             neovim tmux
+            ntfs3g
             testdisk testdisk-qt
             wget curl
         ;

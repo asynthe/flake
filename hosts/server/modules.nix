@@ -5,10 +5,10 @@
 	    ../../modules/disko/btrfs_persist.nix
 
 	    # Server
-	    #../../modules/srv/locate.nix
-    	../../modules/srv/boot.nix
         ../../modules/srv/settings.nix
+        ../../modules/srv/shell.nix
         ../../modules/pkgs/pkgs_server.nix
+
         ../../modules/sec/clamav.nix
         ../../modules/vm/libvirt.nix
 
