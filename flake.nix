@@ -137,7 +137,6 @@
 	        modules = [
 	            ./home/missingno
 		        nixvim.homeManagerModules.nixvim
-                stylix.homeManagerModules.stylix
 	        ];
         };
     };
