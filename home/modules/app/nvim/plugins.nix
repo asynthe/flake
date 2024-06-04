@@ -28,11 +28,13 @@
 	# Tabs
 	barbar = {
 	    enable = true;
-	    insertAtEnd = true;
-	    autoHide = true;
-	    animation = false;
-	    #excludeFileNames = [];
-	    #insertAtStart = true;
+        settings = {
+	        insertAtEnd = true;
+	        autoHide = true;
+	        animation = false;
+	        #excludeFileNames = [];
+	        #insertAtStart = true;
+        };
 	};
 
 	lsp = {
@@ -40,7 +42,7 @@
 	    servers = {
 		    bashls.enable = true;
 		    lua-ls.enable = true; # Lua
-		    nil_ls.enable = true; # Nix
+		    nil-ls.enable = true; # Nix
 		    rust-analyzer = {
                 enable = true; # Rust
                 installCargo = true;
