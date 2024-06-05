@@ -51,6 +51,7 @@
         #../modules/game/tools.nix
 
 	    # System
+        ../modules/sys/fonts.nix
         ../modules/sys/ime.nix
         ../modules/sys/settings.nix
         ../modules/sys/stylix.nix
