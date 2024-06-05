@@ -15,7 +15,7 @@ in {
         environment.systemPackages = builtins.attrValues { inherit (pkgs) sshfs; };
         services.openssh.allowSFTP = true; # Allow SFTP, which is used by SSHFS.
         users.users.${user}.extraGroups = [ "fuse" ]; # Add to FUSE group and enable allow_other.
-        programs.fuse.userAllowOther = true;
+        programs.fuse.userAllowOther = true; # ?
 
         # https://github.com/Baughn/machine-config/blob/e609d1eab19ee2836203f7897380aefb956afca4/saya/hardware-configuration.nix#L28
         # https://github.com/soltros/configbuilder/blob/6f58652ad89f2677dddf6bc7997e42c3caf5842a/modules/sshfs-mounts.nix#L5
