@@ -1,15 +1,15 @@
 { pkgs, ... }: {
 
-    # Move to stylix?
-    fonts.fontconfig = {
-        enable = true;
-        defaultFonts = {
-            serif = [ "DejaVu Serif" ];
-            sansSerif = [ "DejaVu Sans" ];
-            monospace = [ "JetBrainsMono Nerd Font Mono" ];
-            emoji = [ "Noto Color Emoji" ];
-        };
-    };
+    # Left here just in case.
+    #fonts.fontconfig = {
+        #enable = true;
+        #defaultFonts = {
+            #serif = [ "DejaVu Serif" ];
+            #sansSerif = [ "DejaVu Sans" ];
+            #monospace = [ "JetBrainsMono Nerd Font Mono" ];
+            #emoji = [ "Noto Color Emoji" ];
+        #};
+    #};
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
