@@ -1,9 +1,10 @@
 {
     imports = [
 
-		#../modules/pkgs.nix
+		../modules/pkgs.nix
         ../modules/pkgs_minimal.nix
 	    #../modules/pkgs_sec.nix
+	    #../modules/pkgs_temp.nix
 
 	    # Apps
 	    #../modules/app/hyprland
@@ -20,14 +21,14 @@
         ../modules/app/eza.nix
         #../modules/app/fbterm.nix
         ../modules/app/git.nix
-        #../modules/app/gpg.nix
+        ../modules/app/gpg.nix
         ../modules/app/lf.nix
         ../modules/app/mako.nix
 	    #../modules/app/mpv.nix
 	    #../modules/app/obs.nix
+	    ../modules/app/pass.nix
         #../modules/app/social.nix # Discord, IRC, Signal, Telegram.
         ../modules/app/spotifyd.nix
-        #../modules/app/ssh.nix
         ../modules/app/starship.nix
         #../modules/app/swayidle.nix
         #../modules/app/swayosd.nix

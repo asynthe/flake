@@ -6,13 +6,6 @@
 	    ;
         inherit (pkgs)
 
-	        # Temp
-	        ciscoPacketTracer8
-	        gns3-gui gns3-server
-	        slides
-	        #zoom-us
-	        #slack #slack-cli #slack-term # ?
-
 	        # Terminal
 	        alacritty kitty
             cool-retro-term
@@ -25,7 +18,6 @@
 	        keepassxc
 	        #libreoffice
 	        #obsidian
-            qbittorrent
 	        #etcher
 	        gparted
 	        ventoy-full #ventoy
