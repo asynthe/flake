@@ -26,16 +26,16 @@
 	#indent-blankline.enable = true;
 
 	# Tabs
-	barbar = {
-	    enable = true;
-        settings = {
-	        insertAtEnd = true;
-	        autoHide = true;
-	        animation = false;
+	#barbar = {
+	    #enable = true;
+        #settings = {
+	        #insertAtEnd = true;
+	        #autoHide = true;
+	        #animation = false;
 	        #excludeFileNames = [];
 	        #insertAtStart = true;
-        };
-	};
+        #};
+	#};
 
 	lsp = {
 	    enable = true;
