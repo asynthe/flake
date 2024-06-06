@@ -5,14 +5,15 @@
 
     virtualisation.vmware = {
         host = {
-	    enable = true;
-	    #package = ;
+	        enable = true;
+	        #package = ;
+        };
 	    #extraPackages = with pkgs; [ ntfs3g ];
 	    #extraConfig = ;
-	};
-	#guest = {
-	    #enable = true;
-	    #headless = true;
-	#};
+	    #};
+	    #guest = {
+	        #enable = true;
+	        #headless = true;
+	    #};
     };
 }
