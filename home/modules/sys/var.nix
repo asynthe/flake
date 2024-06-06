@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
 
     xdg = {
         configHome = "${config.home.homeDirectory}/.config";
@@ -11,9 +11,9 @@
 
     home.sessionVariables = {
 
-        TERMINAL = "Alacritty";
-        EDITOR = "nvim";
-	    VISUAL = "nvim";
+        TERMINAL = "${pkgs.wezterm}/bin/wezterm";
+        EDITOR = "${pkgs.neovim}/bin/nvim";
+	    VISUAL = "${pkgs.neovim}/bin/nvim";
 
 	    # XDG
         XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";

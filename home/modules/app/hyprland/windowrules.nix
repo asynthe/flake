@@ -65,6 +65,10 @@
             # Waydroid
             "float, title:^(Waydroid)$"
 
+	    # Wezterm
+	    "float,class:^(org.wezfurlong.wezterm)$"
+	    "tile,class:^(org.wezfurlong.wezterm)$"
+
             # Zathura
             "noanim, class:(org.pwmt.zathura)$"
             "opacity 0.9, class:(org.pwmt.zathura)$"

@@ -39,6 +39,7 @@
         #../modules/app/vscode.nix
         ../modules/app/wayfire.nix
         ../modules/app/wayland.nix
+        ../modules/app/wezterm.nix
         ../modules/app/wofi.nix
         ../modules/app/yazi.nix
         ../modules/app/zathura.nix

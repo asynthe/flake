@@ -34,7 +34,7 @@
 
         ../../modules/vm/libvirt.nix
         #../../modules/vm/virtualbox.nix
-        ../../modules/vm/vmware.nix
+        #../../modules/vm/vmware.nix
         
         # Network
         ../../modules/sysd/lid_switch.nix # Lid switch action for laptops.
