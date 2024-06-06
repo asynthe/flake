@@ -64,6 +64,13 @@
 
 	    # Web - Recon
 	    whatweb
+        amass
+        assetfinder
+        gowitness
+        httprobe
+        subfinder
+        whois
+
 	    #sslyze # Not on nixpkgs.
 	    sslscan
 
