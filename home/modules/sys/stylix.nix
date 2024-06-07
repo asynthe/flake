@@ -45,13 +45,13 @@
         cursor = {
             package = pkgs.capitaine-cursors;
             name = "capitaine-cursors-white";
-            size = 20; # default `32`.
+            size = 18; # default `32`.
         };
         fonts = {
             sizes = {
                 desktop = 6; # default `10`.
                 popups = 10; # default `10`.
-                terminal = 12; # default `12`.
+                terminal = 14; # default `12`.
             };
             # Monospace for everything.
             #serif = config.stylix.fonts.monospace;

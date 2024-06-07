@@ -13,6 +13,7 @@
 	    ../modules/app/mpd
 	    ../modules/app/ncmpcpp
 	    ../modules/app/nvim
+	    ../modules/app/wezterm
                 
         # Apps - Single Files
 	    ../modules/app/alacritty.nix
@@ -39,7 +40,6 @@
         #../modules/app/vscode.nix
         ../modules/app/wayfire.nix
         ../modules/app/wayland.nix
-        ../modules/app/wezterm.nix
         ../modules/app/wofi.nix
         ../modules/app/yazi.nix
         ../modules/app/zathura.nix
