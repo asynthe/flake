@@ -1,11 +1,12 @@
 { pkgs, ... }: {
 
     # Left here just in case.
+    # Note: if not working, try doing a `fc-cache -f`
     #fonts.fontconfig = {
         #enable = true;
         #defaultFonts = {
-            #serif = [ "DejaVu Serif" ];
-            #sansSerif = [ "DejaVu Sans" ];
+            #serif = [ "DejaVu Serif" "IPAGothic" ];
+            #sansSerif = [ "DejaVu Sans" "IPAPGothic" ];
             #monospace = [ "JetBrainsMono Nerd Font Mono" ];
             #emoji = [ "Noto Color Emoji" ];
         #};
@@ -21,17 +22,15 @@
             source-sans-pro
 
             # JP
-            sarasa-gothic
+            ipafont
+            kochi-substitute
             noto-fonts
             noto-fonts-cjk
             noto-fonts-cjk-sans
             noto-fonts-cjk-serif
-            noto-fonts-extra
             noto-fonts-emoji
-
-            # JP
-            ipafont
-            kochi-substitute
+            noto-fonts-extra
+            sarasa-gothic
 
             #(nerdfonts.override { fonts = [  # DELETE -> HOME
               #"FiraCode"

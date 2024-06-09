@@ -1,5 +1,3 @@
-# I
-
 Installing NixOS and Home Manager
 #+begin_src text
 cd

@@ -1,5 +1,4 @@
-{ config, nixvim, ... }: {
-
+{
     programs.nixvim.plugins = {
 
     # UI

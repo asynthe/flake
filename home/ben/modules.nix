@@ -3,10 +3,10 @@
 
         ../../secrets/secrets_home.nix
 
-        ../modules/pkgs.nix
-        ../modules/pkgs_minimal.nix # No GUI.
-	    ../modules/pkgs_sec.nix
-        ../modules/pkgs_temp.nix
+        ../modules/pkgs/pkgs.nix
+        ../modules/pkgs/pkgs_minimal.nix # No GUI.
+	    ../modules/pkgs/pkgs_sec.nix
+        ../modules/pkgs/pkgs_temp.nix
 
 	    # Apps
 	    ../modules/app/hyprland
