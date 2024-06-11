@@ -6,29 +6,41 @@
     time.timeZone = "Australia/Perth";
 
     # System configuration
-    system.boot.banner = "simple_cat"; # simple_cat, hentai
-    system.nix.settings = "laptop"; # laptop, server
-    system.nix.cache = true;
-    system.audio.pipewire = true;
-    #system.audio.musnix = true;
+    system = {
+        boot.banner = "simple_cat"; # simple_cat, hentai
+        nix.settings = "laptop"; # laptop, server
+        nix.cache = true;
+        audio.pipewire = true;
+        #audio.musnix = true;
+    };
 
     system.laptop.users.enable = true; # !!! change to system.users = "laptop" or "server";
     language.english.enable = true; # !!! Change to system.language = "english"; (english, spanish, japanese)
 
     # Services
     services = {
+        #android.enable = true;
+        #docker.enable = true;
         #endlessh.enable = true;
+        #flatpak.enable = true;
         #grafana.enable = true;
+        #i2pd.enable = true;
+        #locate.enable = true;
         qbittorrent-nox.enable = true;
+        #sql.enable = true;
         ssh.enable = true;
         ssh.configuration = "laptop";
         sshfs.enable = true;
+        #syncthing.enable = true;
+        #wine.enable = true;
+        #xmr.enable = true;
     };
 
-    # Ports 
-    # !!! IN PROGRESS
-    #services.ssh.port = 2001;
-    #services.grafana.port = 2002;
-    #services.service1.port = 2002;
-    #services.service2.port = 2002;
+    # Ports !!! IN PROGRESS
+    #services = {
+        #ssh.port = 2001;
+        #grafana.port = 2002;
+        #service1.port = 2002;
+        #service2.port = 2002;
+    #};
 }

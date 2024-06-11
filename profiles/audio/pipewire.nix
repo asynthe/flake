@@ -1,15 +1,15 @@
-{ config, pkgs, lib, ... }: 
+{ config, pkgs, user, lib, ... }: 
 with lib;
 let
-    cfg = config.system.audio.pipewire;
+    cfg = config.system.audio;
 in {
-    options.system.audio.pipewire.enable = mkOption {
+    options.system.audio.pipewire = mkOption {
         type = types.bool;
         default = false;
         description = "Enable audio configuration. (Pipewire)";
     };
 
-    config = mkIf cfg.enable {
+    config = mkIf cfg.pipewire {
 
         # Pipewire audio configuration.
         # See more at https://nixos.wiki/wiki/Pipewire
@@ -21,7 +21,7 @@ in {
         security.rtkit.enable = true;
 
         # Needed by Pipewire.
-        #environment.systemPackages = builtins.attrValues { inherit (pkgs) pulseaudio; }; # Redundant?
+        #environment.systemPackages = builtins.attrValues { inherit (pkgs) pulseaudio; }; # pulsemixer?
         hardware.pulseaudio.enable = false;
         hardware.pulseaudio.support32Bit = true; # Gaming fix.
 

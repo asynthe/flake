@@ -12,13 +12,6 @@
         #../../modules/boot/kmscon.nix 
         #../../modules/boot/silent.nix
 
-	    # Daemon
-	    ../../modules/daemon/android.nix
-	    ../../modules/daemon/docker.nix
-	    ../../modules/daemon/gpg.nix
-	    #../../modules/daemon/httpd.nix
-	    #../../modules/daemon/sql.nix
-
 	    # Driver
 	    ../../modules/driver/acpi.nix
 	    ../../modules/driver/printer.nix
@@ -29,7 +22,6 @@
         # Security
 
         ../../modules/sec/clamav.nix
-        ../../modules/bluetooth.nix # system.bluetooth.enable = true;
         ../../modules/game/steam.nix # games.steam.enable = true;
         ../../modules/sys/fstrim.nix # mkIf system.disk.ssd = true; then .
         ../../modules/vm/libvirt.nix # system.virtualization = [ "libvirt" ];

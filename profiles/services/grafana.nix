@@ -3,12 +3,6 @@ with lib;
 let
     cfg = config.services.grafana;
 in {
-
-    # https://wiki.nixos.org/wiki/Grafana
-    # https://community.grafana.com/t/installing-on-nixos/6712
-
-    # ------------------------ from wiki.nixos.org ------------------------
-
     options.services.grafana.enable = mkOption {
         type = types.bool;
         default = false;
@@ -18,6 +12,11 @@ in {
     };
 
     config = mkIf cfg.enable {
+
+        # https://wiki.nixos.org/wiki/Grafana
+        # https://community.grafana.com/t/installing-on-nixos/6712
+        # ------------------------ from wiki.nixos.org ------------------------
+
         services.grafana = {
             enable = true;
             settings = {

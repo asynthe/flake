@@ -1,9 +1,5 @@
 { config, lib, pkgs, ... }:
 with lib; 
-
-# See the logs by running.
-# journalctl -u qbittorrent-nox.service
-
 let
     cfg = config.services.qbittorrent-nox;
 in {
@@ -24,6 +20,9 @@ in {
     };
 
     config = mkIf cfg.enable {
+
+	# See the logs by running.
+	# journalctl -u qbittorrent-nox.service
 
         # ADD persistence option.
         #environment.persistence."/persist".directories = mkIf cfg.persist [
