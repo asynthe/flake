@@ -1,29 +1,3 @@
-{
-  pkgs,
-  inputs,
-  lib,
-  username,
-  ...
-}: let
-  filePath = ./hyprland.conf;
-  fileContent = builtins.readFile filePath;
-in {
-  wayland.windowManager.hyprland = {
-    enable = true;
-    enableNvidiaPatches = true;
-    xwayland.enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland; # If using the flake.
-    #settings = ;
-    extraConfig = "${fileContent}";
-  };
-
-  home.sessionVariables.NIXOS_OZONE_WL = "1"; # Session variable for Electron apps.
-  home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-    # XDG Portal
-    #xdg-desktop-portal-hyprland
-
     # Apps
     eww-wayland # status bar
     wofi #bemenu

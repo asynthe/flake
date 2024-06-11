@@ -6,6 +6,9 @@
 	    ;
         inherit (pkgs)
 
+            # Get all the wayland / X11 specific ?
+            # Move general audio?
+
 	        # Terminal
 	        kitty
             cool-retro-term
@@ -23,6 +26,8 @@
 	        gparted
 	        ventoy-full #ventoy
             wf-recorder
+            #kdenlive
+            #davinci-resolve # Not working.
 
             # CLI
 	        htop btop
@@ -34,6 +39,7 @@
             ffmpeg
             mediainfo # Video/audio metadata
             tectonic # LaTeX Engine
+            sox
 
             # Compress / Extract
 	        #mdf2iso

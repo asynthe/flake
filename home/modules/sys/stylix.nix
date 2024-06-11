@@ -9,6 +9,7 @@
     #programs.alacritty.settings.colors.primary.background = lib.mkForce "0x000000";
 
     stylix = {
+        enable = true;
         autoEnable = true;
         polarity = "dark";
         image = ./img/nixos_logo.png;

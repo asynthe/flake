@@ -14,16 +14,9 @@
         };
     };
 
-    # XDG Portal
     xdg.portal = {
         xdgOpenUsePortal = true;
         configPackages = [ inputs.hyprland.packages.${pkgs.system}.hyprland ];
         extraPortals = [ inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
-    };
-
-    # Cachix # Move to another file for a step-by-step installation.
-    nix.settings = {
-        substituters = [ "https://hyprland.cachix.org" ];
-        trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
 }

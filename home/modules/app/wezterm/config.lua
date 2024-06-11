@@ -20,10 +20,10 @@ local keybinds = {
   { key = '|', mods = 'CTRL|SHIFT', action = act.SplitVertical },
 
   -- Pane focus
-  { key = 'h', mods = 'CTRL', action = act.ActivatePaneDirection("Left") },
-  { key = 'j', mods = 'CTRL', action = act.ActivatePaneDirection("Down") },
-  { key = 'k', mods = 'CTRL', action = act.ActivatePaneDirection("Up") },
-  { key = 'l', mods = 'CTRL', action = act.ActivatePaneDirection("Right") },
+  { key = 'h', mods = 'SUPER', action = act.ActivatePaneDirection("Left") },
+  { key = 'j', mods = 'SUPER', action = act.ActivatePaneDirection("Down") },
+  { key = 'k', mods = 'SUPER', action = act.ActivatePaneDirection("Up") },
+  { key = 'l', mods = 'SUPER', action = act.ActivatePaneDirection("Right") },
 
   -- Pane resizing
   { key = 'h', mods = 'CTRL|SHIFT', action = act.AdjustPaneSize { 'Left', 1 } },
