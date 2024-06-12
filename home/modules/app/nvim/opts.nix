@@ -28,13 +28,14 @@
 
 		    # Appearance
 		    cmdheight = 1;
-		    #colorcolumn = "100";
 		    colorcolumn = "";
+		    #colorcolumn = "100";
 		    completeopt = "menuone,noinsert,noselect";
+		    number = true;
 		    scrolloff = 10;
 		    signcolumn = "yes";
 		    termguicolors = true;
-		    number = true;
+            fillchars.eob = " "; # Replace the empty lines `~` for a space. 
 
 		    # Search
 		    hlsearch = false;
@@ -51,6 +52,21 @@
 		    hidden = true;
 		    errorbells = false;
 		    swapfile = false;
+            virtualedit = "block"; # Allow cursor to move where there is no text in visual block mode.
 	    };
+
+        extraConfigLua = ''
+          -- Set LineNr line background to transparent
+          vim.api.nvim_set_hl(0, "LineNr", { bg='NONE' })
+
+          -- Set CursorLineNr background to transparent
+          vim.api.nvim_set_hl(0, "CursorLineNr", { bg='NONE' })
+
+          -- Set SignColumn background to transparent
+          vim.api.nvim_set_hl(0, "SignColumn", { bg='NONE' })
+
+          -- Set EndOfBuffer background to transparent
+          vim.api.nvim_set_hl(0, "EndOfBuffer", { bg='NONE' })
+        '';
     };
 }

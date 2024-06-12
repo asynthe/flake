@@ -4,13 +4,14 @@
         inherit (pkgs)
 
 	        # CLI
+            nh
 	        ascii
 	        bc
 	        fd ripgrep
 	        fzf skim
 	        git
 	        ncdu
-            #neovim # Make an option, make remove if the home-manager neovim is enabled bc collision.
+            #neovim # If enabled, disable the dots import version.
 
 	    	# Filesystem tools
 		    fio

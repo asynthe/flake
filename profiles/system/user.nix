@@ -2,27 +2,18 @@
 
 with lib;
 let
-    cfg_laptop = config.system.laptop.users;
-    cfg_server = config.system.server.users;
+    cfg = config.system.users;
 in {
-    options.system.laptop.users.enable = mkOption {
-        type = types.bool;
-        default = false;
+    options.system.users = mkOption {
+        type = types.str;
+        default = "server";
         description = ''
-          Set up the users for the laptop configuration.
-        '';
-    };
-        
-    options.system.server.users.enable = mkOption {
-        type = types.bool;
-        default = false;
-        description = ''
-          Set up the users for the server configuration.
+          Set up the system users.
         '';
     };
 
     config = mkMerge [
-        (mkIf (cfg_laptop.enable) {
+        (mkIf (cfg == "laptop") {
             sops.secrets."password/thinkpad".neededForUsers = true;
             users.mutableUsers = false; # Required for passwords set by sops.
             users.users.${user} = {
@@ -37,7 +28,7 @@ in {
               Defaults timestamp_timeout=120 # Ask for password every 2 hours.
             '';
         })
-        (mkIf (cfg_server.enable) {
+        (mkIf (cfg == "server") {
             users.users = {
 	            root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8tUQ59AvWkt0pTSMz2bf3O7emcO37IaA8vZCnXisk bendunstan@protonmail.com" ];     
                 data = {

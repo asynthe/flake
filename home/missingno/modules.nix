@@ -56,7 +56,7 @@
         ../modules/sys/stylix.nix
         #../modules/sys/uutils-replace.nix
         ../modules/sys/var.nix
-        ../modules/sys/xdg.nix
+        #../modules/sys/xdg.nix
         
         # systemd services + timers
         ../modules/sysd/backup_web.nix

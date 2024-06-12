@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, user, ... }: {
 
     programs.zsh = {
         enable = true;
@@ -24,6 +24,7 @@
 	        EDITOR = "nvim";
 	        FILE = "lf";
 	        READER = "zathura";
+            FLAKE = "/home/${user}/sync/yuugen";
     	};
 
         # Aliases
@@ -79,6 +80,19 @@ TMOUT=300;
 TRAPALRM() { ${pkgs.pipes-rs}/bin/pipes-rs }
 #TRAPALRM() { unimatrix -s 93 }
 
+# ZSH options (setopt)
+while read -r option; do
+    setopt $option
+done <<-EOF
+APPEND_HISTORY
+HIST_IGNORE_DUPS
+HIST_IGNORE_SPACE
+INC_APPEND_HISTORY
+INTERACTIVE_COMMENTS
+NO_BEEP
+EOF
+
+# zsh-vi-mode configuration
 function zvm_config() {
     ZVM_CURSOR_STYLE=true
     ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL

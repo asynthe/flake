@@ -76,6 +76,9 @@
 		symbol = " ";
             };
 
+        # Disable show `container` in prompt
+        container.disabled = true;
+
 	    # Symbols preset - nerd fonts
 	    aws.symbol = "  ";
 	    buf.symbol = " ";

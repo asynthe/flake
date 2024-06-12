@@ -1,5 +1,8 @@
 {
     imports = [
-	./nvim.nix
+	    ./keymaps.nix
+	    ./opts.nix
+	    ./plugins.nix
+	    ./nvim.nix
     ];
 }
