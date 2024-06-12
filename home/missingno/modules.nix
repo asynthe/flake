@@ -1,16 +1,17 @@
 {
     imports = [
 
-		../modules/pkgs.nix
-        ../modules/pkgs_minimal.nix
-	    #../modules/pkgs_sec.nix
-	    #../modules/pkgs_temp.nix
+		../modules/pkgs/pkgs.nix
+        ../modules/pkgs/pkgs_minimal.nix
+	    #../modules/pkgs/pkgs_sec.nix
+	    #../modules/pkgs/pkgs_temp.nix
 
 	    # Apps
 	    #../modules/app/hyprland
 	    #../modules/app/mpd
 	    #../modules/app/ncmpcpp
 	    ../modules/app/nvim
+	    #../modules/app/wezterm
                 
         # Apps - Single Files
 	    #../modules/app/alacritty.nix
