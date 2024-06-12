@@ -13,7 +13,10 @@
       xmobar
       #picom-jonaburg
       #xmonad-with-packages
-      ;
+        nsxiv # Image viewer
+            nitrogen
+            picom-jonaburg
+        ;
   };
 
 }
