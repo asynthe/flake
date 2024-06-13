@@ -115,6 +115,10 @@
             };
             modules = [
                 ./hosts/thinkpad
+		        sops-nix.nixosModules.sops
+                disko.nixosModules.disko
+                impermanence.nixosModules.impermanence
+                musnix.nixosModules.musnix
                 nixos-wsl.nixosModules.default
             ];
         };
