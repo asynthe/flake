@@ -9,6 +9,7 @@
 
 	    # Other
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+        nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 	    nixvim.url = "github:nix-community/nixvim";
 	    nixvim.inputs.nixpkgs.follows = "nixpkgs";
         disko.url = "github:nix-community/disko";
@@ -40,6 +41,7 @@
         home-manager,
 
         nixos-hardware,
+        nixos-wsl,
 	    nixvim,
         disko,
         hyprland,
@@ -88,7 +90,7 @@
         server = nixpkgs-stable.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit
-	        pkgs-stable
+	            pkgs-stable
                 inputs
                 ;
                 user = "server";
@@ -101,6 +103,21 @@
                 impermanence.nixosModules.impermanence
             ];
 	    };
+
+        # WSL
+        wsl = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+                inputs
+                ;
+                user = "ben";
+		        device = "/dev/nvme0n1";
+            };
+            modules = [
+                ./hosts/thinkpad
+                nixos-wsl.nixosModules.default
+            ];
+        };
     };
 
     homeConfigurations = {

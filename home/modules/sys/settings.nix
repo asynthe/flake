@@ -1,5 +1,7 @@
 { pkgs, lib, ... }: {
 
+    i18n.glibcLocales = pkgs.glibcLocales; # Fixing stuff
+
     news.display = "silent";
     nix = {
         package = pkgs.nix;

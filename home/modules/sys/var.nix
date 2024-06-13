@@ -1,4 +1,9 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }: 
+let
+    home = builtins.getEnv "HOME";
+    user = builtins.getEnv "USER";
+    locale = "en_US.UTF-8";
+in {
 
     xdg = {
         configHome = "${config.home.homeDirectory}/.config";
@@ -14,6 +19,8 @@
         TERMINAL = "${pkgs.wezterm}/bin/wezterm";
         EDITOR = "${pkgs.neovim}/bin/nvim";
 	    VISUAL = "${pkgs.neovim}/bin/nvim";
+        LC_ALL = locale;
+        LANG = locale;
 
 	    # XDG
         XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
