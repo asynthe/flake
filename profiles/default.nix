@@ -6,7 +6,6 @@
         ./net
         ./nix
         ./services
-        ./user
         ./vpn
     ];
 }
