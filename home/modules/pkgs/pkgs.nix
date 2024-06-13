@@ -9,6 +9,9 @@
             # Get all the wayland / X11 specific ?
             # Move general audio?
 
+            # MOVE THESE TOOLS ?
+            ollama
+
 	        # Terminal
 	        kitty
             cool-retro-term
@@ -41,14 +44,23 @@
             tectonic # LaTeX Engine
             sox
 
-            # Compress / Extract
+            # Reverse Engineering
+            nasm nasmfmt
+            yasm
+
+            # Reverse engineering / Disassemblers
+            #ghidra-bin #ghidra
+            #radare2
+            #hopper
+
+            # Archiving
 	        #mdf2iso
-	        p7zip
-	        rar #unrar #rar2fs
-	        #torrent7z
-	        unar # Unzipping with Unicode characters.
-	        #xz
-	        zip unzip 
+            p7zip
+            rar #unrar #rar2fs
+            #torrent7z
+            unar # Allows for unzipping with Unicode characters.
+            #xz
+            zip unzip 
 
             # Bluetooth
             bluetuith

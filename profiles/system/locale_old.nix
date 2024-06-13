@@ -1,14 +1,9 @@
 { config, lib, ... }:
-
 with lib;
-
 let
-
     cfg_english = config.language.english;
     cfg_japanese = config.language.japanese;
-
 in {
-
     options.language.english.enable = mkOption {
         type = types.bool;
         default = true;

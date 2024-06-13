@@ -11,9 +11,6 @@
             # MOVE TO NORMAL (CLI)
             # MOVE TO NORMAL (GUI)
 
-            # Shell
-            powershell
-
             # DevOps
             # Pulumi
             #pulumi
@@ -23,9 +20,6 @@
 	        nixops_unstable #nixops
 	        direnv
 	        nix-direnv
-
-	        # Use as `nom`, works like `nix` but with more details.
-	        nix-output-monitor 
 
             # AWS
             #awscli
@@ -55,10 +49,6 @@
             #qpwgraph
             #mp3gain
 
-            # Audio visualizers
-            cli-visualizer
-            cava
-      
             # Sound volume
             alsa-utils # for alsa-mixer
             pavucontrol
@@ -114,6 +104,11 @@
             lsof # List open files
             lshw # List hardware details
 
+            # Replace in future
+            bless
+            hexedit
+            hexyl # Hex editor
+
             # System Tools
             sysstat
             lm_sensors # for `sensors` command
@@ -128,9 +123,7 @@
             subedit
 
             # Apps
-            lf
             ueberzugpp # file manager
-            yt-dlp
             ripdrag # drag-and-drop for terminal
             cli-visualizer
             cava # audio visualizer
@@ -248,41 +241,19 @@
             putty
             openvpn3 #openvpn
 
-      # Replace in future
-      bless
-      hexedit
-      hexyl # Hex editor
-      btop
+            # Browser
+            librewolf #librewolf-unwrapped
+            mullvad-browser
+            #ungoogled-chromium #chromium # Already on default list.
       
-      # Terminals
-      alacritty
-      kitty
-      kitty-themes
-      cool-retro-term
-
-      # Browser
-      librewolf #librewolf-unwrapped
-      mullvad-browser
-      #ungoogled-chromium #chromium # Already on default list.
-      
-      # Archives
-      zip unzip 
-      unar # Allows for unzipping with Unicode characters.
-      p7zip
-      xz
-      rar #unrar #rar2fs
-      #torrent7z
-      #mdf2iso
-      
-      # File managers
-      pcmanfm
-      # Thumbnailers (for PCmanFM)
-      nufraw-thumbnailer # .raw files (raw-thumbnailer)
-      evince # Adobe .pdf files
-      ffmpegthumbnailer # Video files
-      freetype # Font files
-      libgsf # .odf files
-
+            # File managers
+            pcmanfm
+            # Thumbnailers (for PCmanFM)
+            nufraw-thumbnailer # .raw files (raw-thumbnailer)
+            evince # Adobe .pdf files
+            ffmpegthumbnailer # Video files
+            freetype # Font files
+            libgsf # .odf files
         ;
         
         # Previewers for PCmanFM

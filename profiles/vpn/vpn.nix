@@ -35,10 +35,10 @@
         #wireguard.enable = true;
     #};
 
-    environment.persistence."/persist".directories = [
-        "/etc/mullvad-vpn"
-        "/var/cache/mullvad-vpn"
-    ];
+    #environment.persistence."/persist".directories = [
+        #"/etc/mullvad-vpn"
+        #"/var/cache/mullvad-vpn"
+    #];
 
     # IMPLEMENT SECRET
     #sops.secrets.mullvadAccount = {

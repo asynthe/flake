@@ -7,12 +7,14 @@
         ../modules/pkgs/pkgs_minimal.nix # No GUI.
 	    ../modules/pkgs/pkgs_sec.nix
         ../modules/pkgs/pkgs_temp.nix
+        ../modules/pkgs/pkgs_social.nix # Discord, IRC, Signal, Telegram.
 
 	    # Apps
 	    ../modules/app/hyprland
 	    ../modules/app/mpd
 	    ../modules/app/ncmpcpp
 	    ../modules/app/nvim
+	    ../modules/app/vscode
 	    ../modules/app/wezterm
                 
         # Apps - Single Files
@@ -25,21 +27,17 @@
         #../modules/app/fbterm.nix
         ../modules/app/git.nix
         #../modules/app/gpg.nix
-        ../modules/app/lf.nix
         ../modules/app/mako.nix
 	    ../modules/app/mpv.nix
 	    ../modules/app/obs.nix
-	    ../modules/app/pass.nix
-        ../modules/app/social.nix # Discord, IRC, Signal, Telegram.
+        ../modules/app/social.nix 
         ../modules/app/spotifyd.nix
         ../modules/app/starship.nix
         #../modules/app/swayidle.nix
         #../modules/app/swayosd.nix
         ../modules/app/tmux.nix
         ../modules/app/vis.nix
-        #../modules/app/vscode.nix
         ../modules/app/wayfire.nix
-        ../modules/app/wayland.nix
         ../modules/app/wofi.nix
         ../modules/app/yazi.nix
         ../modules/app/zathura.nix

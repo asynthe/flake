@@ -111,7 +111,6 @@
                 inputs
                 ;
                 user = "ben";
-		        device = "/dev/nvme0n1";
             };
             modules = [
                 ./hosts/thinkpad
