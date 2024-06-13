@@ -1,5 +1,7 @@
 {
+    programs.vscode.enable = true;
     imports = [
-        ./vscode.nix
+        ./extensions.nix
+        ./settings.nix
     ];
 }

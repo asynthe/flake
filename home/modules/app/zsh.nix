@@ -34,7 +34,8 @@
 	        pdf = "${pkgs.zathura}/bin/zathura";
 	        py = "python3";
             ga = "git add -A";
-            m = "ncmpcpp";
+            m = "${pkgs.ncmpcpp}/bin/ncmpcpp";
+            n = "${pkgs.neovim}/bin/nvim";
             rm = "rm -i";
             v = "${pkgs.alsa-utils}/bin/alsamixer";
             vv = "${pkgs.pulsemixer}/bin/pulsemixer";

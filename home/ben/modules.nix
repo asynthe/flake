@@ -3,11 +3,12 @@
 
         ../../secrets/secrets_home.nix
 
+	    ../modules/pkgs/cybersec.nix
+        ../modules/pkgs/minimal.nix # No GUI.
         ../modules/pkgs/pkgs.nix
-        ../modules/pkgs/pkgs_minimal.nix # No GUI.
-	    ../modules/pkgs/pkgs_sec.nix
-        ../modules/pkgs/pkgs_temp.nix
-        ../modules/pkgs/pkgs_social.nix # Discord, IRC, Signal, Telegram.
+        ../modules/pkgs/pkgs_test.nix
+        ../modules/pkgs/social.nix # Discord, IRC, Signal, Telegram.
+        ../modules/pkgs/wayland.nix
 
 	    # Apps
 	    ../modules/app/hyprland
@@ -30,7 +31,6 @@
         ../modules/app/mako.nix
 	    ../modules/app/mpv.nix
 	    ../modules/app/obs.nix
-        ../modules/app/social.nix 
         ../modules/app/spotifyd.nix
         ../modules/app/starship.nix
         #../modules/app/swayidle.nix
@@ -44,7 +44,7 @@
         ../modules/app/zoxide.nix
         ../modules/app/zsh.nix
 
-	    # Game
+	    # Game -> Moved to option
         #../modules/game/emulators.nix
         #../modules/game/games.nix
         #../modules/game/tools.nix

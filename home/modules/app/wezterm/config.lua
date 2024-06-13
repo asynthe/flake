@@ -25,6 +25,10 @@ local keybinds = {
   { key = 'k', mods = 'SUPER', action = act.ActivatePaneDirection("Up") },
   { key = 'l', mods = 'SUPER', action = act.ActivatePaneDirection("Right") },
 
+  -- Pane Switching
+  { key = 'h', mods = 'SUPER|SHIFT', action = act.RotatePanes 'CounterClockwise' },
+  { key = 'l', mods = 'SUPER|SHIFT', action = act.RotatePanes 'Clockwise' },
+
   -- Pane resizing
   { key = 'h', mods = 'CTRL|SHIFT', action = act.AdjustPaneSize { 'Left', 1 } },
   { key = 'j', mods = 'CTRL|SHIFT', action = act.AdjustPaneSize { 'Down', 1 } },
