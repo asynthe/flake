@@ -1,7 +1,7 @@
 {
     imports = [
 
-		../modules/pkgs/pkgs.nix
+		#../modules/pkgs/pkgs.nix
         ../modules/pkgs/pkgs_minimal.nix
 	    #../modules/pkgs/pkgs_sec.nix
 	    #../modules/pkgs/pkgs_temp.nix
@@ -11,6 +11,7 @@
 	    #../modules/app/mpd
 	    #../modules/app/ncmpcpp
 	    ../modules/app/nvim
+	    #../modules/app/vscode
 	    #../modules/app/wezterm
                 
         # Apps - Single Files

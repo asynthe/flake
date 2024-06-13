@@ -12,6 +12,7 @@
 	        git
 	        ncdu
             #neovim # If enabled, disable the dots import version.
+            httpie
 
 	    	# Filesystem tools
 		    fio

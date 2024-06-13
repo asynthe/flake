@@ -18,7 +18,19 @@
         #../../modules/disko/btrfs_persist.nix
 
         ../../modules/sys.nix
+<<<<<<< HEAD
         ../../modules/pkgs/pkgs.nix
         ../../modules/sysd/lid_switch.nix # Lid switch action for laptops. / system.laptop.lid_switch = true;
+=======
+        ../../modules/pkgs.nix
+        # Security
+
+        #../../modules/game/steam.nix # games.steam.enable = true;
+        #../../modules/sys/fstrim.nix # mkIf system.disk.ssd = true; then .
+        #../../modules/vm/libvirt.nix # system.virtualization = [ "libvirt" ];
+        #../../modules/vm/virtualbox.nix # system.virtualization = [ "virtualbox" ];
+        #../../modules/vm/vmware.nix # system.virtualization = [ "vmware" ];
+        #../../modules/sysd/lid_switch.nix # Lid switch action for laptops. / system.laptop.lid_switch = true;
+>>>>>>> 9e6232e2e66e06e7f16822b9121a46ea7ee15f07
     ];
 }

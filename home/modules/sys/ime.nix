@@ -15,17 +15,15 @@
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
-            sarasa-gothic
+            ipafont
+            kochi-substitute
             noto-fonts
             noto-fonts-cjk
             noto-fonts-cjk-sans
             noto-fonts-cjk-serif
-            noto-fonts-extra
             noto-fonts-emoji
-
-            # JP
-            ipafont
-            kochi-substitute
+            noto-fonts-extra
+            sarasa-gothic
         ;
     };
 
