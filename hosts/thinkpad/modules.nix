@@ -18,10 +18,8 @@
         #../../modules/disko/btrfs_persist.nix
 
         ../../modules/sys.nix
-        ../../modules/pkgs/pkgs.nix
-        ../../modules/sysd/lid_switch.nix # Lid switch action for laptops. / system.laptop.lid_switch = true;
         ../../modules/pkgs.nix
-        # Security
+        ../../modules/sysd/lid_switch.nix # Lid switch action for laptops. / system.laptop.lid_switch = true;
 
         #../../modules/game/steam.nix # games.steam.enable = true;
         #../../modules/sys/fstrim.nix # mkIf system.disk.ssd = true; then .

@@ -12,6 +12,7 @@
 
 	    # Apps
 	    ../modules/app/hyprland
+	    ../modules/app/lf
 	    ../modules/app/mpd
 	    ../modules/app/ncmpcpp
 	    ../modules/app/nvim

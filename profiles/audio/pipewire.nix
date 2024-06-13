@@ -1,9 +1,9 @@
-{ config, pkgs, user, lib, ... }: 
+{ config, user, lib, ... }: 
 with lib;
 let
-    cfg = config.system.audio;
+    cfg = config.audio;
 in {
-    options.system.audio.pipewire = mkOption {
+    options.audio.pipewire = mkOption {
         type = types.bool;
         default = false;
         description = "Enable audio configuration. (Pipewire)";

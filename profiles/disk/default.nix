@@ -1,0 +1,5 @@
+{
+    imports = [
+        ./ssd.nix
+    ];
+}

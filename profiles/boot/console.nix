@@ -1,9 +1,9 @@
 { config, pkgs, lib, ... }:
 with lib;
 let
-    cfg = config.boot.console;
+    cfg = config.boot;
 in {
-    options.boot.console.enable = mkOption {
+    options.boot.console = mkOption {
         type = types.bool;
         default = false;
         description = ''
@@ -11,7 +11,7 @@ in {
         '';
     };
 
-    config = mkIf cfg.enable {
+    config = mkIf cfg.console {
         console = {
             earlySetup = true;
             font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";

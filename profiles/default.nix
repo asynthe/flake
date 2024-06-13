@@ -2,7 +2,8 @@
     imports = [ 
         ./audio
         ./boot
-        ./game
+        ./disk
+        ./gaming
         ./net
         ./nix
         ./services

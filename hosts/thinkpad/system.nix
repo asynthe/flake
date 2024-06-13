@@ -7,17 +7,34 @@
 
     # System configuration
     system = {
-        boot.banner = "simple_cat"; # simple_cat, hentai
         nix.settings = "laptop"; # laptop, server
         nix.cache = true;
-        audio.pipewire = true;
-        #audio.musnix = true;
         users = "laptop";
         locale = "both"; # Change to system.language?
     };
 
+    boot = {
+        banner = "simple_cat"; # simple_cat, hentai
+        bootloader = "systemd-boot";
+        cleantmp = true;
+        silent = false;
+    };
+
+    audio = {
+        pipewire = true;
+        musnix = false;
+    };
+
+    gaming = {
+        steam = true;
+        gamemode = true;
+    };
+
+    # Disk
+    disk.ssd = true;
+
     # Services
-    services = {
+    services = { # configuration? daemon?
         #android.enable = true;
         #docker.enable = true;
         #endlessh.enable = true;
@@ -28,7 +45,7 @@
         qbittorrent-nox.enable = true;
         #sql.enable = true;
         ssh.enable = true;
-        ssh.configuration = "laptop";
+        ssh.configuration = "laptop"; # laptop, server
         sshfs.enable = true;
         #syncthing.enable = true;
         #wine.enable = true;

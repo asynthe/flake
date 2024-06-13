@@ -1,9 +1,9 @@
-{ config, pkgs, lib, user, ... }:
+{ config, lib, ... }:
 with lib;
 let
-    cfg = config.system.boot;
+    cfg = config.boot;
 in {
-    options.system.boot.bootloader = mkOption {
+    options.boot.bootloader = mkOption {
         type = types.str;
         default = "systemd-boot";
         description = ''
@@ -11,7 +11,7 @@ in {
         '';
     };
 
-    options.system.boot.generations = mkOption {
+    options.boot.generations = mkOption {
         type = types.int;
         default = 3;
         description = ''

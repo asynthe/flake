@@ -1,9 +1,9 @@
-{ config, pkgs, lib, ... }: 
+{ config, lib, ... }: 
 with lib;
 let
-    cfg = config.system.audio;
+    cfg = config.audio;
 in {
-    options.system.audio.musnix = mkOption {
+    options.audio.musnix = mkOption {
         type = types.bool;
         default = false;
         description = "Enable audio configuration. (Musnix)";
