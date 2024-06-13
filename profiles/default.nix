@@ -2,11 +2,13 @@
     imports = [ 
         ./audio
         ./boot
+        ./game
         ./locale
         ./net
         ./nix
         ./services
-        ./user
+        ./system
+        ./vm
         ./vpn
     ];
 }

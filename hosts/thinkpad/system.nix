@@ -12,10 +12,9 @@
         nix.cache = true;
         audio.pipewire = true;
         #audio.musnix = true;
+        users = "laptop";
+        locale = "both"; # Change to system.language?
     };
-
-    system.laptop.users.enable = true; # !!! change to system.users = "laptop" or "server";
-    language.english.enable = true; # !!! Change to system.language = "english"; (english, spanish, japanese)
 
     # Services
     services = {

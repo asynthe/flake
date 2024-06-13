@@ -1,7 +1,7 @@
 {
     imports = [
         ./libvirt.nix
-        ./virtualbox.nix
-        ./vmware.nix
+        #./virtualbox.nix
+        #./vmware.nix
     ];
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, ... }:
 with lib;
 let
     cfg = config.system.locale;
