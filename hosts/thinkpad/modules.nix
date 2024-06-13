@@ -18,7 +18,7 @@
         #../../modules/disko/btrfs_persist.nix
 
         ../../modules/sys.nix
-        ../../modules/pkgs/pkgs.nix
+        ../../modules/pkgs.nix
         # Security
 
         ../../modules/sec/clamav.nix

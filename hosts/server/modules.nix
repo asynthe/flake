@@ -7,7 +7,7 @@
 	    # Server
         ../../modules/srv/settings.nix
         ../../modules/srv/shell.nix
-        ../../modules/pkgs/pkgs_server.nix
+        ../../modules/pkgs_server.nix
 
         ../../modules/sec/clamav.nix
         ../../modules/vm/libvirt.nix
