@@ -1,7 +1,7 @@
 {
     imports = [
 
-		../modules/pkgs/pkgs.nix
+		#../modules/pkgs/pkgs.nix
         ../modules/pkgs/pkgs_minimal.nix
 	    #../modules/pkgs/pkgs_sec.nix
 	    #../modules/pkgs/pkgs_temp.nix
