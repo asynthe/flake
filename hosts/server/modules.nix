@@ -5,15 +5,15 @@
 	    ../../modules/disko/btrfs_persist.nix
 
 	    # Server
-        ../../modules/srv/settings.nix
+        #../../modules/srv/settings.nix
         ../../modules/srv/shell.nix
         ../../modules/pkgs_server.nix
 
-        ../../modules/sec/clamav.nix
-        ../../modules/vm/libvirt.nix
+        #../../modules/sec/clamav.nix
+        #../../modules/vm/libvirt.nix
 
         # Network
-	    ../../modules/net/net.nix
+	    #../../modules/net/net.nix
         
         # systemd services + timers
         #../../modules/srv/systemd/automount_hdd.nix
