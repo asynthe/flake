@@ -17,6 +17,7 @@
             wofi # App launcher.
             #gtklock #swaylock-effects
             #wlogout
+            pass-wayland
 	    ;
         inherit (pkgs.libsForQt5) polkit-kde-agent; # Authentication Agent
         inherit (pkgs.libsForQt5.qt5) qtwayland;

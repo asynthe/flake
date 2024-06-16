@@ -9,6 +9,8 @@
         inherit (pkgs)
 
 	    # Tools # MOVE
+        vulnix
+        bleachbit
 	    bc
 	    curl
 	    jq

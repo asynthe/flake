@@ -1,18 +1,17 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
     programs.tmux = {
         enable = true;
-	#tmuxp.enable = true; # TEMPORARY
+	    tmuxp.enable = true;
 
-	# Configuration
-	prefix = "C-x";
-	keyMode = "vi";
-	baseIndex = 1; # Start from 1 instead of 0.
-	historyLimit = 5000;
-	mouse = true;
-	terminal = "tmux-256color";
-	shell = "${pkgs.zsh}/bin/zsh";
-
+	    # Configuration
+	    prefix = "C-x";
+	    keyMode = "vi";
+	    baseIndex = 1; # Start from 1 instead of 0.
+	    historyLimit = 5000;
+	    mouse = true;
+	    terminal = "tmux-256color";
+	    shell = "${pkgs.zsh}/bin/zsh";
 	extraConfig = ''
 	  set -g set-clipboard on # Clipboard
 

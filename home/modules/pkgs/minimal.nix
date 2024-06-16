@@ -4,6 +4,11 @@
         inherit (pkgs)
 
 	        # CLI
+            htop
+            tree
+            wget
+            rsync
+            killall
             nh
 	        ascii
 	        bc

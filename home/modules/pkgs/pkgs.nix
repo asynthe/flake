@@ -12,6 +12,12 @@
             # MOVE THESE TOOLS ?
             ollama
 
+            # Social
+            signal-desktop
+            telegram-desktop
+            weechat hexchat # irc
+            webcord #discord # fuck discord
+
 	        # Terminal
 	        kitty
             cool-retro-term
@@ -20,10 +26,10 @@
             # GUI
 	        brave
 	        emacs29-pgtk
-	        #gimp
+	        #gimp-with-plugins #gimp # Remember to configure photogimp.
 	        hypnotix
 	        keepassxc
-	        #libreoffice
+	        libreoffice
 	        #obsidian
 	        #etcher
 	        gparted
@@ -33,7 +39,7 @@
             #davinci-resolve # Not working.
 
             # CLI
-	        htop btop
+            pass-wayland
 	        hyperfine
 	        imagemagickBig #imagemagick
 	        img2pdf
@@ -43,6 +49,48 @@
             mediainfo # Video/audio metadata
             tectonic # LaTeX Engine
             sox
+            tesseract easyocr # OCR
+            meshlab f3d fstl # 3D files
+            cmus # Music player
+
+            # System
+            inxi
+            btop
+            strace # System call monitoring
+            ltrace # Library call monitoring
+            iotop # IO monitoring
+            iftop # Network monitoring
+            lsof # List open files
+            lshw # List hardware details
+            sysstat
+            lm_sensors # for `sensors` command
+            ethtool
+            pciutils # lspci
+            usbutils # lsusb
+
+            # Networking
+            nethogs
+            mtr # A network diagnostic tool
+            iperf3
+            dnsutils # `dig` + `nslookup`
+            ldns # replacement of `dig`, it provide the command `drill`
+            ipcalc # it is a calculator for the IPv4/v6 addresses
+            #inetutils
+            dnsmasq
+            traceroute
+            filezilla
+            dig
+            netcat-openbsd #netcat #netcat-gnu
+            socat #websocat
+            putty
+
+            # File Manager - PCmanFM
+            pcmanfm
+            nufraw-thumbnailer # .raw files (raw-thumbnailer)
+            evince # Adobe .pdf files
+            ffmpegthumbnailer # Video files
+            freetype # Font files
+            libgsf # .odf files
 
             # Reverse Engineering
             nasm nasmfmt
@@ -86,7 +134,9 @@
 	        peaclock tty-clock
 	        pulsemixer #pulseaudioFull
 	        unimatrix
+            pfetch neofetch
             pipes-rs
+            pv
 	    ;
     };
 }

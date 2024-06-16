@@ -1,5 +1,0 @@
-{
-    imports = [ 
-        ./networkmanager.nix 
-    ];
-}

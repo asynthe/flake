@@ -7,10 +7,10 @@
 
     imports = [
         ./cache.nix
-
         ./configuration.nix
         ./hyprland.nix
         ./keybinds.nix
         ./windowrules.nix
+        ./pkgs_wayland.nix
     ];
 }

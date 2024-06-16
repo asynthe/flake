@@ -1,0 +1,5 @@
+{
+    services.mirakurun = {
+        enable = true;
+    };
+}

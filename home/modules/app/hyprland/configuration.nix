@@ -1,8 +1,6 @@
 { pkgs, ... }: let
-
     monitor1 = "eDP-1";
     monitor2 = "HDMI-A-2";
-
 in {
     wayland.windowManager.hyprland.settings = {
         xwayland.force_zero_scaling = true; # Xwayland apps look like shit when scaled.
@@ -42,7 +40,7 @@ in {
             #"${monitor2}, 1920x1080@60, 1920x0, 1"
 
             # eDP-1 on the right
-            "${monitor1}, 1920x1080@60, 1920x0, 1."
+            "${monitor1}, 1920x1080@60, 1920x0, 1"
             "${monitor2}, 1920x1080@60, 0x0, 1"
 
             # Disable eDP-1

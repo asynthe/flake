@@ -4,7 +4,6 @@
         ./boot
         ./disk
         ./gaming
-        ./net
         ./nix
         ./services
         ./system

@@ -11,6 +11,7 @@
         nix.cache = true;
         users = "laptop";
         locale = "both"; # Change to system.language?
+        networking.type = "laptop";
     };
 
     boot = {

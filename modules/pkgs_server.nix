@@ -1,6 +1,7 @@
 { pkgs-stable, ... }: {
     environment.systemPackages = builtins.attrValues {
         inherit (pkgs-stable)
+            usbutils
 	        fzf skim
 	        lf
 	        ncdu
@@ -12,6 +13,8 @@
             ntfs3g
             testdisk testdisk-qt
             wget curl
+            killall
+            tree
         ;
     };
 }
