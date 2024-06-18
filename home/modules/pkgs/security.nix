@@ -24,11 +24,11 @@
 	    joomscan # Joomla
 	    exiftool # Image
 	    seclists # Dictionaries and more
-        social-engineer-toolkit
+        #social-engineer-toolkit
         snort
 
 	    # Framework
-	    metasploit
+	    #metasploit
 
 	    # OSINT
 	    maltego

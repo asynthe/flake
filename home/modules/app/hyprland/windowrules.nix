@@ -13,12 +13,16 @@
             "float, class:%(chromium), title:^(Save File)$"
             "noborder, class:%(chromium), title:^(Save File)$"
 
-            # Firefox, Picture-in-Picture
-            "center, title:^(Picture-in-Picture)$"
+            # Firefox (Librewolf), Picture-in-Picture
+            "opacity 1.0 1.0 1.0 , class:^(librewolf)$"
+            "center, title:^(Enter name of file to save to...)$"
+            "center, title:^(Picture-in-Picture)$" # ADD move to right bottom corner
             "float, title:^(Picture-in-Picture)$"
             "noanim, title:^(Picture-in-Picture)$"
+            "noanim, title:^(Enter name of file to save to...)$"
             "noborder, title:^(Enter name of file to save to...)$"
             "noborder, title:^(Picture-in-Picture)$"
+            "opacity 1.0, title:^(Picture-in-Picture)$"
             "pin, title:^(Picture-in-Picture)$"
 
             # Hypnotix

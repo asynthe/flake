@@ -3,7 +3,7 @@
 
         ../../secrets/secrets_home.nix
 
-	    ../modules/pkgs/cybersec.nix
+	    ../modules/pkgs/security.nix # Pentesting.
         ../modules/pkgs/minimal.nix # No GUI.
         ../modules/pkgs/pkgs.nix
         ../modules/pkgs/pkgs_test.nix
@@ -13,9 +13,10 @@
 	    ../modules/app/lf
 	    ../modules/app/mpd
 	    ../modules/app/ncmpcpp
-	    ../modules/app/nvim
-	    #../modules/app/vscode
+	    #../modules/app/nvim
+	    ../modules/app/vscode
 	    ../modules/app/wezterm
+            ../modules/app/gpg
                 
         # Apps - Single Files
 	    ../modules/app/alacritty.nix
@@ -26,11 +27,9 @@
         ../modules/app/eza.nix
         #../modules/app/fbterm.nix
         ../modules/app/git.nix
-        #../modules/app/gpg.nix
         ../modules/app/mako.nix
 	    ../modules/app/mpv.nix
 	    ../modules/app/obs.nix
-	    ../modules/app/pass.nix
         ../modules/app/spotifyd.nix
         ../modules/app/starship.nix
         #../modules/app/swayidle.nix

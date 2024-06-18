@@ -29,7 +29,7 @@
 	        #gimp-with-plugins #gimp # Remember to configure photogimp.
 	        hypnotix
 	        keepassxc
-	        libreoffice
+	        #libreoffice
 	        #obsidian
 	        #etcher
 	        gparted

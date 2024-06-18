@@ -53,9 +53,9 @@ in {
 
         general = {
             layout = "dwindle";
-            gaps_in = 4;
-            gaps_out = 10;
-            border_size = 1;
+            gaps_in = 0; # prev 4
+            gaps_out = 0; # prev 10
+            border_size = 0;
             #no_border_on_floating = 1;
 
             # Border color -> Stylix
@@ -89,7 +89,7 @@ in {
         };
 
         master = {
-            new_is_master = true;
+            new_status = "master"; # master, slave, inherit.
             inherit_fullscreen = true;
             #no_gaps_when_only = true; # Smart gaps, no gaps when only one window.
         };
@@ -101,7 +101,7 @@ in {
         decoration = {
             rounding = 0;
             active_opacity = 1;
-            inactive_opacity = 1;
+            inactive_opacity = 0.95;
             fullscreen_opacity = 1;
 
             # Blur

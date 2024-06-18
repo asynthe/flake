@@ -4,7 +4,7 @@
         ./hardware.nix # Import hardware scan.
 
         ../../secrets/secrets.nix
-	    #../../secrets/secrets_custom.nix
+	#../../secrets/secrets_custom.nix
 
         # Boot
         #../../modules/boot/console.nix
@@ -12,12 +12,12 @@
         #../../modules/boot/kmscon.nix 
         #../../modules/boot/silent.nix
 
-	    # Driver
-	    ../../modules/driver/acpi.nix
-	    ../../modules/driver/printer.nix
+	# Driver
+	../../modules/driver/acpi.nix
+	../../modules/driver/printer.nix
         #../../modules/disko/btrfs_persist.nix
 
-
+	../../modules/ansible.nix
         ../../modules/mirakurun.nix
         ../../modules/sys.nix
         ../../modules/pkgs.nix

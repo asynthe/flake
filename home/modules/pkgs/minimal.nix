@@ -3,6 +3,8 @@
     home.packages = builtins.attrValues {
         inherit (pkgs)
 
+            neovim # While nixvim doesn't work.
+
 	        # CLI
             htop
             tree
