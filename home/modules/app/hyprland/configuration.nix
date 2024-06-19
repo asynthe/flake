@@ -101,7 +101,7 @@ in {
         decoration = {
             rounding = 0;
             active_opacity = 1;
-            inactive_opacity = 0.95;
+            inactive_opacity = 0.82;
             fullscreen_opacity = 1;
 
             # Blur

@@ -1,7 +1,7 @@
 { pkgs, ... }: {
     home.packages = builtins.attrValues {
         inherit (pkgs)
-	        # Temp
+            ansible
 	        ciscoPacketTracer8
 	        #gns3-gui gns3-server
 	        #slides

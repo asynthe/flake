@@ -13,7 +13,7 @@
 	    ../modules/app/lf
 	    ../modules/app/mpd
 	    ../modules/app/ncmpcpp
-	    #../modules/app/nvim
+	    ../modules/app/nvim
 	    ../modules/app/vscode
 	    ../modules/app/wezterm
             ../modules/app/gpg

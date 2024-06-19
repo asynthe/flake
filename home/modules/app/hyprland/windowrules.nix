@@ -47,8 +47,9 @@
             "animation popin, title:(Mullvad VPN)"
             "float, title:(Mullvad VPN)"
             #"move 3520 512, title:(Mullvad VPN)"
-            #"move -100%, title:(Mullvad VPN)"
+            "move -100%, title:(Mullvad VPN)"
             "noborder, title:(Mullvad VPN)"
+            "workspace 10 silent, title:(Mullvad VPN)"
 
             # pavucontrol
             "float, class:^(pavucontrol)$"
