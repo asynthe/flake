@@ -24,7 +24,7 @@
             powershell
 
             # GUI
-	        brave
+	        ungoogled-chromium #brave
 	        emacs29-pgtk
 	        #gimp-with-plugins #gimp # Remember to configure photogimp.
 	        hypnotix
