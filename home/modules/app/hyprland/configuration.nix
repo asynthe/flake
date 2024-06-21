@@ -132,6 +132,7 @@ in {
         # Misc
         misc = {
             initial_workspace_tracking = 1; # Only first window. (2 for window + children)
+            key_press_enables_dpms = true;
 
             # Cursor
             #inactive_timeout = 3;
@@ -149,7 +150,7 @@ in {
             # VRR (Variable Refresh Rate)
             # https://wiki.archlinux.org/title/Variable_refresh_rate
             # Requires a monitor with G-SYNC (NVIDIA) or FreeSync (AMD).
-            vrr = 1;
+            #vrr = 1;
         };
     };
 }

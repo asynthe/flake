@@ -1,22 +1,11 @@
-{ pkgs, pkgs-stable, ... }: {
+{ pkgs, ... }: {
 
     home.packages = builtins.attrValues {
-        inherit (pkgs-stable)
-
-	    # ...
-
-	;
         inherit (pkgs)
 
-	    # Tools # MOVE
+	    # CLI
         vulnix
         bleachbit
-	    bc
-	    curl
-	    jq
-	    lsof
-	    usbutils
-        # ------------------------------------
 
         # Tools
 	    sqlmap # SQL Injection

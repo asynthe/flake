@@ -1,21 +1,19 @@
-{ pkgs, pkgs-stable, ... }: {
+{ pkgs, ... }: {
 
     home.packages = builtins.attrValues {
-        inherit (pkgs-stable)
-	        # ...
-	    ;
         inherit (pkgs)
 
-            # Get all the wayland / X11 specific ?
-            # Move general audio?
-
-            # MOVE THESE TOOLS ?
-            ollama
+            # Nix
+            colmena
+            deploy-rs
+            #nixops_unstable #nixops
+            nixfmt
+            alejandra
 
             # Social
             signal-desktop
             telegram-desktop
-            weechat hexchat # irc
+            weechat hexchat # IRC
             webcord #discord # fuck discord
 
 	        # Terminal
@@ -24,34 +22,38 @@
             powershell
 
             # GUI
-	        ungoogled-chromium #brave
+            #aegisub # Subtitle Editor
 	        emacs29-pgtk
+	        #etcher
 	        #gimp-with-plugins #gimp # Remember to configure photogimp.
+	        gparted
 	        hypnotix
 	        keepassxc
 	        #libreoffice
 	        #obsidian
-	        #etcher
-	        gparted
+	        ungoogled-chromium #brave
 	        ventoy-full #ventoy
-            wf-recorder
-            #kdenlive
+            #aegisub
             #davinci-resolve # Not working.
+            #kdenlive
+            #nicotine-plus
+            qmmp
+            #wf-recorder
 
             # CLI
-            pass-wayland
 	        hyperfine
 	        imagemagickBig #imagemagick
 	        img2pdf
 	        libqalculate
+            cmus # Music player
             cpu-x
             ffmpeg
             mediainfo # Video/audio metadata
-            tectonic # LaTeX Engine
+            #meshlab #f3d #fstl # 3D files
+            ripgrep
             sox
+            tectonic # LaTeX Engine
             tesseract easyocr # OCR
-            meshlab f3d fstl # 3D files
-            cmus # Music player
 
             # System
             inxi
@@ -84,23 +86,6 @@
             socat #websocat
             putty
 
-            # File Manager - PCmanFM
-            pcmanfm
-            nufraw-thumbnailer # .raw files (raw-thumbnailer)
-            evince # Adobe .pdf files
-            ffmpegthumbnailer # Video files
-            freetype # Font files
-            libgsf # .odf files
-
-            # Reverse Engineering
-            nasm nasmfmt
-            yasm
-
-            # Reverse engineering / Disassemblers
-            #ghidra-bin #ghidra
-            #radare2
-            #hopper
-
             # Archiving
 	        #mdf2iso
             p7zip
@@ -114,6 +99,14 @@
             bluetuith
             bluez
             bluez-tools
+
+            # File Manager - PCmanFM
+            pcmanfm
+            nufraw-thumbnailer # .raw files (raw-thumbnailer)
+            evince # Adobe .pdf files
+            ffmpegthumbnailer # Video files
+            freetype # Font files
+            libgsf # .odf files
 
 	        # Japanese
 	        #anki-bin
@@ -138,5 +131,8 @@
             pipes-rs
             pv
 	    ;
+        # File managers
+        inherit (pkgs.libsForQt5) dolphin; 
+        inherit (pkgs.xfce) thunar tumbler;
     };
 }

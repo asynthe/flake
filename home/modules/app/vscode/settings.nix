@@ -16,7 +16,7 @@
         "workbench.list.openMode" = "doubleClick";
         "workbench.statusBar.visible" = false;
 
-        # Stylix
+        # -> Stylix
         #"editor.fontFamily" = "JetBrainsMono Nerd Font";
         #"editor.fontSize" = 13;
         #"workbench.colorTheme" = "Dark SynthWave '84";

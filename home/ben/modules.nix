@@ -3,22 +3,25 @@
 
         ../../secrets/secrets_home.nix
 
-	    ../modules/pkgs/security.nix # Pentesting.
-        ../modules/pkgs/minimal.nix # No GUI.
-        ../modules/pkgs/pkgs.nix
-        ../modules/pkgs/pkgs_test.nix
-
 	    # Apps
 	    ../modules/app/hyprland
 	    ../modules/app/lf
+	    ../modules/app/librewolf
 	    ../modules/app/mpd
 	    ../modules/app/ncmpcpp
 	    ../modules/app/nvim
 	    ../modules/app/vscode
 	    ../modules/app/wezterm
-            ../modules/app/gpg
+        ../modules/app/gpg
+
+        # Single files
                 
-        # Apps - Single Files
+	    ../modules/pkgs/security.nix # Pentesting.
+        ../modules/pkgs/minimal.nix # No GUI.
+        ../modules/pkgs/pkgs.nix
+        ../modules/pkgs/pkgs_test.nix
+
+        # Apps
 	    ../modules/app/alacritty.nix
         #../modules/app/bash.nix # bash shell.
 	    ../modules/app/bat.nix

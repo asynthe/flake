@@ -19,4 +19,12 @@
         configPackages = [ inputs.hyprland.packages.${pkgs.system}.hyprland ];
         extraPortals = [ inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
     };
+
+    home.packages = builtins.attrValues {
+        inherit (pkgs)
+            grimblast
+            hyprpicker
+            hyprshot
+        ;
+    };
 }

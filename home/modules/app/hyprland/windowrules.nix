@@ -7,6 +7,7 @@
         ];
         windowrulev2 = [
             "noanim, floating: 1"
+            "float, title:^(Media viewer)$" # Telegram media viewer
 
             # Chromium
             "center, class:%(chromium), title:^(Save File)$"
@@ -14,15 +15,21 @@
             "noborder, class:%(chromium), title:^(Save File)$"
 
             # Firefox (Librewolf), Picture-in-Picture
-            "opacity 1.0 1.0 1.0 , class:^(librewolf)$"
+            "opacity 1.0 override 1.0 override, class:^(librewolf)$"
+            "idleinhibit focus, class:^(librewolf)$, title:^(.*YouTube.*)$"
+            "idleinhibit fullscreen, class:^(librewolf)$"
+            "opacity 1.0 override 1.0 override, title:^(Enter name of file to save to...)$"
             "center, title:^(Enter name of file to save to...)$"
+            "noanim, title:^(Enter name of file to save to...)$"
+            "noborder, title:^(Enter name of file to save to...)$"
+            # Firefox - Picture-in-Picture - ピクチャーインピクチャー
             "center, title:^(Picture-in-Picture)$" # ADD move to right bottom corner
             "float, title:^(Picture-in-Picture)$"
             "noanim, title:^(Picture-in-Picture)$"
-            "noanim, title:^(Enter name of file to save to...)$"
-            "noborder, title:^(Enter name of file to save to...)$"
             "noborder, title:^(Picture-in-Picture)$"
-            "opacity 1.0, title:^(Picture-in-Picture)$"
+            "nodim,title:^(Picture-in-Picture)$"
+            "nodim,title:^(ピクチャーインピクチャー)$"
+            "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
             "pin, title:^(Picture-in-Picture)$"
 
             # Hypnotix
@@ -40,14 +47,16 @@
             "noanim, class:^(org.keepassxc.KeePassXC)$"
 
             # mpv
+            "opacity 1.0 override 1.0 override, class:^(mpv)$"
             "idleinhibit focus, class:^(mpv)$"
             "idleinhibit fullscreen, class:^(mpv)$"
 
             # Mullvad
-            "animation popin, title:(Mullvad VPN)"
+            #"animation popin, title:(Mullvad VPN)"
+            "noanim, title:(Mullvad VPN)"
             "float, title:(Mullvad VPN)"
             #"move 3520 512, title:(Mullvad VPN)"
-            "move -100%, title:(Mullvad VPN)"
+            #"move -100%, title:(Mullvad VPN)"
             "noborder, title:(Mullvad VPN)"
             "workspace 10 silent, title:(Mullvad VPN)"
 
@@ -70,13 +79,13 @@
             # Waydroid
             "float, title:^(Waydroid)$"
 
-	    # Wezterm
-	    "float,class:^(org.wezfurlong.wezterm)$"
-	    "tile,class:^(org.wezfurlong.wezterm)$"
+            # Wezterm
+	        "float,class:^(org.wezfurlong.wezterm)$"
+	        "tile,class:^(org.wezfurlong.wezterm)$"
 
             # Zathura
             "noanim, class:(org.pwmt.zathura)$"
-            "opacity 0.9, class:(org.pwmt.zathura)$"
+            "opacity 1.0 override 1.0 override, class:(org.pwmt.zathura)$"
 
             # Other
             "float, class:^(org.qgis.)$"
@@ -85,6 +94,10 @@
             #"float, class:^(Anki)$"
             #"move 66% 54%, class:^(Anki)$"
             #"noanim, class:^(Anki)$"
+
+            # Sharing Indicators
+            "workspace special silent, title:^(Firefox — Sharing Indicator)$"
+            "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
         ];
     };
 }
