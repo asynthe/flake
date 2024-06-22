@@ -3,6 +3,6 @@
         enable = true;
         enableBashIntegration = config.programs.bash.enable;
         enableZshIntegration = config.programs.zsh.enable;
-	extraConfig = builtins.readFile ./config.lua;
+	    extraConfig = builtins.readFile ./config.lua;
     };
 }

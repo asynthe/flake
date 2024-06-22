@@ -10,7 +10,7 @@ in {
         userDirs = {
             enable = true;
             createDirectories = false;
-            music = "${config.home.homeDirectory}/sync/archive/music/ALBUM";
+            music = "${config.home.homeDirectory}/sync/archive/music";
         };
     };
 
@@ -23,10 +23,11 @@ in {
         LANG = locale;
 
 	    # XDG
+        XDG_BIN_HOME = "${config.home.homeDirectory}/.local/bin";
         XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
         XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
-        XDG_BIN_HOME = "${config.home.homeDirectory}/.local/bin";
         XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
+        XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/Downloads/screenshots";
         XDG_STATE_HOME = "${config.home.homeDirectory}/.local/state";
     };
 }

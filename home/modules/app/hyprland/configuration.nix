@@ -9,7 +9,7 @@ in {
             "mullvad-gui"
             "${pkgs.fcitx5}/bin/fcitx5 -d"
             #"${pkgs.qbittorrent}/bin/qbittorrent" # Not working for now.
-            "${pkgs.swww}/bin/swww init"
+            "${pkgs.swww}/bin/swww-daemon"
         ];
 
         env = [
@@ -140,7 +140,7 @@ in {
 
             # Window Swallowing
             enable_swallow = true;
-            swallow_regex = "^(Alacritty|kitty)$";
+            swallow_regex = "^(Alacritty|kitty|Wezterm)$";
 
             # Hyprland logo
             disable_hyprland_logo = true;

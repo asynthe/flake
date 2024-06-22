@@ -15,7 +15,6 @@
         ../modules/app/gpg
 
         # Single files
-                
 	    ../modules/pkgs/security.nix # Pentesting.
         ../modules/pkgs/minimal.nix # No GUI.
         ../modules/pkgs/pkgs.nix

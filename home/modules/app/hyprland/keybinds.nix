@@ -30,11 +30,10 @@ in {
             "$mainMod, v, exec, pkill ${pkgs.pavucontrol}/bin/pavucontrol || ${pkgs.pavucontrol}/bin/pavucontrol"
             "${modkey2}, b, exec, pkill ${pkgs.waybar}/bin/waybar || ${pkgs.waybar}/bin/waybar"
 
-            # Apps - Screenshots
-            "${modkey2}, s, exec, ${pkgs.grim}/bin/grim -g '$(${pkgs.slurp}/bin/slurp -d)'"
-            "${modkey2} SHIFT, s, exec, grim -o ${monitor1}"
-            "${modkey2}, c, exec, ${pkgs.grim}/bin/grim -g '$(${pkgs.slurp}/bin/slurp -d)' - | ${pkgs.wl-clipboard}/bin/wl-copy -t image/png"
-            "${modkey2} SHIFT, c, exec, grim - | ${pkgs.wl-clipboard}/bin/wl-copy"
+            # Screenshots
+            "${modkey2}, s, exec, ${pkgs.hyprshot}/bin/hyprshot --raw --mode region | ${pkgs.swappy}/bin/swappy --file -"
+            "${modkey2} SHIFT, s, exec, ${pkgs.hyprshot}/bin/hyprshot --raw --mode window | ${pkgs.swappy}/bin/swappy --file -"
+            "${modkey2} CTRL, s, exec, ${pkgs.hyprshot}/bin/hyprshot --raw --mode output | ${pkgs.swappy}/bin/swappy --file -"
 
             # Actions - Windows
             "$mainMod SHIFT, p, pin,"

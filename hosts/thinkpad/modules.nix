@@ -19,7 +19,6 @@
 
         ../../modules/mirakurun.nix
         ../../modules/sys.nix
-        ../../modules/pkgs.nix
         ../../modules/sysd/lid_switch.nix # Lid switch action for laptops. / system.laptop.lid_switch = true;
 
         #../../modules/game/steam.nix # games.steam.enable = true;
