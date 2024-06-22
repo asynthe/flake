@@ -6,10 +6,11 @@ in {
         xwayland.force_zero_scaling = true; # Xwayland apps look like shit when scaled.
 
         exec-once = [
+            "${pkgs.fcitx5}/bin/fcitx5 -d &"
+            "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"
+            "${pkgs.swww}/bin/swww-daemon &"
             "mullvad-gui"
-            "${pkgs.fcitx5}/bin/fcitx5 -d"
             #"${pkgs.qbittorrent}/bin/qbittorrent" # Not working for now.
-            "${pkgs.swww}/bin/swww-daemon"
         ];
 
         env = [

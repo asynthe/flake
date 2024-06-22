@@ -10,9 +10,11 @@
             "float, title:^(Media viewer)$" # Telegram media viewer
 
             # Chromium
-            "center, class:%(chromium), title:^(Save File)$"
-            "float, class:%(chromium), title:^(Save File)$"
-            "noborder, class:%(chromium), title:^(Save File)$"
+            "center, class:(chromium), title:(Save File)"
+            "float, class:(chromium), title:(Save File)"
+            "noborder, class:(chromium), title:(Save File)"
+            "opacity 1.0 override 1.0 override, class:(Save File)"
+            "opacity 1.0 override 1.0 override, class:(chromium)"
 
             # Firefox (Librewolf), Picture-in-Picture
             "opacity 1.0 override 1.0 override, class:^(librewolf)$"
@@ -52,13 +54,13 @@
             "idleinhibit fullscreen, class:^(mpv)$"
 
             # Mullvad
-            #"animation popin, title:(Mullvad VPN)"
-            "noanim, title:(Mullvad VPN)"
             "float, title:(Mullvad VPN)"
+            "noanim, title:(Mullvad VPN)"
+            "noborder, title:(Mullvad VPN)"
+            "opacity 1.0 override 1.0 override, title:(Mullvad VPN)"
+            "workspace 10 silent, title:(Mullvad VPN)"
             #"move 3520 512, title:(Mullvad VPN)"
             #"move -100%, title:(Mullvad VPN)"
-            "noborder, title:(Mullvad VPN)"
-            "workspace 10 silent, title:(Mullvad VPN)"
 
             # pavucontrol
             "float, class:^(pavucontrol)$"
@@ -88,9 +90,13 @@
             "opacity 1.0 override 1.0 override, class:(org.pwmt.zathura)$"
 
             # Other
-            "float, class:^(org.qgis.)$"
+            "center,class:^(org.kde.polkit-kde-authentication-agent-1)$"
             "fakefullscreen, class:VirtualBoxVM"
+            "fakefullscreen, class:Vmware"
             "fakefullscreen, class:org.telegram.desktop"
+            "float, class:^(org.qgis.)$"
+            "float,class:^(org.kde.polkit-kde-authentication-agent-1)$"
+            "opacity 1.0 override 1.0 override, class:Vmware"
             #"float, class:^(Anki)$"
             #"move 66% 54%, class:^(Anki)$"
             #"noanim, class:^(Anki)$"

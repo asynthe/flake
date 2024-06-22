@@ -17,6 +17,7 @@
 	    ../../modules/driver/printer.nix
         #../../modules/disko/btrfs_persist.nix
 
+	    ../../modules/polkit.nix
         ../../modules/mirakurun.nix
         ../../modules/sys.nix
         ../../modules/sysd/lid_switch.nix # Lid switch action for laptops. / system.laptop.lid_switch = true;
