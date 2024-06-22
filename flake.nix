@@ -19,6 +19,10 @@
         musnix.url = "github:musnix/musnix";
         sops-nix.url = "github:Mic92/sops-nix";
         stylix.url = "github:danth/stylix";
+
+        # Apps
+        swww.url = "github:LGFae/swww";
+
         #nil.url = "github:oxalica/nil";
         #nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
         #nix-gaming.url = "github:fufexan/nix-gaming";
@@ -49,6 +53,7 @@
         musnix,
         sops-nix,
         stylix,
+        swww,
         #nix-darwin,
         #nixpkgs-wayland,
         #nixos-06cb-009a-fingerprint-sensor,

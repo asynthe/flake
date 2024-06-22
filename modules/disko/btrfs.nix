@@ -1,25 +1,6 @@
 { device, ... }: {
 
-    # Remember this copies files from /persist to where specified.
-    environment.persistence."/persist" = {
-        directories = [
-	        "/etc/NetworkManager/system-connections"
-	        "/etc/nixos"
-	        "/var/lib/bluetooth"
-	        "/var/lib/nixos"
-	        "/var/lib/systemd/coredump"
-	        "/var/lib/tailscale"
-	    ];
-        files = [
-	    "/etc/machine-id"
-	    ];
-    };
-
-    fileSystems = {
-        "/persist".neededForBoot = true;
-        "/var/log".neededForBoot = true;
-    };
-
+    imports = [ ./persistence.nix ];
 
     disko.devices = {
 	    nodev."/" = {

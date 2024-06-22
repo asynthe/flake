@@ -1,4 +1,4 @@
-{ pkgs, ... }: let
+{ pkgs, inputs, ... }: let
     monitor1 = "eDP-1";
     monitor2 = "HDMI-A-2";
 in {
@@ -8,7 +8,7 @@ in {
         exec-once = [
             "${pkgs.fcitx5}/bin/fcitx5 -d &"
             "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"
-            "${pkgs.swww}/bin/swww-daemon &"
+            "${inputs.swww.packages.${pkgs.system}.swww}/bin/swww-daemon &"
             "mullvad-gui"
             #"${pkgs.qbittorrent}/bin/qbittorrent" # Not working for now.
         ];
