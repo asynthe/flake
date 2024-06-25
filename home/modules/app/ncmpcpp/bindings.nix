@@ -2,11 +2,11 @@
     programs.ncmpcpp.bindings = [
 
         # Vi Keys
-        #{ key = "h"; command = [ "previous_column" "jump_to_parent_directory" ]; }
+        #{ key = "h"; command = [ "previous_column" "jump_to_parent_directory" ]; } # not working
         { key = "h"; command = "jump_to_parent_directory"; }
         { key = "j"; command = "scroll_down"; }
         { key = "k"; command = "scroll_up"; }
-        #{ key = "l"; command = [ "next_column" "enter_directory" "play_item" ]; }
+        #{ key = "l"; command = [ "next_column" "enter_directory" "play_item" ]; } # not working
         { key = "l"; command = "enter_directory"; }
         { key = "G"; command = "move_end"; }
         { key = "g"; command = "move_home"; }
@@ -16,8 +16,8 @@
         { key = "K"; command = "move_selected_items_up"; }
 
         # Seek
-        { key = "<"; command = "seek_backward"; }
-        { key = ">"; command = "seek_forward"; }
+        { key = "H"; command = "seek_backward"; }
+        { key = "L"; command = "seek_forward"; }
 
         # Arrow Keys
         { key = "left"; command = [ "previous_column" "jump_to_parent_directory" ]; }
@@ -26,9 +26,10 @@
         { key = "right"; command = "enter_directory"; }
 
         # Main keys
+        { key = "<"; command = "next"; }
+        { key = ">"; command = "previous"; }
         { key = "="; command = "volume_up"; } # I don't want to see the clock lol.
         { key = "I"; command = "show_server_info"; }
-        { key = "L"; command = "play_item"; }
         { key = "R"; command = "add_random_items"; }
         { key = "b"; command = "toggle_bitrate_visibility"; }
         { key = "d"; command = [ "delete_playlist_items" "delete_browser_items" "delete_stored_playlist" ]; }

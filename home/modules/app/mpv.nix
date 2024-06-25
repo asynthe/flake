@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
+
+    programs.zsh.shellAliases = lib.mkIf config.programs.zsh.enable {
+        mpv = "mpv --profiles=norm";
+    };
 
     programs.mpv = {
         enable = true;
@@ -12,8 +16,8 @@
 	        volume-max = "100";
 	        save-position-on-quit = true;
 	        hls-bitrate = "max";
-	        osc = false;
-	        force-window = true;
+	        #osc = false;
+	        #force-window = true;
 	        fullscreen = "no";
 
 	        #cache-default = 4000000;

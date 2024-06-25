@@ -140,7 +140,7 @@ in {
 
             # Window Swallowing
             enable_swallow = true;
-            swallow_regex = "^(Alacritty|kitty|wezterm)$";
+            swallow_regex = "^(Alacritty|kitty|org.wezfurlong.wezterm)$";
 
             # Hyprland logo
             disable_hyprland_logo = true;

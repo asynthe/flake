@@ -9,5 +9,6 @@
     networking.firewall.allowedTCPPorts = [ 8010 ];
     services.avahi = {
         enable = true;
+        nssmdns4 = true;
     };
 }
