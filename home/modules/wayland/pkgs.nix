@@ -1,6 +1,5 @@
 { pkgs, ... }: {
 
-    imports = [ ../swappy.nix ];
     home.packages = builtins.attrValues {
         inherit (pkgs)
 	        imv # Image Viewer.
@@ -14,7 +13,6 @@
             mpvpaper # Video wallpaper.
             ripdrag # Drag & Drop.
             swayidle # Idle daemon.
-            swww # Wallpaper.
             wdisplays #wlr-randr #kanshi
             wofi # App launcher.
 	    ;

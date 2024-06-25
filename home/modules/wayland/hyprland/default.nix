@@ -10,7 +10,6 @@
         ./configuration.nix
         ./hyprland.nix
         ./keybinds.nix
-        ./pkgs.nix
         ./windowrules.nix
     ];
 }

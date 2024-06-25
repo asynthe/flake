@@ -42,5 +42,7 @@
         { key = "2"; command = "show_browser"; }
         { key = "3"; command = "show_clock"; }
         { key = "4"; command = "show_help"; }
+        { key = "5"; command = "show_playlist_editor"; }
+#  show_playlist_editor
     ];
 }

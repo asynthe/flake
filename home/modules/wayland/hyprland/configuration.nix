@@ -8,7 +8,6 @@ in {
         exec-once = [
             "${pkgs.fcitx5}/bin/fcitx5 -d &"
             "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"
-            "${inputs.swww.packages.${pkgs.system}.swww}/bin/swww-daemon &"
             "mullvad-gui"
             #"${pkgs.qbittorrent}/bin/qbittorrent" # Not working for now.
         ];
