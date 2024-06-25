@@ -7,14 +7,15 @@ let
         text = ''
           export SWWW_TRANSITION=simple
           export SWWW_TRANSITION_STEP=2
-          export SWWW_TRANSITION_DURATION=2
-          export SWWW_TRANSITION_FPS=165
+          export SWWW_TRANSITION_DURATION=3
+          export SWWW_TRANSITION_FPS=60
+          #export SWWW_TRANSITION_FPS=165
           #export SWWW_TRANSITION_ANGLE=90
           #export SWWW_TRANSITION_POS=left
           #export SWWW_TRANSITION_BEZIER=.07,.56,1,.25
 
           # This controls (in seconds) when to switch to the next image
-          INTERVAL=300
+          INTERVAL=900 # 15 Minutes
           DIRECTORY=${wallpaper_dir}
           FREEZE_FILE=$HOME/.cache/sww-random-wallpaper-freeze
 

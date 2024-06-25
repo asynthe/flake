@@ -53,9 +53,9 @@ in {
 
         general = {
             layout = "dwindle";
-            gaps_in = 0; # prev 4
-            gaps_out = 0; # prev 10
-            border_size = 0;
+            gaps_in = 4; # prev 4
+            gaps_out = 10; # prev 10
+            border_size = 1;
             #no_border_on_floating = 1;
 
             # Border color -> Stylix
@@ -101,7 +101,7 @@ in {
         decoration = {
             rounding = 0;
             active_opacity = 1;
-            inactive_opacity = 0.82;
+            inactive_opacity = 1; # prev 0.82
             fullscreen_opacity = 1;
 
             # Blur
@@ -140,7 +140,7 @@ in {
 
             # Window Swallowing
             enable_swallow = true;
-            swallow_regex = "^(Alacritty|kitty|Wezterm)$";
+            swallow_regex = "^(Alacritty|kitty|wezterm)$";
 
             # Hyprland logo
             disable_hyprland_logo = true;
