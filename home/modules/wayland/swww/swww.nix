@@ -1,5 +1,6 @@
 { inputs, pkgs, user, ... }: 
 let
+    wallpaper_type = "light";
     wallpaper_dir = /home/${user}/sync/yuugen/dots/wallpaper;
     wallpaper_script = pkgs.writeShellApplication {
         name = "sww-random-wallpaper";
@@ -16,7 +17,7 @@ let
 
           # This controls (in seconds) when to switch to the next image
           INTERVAL=900 # 15 Minutes
-          DIRECTORY=${wallpaper_dir}
+          DIRECTORY=${wallpaper_dir}/${wallpaper_type}
           FREEZE_FILE=$HOME/.cache/sww-random-wallpaper-freeze
 
           while true; do
