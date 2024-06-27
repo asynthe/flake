@@ -14,7 +14,7 @@ in {
     config = mkIf cfg.enable {
 
         # Wine configuration and packages
-        # See more at https://nixos.wiki/wiki/Wine
+        # See more at https://wiki.nixos.org/wiki/Wine
 
         # Support for 32-bit apps.
         # Only supported for nvidia and also Mesa.

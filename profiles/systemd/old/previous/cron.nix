@@ -4,7 +4,7 @@
   ...
 }: {
   # Cron is now deprecated, but you can still use it.
-  # https://nixos.wiki/wiki/Cron
+  # https://wiki.nixos.org/wiki/Cron
 
   services.cron = {
     enable = true;
