@@ -1,6 +1,12 @@
-{ device, ... }: {
+{ device, pkgs, ... }: {
 
     boot.supportedFilesystems = [ "bcachefs" ];
+    environment.systemPackages = builtins.attrValues {
+        inherit (pkgs)
+            bcachefs-tools
+        ;
+    };
+
     disko.devices.disk.main = {
 
         device = "${device}";

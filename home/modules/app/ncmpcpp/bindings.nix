@@ -26,8 +26,8 @@
         { key = "right"; command = "enter_directory"; }
 
         # Main keys
-        { key = "<"; command = "next"; }
-        { key = ">"; command = "previous"; }
+        { key = "<"; command = "previous"; }
+        { key = ">"; command = "next"; }
         { key = "="; command = "volume_up"; } # I don't want to see the clock lol.
         { key = "I"; command = "show_server_info"; }
         { key = "R"; command = "add_random_items"; }

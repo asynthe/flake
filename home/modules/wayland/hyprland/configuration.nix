@@ -82,7 +82,7 @@ in {
 
         dwindle = {
             preserve_split = true;
-            #no_gaps_when_only = true; # Smart gaps, no gaps when only one window.
+            no_gaps_when_only = true; # Smart gaps, no gaps when only one window.
             smart_split = false;
             smart_resizing = false;
             special_scale_factor = 0.98; # Scale of special workspace windows.

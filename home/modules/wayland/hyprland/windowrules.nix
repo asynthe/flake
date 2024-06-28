@@ -7,7 +7,6 @@
         ];
         windowrulev2 = [
             "noanim, floating: 1"
-            "float, title:^(Media viewer)$" # Telegram media viewer
 
             # Chromium
             "center, class:(chromium), title:(Save File)"
@@ -29,8 +28,8 @@
             "float, title:^(Picture-in-Picture)$"
             "noanim, title:^(Picture-in-Picture)$"
             "noborder, title:^(Picture-in-Picture)$"
-            "nodim,title:^(Picture-in-Picture)$"
-            "nodim,title:^(ピクチャーインピクチャー)$"
+            "nodim, title:^(Picture-in-Picture)$"
+            "nodim, title:^(ピクチャーインピクチャー)$"
             "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
             "pin, title:^(Picture-in-Picture)$"
 
@@ -82,21 +81,27 @@
             "float, title:^(Waydroid)$"
 
             # Wezterm
-	        "float,class:^(org.wezfurlong.wezterm)$"
-	        "tile,class:^(org.wezfurlong.wezterm)$"
+	        "float, class:^(org.wezfurlong.wezterm)$"
+	        "tile, class:^(org.wezfurlong.wezterm)$"
 
             # Zathura
             "noanim, class:(org.pwmt.zathura)$"
             "opacity 1.0 override 1.0 override, class:(org.pwmt.zathura)$"
+            # Vmware
+            "center, class:Vmware"
+            "center, title:^(Open Virtual Machines)$,class:^(Vmware)$"
+            "fakefullscreen, class:Vmware"
+            "float, class:Vmware"
+            "float, title:^(Open Virtual Machines)$,class:^(Vmware)$"
+            "opacity 1.0 override 1.0 override, class:Vmware"
 
             # Other
-            "center,class:^(org.kde.polkit-kde-authentication-agent-1)$"
+            "center, class:^(org.kde.polkit-kde-authentication-agent-1)$"
             "fakefullscreen, class:VirtualBoxVM"
-            "fakefullscreen, class:Vmware"
             "fakefullscreen, class:org.telegram.desktop"
+            "float, class:^(org.kde.polkit-kde-authentication-agent-1)$"
             "float, class:^(org.qgis.)$"
-            "float,class:^(org.kde.polkit-kde-authentication-agent-1)$"
-            "opacity 1.0 override 1.0 override, class:Vmware"
+            "float, title:^(Media viewer)$" # Telegram media viewer
             #"float, class:^(Anki)$"
             #"move 66% 54%, class:^(Anki)$"
             #"noanim, class:^(Anki)$"

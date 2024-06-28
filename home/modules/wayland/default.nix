@@ -3,6 +3,7 @@
 	    ./hyprland
 	    ./swww
         ./mako.nix
+        ./mpvpaper.nix
         ./pkgs.nix
         ./swappy.nix
         #./swayidle.nix

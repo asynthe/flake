@@ -1,10 +1,11 @@
 { inputs, pkgs, user, ... }: 
 let
-    wallpaper_type = "light";
-    wallpaper_dir = /home/${user}/sync/yuugen/dots/wallpaper;
+    #wallpaper_type = "dark";
+    wallpaper_dir = /home/${user}/sync/yuugen/dots/wallpaper/dark;
     wallpaper_script = pkgs.writeShellApplication {
-        name = "sww-random-wallpaper";
-        runtimeInputs = [ inputs.swww.packages.${pkgs.system}.swww ];
+        name = "swww-random-wallpaper";
+        #runtimeInputs = [ inputs.swww.packages.${pkgs.system}.swww ];
+        runtimeInputs = [ pkgs.swww ];
         text = ''
           export SWWW_TRANSITION=simple
           export SWWW_TRANSITION_STEP=2
@@ -17,7 +18,7 @@ let
 
           # This controls (in seconds) when to switch to the next image
           INTERVAL=900 # 15 Minutes
-          DIRECTORY=${wallpaper_dir}/${wallpaper_type}
+          DIRECTORY=${wallpaper_dir}
           FREEZE_FILE=$HOME/.cache/sww-random-wallpaper-freeze
 
           while true; do
@@ -38,12 +39,14 @@ let
 in {
 
     home.packages = [
-        inputs.swww.packages.${pkgs.system}.swww
+        #inputs.swww.packages.${pkgs.system}.swww
+        pkgs.swww
         pkgs.waypaper # Kinda like Nitrogen.
     ];
 
     wayland.windowManager.hyprland.settings.exec-once = [
-        "sleep 1 && ${inputs.swww.packages.${pkgs.system}.swww}/bin/swww-daemon"
-        "sleep 1 && ${wallpaper_script}/bin/sww-random-wallpaper"
+        #"sleep 1 && ${inputs.swww.packages.${pkgs.system}.swww}/bin/swww-daemon &"
+        "sleep 1 && ${pkgs.swww}/bin/swww-daemon &"
+        "sleep 1 && ${wallpaper_script}/bin/sww-random-wallpaper &"
     ];
 }

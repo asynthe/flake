@@ -51,6 +51,9 @@
 	    nmap # A utility for network discovery and security auditing.
 	    rustscan
 
+        # Scanning
+        nikto
+
 	    # Web
 	    burpsuite
 	    openssl

@@ -20,10 +20,8 @@
 	    # Variables
 	    sessionVariables = {
 	        #TERM = "xterm-256color"; # ?
-	        BROWSER = "librewolf";
 	        EDITOR = "nvim";
 	        FILE = "lf";
-	        READER = "zathura";
             FLAKE = "/home/${user}/sync/yuugen";
     	};
 
@@ -31,8 +29,8 @@
         shellAliases = {
 
             # General
-	        pdf = "${pkgs.zathura}/bin/zathura";
 	        py = "python3";
+            disk = "(df -h | head -n 1; df -h | grep nvme)";
             ga = "git add -A";
             m = "ncmpcpp";
             n = "nvim";
@@ -48,13 +46,9 @@
             # Wallpaper
 	        wall = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | xargs ${inputs.swww.packages.${pkgs.system}.swww}/bin/swww img";
 	        wallp = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | tee >(xargs ${inputs.swww.packages.${pkgs.system}.swww}/bin/swww img) >(xargs ${pkgs.wallust}/bin/wallust run)"; 
-	        video = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/video -e mp4 | ${pkgs.skim}/bin/sk | xargs ${pkgs.mpvpaper}/bin/mpvpaper -v -p -o 'loop-file=inf' '*'";
 
-	        # Learning and entertainment
-	        book = "${pkgs.fd}/bin/fd . ~/sync/archive/book --type f -e 'pdf' -e 'epub' | ${pkgs.skim}/bin/sk | xargs ${pkgs.zathura}/bin/zathura";
+	        # Random
 	        rickroll = "${pkgs.curl}/bin/curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master.roll.sh | ${pkgs.bash}/bin/bash";
-	        tv-jp = "${pkgs.mpv}/bin/mpv https://iptv-org.github.io/iptv/countries/jp.m3u";
-	        tv-cl = "${pkgs.mpv}/bin/mpv https://iptv-org.github.io/iptv/countries/cl.m3u";
 
 	        # Nix
 	        #update = "nix flake update '${config.home.homeDirectory}/yuugen' && home-manager switch --flake '${config.home.homeDirectory}/yuugen#ben' && sudo nixos-rebuild switch --flake '${config.home.homeDirectory}/yuugen#thinkpad'";

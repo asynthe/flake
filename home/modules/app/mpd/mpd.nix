@@ -15,9 +15,14 @@
         };
         extraConfig = ''
           auto_update           "yes"
-          volume_normalization  "yes"
           restore_paused        "yes"
           filesystem_charset    "UTF-8"
+
+          #volume_normalization  "yes"
+          #replaygain "auto"
+          #replaygain "track"
+          #replaygain_missing_preamp "0"
+          #replaygain_limit "yes"
 
           audio_output {
             type                "pipewire"

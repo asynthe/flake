@@ -25,6 +25,7 @@
 	    ../modules/pkgs/security.nix # Pentesting.
         ../modules/pkgs/minimal.nix # No GUI.
         ../modules/pkgs/pkgs.nix
+        ../modules/pkgs/pkgs_audio.nix
         ../modules/pkgs/pkgs_test.nix
 
         # Apps
