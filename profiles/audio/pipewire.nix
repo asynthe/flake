@@ -12,8 +12,8 @@ in {
     config = mkIf cfg.pipewire {
 
         # Pipewire audio configuration.
-        # See more at https://nixos.wiki/wiki/Pipewire
-        # See more at https://nixos.wiki/wiki/PulseAudio
+        # See more at https://wiki.nixos.org/wiki/Pipewire
+        # See more at https://wiki.nixos.org/wiki/PulseAudio
 
         sound.enable = true;
         users.users.${user}.extraGroups = [ "audio" ];
