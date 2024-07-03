@@ -118,11 +118,7 @@
                 user = "ben";
             };
             modules = [
-                ./hosts/thinkpad
-		        sops-nix.nixosModules.sops
-                disko.nixosModules.disko
-                impermanence.nixosModules.impermanence
-                musnix.nixosModules.musnix
+                ./hosts/wsl
                 nixos-wsl.nixosModules.default
             ];
         };

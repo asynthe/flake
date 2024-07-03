@@ -1,6 +1,6 @@
 {
     imports = [
         ./system.nix
-        #./modules.nix
+        ./wsl.nix
     ];
 }
