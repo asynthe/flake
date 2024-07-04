@@ -12,6 +12,7 @@
             #clockSupport = true;
             #taglibSupport = true;
         #};
+        mpdMusicDir = "${config.xdg.userDirs.music}";
         settings = {
             ncmpcpp_directory = ''"${config.xdg.configHome}/ncmpcpp"'';
             #lyrics_directory = ''"~/.local/share/lyrics"'';
@@ -19,7 +20,7 @@
             allow_for_physical_item_deletion = "no";
             mpd_crossfade_time = ''"6"'';
             mpd_host = ''"localhost"'';
-            mpd_music_dir = ''"${config.xdg.userDirs.music}"'';
+            #mpd_music_dir = ''"${config.xdg.userDirs.music}"'';
             mpd_port = ''"6600"'';
         };
     };

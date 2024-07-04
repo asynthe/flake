@@ -87,13 +87,14 @@
             # Zathura
             "noanim, class:(org.pwmt.zathura)$"
             "opacity 1.0 override 1.0 override, class:(org.pwmt.zathura)$"
+
             # Vmware
-            "center, class:Vmware"
-            "center, title:^(Open Virtual Machines)$,class:^(Vmware)$"
-            "fakefullscreen, class:Vmware"
-            "float, class:Vmware"
-            "float, title:^(Open Virtual Machines)$,class:^(Vmware)$"
-            "opacity 1.0 override 1.0 override, class:Vmware"
+            "center, class:^(Vmware)$"
+            "fakefullscreen, class:^(Vmware)$"
+            "float, class:^(Vmware)$"
+            "opacity 1.0 override 1.0 override, class:^(Vmware)$"
+            #"center, title:^(Open Virtual Machines)$,class:^(Vmware)$"
+            #"float, title:^(Open Virtual Machines)$,class:^(Vmware)$"
 
             # Other
             "center, class:^(org.kde.polkit-kde-authentication-agent-1)$"

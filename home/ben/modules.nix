@@ -30,15 +30,15 @@
 
         # Apps
 	    ../modules/app/alacritty.nix
-        #../modules/app/bash.nix # bash shell.
 	    ../modules/app/bat.nix
+        #../modules/app/bash.nix # bash shell.
 	    ../modules/app/direnv.nix
         #../modules/app/emacs.nix
-        ../modules/app/eza.nix
         #../modules/app/fbterm.nix
-        ../modules/app/git.nix
 	    ../modules/app/mpv.nix
 	    ../modules/app/obs.nix
+        ../modules/app/eza.nix
+        ../modules/app/git.nix
         ../modules/app/spotifyd.nix
         ../modules/app/starship.nix
         ../modules/app/tmux.nix

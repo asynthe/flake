@@ -7,7 +7,7 @@
             colmena
             deploy-rs
             #nixops_unstable #nixops
-            nixfmt
+            #nixfmt
             alejandra
 
             # Social

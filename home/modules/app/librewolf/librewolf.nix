@@ -1,6 +1,6 @@
 { config, lib, ... }: {
 
-    programs.zsh.sessionVariables = lib.mkIf config.programs.zsh.enable.true { 
+    programs.zsh.sessionVariables = lib.mkIf config.programs.zsh.enable { 
         BROWSER = "librewolf"; 
     };
 

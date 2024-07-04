@@ -1,7 +1,7 @@
 { inputs, pkgs, user, ... }: 
 let
     #wallpaper_type = "dark";
-    wallpaper_dir = /home/${user}/sync/yuugen/dots/wallpaper/dark;
+    wallpaper_dir = /home/${user}/sync/yuugen/dots/wallpaper/light;
     wallpaper_script = pkgs.writeShellApplication {
         name = "swww-random-wallpaper";
         #runtimeInputs = [ inputs.swww.packages.${pkgs.system}.swww ];

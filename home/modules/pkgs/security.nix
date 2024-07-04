@@ -25,7 +25,7 @@
 
 	    # Pentesting
 	    crackmapexec netexec
-	    exploitdb
+	    exploitdb # `searchsploit`
         
 	    # Brute Forcing
 	    thc-hydra
@@ -58,7 +58,6 @@
 	    burpsuite
 	    openssl
 
-	    # Web
         ## Fuzzing
 	    dirb
 	    dirbuster
