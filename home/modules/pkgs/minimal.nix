@@ -28,6 +28,15 @@
 		    fio
 		    hdparm
 		    nvme-cli
+
+            # Archiving
+	        #mdf2iso
+            p7zip
+            rar #unrar #rar2fs
+            #torrent7z
+            unar # Allows for unzipping with Unicode characters.
+            #xz
+            zip unzip 
         ;
     };
 }

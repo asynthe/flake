@@ -2,18 +2,18 @@
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
-	    pinentry-curses
-	;
+	        pinentry-curses
+	    ;
     };
 
     programs.gpg = {
         enable = true;
-	#homedir = "${}" # SECRET
+	    #homedir = "${}" # SECRET
     };
 
     services.gpg-agent = {
         enable = true;
-	enableSshSupport = true;
-	pinentryPackage = pkgs.pinentry-curses;
+	    enableSshSupport = true;
+	    pinentryPackage = pkgs.pinentry-curses;
     };
 }

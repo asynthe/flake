@@ -1,5 +1,4 @@
 Installing NixOS and Home Manager
-#+begin_src text
 cd
 nix-shell -p git neovim lf
 sudo nix-channel --remove nixos
@@ -30,3 +29,37 @@ home-manager switch --flake '.ben' # If flakes is not enabled.
 Now it will give you an error
 Change to it
 su missigno -> meows
+
+## 1.1 NixOS on WSL
+### Installation
+
+Instructions: https://nix-community.github.io/NixOS-WSL/
+
+...
+
+### Flake Setup
+
+Instructions: https://nix-community.github.io/NixOS-WSL/how-to/nix-flakes.html
+
+To do this do...
+
+### Change username to home-manager one.
+
+Instructions: https://nix-community.github.io/NixOS-WSL/how-to/change-username.html
+
+...
+
+## 1.2 Home Manager on WSL
+### Installation
+
+If flakes is not enabled.
+`nix --experimental-features "nix-command flakes" run home-manager/master -- init --switch`
+
+If flakes is enabled.
+`nix run home-manager/master -- init --switch`
+
+Once the username is properly setup, just do a rebuild.
+Now, do a rebuild.
+
+home-manager switch --experimental-features "nix-command flakes" --flake '.ben' # If flakes is not enabled.
+home-manager switch --flake '.ben' # If flakes is not enabled.
