@@ -7,7 +7,7 @@
 	    # We need more cli shit.
         ../modules/pkgs/minimal.nix
         ../modules/pkgs/cli.nix
-        ../modules/pkgs/gui.nix
+        #../modules/pkgs/gui.nix
 
         # GUI
         ../modules/app/emacs
