@@ -3,7 +3,7 @@
 
         # CLEAN
         ../../profiles # Import all the custom options.
-        ./hardware.nix # Import hardware scan.
+        #./hardware.nix # Import hardware scan.
 
         ../../secrets/secrets.nix
 	    #../../secrets/secrets_custom.nix
