@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ lib, pkgs, ... }: {
 
     networking.hostName = "thinkpad";
     system.stateVersion = "23.11";
@@ -60,4 +60,12 @@
         #service1.port = 2002;
         #service2.port = 2002;
     #};
+
+    # Non-custom
+    hardware.keyboard.qmk.enable = true;
+    environment.systemPackages = builtins.attrValues {
+        inherit (pkgs)
+            qmk
+        ;
+    };
 }
