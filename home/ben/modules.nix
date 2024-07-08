@@ -29,7 +29,6 @@
         ../modules/pkgs/cli.nix
         ../modules/pkgs/gui.nix
         ../modules/pkgs/minimal.nix
-        ../modules/pkgs/pkgs.nix
         ../modules/pkgs/sec.nix
 
         # Apps - Single Files

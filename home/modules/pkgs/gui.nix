@@ -42,14 +42,6 @@
 	        stellarium
             starfetch
 
-            # File Manager - PCmanFM
-            pcmanfm
-            nufraw-thumbnailer # .raw files (raw-thumbnailer)
-            evince # Adobe .pdf files
-            ffmpegthumbnailer # Video files
-            freetype # Font files
-            libgsf # .odf files
-
 	        # Fun
 	        cava
 	        cli-visualizer
@@ -62,6 +54,15 @@
             pfetch neofetch
             pipes-rs
             pv
+
+            # File Manager - Thumbnailers for PCmanFM
+            pcmanfm
+            nufraw-thumbnailer # .raw files (raw-thumbnailer)
+            evince # Adobe .pdf files
+            ffmpegthumbnailer # Video files
+            freetype # Font files
+            libgsf # .odf files
+
 	    ;
         # File managers
         inherit (pkgs.libsForQt5) dolphin; 
