@@ -37,7 +37,7 @@
     # Services
     services = { # configuration? daemon?
         #android.enable = true;
-        #docker.enable = true;
+        docker.enable = true;
         #endlessh.enable = true;
         #flatpak.enable = true;
         #grafana.enable = true;

@@ -15,5 +15,11 @@ in {
 
         # ADD SSD PACKAGES LIKE SMART, FIO(?)
         services.fstrim.enable = true;
+
+        #fileSystems."/".options = [ 
+            #"noatime" 
+            #"nodiratime"
+            #"discard"
+        #];
     };
 }

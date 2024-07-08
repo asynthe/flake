@@ -5,7 +5,7 @@
         # to change to something like `configuration.something`?
 
         #./android.nix
-        #./docker.nix
+        ./docker.nix
         #./endlessh.nix
         #./flatpak.nix
         #./grafana.nix
