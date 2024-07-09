@@ -38,9 +38,6 @@
             v = "${pkgs.alsa-utils}/bin/alsamixer";
             vv = "${pkgs.pulsemixer}/bin/pulsemixer";
 
-            # Other
-	        book = "${pkgs.fd}/bin/fd . ~/sync/archive/book/reading --type f -e 'pdf' -e 'epub' | ${pkgs.skim}/bin/sk | xargs ${pkgs.zathura}/bin/zathura";
-
 	        # Tools
 	        bt = "${pkgs.bluetuith}/bin/bluetuith";
 	        yt = "${pkgs.yt-dlp}/bin/yt-dlp -f  'bv[ext=mp4]+ba[ext=m4a]' --merge-output-format mp4";

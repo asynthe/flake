@@ -4,11 +4,12 @@
         sessionVariables.READER = "zathura";
         shellAliases = {
 	        pdf = "zathura";
+	        book = "${pkgs.fd}/bin/fd . ~/sync/archive/book/reading --type f -e 'pdf' -e 'epub' | ${pkgs.skim}/bin/sk | xargs zathura";
+
         };
     };
 
     stylix.targets.zathura.enable = lib.mkForce false;
-
     programs.zathura = {
         enable = true;
 	    extraConfig = ''
