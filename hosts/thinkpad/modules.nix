@@ -11,13 +11,12 @@
 
 	    # Driver
 	    ../../modules/driver/acpi.nix
-	    ../../modules/driver/printer.nix
+	    #../../modules/driver/printer.nix
         #../../modules/disko/btrfs_persist.nix
 
         # Services
-	    ../../modules/services/avahi.nix
+	    #../../modules/services/avahi.nix
 	    #../../modules/services/clamav.nix
-	    #../../modules/services/gpg.nix
 	    #../../modules/services/httpd.nix
         #../../modules/services/mirakurun.nix # Need DVR.
 	    #../../modules/services/monica.nix

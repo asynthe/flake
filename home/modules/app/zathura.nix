@@ -22,7 +22,7 @@ set render-loading "false"
 
 # Scroll
 set scroll-page-aware "true"
-set smooth-scroll "true"
+#set smooth-scroll "true"
 set scroll-full-overlap 0.01
 #set scroll-step 100
 set scroll-step 50
@@ -34,17 +34,17 @@ map [fullscreen] f toggle_fullscreen
 
 # Start in dark mode
 set recolor true
-set recolor-lightcolor "#E0E0E0" #06
+#set recolor-lightcolor "#E0E0E0" #06
 set recolor-reverse-video "true"
-set recolor-keephue "true"
+#set recolor-keephue "true"
 
 # UI
-set font "Iosevka Nerd Font 14"
+set font "Iosevka Nerd Font 16"
 set default-bg "#000000" #00
 set default-fg "#F7F7F6" #01
 
 set statusbar-fg "#B0B0B0" #04
-set statusbar-bg "#202020" #01
+set statusbar-bg "#000000" #01
 	    '';
     };
 }

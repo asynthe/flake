@@ -7,14 +7,10 @@
 	        kitty
             cool-retro-term
 
-	        # Japanese
-	        #anki-bin
-	        memento
-
             # Social
             signal-desktop
             telegram-desktop
-            weechat hexchat # IRC
+            #hexchat # IRC
             webcord #discord # fuck discord
 
             # GUI
@@ -40,20 +36,6 @@
 	        #celestia
 	        #libnova
 	        stellarium
-            starfetch
-
-	        # Fun
-	        cava
-	        cli-visualizer
-	        figlet
-	        lolcat
-	        nhentai # ( ͡° ͜ʖ ͡°) 
-	        peaclock tty-clock
-	        pulsemixer #pulseaudioFull
-	        unimatrix
-            pfetch neofetch
-            pipes-rs
-            pv
 
             # File Manager - Thumbnailers for PCmanFM
             pcmanfm

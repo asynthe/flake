@@ -52,7 +52,7 @@
 
 	    # System
         ../modules/sys/fonts.nix
-        ../modules/sys/ime.nix
+        ../modules/sys/jp.nix
         ../modules/sys/settings.nix
         ../modules/sys/stylix.nix
         #../modules/sys/uutils-replace.nix

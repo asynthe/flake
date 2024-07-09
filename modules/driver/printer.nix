@@ -1,24 +1,21 @@
 { config, pkgs, user, ... }: {
 
+    users.users.${user}.extraGroups = [ "cups" "scanner" "lp" ];
+    services.printing.enable = true;
+    services.printing.drivers = [ pkgs.hplipWithPlugin ];
     environment.systemPackages = builtins.attrValues {
         inherit (pkgs)
-	    xsane
-	;
+	        xsane
+	    ;
     };
 
-    users.users.${user}.extraGroups = [ "cups" "scanner" "lp" ];
-    services.printing = { # Printing
-        enable = true;
-        drivers = [ pkgs.hplipWithPlugin ];
-    };
-    hardware.sane = { # Scanning
-        enable = true;
-	extraBackends = [ 
+    # Scanning
+    hardware.sane.enable = true;
+	hardware.sane.extraBackends = [ 
 	    pkgs.hplipWithPlugin
 	    pkgs.sane-airscan
 	];
 	#disabledDefaultBackends = [ "escl" ];
-    };
     services.ipp-usb.enable = true;
 
     # Autodiscovery of network printers

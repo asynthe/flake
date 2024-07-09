@@ -21,7 +21,7 @@
             colmena
             deploy-rs
             #nixops_unstable #nixops
-            nixfmt
+            #nixfmt
             alejandra
 
             # Tools
@@ -70,6 +70,23 @@
             netcat-openbsd #netcat #netcat-gnu
             socat #websocat
             putty
+
+            # IRC
+            weechat
+
+	        # Fun
+	        cava
+	        cli-visualizer
+	        figlet
+	        lolcat
+	        nhentai # ( ͡° ͜ʖ ͡°) 
+	        peaclock tty-clock
+	        pulsemixer #pulseaudioFull
+	        unimatrix
+            pfetch
+            pipes-rs
+            pv
+            starfetch
         ;
     };
 }
