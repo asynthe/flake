@@ -19,7 +19,7 @@ local keybinds = {
   { key = '\\', mods = 'CTRL', action = act.SplitHorizontal },
   { key = '|', mods = 'CTRL|SHIFT', action = act.SplitVertical },
 
-  -- Pane focus
+  -- Pane focus w/ SUPER
   { key = 'h', mods = 'SUPER', action = act.ActivatePaneDirection("Left") },
   { key = 'j', mods = 'SUPER', action = act.ActivatePaneDirection("Down") },
   { key = 'k', mods = 'SUPER', action = act.ActivatePaneDirection("Up") },
@@ -70,7 +70,7 @@ return {
   -- default_cursor_style = 'BlinkingUnderline',
 
   -- Other
-  --debug_key_events = true,
+  debug_key_events = true,
   alternate_buffer_wheel_scroll_speed = 1,
   window_close_confirmation = "NeverPrompt",
   audible_bell = 'Disabled',
