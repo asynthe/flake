@@ -51,6 +51,13 @@ in {
 
         ];
 
+        device = {
+            # Old Razer Hyperspeed X mouse
+            name = "razer-razer-basilisk-x-hyperspeed-1";
+            sensitivity = "-1.0";
+            accel_profile = "flat";
+        };
+
         general = {
             layout = "dwindle";
             gaps_in = 4; # prev 4
