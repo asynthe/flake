@@ -1,6 +1,5 @@
 {
     wayland.windowManager.hyprland.settings = {
-        workspace = "special, border: 0";
         layerrule = [
             "noanim, wofi"
             "noanim, wshowkeys"

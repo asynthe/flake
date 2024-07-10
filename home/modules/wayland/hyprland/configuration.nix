@@ -9,7 +9,6 @@ in {
             "${pkgs.fcitx5}/bin/fcitx5 -d &"
             "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"
             "mullvad-gui"
-            #"${pkgs.qbittorrent}/bin/qbittorrent" # Not working for now.
         ];
 
         env = [
@@ -48,13 +47,16 @@ in {
 
             # Vertical
             #"${monitor2}, 1920x1080@60, 0x0, 1, transform, 1"
-
+        ];
+        workspace = [
+            "special, border: 0"
+            "1,monitor:HDMI-A-2" # Make monitor take wksp 1 when connected
         ];
 
         device = {
             # Old Razer Hyperspeed X mouse
             name = "razer-razer-basilisk-x-hyperspeed-1";
-            sensitivity = "-1.0";
+            sensitivity = "-0.8"; # from -1.0 to 1.0, default 0.0
             accel_profile = "flat";
         };
 
