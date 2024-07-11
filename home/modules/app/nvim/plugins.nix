@@ -20,6 +20,11 @@
 	    filters.dotfiles = true;
 	};
 
+    # Note-taking
+    neorg = {
+        enable = true;
+    };
+
 	# QOL
 	nvim-autopairs.enable = true;
 	#indent-blankline.enable = true;

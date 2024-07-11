@@ -38,8 +38,8 @@ in {
             # Actions - Windows
             "$mainMod SHIFT, p, pin,"
             "$mainMod, d, togglesplit," # Dwindle
-            "$mainMod, f, togglefloating,"
-            "$mainMod, m, fullscreen,"
+            "$mainMod, f, fullscreen,"
+            "$mainMod, m, togglefloating,"
             "$mainMod, n, fakefullscreen,"
             "$mainMod, o, pseudo," # Dwindle
 

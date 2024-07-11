@@ -4,6 +4,9 @@ local act = wezterm.action
 local keybinds = {
   -- Main
   { key = 'i', mods = 'CTRL', action = act.ShowDebugOverlay },
+  -- Move tabs to left or right browser-like.
+  { key = '[', mods = 'CTRL', action = act.MoveTabRelative(-1) },
+  { key = ']', mods = 'CTRL', action = act.MoveTabRelative(1) },
 
   -- Clipboard
   { key = 'c', mods = 'SUPER', action = act.CopyTo 'ClipboardAndPrimarySelection' },
