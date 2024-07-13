@@ -3,6 +3,9 @@
     home.packages = builtins.attrValues {
         inherit (pkgs)
 
+            # Non-free
+            spotify
+
 	        # Terminal
 	        kitty
             cool-retro-term
