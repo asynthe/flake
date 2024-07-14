@@ -19,10 +19,6 @@ in {
         };
 
         bind = [
-            # Actions
-            "$mainMod SHIFT, c, killactive,"
-            "$mainMod SHIFT, o, exit,"
-
             # Apps
             #"$mainMod SHIFT, return, exec, ${pkgs.wezterm}/bin/wezterm"
             "$mainMod SHIFT, return, exec, [float;tile] ${pkgs.wezterm}/bin/wezterm start --always-new-process"
@@ -34,6 +30,10 @@ in {
             "${modkey2}, s, exec, ${pkgs.hyprshot}/bin/hyprshot --raw --mode region | ${pkgs.swappy}/bin/swappy --file -"
             "${modkey2} SHIFT, s, exec, ${pkgs.hyprshot}/bin/hyprshot --raw --mode window | ${pkgs.swappy}/bin/swappy --file -"
             "${modkey2} CTRL, s, exec, ${pkgs.hyprshot}/bin/hyprshot --raw --mode output | ${pkgs.swappy}/bin/swappy --file -"
+
+            # Actions
+            "$mainMod SHIFT, c, killactive,"
+            "$mainMod SHIFT, o, exit,"
 
             # Actions - Windows
             "$mainMod SHIFT, p, pin,"
@@ -60,6 +60,10 @@ in {
             "$mainMod, period, focusmonitor, +1"
             "$mainMod SHIFT, comma, workspace, e-1"
             "$mainMod SHIFT, period, workspace, e+1"
+
+            # Switch workspaces with mouse scroll
+            "$mainMod, mouse_up, workspace, e-1"
+            "$mainMod, mouse_down, workspace, e+1"
 
             # Workspaces
             "$mainMod, 1, workspace, 1"

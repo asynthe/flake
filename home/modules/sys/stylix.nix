@@ -43,11 +43,13 @@
             #desktop = 1.0;
             #popups = 1.0;
         };
+
         cursor = {
             package = pkgs.capitaine-cursors;
             name = "capitaine-cursors-white";
             size = 18; # default `32`.
         };
+
         fonts = {
             sizes = {
                 desktop = 6; # default `10`.

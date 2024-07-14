@@ -88,7 +88,6 @@
             "opacity 1.0 override 1.0 override, class:(org.pwmt.zathura)$"
 
             # Vmware
-            "center, class:^(Vmware)$"
             "fakefullscreen, class:^(Vmware)$"
             "float, class:^(Vmware)$"
             "opacity 1.0 override 1.0 override, class:^(Vmware)$"
