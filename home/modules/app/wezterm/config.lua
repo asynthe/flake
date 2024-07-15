@@ -33,10 +33,10 @@ local keybinds = {
   { key = 'l', mods = 'SUPER|SHIFT', action = act.RotatePanes 'Clockwise' },
 
   -- Pane resizing
-  { key = 'h', mods = 'CTRL|SHIFT', action = act.AdjustPaneSize { 'Left', 1 } },
-  { key = 'j', mods = 'CTRL|SHIFT', action = act.AdjustPaneSize { 'Down', 1 } },
-  { key = 'k', mods = 'CTRL|SHIFT', action = act.AdjustPaneSize { 'Up', 1 } },
-  { key = 'l', mods = 'CTRL|SHIFT', action = act.AdjustPaneSize { 'Right', 1 } },
+  { key = 'h', mods = 'SUPER|SHIFT', action = act.AdjustPaneSize { 'Left', 1 } },
+  { key = 'j', mods = 'SUPER|SHIFT', action = act.AdjustPaneSize { 'Down', 1 } },
+  { key = 'k', mods = 'SUPER|SHIFT', action = act.AdjustPaneSize { 'Up', 1 } },
+  { key = 'l', mods = 'SUPER|SHIFT', action = act.AdjustPaneSize { 'Right', 1 } },
 
   -- Workspaces with CTRL
   -- { key = '1', mods = 'CTRL', action = act.ActivateTab=0 },

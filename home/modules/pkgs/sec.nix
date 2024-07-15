@@ -31,11 +31,12 @@
             
             # Brute Forcing
             thc-hydra
-            
-            # Password Cracking
+
+            # Password / Hash Cracking
+            hash-identifier
             hashcat hashcat-utils
-            john
             hcxtools
+            john
             
             # Networking
             arp-scan
