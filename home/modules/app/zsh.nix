@@ -34,6 +34,7 @@
             ga = "git add -A";
             m = "ncmpcpp";
             n = "nvim";
+            off = "poweroff";
             rm = "rm -i";
             v = "${pkgs.alsa-utils}/bin/alsamixer";
             vv = "${pkgs.pulsemixer}/bin/pulsemixer";

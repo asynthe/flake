@@ -1,23 +1,27 @@
 { config, user, lib, ... }: 
 with lib;
 let
-    cfg = config.audio;
+    cfg = config.audio.pipewire;
 in {
-    options.audio.pipewire = mkOption {
+    options.audio.pipewire.enable = mkOption {
         type = types.bool;
         default = false;
-        description = "Enable audio configuration. (Pipewire)";
+        description = "Enable Pipewire audio setup and configuration.";
     };
 
-    config = mkIf cfg.pipewire {
+    options.audio.pipewire.lowlatency = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable low latency configuration.";
+    };
+
+    config = mkIf cfg.enable {
 
         # Pipewire audio configuration.
         # See more at https://wiki.nixos.org/wiki/Pipewire
         # See more at https://wiki.nixos.org/wiki/PulseAudio
 
-        sound.enable = true;
         users.users.${user}.extraGroups = [ "audio" ];
-        sound.mediaKeys.enable = true;
         security.rtkit.enable = true;
 
         # Needed by Pipewire.
@@ -28,13 +32,23 @@ in {
         # Pipewirez
         services.pipewire = {
             enable = true;
-            audio.enable = true; # Use as primary sound server
+            audio.enable = true; # Use as primary sound server.
             wireplumber.enable = true;
             pulse.enable = true;
-            jack.enable = true; # Use JACK applications
+            jack.enable = true; # Use JACK applications.
             alsa = {
                 enable = true;
                 support32Bit = true;
+            };
+        };
+
+        # Low-latency setup
+        services.pipewire.extraConfig.pipewire."92-low-latency" = mkIf cfg.lowlatency {
+            context.properties = {
+                default.clock.rate = 48000;
+                default.clock.quantum = 32;
+                default.clock.min-quantum = 32;
+                default.clock.max-quantum = 32;
             };
         };
     };

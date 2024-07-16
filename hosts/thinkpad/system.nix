@@ -22,8 +22,10 @@
     };
 
     audio = {
-        pipewire = true;
+        bluetooth = true;
         musnix = false;
+        pipewire.enable = true;
+        pipewire.lowlatency = true;
     };
 
     gaming = {
