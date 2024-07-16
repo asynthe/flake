@@ -55,8 +55,8 @@ in {
 
         device = {
             # Old Razer Hyperspeed X mouse
-            name = "razer-razer-basilisk-x-hyperspeed-1";
-            #name = "razer-razer-basilisk-x-hyperspeed";
+            #name = "razer-razer-basilisk-x-hyperspeed-1";
+            name = "razer-razer-basilisk-x-hyperspeed";
             sensitivity = "-0.8"; # from -1.0 to 1.0, default 0.0
             accel_profile = "flat";
         };
