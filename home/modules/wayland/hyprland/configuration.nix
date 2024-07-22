@@ -67,11 +67,7 @@ in {
             gaps_out = 10; # prev 10
             border_size = 1;
             #no_border_on_floating = 1;
-
             # Border color -> Stylix
-            #"col.active_border" = "rgb(451F67)"; # Purple # Stylix
-            #col.active_border = "rgb(ff0000)"; # Xmonad Red # Stylix
-            #"col.inactive_border" = "rgb(000000)"; # Black # Stylix
         };
 
         # Animations

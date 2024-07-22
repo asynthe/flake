@@ -20,7 +20,6 @@ in {
 
         bind = [
             # Apps
-            #"$mainMod SHIFT, return, exec, ${pkgs.wezterm}/bin/wezterm"
             "$mainMod SHIFT, return, exec, [float;tile] ${pkgs.wezterm}/bin/wezterm start --always-new-process"
             "$mainMod, p, exec, pkil ${pkgs.wofi}/bin/wofi || ${pkgs.wofi}/bin/wofi --show drun"
             "$mainMod, v, exec, pkill ${pkgs.pavucontrol}/bin/pavucontrol || ${pkgs.pavucontrol}/bin/pavucontrol"

@@ -1,6 +1,6 @@
 { lib, pkgs, ... }: {
 
-    # Overrides
+    # Overrides - Hyprland (Border Color)
     wayland.windowManager.hyprland.settings.general = {
         "col.active_border" = lib.mkForce "rgb(451F67)"; # Purple
         #"col.active_border" = lib.mkForce "rgb(ff0000)"; # Xmonad Red
@@ -12,7 +12,7 @@
         enable = true;
         autoEnable = true;
         polarity = "dark";
-        image = ./img/nixos_logo.png;
+        image = ./img/grey.png;
 
         # https://tinted-theming.github.io/base16-gallery/
         # or `nix build nixpkgs#base16-schemes`

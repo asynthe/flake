@@ -9,7 +9,7 @@
         #dotDir = "${user}";
         #dotDir = "/home/${user}/.config/zsh";
         #dotDir = "${config.xdg.configHome}/zsh";
-        
+
         # Configuration
         autocd = true;
         history = {

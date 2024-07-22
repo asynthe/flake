@@ -14,15 +14,16 @@
         #./modules/x11
 
 	    # Apps
-        ../modules/app/emacs
-        ../modules/app/gpg
-	    ../modules/app/lf
+	    #../modules/app/lf
 	    ../modules/app/librewolf
 	    ../modules/app/mpd
 	    ../modules/app/ncmpcpp
 	    ../modules/app/nvim
 	    ../modules/app/vscode
 	    ../modules/app/wezterm
+	    ../modules/app/yazi
+        ../modules/app/emacs
+        ../modules/app/gpg
 
         # Packages
         ../modules/pkgs/audio.nix
@@ -41,11 +42,10 @@
         #../modules/app/fbterm.nix
         ../modules/app/eza.nix
         ../modules/app/git.nix
-        ../modules/app/spotifyd.nix
+        #../modules/app/spotifyd.nix
         ../modules/app/starship.nix
         ../modules/app/tmux.nix
         ../modules/app/vis.nix
-        ../modules/app/yazi.nix
         ../modules/app/zathura.nix
         ../modules/app/zoxide.nix
         ../modules/app/zsh.nix

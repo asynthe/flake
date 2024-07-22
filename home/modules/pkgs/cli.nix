@@ -26,11 +26,10 @@
 
             # Tools
 	        hyperfine
-	        imagemagickBig #imagemagick
+	        imagemagickBig
 	        img2pdf
 	        libqalculate
             cmus # Music player
-            cpu-x
             ffmpeg
             mediainfo # Video/audio metadata
             #meshlab #f3d #fstl # 3D files
@@ -42,7 +41,6 @@
             # System
             powershell
             inxi
-            btop
             strace # System call monitoring
             ltrace # Library call monitoring
             iotop # IO monitoring
@@ -77,15 +75,19 @@
 	        # Fun
 	        cava
 	        cli-visualizer
+            cpu-x
 	        figlet
 	        lolcat
 	        nhentai # ( ͡° ͜ʖ ͡°) 
 	        peaclock tty-clock
 	        pulsemixer #pulseaudioFull
 	        unimatrix
-            pfetch
+            asciiquarium-transparent
+            btop bottom
+            pfetch nitch
             pipes-rs
             pv
+            speedtest-cli
             starfetch
         ;
     };

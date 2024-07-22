@@ -7,6 +7,7 @@ local keybinds = {
   -- Move tabs to left or right browser-like.
   { key = '[', mods = 'CTRL', action = act.MoveTabRelative(-1) },
   { key = ']', mods = 'CTRL', action = act.MoveTabRelative(1) },
+  { key = 'v', mods = 'CTRL', action = act.SplitHorizontal { args =  { 'alsamixer' }, }, },
 
   -- Clipboard -- FIX PLZ
   { key = 'c', mods = 'CTRL|SHIFT', action = act.CopyTo 'Clipboard' },
@@ -24,21 +25,21 @@ local keybinds = {
   { key = '\\', mods = 'CTRL', action = act.SplitHorizontal },
   { key = '|', mods = 'CTRL|SHIFT', action = act.SplitVertical },
 
+  -- Pane Switching
+  { key = 'h', mods = 'SUPER|CTRL', action = act.RotatePanes 'CounterClockwise' },
+  { key = 'l', mods = 'SUPER|CTRL', action = act.RotatePanes 'Clockwise' },
+
   -- Pane focus w/ SUPER
   { key = 'h', mods = 'SUPER', action = act.ActivatePaneDirection("Left") },
   { key = 'j', mods = 'SUPER', action = act.ActivatePaneDirection("Down") },
   { key = 'k', mods = 'SUPER', action = act.ActivatePaneDirection("Up") },
   { key = 'l', mods = 'SUPER', action = act.ActivatePaneDirection("Right") },
 
-  -- Pane Switching
-  { key = 'h', mods = 'SUPER|SHIFT', action = act.RotatePanes 'CounterClockwise' },
-  { key = 'l', mods = 'SUPER|SHIFT', action = act.RotatePanes 'Clockwise' },
-
   -- Pane resizing
-  { key = 'h', mods = 'SUPER|CTRL', action = act.AdjustPaneSize { 'Left', 1 } },
-  { key = 'j', mods = 'SUPER|CTRL', action = act.AdjustPaneSize { 'Down', 1 } },
-  { key = 'k', mods = 'SUPER|CTRL', action = act.AdjustPaneSize { 'Up', 1 } },
-  { key = 'l', mods = 'SUPER|CTRL', action = act.AdjustPaneSize { 'Right', 1 } },
+  { key = 'h', mods = 'SUPER|SHIFT', action = act.AdjustPaneSize { 'Left', 1 } },
+  { key = 'j', mods = 'SUPER|SHIFT', action = act.AdjustPaneSize { 'Down', 1 } },
+  { key = 'k', mods = 'SUPER|SHIFT', action = act.AdjustPaneSize { 'Up', 1 } },
+  { key = 'l', mods = 'SUPER|SHIFT', action = act.AdjustPaneSize { 'Right', 1 } },
 
   -- Workspaces with CTRL
   -- { key = '1', mods = 'CTRL', action = act.ActivateTab=0 },
