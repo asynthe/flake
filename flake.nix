@@ -78,8 +78,8 @@
 	            pkgs-stable
                 inputs
                 ;
-                user = "ben"; # !!!
-		        device = "/dev/nvme0n1"; # !!!
+                user = "meow";
+		        device = "/dev/vda";
             };
             modules = [
                 ./hosts/burst
