@@ -7,7 +7,7 @@ local keybinds = {
   -- Move tabs to left or right browser-like.
   { key = '[', mods = 'CTRL', action = act.MoveTabRelative(-1) },
   { key = ']', mods = 'CTRL', action = act.MoveTabRelative(1) },
-  { key = 'v', mods = 'CTRL', action = act.SplitHorizontal { args =  { 'alsamixer' }, }, },
+  { key = 'v', mods = 'SUPER', action = act.SplitHorizontal { args =  { 'alsamixer' }, }, },
 
   -- Clipboard -- FIX PLZ
   { key = 'c', mods = 'CTRL|SHIFT', action = act.CopyTo 'Clipboard' },

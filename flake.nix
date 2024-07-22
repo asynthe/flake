@@ -71,6 +71,25 @@
 
     nixosConfigurations = {
 
+        # Burst
+        burst = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit
+	            pkgs-stable
+                inputs
+                ;
+                user = "ben"; # !!!
+		        device = "/dev/nvme0n1"; # !!!
+            };
+            modules = [
+                ./hosts/burst
+		        sops-nix.nixosModules.sops
+                disko.nixosModules.disko
+                impermanence.nixosModules.impermanence
+                musnix.nixosModules.musnix
+            ];
+        };
+
         # Thinkpad
         thinkpad = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
