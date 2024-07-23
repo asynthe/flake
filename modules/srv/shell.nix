@@ -1,5 +1,6 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
 
+    environment.binsh = "${pkgs.dash}/bin/dash"; # Change sh for dash.
     programs.lf.enable = true;
     programs.bash = {
         init.extra = ''

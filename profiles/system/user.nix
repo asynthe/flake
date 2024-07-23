@@ -1,5 +1,4 @@
 { config, lib, pkgs, user, ... }: 
-
 with lib;
 let
     cfg = config.system.users;

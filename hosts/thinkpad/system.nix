@@ -7,11 +7,13 @@
 
     # System configuration
     system = {
-        nix.settings = "laptop"; # laptop, server
-        nix.cache = true;
-        users = "laptop";
+        keyboard = true;
         locale = "both"; # Change to system.language?
-        networking.type = "laptop";
+        networking.type = "laptop"; # laptop, server
+        nix.cache = true;
+        nix.settings = "laptop"; # laptop, server
+        ssd = true;
+        users = "laptop";
     };
 
     boot = {
@@ -28,13 +30,10 @@
         pipewire.lowlatency = true;
     };
 
-    gaming = {
-        steam = true;
-        gamemode = true;
-    };
-
-    # Disk
-    disk.ssd = true;
+    #gaming = {
+        #steam = true;
+        #gamemode = true;
+    #};
 
     # Services
     services = { # configuration? daemon?
@@ -62,12 +61,4 @@
         #service1.port = 2002;
         #service2.port = 2002;
     #};
-
-    # Non-custom
-    hardware.keyboard.qmk.enable = true;
-    environment.systemPackages = builtins.attrValues {
-        inherit (pkgs)
-            qmk
-        ;
-    };
 }

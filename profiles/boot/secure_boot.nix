@@ -1,14 +1,14 @@
 { config, lib, pkgs, ... }: 
 with lib;
 let
-    cfg = config.system;
+    cfg = config.boot;
 in {
 
     #  TODO See what files to persist?
 
-    options.system.secure-boot = mkOption {
+    options.boot.secure-boot = mkOption {
         type = types.bool;
-        default = "false";
+        default = false;
         description = ''
           Enable secure boot for current system.
         '';

@@ -1,5 +1,6 @@
 { pkgs, ... }: {
 
+    environment.binsh = "${pkgs.dash}/bin/dash"; # Change sh for dash.
     environment.systemPackages = builtins.attrValues {
         inherit (pkgs)
             lf
