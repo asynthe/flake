@@ -9,11 +9,11 @@
 
 	    # Other
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-        disko.inputs.nixpkgs.follows = "nixpkgs";
         disko.url = "github:nix-community/disko";
+        disko.inputs.nixpkgs.follows = "nixpkgs";
         impermanence.url = "github:nix-community/impermanence";
+        lanzaboote.url = "github:nix-community/lanzaboote";
         lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
-        lanzaboote.url = "github:NixOS/nix-community/lanzaboote";
         musnix.url = "github:musnix/musnix";
         sops-nix.url = "github:Mic92/sops-nix";
         stylix.url = "github:danth/stylix";
