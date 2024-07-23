@@ -24,10 +24,10 @@
                 ESP.content.type = "filesystem";
                 ESP.content.format = "vfat";
                 ESP.content.mountpoint = "/boot";
-                ESP.content.mountOptions = [
-                    "defaults"
-                    "umask=0077"
-                ];
+                #ESP.content.mountOptions = [
+                    #"defaults"
+                    #"umask=0077"
+                #];
                 
                 # swap? zram?
                 #swap.size = "2G";
@@ -47,21 +47,21 @@
                 root.content.mountpoint = "/";
 
                 # Options to mkfs.bcachefs
-                root.content.extraArgs = [
+                #root.content.extraArgs = [
                     #"-f" # force, not needed
-                    "--compression=lz4"
-                    "--discard" # TRIM support
+                    #"--compression=lz4"
+                    #"--discard" # TRIM support
                     #"--encrypted"
-                ];
+                #];
                 
                 # Options to mount command and to fileSystems.<name>.options
-                mountOptions = [
-                    "defaults"
-                    "compression=lz4"
-                    "discard"
+                #root.content.mountOptions = [
+                    #"defaults"
+                    #"compression=lz4"
+                    #"discard"
                     #"relatime"
                     #"nodiratime"
-                ];
+                #];
             };
         };
     };

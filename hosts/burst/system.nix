@@ -8,4 +8,8 @@
     nixpkgs.config.allowUnfree = true;
     i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "Australia/Perth";
+
+    # To move
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
 }

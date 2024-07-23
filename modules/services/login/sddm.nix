@@ -1,5 +1,7 @@
 { pkgs, inputs, ... }: {
 
+    # Tried to get where-is-my-sddm-theme working, to no avail.
+
     programs.hyprland = {
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;

@@ -1,7 +1,13 @@
-{
-    programs.lf.enable = true;
+{ pkgs, ... }: {
+
+    environment.systemPackages = builtins.attrValues {
+        inherit (pkgs)
+            lf
+        ;
+    };
+
     programs.bash = {
-        init.extra = ''
+        shellInit = ''
           lfcd () {
           cd "$(command lf -print-last-dir "$@")"
           }
