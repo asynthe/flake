@@ -20,8 +20,6 @@
 	    #../../modules/services/httpd.nix
         #../../modules/services/mirakurun.nix # Need DVR.
 	    #../../modules/services/monica.nix
-	    ../../modules/services/polkit.nix
-
         ../../modules/sys.nix
         ../../modules/sysd/lid_switch.nix # Lid switch action for laptops. / system.laptop.lid_switch = true;
 

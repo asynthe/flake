@@ -1,11 +1,9 @@
 {
     services.httpd = {
-	enable = true;
-	enablePHP = true;
-	adminAddr = "webmaster@example.org";
-	virtualHosts."html" = {
-	    documentRoot = "/var/www/html";
-	    };
+        enable = true;
+	    enablePHP = true;
+	    adminAddr = "webmaster@example.org";
+	    virtualHosts."html".documentRoot = "/var/www/html";
     };
 
     systemd.tmpfiles.rules = [

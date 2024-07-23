@@ -4,6 +4,7 @@
 in {
     wayland.windowManager.hyprland.settings = {
         xwayland.force_zero_scaling = true; # Xwayland apps look like shit when scaled.
+        debug.disable_logs = false;
 
         exec-once = [
             "${pkgs.fcitx5}/bin/fcitx5 -d &"
