@@ -1,7 +1,7 @@
 {
     imports = [
-        ./system.nix
         ./hardware.nix
-        ./files
+        ./modules.nix
+        ./system.nix
     ];
 }

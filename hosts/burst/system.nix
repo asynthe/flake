@@ -1,6 +1,7 @@
 {
-    # SET DEVICE HERE
-    # SET USERNAME HERE
+    # SET DEVICE HERE system.device = ?
+    # SET USERNAME HERE system.username = ?
+    # system.hostname = config.networking.hostName;
 
     networking.hostName = "burst"; # Hostname
     networking.networkmanager.enable = true;
@@ -12,4 +13,7 @@
     # To move
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
+
+    # Options
+    # options for secureboot -> system.secureboot = true;
 }
