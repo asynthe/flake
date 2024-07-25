@@ -1,4 +1,4 @@
-{ config, pkgs, lib, user, ... }: 
+{ config, lib, pkgs, user, ... }: 
 with lib;
 let
     cfg = config.services.sshfs;

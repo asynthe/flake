@@ -19,6 +19,7 @@
 
     environment.systemPackages = builtins.attrValues {
         inherit (pkgs)
+            adwaita-icon-theme # Needed if not running gnome.
             virt-manager
             virt-viewer
             spice
@@ -28,11 +29,10 @@
             win-spice
             libguestfs
             xorriso
-	    virtiofsd
+	        virtiofsd
 
-	    iproute2
-	    bridge-utils
+	        iproute2
+	        bridge-utils
         ;
-        inherit (pkgs.gnome) adwaita-icon-theme; # Needed if not running gnome.
     };
 }

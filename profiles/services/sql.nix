@@ -1,4 +1,4 @@
-{ config, pkgs, user, lib, ... }:
+{ config, lib, pkgs, user, ... }:
 with lib;
 let
     cfg = config.services.sql;

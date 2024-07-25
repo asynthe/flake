@@ -1,4 +1,4 @@
-{ config, user, lib, ... }:
+{ config, lib, user, ... }:
 with lib;
 let
     cfg = config.system.nix.settings;

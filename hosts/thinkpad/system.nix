@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{ lib, ... }: {
 
     networking.hostName = "thinkpad";
     system.stateVersion = "23.11";
@@ -7,11 +7,12 @@
 
     # System configuration
     system = {
+        configuration = "laptop";
+        nix.settings = "laptop"; # laptop, server
+        nix.cache = true;
         keyboard = true;
         locale = "both"; # Change to system.language?
         networking.type = "laptop"; # laptop, server
-        nix.cache = true;
-        nix.settings = "laptop"; # laptop, server
         ssd = true;
         users = "laptop";
     };
@@ -22,6 +23,11 @@
         cleantmp = true;
         silent = false;
     };
+
+    #driver = {
+        #intel.enable = true;
+        #nvidia.enable = true;
+    #};
 
     audio = {
         bluetooth = true;
@@ -50,7 +56,7 @@
         ssh.configuration = "laptop"; # laptop, server
         sshfs.enable = true;
         #syncthing.enable = true;
-        #wine.enable = true;
+#wine.enable = true;
         #xmr.enable = true;
     };
 

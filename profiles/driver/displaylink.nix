@@ -3,15 +3,13 @@ with lib;
 let
     cfg = config.driver;
 in {
-    options.driver.display-link = mkOption {
+    options.driver.displaylink = mkOption {
         type = types.bool;
         default = false;
-        description = ''
-          Enable drivers for Display Link connections.
-        '';
+        description = "Enable drivers for Display Link connections.";
     };
 
-    config = mkIf cfg.display-link {
+    config = mkIf cfg.displaylink {
         # Displaylink driver for multiple monitors
         # See more at https://wiki.nixos.org/wiki/Displaylink
 
