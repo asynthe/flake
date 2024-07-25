@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.services.syncthing;
+    cfg = config.framework.services.syncthing;
 in {
-    options.services.syncthing.enable = mkOption {
-        type = types.bool;
+    options.framework.services.syncthing.enable = mkOption {
+        type = bool;
         default = false;
         description = ''
           Enable and set up Syncthing.

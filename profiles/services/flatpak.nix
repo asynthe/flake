@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-    cfg = config.services.flatpak;
+    cfg = config.framework.services.flatpak;
 in {
-    options.services.flatpak.enable = mkOption {
+    options.framework.services.flatpak.enable = mkOption {
         type = types.bool;
         default = false;
         description = ''

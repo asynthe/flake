@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib;
 let
-    cfg = config.system.nix.settings;
+    cfg = config.framework.system.nix.settings;
 in {
-    options.system.nix.settings = mkOption {
+    options.framework.system.nix.settings = mkOption {
         type = types.str;
         default = "server";
         description = "Nix daemon configuration.";
@@ -19,15 +19,15 @@ in {
         nix.settings = {
             auto-optimise-store = true;
             experimental-features = [ "nix-command" "flakes" ];
-            allowed-users = [ "${config.system.configuration.user}" ]; # Required for Home Manager
-            trusted-users = [ "${config.system.configuration.user}" ];
+            allowed-users = [ "${config.framework.system.user}" ]; # Required for Home Manager
+            trusted-users = [ "${config.framework.system.user}" ];
             warn-dirty = false;
         };
 
         # nh if using laptop configuration
         programs.nh = mkIf (cfg == "laptop") {
             enable = true;
-	        flake = "/home/${config.system.configuration.user}/sync/yuugen";
+	        flake = "/home/${config.framework.system.user}/sync/yuugen";
 	        clean = {
                 enable = true;
 	            extraArgs = "--keep-since 4d --keep 3";

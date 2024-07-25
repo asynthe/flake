@@ -1,9 +1,9 @@
 { config, lib, ... }: 
 with lib;
 let
-    cfg = config.audio;
+    cfg = config.framework.audio;
 in {
-    options.audio.musnix = mkOption {
+    options.framework.audio.musnix = mkOption {
         type = types.bool;
         default = false;
         description = "Enable audio configuration. (Musnix)";

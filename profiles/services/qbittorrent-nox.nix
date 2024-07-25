@@ -1,28 +1,29 @@
 { config, lib, pkgs, ... }:
-with lib; 
+with lib; with types; 
 let
-    cfg = config.services.qbittorrent-nox;
+    cfg = config.framework.services.qbittorrent-nox;
 in {
-    options.services.qbittorrent-nox.enable = mkOption {
-        type = types.bool;
-        default = false;
-        description = ''
-          Set up the qBittorrent-nox daemon.
-        '';
-    };
-
-    options.services.qbittorrent-nox.persistence = mkOption {
-        type = types.bool;
-        default = false;
-        description = ''
-          Sets up persistence for qBittorrent configuration files.
-        '';
+    options.framework.services.qbittorrent-nox = {
+        enable = mkOption {
+            type = types.bool;
+            default = false;
+            description = ''
+              Set up the qBittorrent-nox daemon.
+            '';
+        };
+        persistence = mkOption {
+            type = types.bool;
+            default = false;
+            description = ''
+              Sets up persistence for qBittorrent configuration files.
+            '';
+        };
     };
 
     config = mkIf cfg.enable {
 
-	# See the logs by running.
-	# journalctl -u qbittorrent-nox.service
+	    # See the logs by running.
+        # journalctl -u qbittorrent-nox.service
 
         # ADD persistence option.
         #environment.persistence."/persist".directories = mkIf cfg.persist [

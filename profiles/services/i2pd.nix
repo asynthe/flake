@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-    cfg = config.services.i2pd;
+    cfg = config.framework.services.i2pd;
 in {
-    options.services.i2pd.enable = mkOption {
+    options.framework.services.i2pd.enable = mkOption {
         type = types.bool;
         default = false;
         description = ''

@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib;
 let
-    cfg = config.boot;
+    cfg = config.framework.boot;
 in {
-    options.boot.cleantmp = mkOption {
+    options.framework.boot.cleantmp = mkOption {
         type = types.bool;
         default = false;
         description = ''
@@ -12,7 +12,6 @@ in {
     };
     
     config = mkIf cfg.cleantmp {
-
         boot.tmp = {
             cleanOnBoot = true;
             #useTmpfs = true;

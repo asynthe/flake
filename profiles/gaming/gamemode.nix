@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib;
 let
-    cfg = config.gaming;
+    cfg = config.framework.gaming;
 in {
-    options.gaming.gamemode = mkOption {
+    options.framework.gaming.gamemode = mkOption {
         type = types.bool;
         default = false;
         description = "Enable Gamemode to get more performance in games.";
@@ -12,7 +12,7 @@ in {
     config = mkIf cfg.gamemode {
 
         # Better performance on games. Use with `gamemoderun`.
-        users.users.${config.system.configuration.user}.extraGroups = [ "gamemode" ];
+        users.users.${config.framework.system.user}.extraGroups = [ "gamemode" ];
         programs.gamemode = {
             enable = true;
 	        enableRenice = true;

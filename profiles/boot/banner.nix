@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib;
 let
-    cfg = config.boot;
+    cfg = config.framework.boot;
 in {
-    options.boot.banner = mkOption {
+    options.framework.boot.banner = mkOption {
         type = types.nullOr types.str;
         default = null;
         description = "Enable and specify a banner on device login.";

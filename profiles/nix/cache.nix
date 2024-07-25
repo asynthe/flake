@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib;
 let
-    cfg = config.system.nix.cache;
+    cfg = config.framework.system.nix.cache;
 in {
-    options.system.nix.cache = mkOption {
+    options.framework.system.nix.cache = mkOption {
         type = types.bool;
         default = true;
         description = "Enable NixOS cache and substituters.";

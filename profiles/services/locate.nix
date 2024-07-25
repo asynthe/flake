@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }: 
-with lib;
+with lib; with types;
 let
-    cfg = config.services.locate;
+    cfg = config.framework.services.locate;
 in {
-    options.services.locate.enable = mkOption {
-        type = types.bool;
+    options.framework.services.locate.enable = mkOption {
+        type = bool;
         default = false;
         description = ''
           Enable and set up Locate daemon. (plocate)

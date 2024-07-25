@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }: 
-with lib;
+with lib; with types;
 let
-    cfg = config.services.wine;
+    cfg = config.framework.services.wine;
 in {
-    options.services.wine.enable = mkOption {
-        type = types.bool;
+    options.framework.services.wine.enable = mkOption {
+        type = bool;
         default = false;
         description = ''
           Enable and set up Wine.

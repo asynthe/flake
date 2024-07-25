@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-    cfg = config.services.sql;
+    cfg = config.framework.services.sql;
 in {
-    options.services.sql.enable = mkOption {
+    options.framework.services.sql.enable = mkOption {
         type = types.bool;
         default = false;
         description = ''

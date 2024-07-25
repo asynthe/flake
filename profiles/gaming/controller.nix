@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib; with types;
 let
-    cfg = config.gaming;
+    cfg = config.framework.gaming;
 in {
-    options.gaming.controller = mkOption {
+    options.framework.gaming.controller = mkOption {
         type = bool;
         default = false;
         description = "Enable Xbox controller.";

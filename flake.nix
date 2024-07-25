@@ -1,6 +1,7 @@
 {
     description = "asynthe's system flake";
-    inputs = { # Main Inputs
+    inputs = {
+        # Main Inputs
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
         nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
         home-manager.url = "github:nix-community/home-manager";
@@ -116,13 +117,7 @@
 
             # Thinkpad
             thinkpad = nixpkgs.lib.nixosSystem {
-                #system = "x86_64-linux";
-                specialArgs = { 
-                    #inherit pkgs-stable inputs;
-                    inherit inputs outputs;
-                        user = "ben";
-	                    device = "/dev/nvme0n1";
-                };
+                specialArgs = { inherit inputs outputs pkgs-stable; };
                 modules = [
                     ./hosts/thinkpad
                     nixos-hardware.nixosModules.lenovo-thinkpad-t480
@@ -135,23 +130,17 @@
             };
             
 	        # PC Server
-            #server = nixpkgs-stable.lib.nixosSystem {
-                #system = "x86_64-linux";
-                #specialArgs = { 
-                    #inherit pkgs-stable inputs;
-                        #user = "server";
-	                    #device = "/dev/sda"
-                    #;
-                #};
-                #modules = [
-                    #./hosts/server
-	                #sops-nix.nixosModules.sops
-                    #disko.nixosModules.disko
-                    #impermanence.nixosModules.impermanence
-                    #lanzaboote.nixosModules.lanzaboote
-                #];
-	        #};
-        };
+            server = nixpkgs-stable.lib.nixosSystem {
+                specialArgs = { inherit inputs outputs pkgs-stable; };
+                modules = [
+                    ./hosts/server
+	                sops-nix.nixosModules.sops
+                    disko.nixosModules.disko
+                    impermanence.nixosModules.impermanence
+                    lanzaboote.nixosModules.lanzaboote
+                ];
+            };
+	    };
 
         # Home Manager configurations
         homeConfigurations = {
@@ -159,14 +148,8 @@
             # ben
             ben = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages.x86_64-linux; # Required by Home Manager.
-                extraSpecialArgs = {
-                    inherit 
-                        inputs 
-                        outputs 
-                        pkgs-stable
-                    ;
-	                    user = "ben"
-                    ;
+                extraSpecialArgs = { inherit inputs outputs pkgs-stable;
+	                user = "ben";
                 };
                 modules = [ 
 	                ./home/ben 

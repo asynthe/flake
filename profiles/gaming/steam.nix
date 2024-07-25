@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-    cfg = config.gaming;
+    cfg = config.framework.gaming;
 in {
-    options.gaming.steam = mkOption {
+    options.framework.gaming.steam = mkOption {
         type = types.bool;
         default = false;
         description = ''

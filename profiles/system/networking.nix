@@ -1,9 +1,9 @@
 { config, lib, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.system.networking;
+    cfg = config.framework.system.networking;
 in {
-    options.system.networking.type = mkOption {
+    options.framework.system.networking.type = mkOption {
         type = types.str;
         default = "simple";
         description = "Enable and set up a Network Manager configuration.";

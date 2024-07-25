@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib;
 let
-    cfg = config.services.grafana;
+    cfg = config.framework.services.grafana;
 in {
-    options.services.grafana.enable = mkOption {
+    options.framework.services.grafana.enable = mkOption {
         type = types.bool;
         default = false;
         description = ''

@@ -1,16 +1,15 @@
 { config, lib, pkgs, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.system;
+    cfg = config.framework.system;
 in {
-    options.system.ssd = mkOption {
-        type = types.bool;
+    options.framework.system.ssd = mkOption {
+        type = bool;
         default = false;
         description = "Enable drivers and optimizations for SSD-type drives.";
     };
 
     config = mkIf cfg.ssd {
-
         services.fstrim.enable = true;
         environment.systemPackages = builtins.attrValues {
             inherit (pkgs)

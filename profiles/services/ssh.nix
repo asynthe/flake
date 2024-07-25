@@ -1,26 +1,25 @@
-{ config, lib, pkgs, ... }:
-with lib;
+{ config, lib, ... }:
+with lib; with types;
 let
-    cfg = config.services.ssh;
+    cfg = config.framework.services.ssh;
 in {
-
-    options.services.ssh = {
+    options.framework.services.ssh = {
         enable = mkOption {
-            type = types.bool;
+            type = bool;
             default = false;
             description = ''
               Enable SSH daemon.
             '';
         };
         configuration = mkOption {
-            type = types.str;
+            type = str;
             default = false;
             description = ''
               Configuration for SSH.
             '';
         };
         mosh = mkOption {
-            type = types.bool;
+            type = bool;
             default = false;
             description = ''
               Enable Mosh, SSH with the UDP Protocol.
@@ -29,19 +28,19 @@ in {
     };
 
     config = mkIf cfg.enable {
-
         programs.mosh.enable = mkIf cfg.mosh true;
-
         services.openssh = mkMerge [
             {
                 enable = true;
             }
 
+            # Laptop
             (mkIf (cfg.configuration == "laptop") { 
                 allowSFTP = true;
                 #startWhenNeeded = true; # Socket-activated.
             })
 
+            # Server
             (mkIf (cfg.configuration == "server") {
 	            allowSFTP = true;
                 #startWhenNeeded = true; # Socket-activated.

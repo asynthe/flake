@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: 
 with lib;
 let
-    cfg = config.services.endlessh;
+    cfg = config.framework.services.endlessh;
 in {
     options.services.endlessh.enable = mkOption {
         type = types.bool;

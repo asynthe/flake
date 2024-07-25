@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib;
 let
-    cfg = config.boot;
+    cfg = config.framework.boot;
 in {
-    options.boot.silent = mkOption {
+    options.framework.boot.silent = mkOption {
         type = types.bool;
         default = false;
         description = ''

@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }: 
-with lib;
+with lib; with types;
 let
-    cfg = config.system.users;
+    cfg = config.framework.system.users;
 in {
-    options.system.users = mkOption {
-        type = types.str;
+    options.framework.system.users = mkOption {
+        type = str;
         default = "server";
         description = ''
           Set up the system users.
@@ -15,7 +15,7 @@ in {
         (mkIf (cfg == "laptop") {
             sops.secrets."password/thinkpad".neededForUsers = true;
             users.mutableUsers = false; # Required for passwords set by sops.
-            users.users.${config.system.configuration.user} = {
+            users.users.${config.framework.system.user} = {
                 shell = pkgs.zsh;
                 isNormalUser = true;
                 description = "にゃ！";
@@ -37,7 +37,7 @@ in {
 	                extraGroups = [ "networkmanager" "wheel" "shared" ];
                     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8tUQ59AvWkt0pTSMz2bf3O7emcO37IaA8vZCnXisk bendunstan@protonmail.com" ];
 	            };
-                ${config.system.configuration.user} = {
+                ${config.framework.system.user} = {
                     home = "/home/data";
                     createHome = false;
 	                description = "User with access-only";
