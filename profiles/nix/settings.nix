@@ -1,4 +1,4 @@
-{ config, lib, user, ... }:
+{ config, lib, ... }:
 with lib;
 let
     cfg = config.system.nix.settings;
@@ -19,15 +19,15 @@ in {
         nix.settings = {
             auto-optimise-store = true;
             experimental-features = [ "nix-command" "flakes" ];
-            allowed-users = [ "${user}" ]; # Required for Home Manager
-            trusted-users = [ "${user}" ];
+            allowed-users = [ "${config.system.configuration.user}" ]; # Required for Home Manager
+            trusted-users = [ "${config.system.configuration.user}" ];
             warn-dirty = false;
         };
 
         # nh if using laptop configuration
         programs.nh = mkIf (cfg == "laptop") {
             enable = true;
-	        flake = "/home/${user}/sync/yuugen";
+	        flake = "/home/${config.system.configuration.user}/sync/yuugen";
 	        clean = {
                 enable = true;
 	            extraArgs = "--keep-since 4d --keep 3";

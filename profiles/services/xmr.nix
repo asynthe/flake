@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 let
     cfg = config.services.xmr;
@@ -15,7 +15,7 @@ in {
 
         services.monero = {
             enable = true;
-            dataDir = "/home/${user}/sync/xmr/blockchain";
+            dataDir = "/home/${config.system.configuration.user}/sync/xmr/blockchain";
             #priorityNodes = [ "" ];
             #exclusiveNodes = [ "" ];
             #extraNodes = [ "" ];

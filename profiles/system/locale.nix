@@ -3,6 +3,11 @@ with lib;
 let
     cfg = config.system.locale;
 in {
+
+    /*
+    Should I enable IME?
+    */
+
     options.system.locale = mkOption {
         type = types.str;
         default = "english";
@@ -10,9 +15,6 @@ in {
     };
 
     config = mkMerge [
-
-        # ADD IME ?
-
         (mkIf (cfg == "both") {
             i18n = {
                 defaultLocale = "en_US.UTF-8";
@@ -74,7 +76,6 @@ in {
         })
     ];
 }
-
 
 #let
 #    cfg_english = config.language.english;

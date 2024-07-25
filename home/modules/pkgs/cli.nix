@@ -84,7 +84,7 @@
 	        unimatrix
             asciiquarium-transparent
             btop bottom
-            pfetch nitch
+            pfetch #nitch
             pipes-rs
             pv
             speedtest-cli

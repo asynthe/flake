@@ -72,9 +72,9 @@
         # Attribute -> calling a function you call to it passing each system as an argument.
         forAllSystems = nixpkgs.lib.genAttrs systems;
         
-	    #system = "x86_64-linux";
         #pkgs = nixpkgs.legacyPackages.${system};
-        #pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+	    system = "x86_64-linux";
+        pkgs-stable = nixpkgs-stable.legacyPackages.${system};
     in {
         # Custom packages
         # `nix-build`, `nix shell nixpkgs#<custompkg>`, etc.
@@ -159,10 +159,12 @@
             # ben
             ben = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages.x86_64-linux; # Required by Home Manager.
-	            #pkgs = nixpkgs.legacyPackages.${system};
-                extraSpecialArgs = {inherit inputs outputs;
-                #extraSpecialArgs = { 
-                    #inherit pkgs-stable inputs;
+                extraSpecialArgs = {
+                    inherit 
+                        inputs 
+                        outputs 
+                        pkgs-stable
+                    ;
 	                    user = "ben"
                     ;
                 };

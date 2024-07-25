@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, ... }: 
+{ config, lib, pkgs, ... }: 
 with lib;
 let
     cfg = config.system.users;
@@ -15,7 +15,7 @@ in {
         (mkIf (cfg == "laptop") {
             sops.secrets."password/thinkpad".neededForUsers = true;
             users.mutableUsers = false; # Required for passwords set by sops.
-            users.users.${user} = {
+            users.users.${config.system.configuration.user} = {
                 shell = pkgs.zsh;
                 isNormalUser = true;
                 description = "にゃ！";
@@ -37,7 +37,7 @@ in {
 	                extraGroups = [ "networkmanager" "wheel" "shared" ];
                     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8tUQ59AvWkt0pTSMz2bf3O7emcO37IaA8vZCnXisk bendunstan@protonmail.com" ];
 	            };
-                ${user} = {
+                ${config.system.configuration.user} = {
                     home = "/home/data";
                     createHome = false;
 	                description = "User with access-only";

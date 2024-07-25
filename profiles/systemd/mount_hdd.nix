@@ -1,6 +1,6 @@
-{ config, lib, pkgs-stable, user, ... }:
+{ config, lib, pkgs-stable, ... }:
 let
-    xfce_wallpaper_dir = "/home/${user}/wallpaper";
+    xfce_wallpaper_dir = "/home/${config.system.configuration.user}/wallpaper";
     FetchWallpaperScript = pkgs-stable.writeScriptBin "xfce-random-wallpaper.sh" 
     ''
     #!${pkgs-stable.bash}/bin/bash

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 let
     cfg = config.services.android;
@@ -14,7 +14,7 @@ in {
     config = mkIf cfg.enable {
         
         programs.adb.enable = true;
-        users.users.${user}.extraGroups = [ "adbusers" ];
+        users.users.${config.system.configuration.user}.extraGroups = [ "adbusers" ];
         virtualisation.waydroid.enable = true; # Waydroid
         environment.systemPackages = builtins.attrValues {
             inherit (pkgs)

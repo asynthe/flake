@@ -1,4 +1,4 @@
-{ config, lib, user, ... }: 
+{ config, lib, ... }: 
 with lib;
 let
     cfg = config.audio.pipewire;
@@ -21,7 +21,7 @@ in {
         # See more at https://wiki.nixos.org/wiki/Pipewire
         # See more at https://wiki.nixos.org/wiki/PulseAudio
 
-        users.users.${user}.extraGroups = [ "audio" ];
+        users.users.${config.system.configuration.user}.extraGroups = [ "audio" ];
         security.rtkit.enable = true;
 
         # Needed by Pipewire.

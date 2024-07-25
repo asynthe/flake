@@ -5,16 +5,27 @@
     nixpkgs.config.allowUnfree = lib.mkForce true;
     time.timeZone = "Australia/Perth";
 
+    /* Options to create
+    system.virtualization = [ "libvirt" "virtualbox" "vmware" ];
+    */
+
     # System configuration
+    system.configuration = {
+        type = "laptop";
+        user = "ben";
+        disk = "/dev/nvme0n1";
+        language = "both"; # english, japanese, both
+    };
+
     system = {
-        configuration = "laptop";
-        nix.settings = "laptop"; # laptop, server
-        nix.cache = true;
+        #locale = "both"; # -> system.configuration.language
+        networking.type = "laptop"; # -> Enabled with system.configuration.type
+        users = "laptop"; # -> Enabled with system.configuration.type
+        nix.settings = "laptop"; # -> Enabled with system.configuration.type
+        nix.cache = true; # Enable by default on the same file.
+        # -------------------------------------------------
         keyboard = true;
-        locale = "both"; # Change to system.language?
-        networking.type = "laptop"; # laptop, server
         ssd = true;
-        users = "laptop";
     };
 
     boot = {
@@ -39,6 +50,7 @@
     #gaming = {
         #steam = true;
         #gamemode = true;
+        #controller = true;
     #};
 
     # Services

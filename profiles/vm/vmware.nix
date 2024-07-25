@@ -1,5 +1,4 @@
 {
-
     /* 
     `vmware-vmx` will cause kcompactd0 due to `Transparent Hugepages` feature in kernel.
     Apply the next to disable it.

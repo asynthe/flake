@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 let
     cfg = config.services.sql;
@@ -13,13 +13,14 @@ in {
 
     config = mkIf cfg.enable {
 
-        # ADD should mysql be the default?
+        # ADD LIST OF MULTIPLE BACKENDS
+        # services.sql = [ "mysql" "postgresql" ];
+
         services.mysql = {
 	        enable = true;
 	        package = pkgs.mariadb;
         };
 
-        # ADD options for postgresql
         environment.systemPackages = builtins.attrValues {
             inherit (pkgs)
 	            pgadmin4

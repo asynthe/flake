@@ -1,6 +1,6 @@
-{ pkgs, user, ... }: {
+{ config, pkgs, ... }: {
 
-    users.users.${user}.extraGroups = [ "libvirtd" ];
+    users.users.${config.system.configuration.user}.extraGroups = [ "libvirtd" ];
     programs.dconf.enable = true; # Enable dconf (System Management Tool)
     virtualisation.spiceUSBRedirection.enable = true;
     services.spice-vdagentd.enable = true;
@@ -20,19 +20,18 @@
     environment.systemPackages = builtins.attrValues {
         inherit (pkgs)
             adwaita-icon-theme # Needed if not running gnome.
-            virt-manager
-            virt-viewer
+	        bridge-utils
+	        iproute2
+	        virtiofsd
+            libguestfs
             spice
             spice-gtk
             spice-protocol
-            win-virtio
+            virt-manager
+            virt-viewer
             win-spice
-            libguestfs
+            win-virtio
             xorriso
-	        virtiofsd
-
-	        iproute2
-	        bridge-utils
         ;
     };
 }
