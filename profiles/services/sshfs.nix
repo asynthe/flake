@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }: 
 with lib; with types;
 let
-    cfg = config.framework.services.sshfs;
+    cfg = config.meta.services.sshfs;
 in {
-    options.framework.services.sshfs.enable = mkOption {
+    options.meta.services.sshfs.enable = mkOption {
         type = bool;
         default = false;
         description = ''
@@ -14,7 +14,7 @@ in {
 
         environment.systemPackages = builtins.attrValues { inherit (pkgs) sshfs; };
         services.openssh.allowSFTP = true; # Allow SFTP, which is used by SSHFS.
-        users.users.${config.framework.system.user}.extraGroups = [ "fuse" ]; # Add to FUSE group and enable allow_other.
+        users.users.${config.meta.system.user}.extraGroups = [ "fuse" ]; # Add to FUSE group and enable allow_other.
         programs.fuse.userAllowOther = true; # ?
 
         # https://github.com/Baughn/machine-config/blob/e609d1eab19ee2836203f7897380aefb956afca4/saya/hardware-configuration.nix#L28

@@ -56,8 +56,8 @@ in {
 
         device = {
             # Old Razer Hyperspeed X mouse
-            #name = "razer-razer-basilisk-x-hyperspeed-1";
-            name = "razer-razer-basilisk-x-hyperspeed";
+            name = "razer-razer-basilisk-x-hyperspeed-1";
+            #name = "razer-razer-basilisk-x-hyperspeed";
             sensitivity = "-0.8"; # from -1.0 to 1.0, default 0.0
             accel_profile = "flat";
         };
@@ -89,7 +89,7 @@ in {
 
         dwindle = {
             preserve_split = true;
-            no_gaps_when_only = true; # Smart gaps, no gaps when only one window.
+            no_gaps_when_only = false; # Smart gaps, no gaps when only one window.
             smart_split = false;
             smart_resizing = false;
             special_scale_factor = 0.98; # Scale of special workspace windows.

@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }: 
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.services.endlessh;
+    cfg = config.meta.services.endlessh;
 in {
     options.services.endlessh.enable = mkOption {
-        type = types.bool;
+        type = bool;
         default = false;
         description = ''
           Enable and set up Endlessh.

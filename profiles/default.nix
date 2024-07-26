@@ -8,7 +8,7 @@
         ./boot/bootloader.nix
         ./boot/cleantmp.nix
         ./boot/console.nix
-        ./boot/secure_boot.nix
+        ./boot/secure.nix
         ./boot/silent.nix
 
         ./driver/displaylink.nix
@@ -49,6 +49,6 @@
         ./vm/vmware.nix
         
         # !!! In progress
-        #./vpn/...
+        ./vpn/mullvad.nix
     ];
 }

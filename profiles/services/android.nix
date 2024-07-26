@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.services.android;
+    cfg = config.meta.services.android;
 in {
-    options.framework.services.android.enable = mkOption {
-        type = types.bool;
+    options.meta.services.android.enable = mkOption {
+        type = bool;
         default = false;
         description = ''
           Enable and set up adb and other Android related tools.
@@ -14,7 +14,7 @@ in {
     config = mkIf cfg.enable {
         
         programs.adb.enable = true;
-        users.users.${config.framework.system.user}.extraGroups = [ "adbusers" ];
+        users.users.${config.meta.system.user}.extraGroups = [ "adbusers" ];
         virtualisation.waydroid.enable = true; # Waydroid
         environment.systemPackages = builtins.attrValues {
             inherit (pkgs)

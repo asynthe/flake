@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib; with types;
 let
-    cfg = config.framework.system;
+    cfg = config.meta.system;
 in {
-    options.framework.system.language = mkOption {
+    options.meta.system.language = mkOption {
         type = str;
         default = "english";
     };

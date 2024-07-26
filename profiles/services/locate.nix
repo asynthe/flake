@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }: 
 with lib; with types;
 let
-    cfg = config.framework.services.locate;
+    cfg = config.meta.services.locate;
 in {
-    options.framework.services.locate.enable = mkOption {
+    options.meta.services.locate.enable = mkOption {
         type = bool;
         default = false;
         description = ''

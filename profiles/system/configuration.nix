@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib; with types;
 let
-    cfg = config.framework.system;
+    cfg = config.meta.system;
 in {
-    options.framework.system = {
+    options.meta.system = {
         user = mkOption { type = str; };
         disk = mkOption { type = str; };
         type = mkOption {
@@ -12,7 +12,6 @@ in {
         };
     };
     config = {
-
         # I'll probably use a wm of some kind.
         hardware.graphics.enable = mkIf (cfg.type == "laptop") true;
     };

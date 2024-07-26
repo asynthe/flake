@@ -1,18 +1,18 @@
 { config, lib, pkgs, ... }:
 with lib; with types; 
 let
-    cfg = config.framework.services.qbittorrent-nox;
+    cfg = config.meta.services.qbittorrent-nox;
 in {
-    options.framework.services.qbittorrent-nox = {
+    options.meta.services.qbittorrent-nox = {
         enable = mkOption {
-            type = types.bool;
+            type = bool;
             default = false;
             description = ''
               Set up the qBittorrent-nox daemon.
             '';
         };
         persistence = mkOption {
-            type = types.bool;
+            type = bool;
             default = false;
             description = ''
               Sets up persistence for qBittorrent configuration files.

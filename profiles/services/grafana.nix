@@ -1,10 +1,10 @@
 { config, lib, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.services.grafana;
+    cfg = config.meta.services.grafana;
 in {
-    options.framework.services.grafana.enable = mkOption {
-        type = types.bool;
+    options.meta.services.grafana.enable = mkOption {
+        type = bool;
         default = false;
         description = ''
           Enable and set up grafana.

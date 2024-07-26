@@ -1,20 +1,18 @@
 { config, lib, pkgs, ... }: 
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.boot;
+    cfg = config.meta.boot;
 in {
-
     #  TODO See what files to persist?
-
-    options.framework.boot.secure-boot = mkOption {
-        type = types.bool;
+    options.meta.boot.secure = mkOption {
+        type = bool;
         default = false;
         description = ''
           Enable secure boot for current system.
         '';
     };
 
-    config = mkIf cfg.secure-boot {
+    config = mkIf cfg.secure {
         # Lanzaboote currently replaces the systemd-boot module.
         # This setting is usually set to true in configuration.nix
         # generated at installation time. So we force it to false

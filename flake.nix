@@ -8,7 +8,7 @@
         home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
 
 	    # Other
-        #nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+        nixos-hardware.url = "github:NixOS/nixos-hardware/master";
         disko.url = "github:nix-community/disko";
         disko.inputs.nixpkgs.follows = "nixpkgs";
         impermanence.url = "github:nix-community/impermanence";
@@ -39,7 +39,7 @@
         home-manager,
 
         # Other
-        #nixos-hardware,
+        nixos-hardware,
         disko,
         impermanence,
         lanzaboote,
@@ -120,7 +120,7 @@
                 specialArgs = { inherit inputs outputs pkgs-stable; };
                 modules = [
                     ./hosts/thinkpad
-                    #nixos-hardware.nixosModules.lenovo-thinkpad-t480
+                    nixos-hardware.nixosModules.lenovo-thinkpad-t480
 	                sops-nix.nixosModules.sops
                     disko.nixosModules.disko
                     impermanence.nixosModules.impermanence

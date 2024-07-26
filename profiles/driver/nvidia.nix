@@ -1,22 +1,22 @@
 { config, lib, pkgs, ... }: 
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.driver.nvidia;
+    cfg = config.meta.driver.nvidia;
 in {
-    options.framework.driver.nvidia.enable = mkOption {
-        type = types.bool;
-        default = false;
-        description = "Enable nvidia driver and configuration.";
-    };
-
-    #options.driver.nvidia.setting = mkOption {
-        #type = types.str;
-    #};
-
-    options.framework.driver.nvidia.cache = mkOption {
-        type = types.bool;
-        default = false;
-        description = "Enable cuda mantainers cachix repository.";
+    options.meta.driver.nvidia = {
+        enable = mkOption {
+            type = bool;
+            default = false;
+            description = "Enable nvidia driver and configuration.";
+        };
+        #setting = mkOption {
+            #type = types.str;
+        #};
+        cache = mkOption {
+            type = types.bool;
+            default = false;
+            description = "Enable cuda mantainers cachix repository.";
+        };
     };
 
     config = mkIf cfg.enable {

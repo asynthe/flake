@@ -1,10 +1,10 @@
 { config, lib, ... }: 
-with lib;
+with lib; with types;
 let
     cfg = config.framework.services.docker;
 in {
     options.framework.services.docker.enable = mkOption {
-        type = types.bool;
+        type = bool;
         default = false;
         description = ''
           Enable and set up Docker.
@@ -17,7 +17,7 @@ in {
         # See more at https://github.com/moby/moby/issues/9976
         # See also Rootless mode (below).
 
-        users.users.${config.framework.system.user}.extraGroups = [ "docker" ];
+        users.users.${config.meta.system.user}.extraGroups = [ "docker" ];
         virtualisation.docker = {
             enable = true;
             #storageDriver = # mkIf.system.configuration.filesystem = "btrfs" then "btrfs";

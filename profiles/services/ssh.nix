@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib; with types;
 let
-    cfg = config.framework.services.ssh;
+    cfg = config.meta.services.ssh;
 in {
-    options.framework.services.ssh = {
+    options.meta.services.ssh = {
         enable = mkOption {
             type = bool;
             default = false;

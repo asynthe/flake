@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib; with types;
 let
-    cfg = config.framework.services.xmr;
+    cfg = config.meta.services.xmr;
 in {
-    options.framework.services.xmr.enable = mkOption {
-        type = types.bool;
+    options.meta.services.xmr.enable = mkOption {
+        type = bool;
         default = false;
         description = ''
           Enable and set up the Monero daemon.
@@ -15,7 +15,7 @@ in {
 
         services.monero = {
             enable = true;
-            dataDir = "/home/${config.framework.system.user}/sync/xmr/blockchain";
+            dataDir = "/home/${config.meta.system.user}/sync/xmr/blockchain";
             #priorityNodes = [ "" ];
             #exclusiveNodes = [ "" ];
             #extraNodes = [ "" ];

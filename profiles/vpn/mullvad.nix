@@ -1,44 +1,62 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }:
+with lib; with types;
+let
+    cfg = config.meta.vpn.mullvad;
+in {
+    options.meta.vpn.mullvad = {
+        enable = mkOption { type = bool; };
+        persist = mkOption { 
+            type = bool;
+            default = false;
+        };
+    };
+    config = {
 
-    #sops.secrets.mullvadAccount = {
-        #sopsFile = ./secrets.yaml;
-        #path = "/etc/mullvad-vpn/account-history.json";
-    #};
+        #sops.secrets.mullvadAccount = {
+            #sopsFile = ./secrets.yaml;
+            #path = "/etc/mullvad-vpn/account-history.json";
+        #};
 
+        services.mullvad-vpn = {
+            enable = true;
+            # pkgs.mullvad only provides the CLI tool.
+            # pkgs.mullvad-vpn provices both CLI and GUI.
+            package = pkgs.mullvad-vpn;
+        };
+
+        environment.persistence."/persist".directories = mkIf cfg.persist [
+            "/etc/mullvad-vpn"
+            "/var/cache/mullvad-vpn"
+        ];
+    };
+}
+
+        # Mullvad as a package
+        #environment.systemPackages = builtins.attrValues {
+            #inherit (pkgs)
+                #mullvad # CLI
+                #mullvad-vpn # GUI
+            #;
+        #};
+
+        # Mullvad as a service
+        #services.mullvad-vpn.enable = true;
+        #networking = {
+            #iproute2.enable = true;
+            #firewall.checkReversePath = "loose";
+            #wireguard.enable = true;
+        #};
+    
+    # -------------------------------------------------
     # Tailscale
-    services.tailscale.enable = true;
+
+    #services.tailscale.enable = true;
     #networking.firewall = {
         #trustedInterfaces = [ "tailscale0" ];
         #checkReversePath = "loose"; # TEST - Allow connections through mullvad exit nodes
     #};
 
-    services.mullvad-vpn = {
-        enable = true;
-        # pkgs.mullvad only provides the CLI tool.
-        # pkgs.mullvad-vpn provices both CLI and GUI.
-        package = pkgs.mullvad-vpn;
-    };
-
-    # Mullvad as a package
-    #environment.systemPackages = builtins.attrValues {
-        #inherit (pkgs)
-            #mullvad # CLI
-            #mullvad-vpn # GUI
-        #;
-    #};
-
-    # Mullvad as a service
-    #services.mullvad-vpn.enable = true;
-    #networking = {
-        #iproute2.enable = true;
-        #firewall.checkReversePath = "loose";
-        #wireguard.enable = true;
-    #};
-
-    #environment.persistence."/persist".directories = [
-        #"/etc/mullvad-vpn"
-        #"/var/cache/mullvad-vpn"
-    #];
+    # -------------------------------------------------
 
     # IMPLEMENT SECRET
     #sops.secrets.mullvadAccount = {
@@ -84,4 +102,3 @@
             #'';
         #};
     #};
-}

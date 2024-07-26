@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.services.sql;
+    cfg = config.meta.services.sql;
 in {
-    options.framework.services.sql.enable = mkOption {
-        type = types.bool;
+    options.meta.services.sql.enable = mkOption {
+        type = bool;
         default = false;
         description = ''
           Enable and set up an SQL Server and editors.

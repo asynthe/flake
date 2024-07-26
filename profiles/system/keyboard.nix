@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }: 
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.system;
+    cfg = config.meta.system;
 in {
-    options.framework.system.keyboard = mkOption {
-        type = types.bool;
+    options.meta.system.keyboard = mkOption {
+        type = bool;
         default = false;
         description = "Enable QMK firmware for keyboards.";
     };

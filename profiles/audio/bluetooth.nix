@@ -1,10 +1,10 @@
 { config, pkgs, lib, ... }: 
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.audio;
+    cfg = config.meta.audio;
 in {
-    options.framework.audio.bluetooth = mkOption {
-        type = types.bool;
+    options.meta.audio.bluetooth = mkOption {
+        type = bool;
         default = false;
         description = "Enable Bluetooth service.";
     };

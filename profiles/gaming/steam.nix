@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.gaming;
+    cfg = config.meta.gaming;
 in {
-    options.framework.gaming.steam = mkOption {
-        type = types.bool;
+    options.meta.gaming.steam = mkOption {
+        type = bool;
         default = false;
         description = ''
           Enable Steam and gaming-related packages like Proton.
@@ -15,7 +15,6 @@ in {
 
         # ADD STUFF FROM VIMJOYERS VIDEO
         # ADD MORE CONFIGURATION AND OPTIONS (XBOX CONTROLLER?)
-
         programs.steam = {
             enable = true;
             #remotePlay.openFirewall = true; # Open ports for Steam Remote Play.

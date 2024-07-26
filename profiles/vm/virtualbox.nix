@@ -1,6 +1,6 @@
 { config, ... }: {
 
-    users.extraGroups.vboxusers.members = [ "${config.framework.system.user}" ];
+    users.extraGroups.vboxusers.members = [ "${config.meta.system.user}" ];
     virtualisation.virtualbox.host.enable = true;
 
     # Requires recompilation and nixpkgs.config.allowUnfree = true.

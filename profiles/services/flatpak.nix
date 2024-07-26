@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.services.flatpak;
+    cfg = config.meta.services.flatpak;
 in {
-    options.framework.services.flatpak.enable = mkOption {
-        type = types.bool;
+    options.meta.services.flatpak.enable = mkOption {
+        type = bool;
         default = false;
         description = ''
           Enable and set up Flatpak.
@@ -15,7 +15,6 @@ in {
 
         services.flatpak.enable = true;
         fonts.fontDir.enable = true; # Fix for flatpak not finding system installed fonts.
-        
         xdg.portal = {
         enable = true;
             extraPortals = builtins.attrValues {

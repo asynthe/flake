@@ -1,18 +1,19 @@
 { config, lib, ... }: 
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.audio.pipewire;
+    cfg = config.meta.audio.pipewire;
 in {
-    options.framework.audio.pipewire.enable = mkOption {
-        type = types.bool;
-        default = false;
-        description = "Enable Pipewire audio setup and configuration.";
-    };
-
-    options.framework.audio.pipewire.lowlatency = mkOption {
-        type = types.bool;
-        default = false;
-        description = "Enable low latency configuration.";
+    options.meta.audio.pipewire = {
+        enable = mkOption {
+            type = bool;
+            default = false;
+            description = "Enable Pipewire audio setup and configuration.";
+        };
+        lowlatency = mkOption {
+            type = types.bool;
+            default = false;
+            description = "Enable low latency configuration.";
+        };
     };
 
     config = mkIf cfg.enable {
@@ -21,7 +22,7 @@ in {
         # See more at https://wiki.nixos.org/wiki/Pipewire
         # See more at https://wiki.nixos.org/wiki/PulseAudio
 
-        users.users.${config.framework.system.user}.extraGroups = [ "audio" ];
+        users.users.${config.meta.system.user}.extraGroups = [ "audio" ];
         security.rtkit.enable = true;
 
         # Needed by Pipewire.

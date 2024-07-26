@@ -1,10 +1,10 @@
 { config, lib, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.driver;
+    cfg = config.meta.driver;
 in {
-    options.framework.driver.displaylink = mkOption {
-        type = types.bool;
+    options.meta.driver.displaylink = mkOption {
+        type = bool;
         default = false;
         description = "Enable drivers for Display Link connections.";
     };

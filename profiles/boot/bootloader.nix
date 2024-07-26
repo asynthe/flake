@@ -1,24 +1,20 @@
 { config, lib, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.boot;
+    cfg = config.meta.boot;
 in {
-    options.framework.boot.bootloader = mkOption {
-        type = types.str;
-        default = "systemd-boot";
-        description = ''
-          System boot loader.
-        '';
+    options.meta.boot = {
+        bootloader = mkOption {
+            type = str;
+            default = "systemd-boot";
+            description = "System boot loader.";
+        };
+        generations = mkOption {
+            type = int;
+            default = 3;
+            description = "Number of generations to output.";
+        };
     };
-
-    options.framework.boot.generations = mkOption {
-        type = types.int;
-        default = 3;
-        description = ''
-          Number of generations to output.
-        '';
-    };
-
     config = mkMerge [
         (mkIf (cfg.bootloader == "systemd-boot") { 
             boot.loader = {

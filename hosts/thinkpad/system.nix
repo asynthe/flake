@@ -8,7 +8,7 @@
     system.virtualization = [ "libvirt" "virtualbox" "vmware" ];
     */
 
-    framework = {
+    meta = {
         # -------------- System - Main --------------
         system.type = "laptop";
         system.user = "ben";

@@ -1,10 +1,10 @@
 { config, lib, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.boot;
+    cfg = config.meta.boot;
 in {
-    options.framework.boot.silent = mkOption {
-        type = types.bool;
+    options.meta.boot.silent = mkOption {
+        type = bool;
         default = false;
         description = ''
           Enable the configuration for a silent boot (almost possible, because of nix stages output at boot).

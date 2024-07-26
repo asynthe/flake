@@ -1,10 +1,10 @@
 { config, lib, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.boot;
+    cfg = config.meta.boot;
 in {
-    options.framework.boot.cleantmp = mkOption {
-        type = types.bool;
+    options.meta.boot.cleantmp = mkOption {
+        type = bool;
         default = false;
         description = ''
           Clean /tmp on reboot.

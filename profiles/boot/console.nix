@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
-with lib;
+with lib; with types;
 let
-    cfg = config.framework.boot;
+    cfg = config.meta.boot;
 in {
-    options.framework.boot.console = mkOption {
-        type = types.bool;
+    options.meta.boot.console = mkOption {
+        type = bool;
         default = false;
         description = "Enable and set up a custom console configuration.";
     };

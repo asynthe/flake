@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }: 
 with lib; with types;
 let
-    cfg = config.framework.services.wine;
+    cfg = config.meta.services.wine;
 in {
-    options.framework.services.wine.enable = mkOption {
+    options.meta.services.wine.enable = mkOption {
         type = bool;
         default = false;
         description = ''
