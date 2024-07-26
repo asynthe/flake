@@ -1,18 +1,16 @@
 { config, lib, pkgs, ... }: 
 with lib; with types;
 let
-    cfg = config.meta.system.users;
+    cfg = config.meta.system;
 in {
     options.meta.system.users = mkOption {
         type = str;
-        default = "server";
-        description = ''
-          Set up the system users.
-        '';
+        default = config.meta.system.type;
+        description = "Set up the system users.";
     };
 
     config = mkMerge [
-        (mkIf (cfg == "laptop") {
+        (mkIf (cfg.users == "laptop") {
             sops.secrets."password/thinkpad".neededForUsers = true;
             users.mutableUsers = false; # Required for passwords set by sops.
             users.users.${config.meta.system.user} = {
@@ -27,7 +25,7 @@ in {
               Defaults timestamp_timeout=120 # Ask for password every 2 hours.
             '';
         })
-        (mkIf (cfg == "server") {
+        (mkIf (cfg.users == "server") {
             users.users = {
 	            root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8tUQ59AvWkt0pTSMz2bf3O7emcO37IaA8vZCnXisk bendunstan@protonmail.com" ];     
                 data = {

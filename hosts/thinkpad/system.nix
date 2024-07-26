@@ -10,27 +10,24 @@
 
     meta = {
         # -------------- System - Main --------------
-        system.type = "laptop";
         system.user = "ben";
+        system.type = "laptop";
         #system.disk = "/dev/nvme0n1";
         system.language = "both"; # english, japanese, both
-
-        # -------------- System - Other --------------
         system.keyboard = true;
         system.ssd = true;
         
-        # Set up by `framework.system.type`.
-        #system.locale = "both"; # -> system.configuration.language
-        system.networking.type = "laptop"; # -> Enabled with system.configuration.type
-        system.users = "laptop"; # -> Enabled with system.configuration.type
-        system.nix.settings = "laptop"; # -> Enabled with system.configuration.type
-        system.nix.cache = true; # Enable by default on the same file.
+        # Set up by `meta.system.type`, options: laptop, server
+        #system.nix.settings = "laptop";
+        #system.networking.type = "laptop";
+        #system.users = "laptop";
 
         # -------------- Boot --------------
         boot.banner = "simple_cat"; # simple_cat, hentai
         boot.bootloader = "systemd-boot";
         boot.cleantmp = true;
         boot.silent = false;
+        #boot.secure = false;
 
         # -------------- Driver --------------
         #driver.displaylink = true;
@@ -41,7 +38,7 @@
         audio.bluetooth = true;
         audio.musnix = false;
         audio.pipewire.enable = true;
-        audio.pipewire.lowlatency = true;
+        audio.pipewire.lowlatency = false;
 
         # -------------- Gaming --------------
         #gaming.steam = true;

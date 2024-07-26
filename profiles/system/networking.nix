@@ -5,12 +5,12 @@ let
 in {
     options.meta.system.networking.type = mkOption {
         type = str;
-        default = "simple";
+        default = config.meta.system.type;
         description = "Enable and set up a Network Manager configuration.";
     };
 
     config = mkMerge [
-        (mkIf (cfg.type == "simple") {
+        (mkIf (cfg.type == "server") {
             networking.networkmanager.enable = true;
         })
         (mkIf (cfg.type == "laptop") {

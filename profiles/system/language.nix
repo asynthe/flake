@@ -5,31 +5,30 @@ let
 in {
     options.meta.system.language = mkOption {
         type = str;
-        default = "english";
+        default = config.meta.system.language;
     };
-    config = {
-    
-        # 東京の時間 - Tokyo timezone.
-        time.timeZone = mkDefault (mkIf (cfg.language == "japanese") "Asia/Tokyo");
-        i18n = mkMerge [
-            # Both
-            (mkIf (cfg.language == "both") {
+    config = let
+        choices = {
+            # Both (English and Japanese)
+            both = {
                 defaultLocale = "en_US.UTF-8";
                 supportedLocales = [
                     "en_US.UTF-8/UTF-8"
                     "ja_JP.UTF-8/UTF-8"
                     "ja_JP.EUC-JP/EUC-JP"
                 ];
-            })
+            };
+
             # English
-            (mkIf (cfg.language == "english") {
+            english = {
                 defaultLocale = "en_US.UTF-8";
                 #extraLocaleSettings = {
                     # Set up here custom locale settings.
-                #}
-            })
+                #};
+            };
+
             # 日本語
-            (mkIf (cfg.language == "japanese") {
+            japanese = {
                 defaultLocale = "ja_JP.UTF-8";
                 supportedLocales = [
                     "en_US.UTF-8/UTF-8"
@@ -38,7 +37,12 @@ in {
                 #extraLocaleSettings = {
                     #LC_ALL = "ja_JP.UTF-8"; # This one overrides all.
                 #};
-            })
-        ];
+            };
+        };
+    in mkIf (cfg.language != null) {
+        i18n = choices.${cfg.language};
+
+        # 東京の時間 - Tokyo timezone.
+        time.timeZone = mkIf (cfg.language == "japanese") "Asia/Tokyo";
     };
 }

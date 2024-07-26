@@ -1,21 +1,33 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 with lib; with types;
 let
-    cfg = config.meta.system.nix.settings;
+    cfg = config.meta.system.nix;
 in {
-    options.meta.system.nix.settings = mkOption {
-        type = str;
-        default = "server";
-        description = "Nix daemon configuration.";
+    options.meta.system.nix = {
+        settings = mkOption {
+            type = nullOr (enum [ "laptop" "server" ]);
+            default = config.meta.system.type;
+            description = "Nix daemon configuration.";
+        };
+        #cache = mkOption {
+            #type = bool;
+            #default = true;
+        #};
     };
 
-    config = mkIf (cfg != null) {
+    config = {
 
         # Hanging at rebuild and wait-online service failing.
         # See nixpkgs#180175
         systemd.services.NetworkManager-wait-online.enable = false;
 
-        # Nix Settings
+        # Nix cache and substituters.
+        nix.settings = {
+            substituters = mkBefore [ "https://cache.nixos.org" ];
+            trusted-public-keys = mkBefore [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+        };
+
+        # Settings
         nix.settings = {
             auto-optimise-store = true;
             experimental-features = [ "nix-command" "flakes" ];
@@ -25,7 +37,7 @@ in {
         };
 
         # nh if using laptop configuration
-        programs.nh = mkIf (cfg == "laptop") {
+        programs.nh = mkIf (cfg.settings == "laptop") {
             enable = true;
 	        flake = "/home/${config.meta.system.user}/sync/yuugen";
 	        clean = {
@@ -34,8 +46,9 @@ in {
             };
         };
 
+        # Server configuration
         # Garbage collection
-        nix.gc = mkIf (cfg != "laptop") { 
+        nix.gc = mkIf (cfg.settings == "server") { 
             persistent = true; # Persist if gc is missed.
             automatic = true;
             dates = "weekly";
@@ -44,7 +57,7 @@ in {
 
         # Display changes after rebuild.
         # https://discourse.nixos.org/t/how-to-make-nixos-rebuild-output-more-informative/25549/8
-        system.activationScripts.diff = mkIf (cfg != "laptop") ''
+        system.activationScripts.diff = mkIf (cfg.settings == "server") ''
           if [[ -e /run/current-system ]]; then
             echo "NixOS system closure diff:"
           ${pkgs.nix}/bin/nix store diff-closures /run/current-system "$systemConfig"

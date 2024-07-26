@@ -18,7 +18,6 @@
         ./gaming/gamemode.nix
         ./gaming/steam.nix
 
-        ./nix/cache.nix
         ./nix/settings.nix
 
         ./services/android.nix
