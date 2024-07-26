@@ -5,11 +5,11 @@ let
 in {
     options.meta.system = {
         user = mkOption { type = str; };
-        disk = mkOption { type = str; };
         type = mkOption {
             type = str;
             default = "server";
         };
+        disk.device = mkOption { type = str; };
     };
     config = {
         # I'll probably use a wm of some kind.

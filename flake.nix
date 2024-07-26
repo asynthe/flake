@@ -98,22 +98,42 @@
 
             # Burst
             #burst = nixpkgs.lib.nixosSystem {
-                #system = "x86_64-linux";
-                #specialArgs = { 
-                    #inherit pkgs-stable inputs;
-                        #user = "meow";
-		                #device = "/dev/vda"
-                    #;
-                #};
+                #specialArgs = { inherit inputs outputs pkgs-stable; };
                 #modules = [
                     #./hosts/burst
-		            #sops-nix.nixosModules.sops
+                    #nixos-hardware.nixosModules.lenovo-thinkpad-t480 -> FIND
+	                #sops-nix.nixosModules.sops
                     #disko.nixosModules.disko
                     #impermanence.nixosModules.impermanence
                     #lanzaboote.nixosModules.lanzaboote
                     #musnix.nixosModules.musnix
                 #];
             #};
+
+            # Sakura - Raspberry Pi 5 (?)
+            #sakura = nixpkgs.lib.nixosSystem {
+                #specialArgs = { inherit inputs outputs pkgs-stable; };
+                #modules = [
+                    #./hosts/sakura
+	                #sops-nix.nixosModules.sops
+                    #disko.nixosModules.disko
+                    #impermanence.nixosModules.impermanence
+                    #lanzaboote.nixosModules.lanzaboote
+                    #musnix.nixosModules.musnix
+                #];
+            #};
+
+	        # Server
+            server = nixpkgs-stable.lib.nixosSystem {
+                specialArgs = { inherit inputs outputs pkgs-stable; };
+                modules = [
+                    ./hosts/server
+	                sops-nix.nixosModules.sops
+                    disko.nixosModules.disko
+                    impermanence.nixosModules.impermanence
+                    lanzaboote.nixosModules.lanzaboote
+                ];
+            };
 
             # Thinkpad
             thinkpad = nixpkgs.lib.nixosSystem {
@@ -126,18 +146,6 @@
                     impermanence.nixosModules.impermanence
                     lanzaboote.nixosModules.lanzaboote
                     musnix.nixosModules.musnix
-                ];
-            };
-            
-	        # PC Server
-            server = nixpkgs-stable.lib.nixosSystem {
-                specialArgs = { inherit inputs outputs pkgs-stable; };
-                modules = [
-                    ./hosts/server
-	                sops-nix.nixosModules.sops
-                    disko.nixosModules.disko
-                    impermanence.nixosModules.impermanence
-                    lanzaboote.nixosModules.lanzaboote
                 ];
             };
 	    };

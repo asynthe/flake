@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }: {
-
+{ config, lib, pkgs, ... }:
+with lib;
+{
     programs.zsh.shellAliases = lib.mkIf config.programs.zsh.enable {
         jp = "${pkgs.mpv}/bin/mpv --no-resume-playback https://iptv-org.github.io/iptv/countries/jp.m3u";
     };
+
+    # If using Hyprland.
+    wayland.windowManager.hyprland.settings.exec-once = mkIf config.wayland.windowManager.hyprland.enable [
+        "fcitx5 -d &"
+    ];
 
     # Very helpful.
     # https://github.com/foo-dogsquared/nixos-config/blob/master/modules/home-manager/_private/suites/i18n.nix

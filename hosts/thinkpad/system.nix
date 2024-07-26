@@ -5,17 +5,25 @@
     time.timeZone = "Australia/Perth";
 
     /* Options to create
-    system.virtualization = [ "libvirt" "virtualbox" "vmware" ];
+    meta.system.virtualization = [ "libvirt" "virtualbox" "vmware" ];
+
+    meta.system.persistent = true;
+    meta.system.diskconfig = "btrfs" # btrfs, zfs,
+
+    If persisten is set and btrfs is chosen,
+    persistence configuration is enabled on btrfs.
     */
 
     meta = {
         # -------------- System - Main --------------
         system.user = "ben";
-        system.type = "laptop";
-        #system.disk = "/dev/nvme0n1";
+        system.type = "laptop"; # laptop, server
         system.language = "both"; # english, japanese, both
         system.keyboard = true;
-        system.ssd = true;
+        system.disk.device = "/dev/nvme0n1";
+        system.disk.ssd = true;
+        #system.disk.configuration = true;
+        #system.disk.persistence = true;
         
         # Set up by `meta.system.type`, options: laptop, server
         #system.nix.settings = "laptop";

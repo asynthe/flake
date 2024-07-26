@@ -39,8 +39,8 @@
         ./system/keyboard.nix
         ./system/language.nix
         ./system/networking.nix
-        ./system/ssd.nix
         ./system/user.nix
+        ./system/disk/ssd.nix
 
         # !!! Not yet optionized.
         ./vm/libvirt.nix

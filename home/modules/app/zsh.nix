@@ -44,10 +44,6 @@
 	        yt = "${pkgs.yt-dlp}/bin/yt-dlp -f  'bv[ext=mp4]+ba[ext=m4a]' --merge-output-format mp4";
 	        yt-mp3 = "${pkgs.yt-dlp}/bin/yt-dlp -f 'ba' -x --audio-format mp3";
 
-            # Wallpaper
-	        wall = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | xargs ${inputs.swww.packages.${pkgs.system}.swww}/bin/swww img";
-	        wallp = "${pkgs.fd}/bin/fd . ${config.home.homeDirectory}/sync/archive/wallpaper/img -e jpg -e png | ${pkgs.skim}/bin/sk | tee >(xargs ${inputs.swww.packages.${pkgs.system}.swww}/bin/swww img) >(xargs ${pkgs.wallust}/bin/wallust run)"; 
-
 	        # Random
 	        rickroll = "${pkgs.curl}/bin/curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master.roll.sh | ${pkgs.bash}/bin/bash";
 

@@ -7,7 +7,6 @@ in {
         debug.disable_logs = false;
 
         exec-once = [
-            "${pkgs.fcitx5}/bin/fcitx5 -d &"
             "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"
             "mullvad-gui"
         ];
@@ -30,7 +29,6 @@ in {
             "WLR_NO_HARDWARE_CURSORS, 1" # Fix for cursor not appearing when using nvidia drivers.
             "HYPRCURSOR_SIZE,32"
             "XCURSOR_SIZE,32"
-
         ];
 
         monitor = [
@@ -49,6 +47,7 @@ in {
             # Vertical
             #"${monitor2}, 1920x1080@60, 0x0, 1, transform, 1"
         ];
+
         workspace = [
             "special, border: 0"
             "1,monitor:HDMI-A-2" # Make monitor take wksp 1 when connected
