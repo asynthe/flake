@@ -22,6 +22,14 @@ in {
 
     config = mkIf cfg.enable {
 
+        environment.systemPackages = builtins.attrValues {
+            inherit (pkgs) 
+                #qbittorrent-nox
+                #qbittorrent
+                qbittorrent-qt5
+            ;
+        };
+
 	    # See the logs by running.
         # journalctl -u qbittorrent-nox.service
 
@@ -35,26 +43,22 @@ in {
             #}
         #];
 
-        # system.configuration.type = "server"; ?
-        #environment.systemPackages = mkIf config.persistence builtins.attrValues { inherit (pkgs-stable) qbittorrent-nox; };
-        environment.systemPackages = builtins.attrValues { inherit (pkgs) qbittorrent-nox; };
+        #networking.firewall = {
+            #allowedTCPPorts = [ 8080 ];
+            #allowedUDPPorts = [ 8080 ];
+        #};
 
-        networking.firewall = {
-            allowedTCPPorts = [ 8080 ];
-            allowedUDPPorts = [ 8080 ];
-        };
-
-        systemd.user.services.qbittorrent-nox = {
-            description = "qBittorrent-nox service";
-            path = [ pkgs.qbittorrent-nox ];
-            after = [ "network.target" ];
-            wantedBy = [ "default.target" "multi-user.target" ];
-            serviceConfig = {
-                Type = "simple";
-                ExecStart = ''
-                  ${pkgs.qbittorrent-nox}/bin/qbittorrent-nox
-                '';
-            };
-        };
+        #systemd.user.services.qbittorrent-nox = {
+            #description = "qBittorrent-nox service";
+            #path = [ pkgs.qbittorrent-nox ];
+            #after = [ "network.target" ];
+            #wantedBy = [ "default.target" "multi-user.target" ];
+            #serviceConfig = {
+                #Type = "simple";
+                #ExecStart = ''
+                  #${pkgs.qbittorrent-nox}/bin/qbittorrent-nox
+                #'';
+            #};
+        #};
     };
 }
