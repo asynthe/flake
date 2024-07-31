@@ -3,27 +3,24 @@ local act = wezterm.action
 
 local keybinds = {
   -- Main
+  { key = 'v', mods = 'SUPER', action = act.SplitHorizontal { args =  { 'alsamixer' }, }, }, -- Open alsamixer
   { key = 'i', mods = 'CTRL', action = act.ShowDebugOverlay },
-  -- Move tabs to left or right browser-like.
-  { key = '[', mods = 'CTRL', action = act.MoveTabRelative(-1) },
-  { key = ']', mods = 'CTRL', action = act.MoveTabRelative(1) },
-  { key = 'v', mods = 'CTRL|SHIFT', action = act.SplitHorizontal { args =  { 'alsamixer' }, }, },
+  { key = 'z', mods = 'CTRL|SHIFT', action = act.TogglePaneZoomState },
+  -- { key = 'w', mods = 'CTRL', action = act.CloseCurrentTab { confirm = true }, },
 
   -- Clipboard -- FIX PLZ
   { key = 'c', mods = 'CTRL|SHIFT', action = act.CopyTo 'Clipboard' },
-  { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard' },
   { key = 'v', mods = 'CTRL|SHIFT', action = act.PasteFrom 'PrimarySelection' },
-  { key = 'v', mods = 'SUPER', action = act.PasteFrom 'PrimarySelection' },
 
-  -- Keys
+  -- Tabs
+  { key = '[', mods = 'CTRL', action = act.MoveTabRelative(-1) }, -- Move tab left
+  { key = ']', mods = 'CTRL', action = act.MoveTabRelative(1) }, -- Move tab right
   { key = 't', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
-  { key = 'z', mods = 'CTRL|SHIFT', action = act.TogglePaneZoomState },
-  { key = 'w', mods = 'CTRL', action = act.CloseCurrentPane { confirm = false } }, -- This also closes the window if only one pane left.
-  -- { key = 'w', mods = 'CTRL', action = act.CloseCurrentTab { confirm = true }, },
 
   -- Pane
   { key = '\\', mods = 'CTRL', action = act.SplitHorizontal },
   { key = '|', mods = 'CTRL|SHIFT', action = act.SplitVertical },
+  { key = 'w', mods = 'CTRL', action = act.CloseCurrentPane { confirm = false } }, -- This also closes the window if only one pane left.
 
   -- Pane Switching
   { key = 'h', mods = 'SUPER|SHIFT', action = act.RotatePanes 'CounterClockwise' },
