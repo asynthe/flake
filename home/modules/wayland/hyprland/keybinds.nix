@@ -13,15 +13,13 @@ in {
             kb_layout = "us";
             kb_options = "caps:swapescape";
             sensitivity = 0;
-            touchpad = {
-                natural_scroll = false;
-            };
+            touchpad.natural_scroll = false;
         };
 
         bind = [
             # Apps
             "$mainMod SHIFT, return, exec, [float;tile] ${pkgs.wezterm}/bin/wezterm start --always-new-process"
-            "$mainMod, p, exec, pkil ${pkgs.wofi}/bin/wofi || ${pkgs.wofi}/bin/wofi --show drun"
+            "$mainMod, p, exec, [float] pkill ${pkgs.wofi}/bin/wofi || ${pkgs.wofi}/bin/wofi --show drun"
             "$mainMod, v, exec, pkill ${pkgs.pavucontrol}/bin/pavucontrol || ${pkgs.pavucontrol}/bin/pavucontrol"
             #"${modkey2}, b, exec, pkill ${pkgs.waybar}/bin/waybar || ${pkgs.waybar}/bin/waybar"
 
@@ -39,7 +37,7 @@ in {
             "$mainMod, d, togglesplit," # Dwindle
             "$mainMod, f, fullscreen,"
             "$mainMod, m, togglefloating,"
-            "$mainMod, n, fakefullscreen,"
+            #"$mainMod, n, fakefullscreen,"
             "$mainMod, o, pseudo," # Dwindle
 
             # Windows - Focus

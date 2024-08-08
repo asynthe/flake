@@ -7,7 +7,7 @@
 
 	    # Game -> Moved to option
         #../modules/game/emulators.nix
-        ../modules/game/games.nix
+        #../modules/game/games.nix
         #../modules/game/tools.nix
 
         ../modules/wayland
@@ -39,7 +39,7 @@
 	    ../modules/app/mpv.nix
 	    ../modules/app/obs.nix
         #../modules/app/bash.nix # bash shell.
-        #../modules/app/fbterm.nix
+        ../modules/app/fbterm.nix
         ../modules/app/eza.nix
         ../modules/app/git.nix
         #../modules/app/spotifyd.nix

@@ -1,7 +1,5 @@
 { config, pkgs, ... }: {
 
-    # USE SECRET for user and password
-
     home.packages = builtins.attrValues {
         inherit (pkgs)
             spotify-player

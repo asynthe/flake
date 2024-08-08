@@ -1,46 +1,37 @@
-
-# Default config for Wayfire
-#
-# Copy this to ~/.config/wayfire.ini and edit it to your liking.
-#
 # Take the tutorial to get started.
 # https://github.com/WayfireWM/wayfire/wiki/Tutorial
-#
 # Read the Configuration document for a complete reference.
 # https://github.com/WayfireWM/wayfire/wiki/Configuration
 
 # Input configuration ──────────────────────────────────────────────────────────
 
-# Example configuration:
-#
-# [input]
-# xkb_layout = us,fr
-# xkb_variant = dvorak,bepo
-#
-# See Input options for a complete reference.
+# -------------------------------------------------
+# Input
 # https://github.com/WayfireWM/wayfire/wiki/Configuration#input
 
-# Output configuration ─────────────────────────────────────────────────────────
+[input]
+xkb_layout = us
+xkb_variant =
+xkb_option = caps:swapescape
 
-# Example configuration:
-#
-[output:eDP-1]
-mode = 1920x1080@144000
-position = 0,0
-transform = normal
-scale = 1.000000
-
+# -------------------------------------------------
+# Output
 
 # You can get the names of your outputs with wlr-randr.
 # https://github.com/emersion/wlr-randr
-#
 # See also kanshi for configuring your outputs automatically.
 # https://wayland.emersion.fr/kanshi/
-#
 # See Output options for a complete reference.
 # https://github.com/WayfireWM/wayfire/wiki/Configuration#output
 
-# Core options ─────────────────────────────────────────────────────────────────
+#[output:eDP-1]
+#mode = 1920x1080@144000
+#position = 0,0
+#transform = normal
+#scale = 1.000000
+
+# -------------------------------------------------
+# Main options
 
 [core]
 
@@ -76,6 +67,7 @@ plugins = \
 # Feel free to add it to the list if you want it.
 # You can find its documentation here:
 # https://github.com/WayfireWM/wayfire/wiki/Configuration#blur
+
 # Close focused window.
 close_top_view = <super> KEY_Q | <alt> KEY_F4
 # Workspaces arranged into a grid: 3 × 3.
@@ -107,12 +99,14 @@ activate = <alt> KEY_TAB
 prev_view = <alt> KEY_LEFT
 next_view = <alt> KEY_RIGHT
 
+# -------------------------------------------------
+# Workspaces
 
-##### WORKSPACES #####
-[expo] # WORKSPACES OVERVIEW
-toggle = <super>
 # WHEN IN OVERVIEW, SELECT WORKSPACE WITH NUMBER
 # See core.vwidth and core.vheight for configuring the grid.
+
+[expo]
+toggle = <super>
 select_workspace_1 = KEY_1
 select_workspace_2 = KEY_2
 select_workspace_3 = KEY_3
@@ -139,6 +133,7 @@ with_win_right = <ctrl> <super> <shift> KEY_RIGHT
 # Show the current workspace row as a cube.
 [cube]
 activate = <ctrl> <alt> BTN_LEFT
+
 # Switch to the next or previous workspace.
 #rotate_left = <super> <ctrl> KEY_H
 #rotate_right = <super> <ctrl> KEY_L
@@ -154,11 +149,10 @@ toggle_sticky = <super> <shift> KEY_X
 # Automatically start background and panel.
 # Set to false if you want to override the default clients.
 autostart_wf_shell = true
+
 # Set the wallpaper, start a panel and dock if you want one.
 # https://github.com/WayfireWM/wf-shell
-#
 # These are started by the autostart_wf_shell option above.
-#
 background = wf-background
 bar = waybar
 # panel = wf-panel
@@ -203,14 +197,17 @@ portal = /usr/libexec/xdg-desktop-portal
 # Start a terminal
 # https://github.com/alacritty/alacritty
 binding_terminal = <super> KEY_ENTER
-command_terminal = alacritty
+command_terminal = wezterm start --always-new-process
+
+binding_alacritty = <super> KEY_A
+command_alacritty = alacritty
 
 # Start your launcher
 # https://hg.sr.ht/~scoopta/wofi
 # Note: Add mode=run or mode=drun to ~/.config/wofi/config.
 # You can also specify the mode with --show option.
-binding_launcher = <super> <shift> KEY_ENTER
-command_launcher = wofi
+binding_launcher = <super> KEY_P
+command_launcher = wofi --show drun
 
 # Screen locker
 # https://github.com/swaywm/swaylock

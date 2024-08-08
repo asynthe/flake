@@ -102,7 +102,7 @@
         };
 
         targets = {
-            nixvim.transparent_bg.main = true;
+            nixvim.transparentBackground.main = true;
             #nixvim.transparent_bg.sign_column = true;
         };
     };

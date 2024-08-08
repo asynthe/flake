@@ -8,6 +8,7 @@
         ./swappy.nix
         #./swayidle.nix
         #./swayosd.nix
+        ./waybar.nix
         ./wayfire.nix
         ./wofi.nix
     ];

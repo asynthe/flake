@@ -1,4 +1,4 @@
-{ pkgs, user, ... }: {
+{ config, pkgs, ... }: {
 
     #users.users.${user}.extraGroups = [ "video" ]; # Not a Home Manager option.
     home = {
@@ -8,12 +8,6 @@
                 fbcat
             ;
         };
-        file.".config/fbtermrc".text = ''
-          font-names=JetBrainsMono Nerd Font
-          font-size=26
-          history-lines=65535
-          cursor-shape=1
-          cursor-interval=500
-        '';
+        file.".config/fbtermrc".source = config.lib.file.mkOutOfStoreSymlink ../../../dots/fbtermrc;
     };
 }

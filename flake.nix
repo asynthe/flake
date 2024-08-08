@@ -63,11 +63,11 @@
 
         # Supported systems
         systems = [
-            "aarch64-linux"
-            "i686-linux"
             "x86_64-linux"
-            "aarch64-darwin"
+            "i686-linux"
+            "aarch64-linux"
             "x86_64-darwin"
+            "aarch64-darwin"
         ];
 
         # Attribute -> calling a function you call to it passing each system as an argument.

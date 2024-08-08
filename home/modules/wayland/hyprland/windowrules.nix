@@ -88,7 +88,7 @@
             "opacity 1.0 override 1.0 override, class:(org.pwmt.zathura)$"
 
             # Vmware
-            "fakefullscreen, class:^(Vmware)$"
+            #"fakefullscreen, class:^(Vmware)$"
             "float, class:^(Vmware)$"
             "opacity 1.0 override 1.0 override, class:^(Vmware)$"
             #"center, title:^(Open Virtual Machines)$,class:^(Vmware)$"
@@ -96,8 +96,8 @@
 
             # Other
             "center, class:^(org.kde.polkit-kde-authentication-agent-1)$"
-            "fakefullscreen, class:VirtualBoxVM"
-            "fakefullscreen, class:org.telegram.desktop"
+            #"fakefullscreen, class:VirtualBoxVM"
+            #"fakefullscreen, class:org.telegram.desktop"
             "float, class:^(org.kde.polkit-kde-authentication-agent-1)$"
             "float, class:^(org.qgis.)$"
             "float, title:^(Media viewer)$" # Telegram media viewer

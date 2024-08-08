@@ -3,7 +3,7 @@
         inherit (pkgs)
 
             # DevOps
-            ollama
+            #ollama
             pulumi
             opentofu #terraform
             ansible
