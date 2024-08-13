@@ -15,6 +15,7 @@
             telegram-desktop
             #hexchat # IRC
             webcord #discord # fuck discord
+            whatsapp-for-linux # Whatsapp 😂😍🫢 ❗
 
             # GUI
             #aegisub # Subtitle Editor
@@ -47,7 +48,6 @@
             ffmpegthumbnailer # Video files
             freetype # Font files
             libgsf # .odf files
-
 	    ;
         # File managers
         inherit (pkgs.libsForQt5) dolphin; 

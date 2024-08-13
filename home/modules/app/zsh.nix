@@ -31,13 +31,17 @@
             # General
 	        py = "python3";
             disk = "(df -h | head -n 1; df -h | grep nvme)";
-            ga = "git add -A";
             m = "ncmpcpp";
             n = "nvim";
             off = "poweroff";
+            p = "ping";
             rm = "rm -i";
+            t = "${pkgs.tty-clock}/bin/tty-clock -ScB";
             v = "${pkgs.alsa-utils}/bin/alsamixer";
             vv = "${pkgs.pulsemixer}/bin/pulsemixer";
+
+            # Git
+            ga = "git add -A";
 
 	        # Tools
 	        bt = "${pkgs.bluetuith}/bin/bluetuith";

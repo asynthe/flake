@@ -19,8 +19,8 @@ in {
         bind = [
             # Apps
             "$mainMod SHIFT, return, exec, [float;tile] ${pkgs.wezterm}/bin/wezterm start --always-new-process"
-            "$mainMod, p, exec, [float] pkill ${pkgs.wofi}/bin/wofi || ${pkgs.wofi}/bin/wofi --show drun"
-            "$mainMod, v, exec, pkill ${pkgs.pavucontrol}/bin/pavucontrol || ${pkgs.pavucontrol}/bin/pavucontrol"
+            "$mainMod, p, exec, pkill ${pkgs.wofi}/bin/wofi || ${pkgs.wofi}/bin/wofi --show drun"
+            "$mainMod, v, exec, [float;tile] pkill ${pkgs.pavucontrol}/bin/pavucontrol || ${pkgs.pavucontrol}/bin/pavucontrol"
             #"${modkey2}, b, exec, pkill ${pkgs.waybar}/bin/waybar || ${pkgs.waybar}/bin/waybar"
 
             # Screenshots
