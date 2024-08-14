@@ -9,6 +9,7 @@
 
 	    # Other
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+        nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
         disko.url = "github:nix-community/disko";
         disko.inputs.nixpkgs.follows = "nixpkgs";
         impermanence.url = "github:nix-community/impermanence";
@@ -42,6 +43,7 @@
 
         # Other
         nixos-hardware,
+        nixos-wsl,
         disko,
         impermanence,
         lanzaboote,
@@ -148,6 +150,17 @@
                     impermanence.nixosModules.impermanence
                     lanzaboote.nixosModules.lanzaboote
                     musnix.nixosModules.musnix
+                ];
+            };
+
+            # WSL
+            wsl = nixpkgs.lib.nixosSystem {
+                specialArgs = { inherit inputs outputs pkgs-stable;
+                    user = "missingno";
+                };
+                modules = [
+                    ./hosts/wsl
+                    nixos-wsl.nixosModules.default
                 ];
             };
 	    };
