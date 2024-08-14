@@ -1,9 +1,13 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
+    environment.systemPackages = builtins.attrValues {
+        inherit (pkgs)
+            lf
+        ;
+    };
     environment.binsh = "${pkgs.dash}/bin/dash"; # Change sh for dash.
-    programs.lf.enable = true;
     programs.bash = {
-        init.extra = ''
+        shellInit = ''
           lfcd () {
           cd "$(command lf -print-last-dir "$@")"
           }

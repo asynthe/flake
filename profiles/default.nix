@@ -43,11 +43,11 @@
         ./system/disk/ssd.nix
 
         # !!! Not yet optionized.
-        ./vm/libvirt.nix
+        #./vm/libvirt.nix
         #./vm/virtualbox.nix
-        ./vm/vmware.nix
+        #./vm/vmware.nix
         
         # !!! In progress
-        ./vpn/mullvad.nix
+        #./vpn/mullvad.nix
     ];
 }

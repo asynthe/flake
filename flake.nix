@@ -136,6 +136,7 @@
                     disko.nixosModules.disko
                     impermanence.nixosModules.impermanence
                     lanzaboote.nixosModules.lanzaboote
+                    musnix.nixosModules.musnix # Just for testing, remove
                 ];
             };
 

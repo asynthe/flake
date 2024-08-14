@@ -5,6 +5,10 @@
         ../../profiles # Import all the custom options.
         ./hardware.nix # Import hardware scan.
 
+        ../../profiles/vm/libvirt.nix
+        ../../profiles/vm/vmware.nix
+        ../../profiles/vpn/mullvad.nix
+
         ../../secrets/secrets.nix
 	    #../../secrets/secrets_custom.nix
 

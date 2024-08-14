@@ -10,7 +10,7 @@
 	        "/var/lib/tailscale"
 	    ];
         files = [
-	    "/etc/machine-id"
+	        "/etc/machine-id"
 	    ];
     };
 

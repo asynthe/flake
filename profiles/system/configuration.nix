@@ -13,6 +13,6 @@ in {
     };
     config = {
         # I'll probably use a wm of some kind.
-        hardware.graphics.enable = mkIf (cfg.type == "laptop") true;
+        #hardware.graphics.enable = mkIf (cfg.type == "laptop") true;
     };
 }

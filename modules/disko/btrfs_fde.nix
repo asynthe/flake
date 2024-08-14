@@ -2,11 +2,6 @@
 
     imports = [ ./persistence.nix ];
 
-    fileSystems = {
-         "/persist".neededForBoot = true;
-         "/var/log".neededForBoot = true;
-    };
-
     security.sudo.extraConfig = ''
       # rollback results in sudo lectures after each reboot
       Defaults lecture = never
@@ -57,22 +52,24 @@
                         label = "luks";
                         content.type = "luks";
                         content.name = "cryptroot";
-                        content.extraOpenArgs = [
-                            "--allow-discards"
-                            "--perf-no_read_workqueue"
-                            "--perf-no_write_workqueue"
-                        ];
+                        content.settings.allowDiscards = true; # SSD
+                        content.settings.bypassWorkqueues = true; # SSD
+                        #content.extraOpenArgs = [
+                            #"--allow-discards"
+                            #"--perf-no_read_workqueue"
+                            #"--perf-no_write_workqueue"
+                        #];
                         content.content = {
                             type = "btrfs";
-                            extraArgs = [ "-L" "nixos" "-f" ];
+                            extraArgs = [ "-f" ];
+                            #extraArgs = [ "-L" "nixos" "-f" ];
                             subvolumes = {
 
                                 # Swap
-                                "/swap" = {
-                                    mountpoint = "/swap";
-                                    swap.swapfile.size = "16G"; # SWAP FILE SIZE OPTION
-
-                                };
+                                #"/swap" = {
+                                    #mountpoint = "/swap";
+                                    #swap.swapfile.size = "16G"; # SWAP FILE SIZE OPTION
+                                #};
 
                                 # Subvolumes
                                 "/root" = {
@@ -83,23 +80,20 @@
                                 "/home" = {
                                     mountpoint = "/home";
                                     mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
-
                                 };
 
                                 "/nix" = {
                                     mountpoint = "/nix";
                                     mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
-
                                 };
 
                                 "/persist" = {
                                     mountpoint = "/persist";
                                     mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
-
                                 };
 
                                 "/log" = {
-                                    mountpoint = "/log";
+                                    mountpoint = "/var/log";
                                     mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
                                 };
                             };  

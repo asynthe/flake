@@ -1,22 +1,11 @@
 {
     imports = [
-
-        # Disk configuration
-	    ../../modules/disko/btrfs_persist.nix
+	    ../../modules/disko/btrfs_fde.nix # Disko configuration
+        ../../profiles # Import all the custom options.
+        ./vmhardware.nix # Import hardware scan.
 
 	    # Server
-        #../../modules/srv/settings.nix
         ../../modules/srv/shell.nix
-        ../../modules/pkgs_server.nix
-
-        #../../modules/sec/clamav.nix
-        #../../modules/vm/libvirt.nix
-
-        # Network
-	    #../../modules/net/net.nix
-        
-        # systemd services + timers
-        #../../modules/srv/systemd/automount_hdd.nix
-        #../../modules/srv/systemd/backup_and_compress.nix
+        ../../modules/pkgs/minimal.nix
     ];
 }
