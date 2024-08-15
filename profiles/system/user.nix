@@ -29,8 +29,10 @@ in {
         })
 
         # Server configuration
-        # MKFORCE ssh server?
         (mkIf (cfg.users == "server") {
+
+            # We obviously need a SSH server if we are connect to it.
+            services.openssh.enable = mkForce true;
             users.users = {
 	            root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8tUQ59AvWkt0pTSMz2bf3O7emcO37IaA8vZCnXisk bendunstan@protonmail.com" ];     
                 data = {

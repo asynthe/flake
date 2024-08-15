@@ -1,11 +1,22 @@
 { config, ... }: {
 
-    imports = [ ./btrfs_snapshots.nix ./persistence.nix ];
+    # -------------------------------------------------
+    # Other configuration
+
+    boot = {
+        supportedFilesystems = [ "btrfs" "vfat" ];
+        #resumeDevice = "/dev/disk/by-label/nixos";
+        initrd.luks.devices."encrypted".allowDiscards = true;
+    };
 
     security.sudo.extraConfig = ''
       # rollback results in sudo lectures after each reboot
       Defaults lecture = never
     '';
+
+    # Specific banner or message on decryption.
+    #imports = [ ./luks/banner/message.nix ];
+    boot.initrd.luks.devices."encrypted".preLVM = true; # encrypted <- Make it be an option !!!
 
     # -------------------------------------------------
     # Hibernation mode test
@@ -19,20 +30,39 @@
     #};
 
     # -------------------------------------------------
+    # Snapshots configuration
+
+    # This didn't seem to work (with nixos-anywhere)
+    # as you have to manually create the first snapshot.
+    # Maybe it works in some way.
+
+    #boot.initrd = {
+        #postDeviceCommands = lib.mkAfter ''
+          #mkdir /mnt
+          #mount -t btrfs /dev/mapper/cryptroot
+          #btrfs subvolume delete /mnt/root
+          #btrfs subvolume snapshot /mnt/root-blank /mnt/root
+        #'';
+    #};
+
+    # -------------------------------------------------
+    # Disko configuration
+
     # THIS SETS UP [DISKO] THE SYSTEM FOR IMPERMANENCE   
     # BUT IT DOESNT SET UP SNAPSHOTS NOR ROOT TMPFS
     # THOSE WILL BE ADDED AS OPTIONS IN THE FUTURE
 
     disko.devices = {
-        # ROOT TMPFS FOR IMPERMANENCE
-        #nodev."/" = {
-	        #fsType = "tmpfs";
-	        #mountOptions = [ 
-                #"size=2G"
-		        #"defaults"
-		        #"mode=0755"
-	        #];
-	    #};
+
+        # Root tmpfs for Impermanence.
+        nodev."/" = {
+	        fsType = "tmpfs";
+	        mountOptions = [ 
+                "size=4G"
+		        "defaults"
+		        "mode=0755"
+	        ];
+	    };
 
         # Main disk
         disk.main = {
@@ -42,7 +72,7 @@
                 type = "gpt";
                 partitions = {
             
-		            # Boot partition
+		            # EFI partition
 		            boot = {
 		                label = "boot";
                         name = "ESP";
@@ -54,14 +84,16 @@
 			            content.mountOptions = [ "defaults" ];
 		            };
 
-                    # LUKS STARTS HERE
+                    # LUKS
                     luks = {
                         size = "100%";
                         label = "luks";
                         content.type = "luks";
-                        content.name = "cryptroot";
-                        content.settings.allowDiscards = true; # SSD optimization
-                        content.settings.bypassWorkqueues = true; # SSD optimization
+                        content.name = "encrypted"; # OPTION !
+                        content.settings = {
+                            allowDiscards = true; # SSD optimization
+                            bypassWorkqueues = true; # SSD optimization
+                        };
                         content.extraOpenArgs = [
                             #"--allow-discards"
                             #"--perf-no_read_workqueue"
@@ -83,8 +115,7 @@
 
                         content.content = {
                             type = "btrfs";
-                            #extraArgs = [ "-f" ];
-                            extraArgs = [ "-L" "nixos" "-f" ];
+                            extraArgs = [ "-f" ];
                             subvolumes = {
 
                                 # Swap
@@ -94,29 +125,39 @@
                                 #};
 
                                 # Subvolumes
-                                "/root" = {
-                                    mountpoint = "/";
-                                    mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
-                                };
-
-                                "/home" = {
-                                    mountpoint = "/home";
-                                    mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
+                                "/" = {
+                                    mountpoint = "/btr_pool";
+                                    mountOptions = [ "subvolid=5" ];
                                 };
 
                                 "/nix" = {
                                     mountpoint = "/nix";
-                                    mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
+                                    mountOptions = [ "compress=zstd" "noatime" ];
+                                    #mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
+                                };
+
+                                "/snapshots" = {
+                                    mountpoint = "/snapshots";
+                                    mountOptions = [ "compress=zstd" "noatime" ];
+                                    #mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
+                                };
+
+                                "/home" = {
+                                    mountpoint = "/home";
+                                    mountOptions = [ "compress=zstd" "noatime" ];
+                                    #mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
                                 };
 
                                 "/persist" = {
                                     mountpoint = "/persist";
-                                    mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
+                                    mountOptions = [ "compress=zstd" "noatime" ];
+                                    #mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
                                 };
 
                                 "/log" = {
                                     mountpoint = "/var/log";
-                                    mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
+                                    mountOptions = [ "compress=zstd" "noatime" ];
+                                    #mountOptions = [ "subvol=root" "compress=zstd" "noatime" ];
                                 };
                             };  
                         };

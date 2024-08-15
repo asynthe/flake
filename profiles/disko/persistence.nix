@@ -8,6 +8,8 @@
 	        "/var/lib/nixos"
 	        "/var/lib/systemd/coredump"
 	        "/var/lib/tailscale"
+
+            "/etc/secureboot" # If lanzaboote OPTION is ENABLED
 	    ];
         files = [
 	        "/etc/machine-id"

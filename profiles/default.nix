@@ -1,5 +1,9 @@
 {
     imports = [ 
+
+        # A main import of all the options.
+        # So I can disable or enable them modularily.
+
         ./audio/bluetooth.nix
         ./audio/musnix.nix
         ./audio/pipewire.nix
@@ -13,6 +17,9 @@
 
         ./driver/displaylink.nix
         ./driver/nvidia.nix
+
+        # Disk configurations
+        #./disko/luks
 
         ./gaming/controller.nix
         ./gaming/gamemode.nix
