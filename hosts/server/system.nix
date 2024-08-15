@@ -53,8 +53,8 @@
         #services.locate.enable = true;
         #services.qbittorrent-nox.enable = true;
         #services.sql.enable = true;
+        services.ssh.enable = true;
         #services.ssh.configuration = "laptop"; # laptop, server
-        #services.ssh.enable = true;
         #services.sshfs.enable = true;
         #services.syncthing.enable = true;
         #services.wine.enable = true;

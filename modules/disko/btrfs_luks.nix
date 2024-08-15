@@ -1,11 +1,14 @@
 { config, ... }: {
 
-    imports = [ ./persistence.nix ];
+    imports = [ ./btrfs_snapshots.nix ./persistence.nix ];
 
     security.sudo.extraConfig = ''
       # rollback results in sudo lectures after each reboot
       Defaults lecture = never
     '';
+
+    # -------------------------------------------------
+    # Hibernation mode test
 
     # To hibernate the PC using the created swap, add the next to boot configuration.
     # Check how to calculate the swap file offset.
@@ -15,8 +18,13 @@
         #resumeDevice = "/dev/disk/by-label/nixos";
     #};
 
+    # -------------------------------------------------
+    # THIS SETS UP [DISKO] THE SYSTEM FOR IMPERMANENCE   
+    # BUT IT DOESNT SET UP SNAPSHOTS NOR ROOT TMPFS
+    # THOSE WILL BE ADDED AS OPTIONS IN THE FUTURE
+
     disko.devices = {
-        # ?
+        # ROOT TMPFS FOR IMPERMANENCE
         #nodev."/" = {
 	        #fsType = "tmpfs";
 	        #mountOptions = [ 
@@ -52,17 +60,31 @@
                         label = "luks";
                         content.type = "luks";
                         content.name = "cryptroot";
-                        content.settings.allowDiscards = true; # SSD
-                        content.settings.bypassWorkqueues = true; # SSD
-                        #content.extraOpenArgs = [
+                        content.settings.allowDiscards = true; # SSD optimization
+                        content.settings.bypassWorkqueues = true; # SSD optimization
+                        content.extraOpenArgs = [
                             #"--allow-discards"
                             #"--perf-no_read_workqueue"
                             #"--perf-no_write_workqueue"
+                            "--timeout 10"
+                        ];
+
+                        # Cipher options and more
+                        #content.extraFormatArgs = [
+                            #"--type luks2"
+                            #"--cipher aes-xts-plain64"
+                            #"--hash sha512"
+                            #"--iter-time 5000"
+                            #"--key-size 256"
+                            #"--pbkdf argon2id"
+                            # Use true random data from /dev/random, block until enough entropy is available.
+                            #"--use-random"
                         #];
+
                         content.content = {
                             type = "btrfs";
-                            extraArgs = [ "-f" ];
-                            #extraArgs = [ "-L" "nixos" "-f" ];
+                            #extraArgs = [ "-f" ];
+                            extraArgs = [ "-L" "nixos" "-f" ];
                             subvolumes = {
 
                                 # Swap

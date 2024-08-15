@@ -12,8 +12,8 @@ in {
             '';
         };
         configuration = mkOption {
-            type = str;
-            default = false;
+            type = nullOr str;
+            default = null;
             description = ''
               Configuration for SSH.
             '';

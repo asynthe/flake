@@ -185,20 +185,20 @@
             };
             
             # missingno
-            #missingno = home-manager.lib.homeManagerConfiguration {
-                #pkgs = nixpkgs.legacyPackages.x86_64-linux;
-                #inherit pkgs;
-	            #extraSpecialArgs = {
-                    #inherit pkgs-stable inputs;
-	                    #user = "missingno"
-                    #;
-	            #};
-	            #modules = [
-	                #./home/missingno
-	                #nixvim.homeManagerModules.nixvim
-                    #stylix.homeManagerModules.stylix
-	            #];
-            #};
+            missingno = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages.x86_64-linux;
+	            extraSpecialArgs = {
+                    #inherit pkgs;
+                    inherit pkgs-stable inputs;
+	                    user = "missingno"
+                    ;
+	            };
+	            modules = [
+	                ./home/missingno
+	                nixvim.homeManagerModules.nixvim
+                    stylix.homeManagerModules.stylix
+	            ];
+            };
         };
     };
 }

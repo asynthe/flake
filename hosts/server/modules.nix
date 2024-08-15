@@ -1,6 +1,6 @@
 {
     imports = [
-	    ../../modules/disko/btrfs_fde.nix # Disko configuration
+	    ../../modules/disko/btrfs_luks.nix # Disko configuration
         ../../profiles # Import all the custom options.
         ./vmhardware.nix # Import hardware scan.
 
