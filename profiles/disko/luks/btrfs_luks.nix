@@ -15,7 +15,7 @@
     '';
 
     # Specific banner or message on decryption.
-    imports = [ ./banner/message.nix ];
+    imports = [ ./banner/cat.nix ];
     boot.initrd.luks.devices."encrypted".preLVM = true; # encrypted <- Make it be an option !!!
 
     # -------------------------------------------------
