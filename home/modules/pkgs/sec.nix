@@ -26,7 +26,7 @@
             sherlock
             
             # Pentesting
-            crackmapexec netexec
+            netexec #crackmapexec # Crackmapexec is unmantained.
             exploitdb # `searchsploit`
             
             # Brute Forcing
