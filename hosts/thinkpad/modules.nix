@@ -6,7 +6,7 @@
         ./hardware.nix # Import hardware scan.
 
         ../../profiles/vm/libvirt.nix
-        ../../profiles/vm/vmware.nix
+        #../../profiles/vm/vmware.nix
         ../../profiles/vpn/mullvad.nix
 
         ../../secrets/secrets.nix

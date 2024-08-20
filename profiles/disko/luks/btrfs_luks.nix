@@ -55,14 +55,14 @@
     disko.devices = {
 
         # Root tmpfs for Impermanence.
-        nodev."/" = {
-	        fsType = "tmpfs";
-	        mountOptions = [ 
-                "size=4G"
-		        "defaults"
-		        "mode=0755"
-	        ];
-	    };
+        #nodev."/" = {
+	        #fsType = "tmpfs";
+	        #mountOptions = [ 
+                #"size=4G"
+		        #"defaults"
+		        #"mode=0755"
+	        #];
+	    #};
 
         # Main disk
         disk.main = {
@@ -116,12 +116,23 @@
                         content.content = {
                             type = "btrfs";
                             extraArgs = [ "-f" ];
+
+                            # TEST - Snapshots Impermanence
+                            # TEST AFTER INSTALL?
+                            #postCreateHook = /* sh */ ''
+						      #MNTPOINT=$(mktemp -d)
+							  #mount "/dev/mapper/encrypted" "$MNTPOINT" -o subvol=/
+							  #trap 'umount $MNTPOINT; rm -rf $MNTPOINT' EXIT
+							  #btrfs subvolume snapshot -r $MNTPOINT/root $MNTPOINT/root-blank
+						    #'';
+
                             subvolumes = {
 
                                 # Swap
+                                # If config.meta.system.disk.swap then
                                 #"/swap" = {
                                     #mountpoint = "/swap";
-                                    #swap.swapfile.size = "16G"; # SWAP FILE SIZE OPTION
+                                    #swap.swapfile.size = config.meta.system.disk.swap;
                                 #};
 
                                 # Subvolumes

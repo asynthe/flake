@@ -24,6 +24,7 @@
         system.disk.ssd = true;
         #system.disk.configuration = true;
         #system.disk.persistence = true;
+        #system.disk.swap = "16G";
         
         # Set up by `meta.system.type`, options: laptop, server
         #system.nix.settings = "laptop";

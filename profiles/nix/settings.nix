@@ -16,7 +16,6 @@ in {
     };
 
     config = {
-
         # Hanging at rebuild and wait-online service failing.
         # See nixpkgs#180175
         systemd.services.NetworkManager-wait-online.enable = false;
@@ -37,12 +36,18 @@ in {
         };
 
         # nh if using laptop configuration
-        programs.nh = mkIf (cfg.settings == "laptop") {
-            enable = true;
-	        flake = "/home/${config.meta.system.user}/sync/yuugen";
-	        clean = {
+        programs = {
+            nh = mkIf (cfg.settings == "laptop") {
                 enable = true;
-	            extraArgs = "--keep-since 4d --keep 3";
+	            flake = "/home/${config.meta.system.user}/sync/yuugen";
+	            clean = {
+                    enable = true;
+	                extraArgs = "--keep-since 4d --keep 3";
+                };
+
+            # IMPLEMENT - I'll check how to do this later.
+            #zsh.shellAliases = mkIf (cfg.settings == "laptop") && programs.zsh.enable then {
+                #update = "nix flake update $(echo FLAKE) && nh os switch && nh home switch";
             };
         };
 
