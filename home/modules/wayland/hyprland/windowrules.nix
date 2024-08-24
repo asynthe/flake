@@ -84,7 +84,7 @@
 	        "tile, class:^(org.wezfurlong.wezterm)$"
 
             # Zathura
-            "noanim, class:(org.pwmt.zathura)$"
+            #"noanim, class:(org.pwmt.zathura)$"
             "opacity 1.0 override 1.0 override, class:(org.pwmt.zathura)$"
 
             # Vmware

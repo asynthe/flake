@@ -1,13 +1,17 @@
 {
+    /*
+    A main import of all the options.
+    So I can disable or enable them in a modular way.
+    */
+
     imports = [ 
 
-        # A main import of all the options.
-        # So I can disable or enable them modularily.
-
+        # -------------- Audio --------------
         ./audio/bluetooth.nix
         ./audio/musnix.nix
         ./audio/pipewire.nix
 
+        # -------------- Bootloader --------------
         ./boot/banner.nix
         ./boot/bootloader.nix
         ./boot/cleantmp.nix
@@ -15,18 +19,25 @@
         ./boot/secure.nix
         ./boot/silent.nix
 
+        # -------------- Drivers --------------
         ./driver/displaylink.nix
         ./driver/nvidia.nix
 
-        # Disk configurations
-        #./disko/luks
+        # -------------- Disk configuration --------------
+        #./disk/encryption.nix
+        ./disk/filesystem.nix
+        ./disk/persistence.nix
+        ./disk/ssd.nix
 
+        # -------------- Gaming --------------
         ./gaming/controller.nix
         ./gaming/gamemode.nix
         ./gaming/steam.nix
 
+        # -------------- Nix Settings --------------
         ./nix/settings.nix
 
+        # -------------- Services --------------
         ./services/android.nix
         ./services/docker.nix
         #./services/endlessh.nix
@@ -42,12 +53,12 @@
         ./services/wine.nix
         ./services/xmr.nix
 
+        # -------------- System --------------
         ./system/configuration.nix
         ./system/keyboard.nix
         ./system/language.nix
         ./system/networking.nix
         ./system/user.nix
-        ./system/disk/ssd.nix
 
         # !!! Not yet optionized.
         #./vm/libvirt.nix

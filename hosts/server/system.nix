@@ -10,12 +10,10 @@
         system.type = "server"; # laptop, server
         system.language = "both"; # english, japanese, both
         #system.keyboard = true;
-        system.disk.device = "/dev/sda";
-        #system.disk.ssd = true;
-        #system.disk.configuration = true;
-        #system.disk.persistence = true;
         
-        # Set up by `meta.system.type`, options: laptop, server
+        # Set up by `meta.system.type`, but can be edited.
+        # options: laptop, server
+
         #system.nix.settings = "laptop";
         #system.networking.type = "laptop";
         #system.users = "laptop";

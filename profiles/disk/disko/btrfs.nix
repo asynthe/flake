@@ -1,19 +1,18 @@
-{ device, ... }: {
-
-    imports = [ ./persistence.nix ];
-
+{ config, lib, ... }:
+with lib;
+let
+    persistence_type = config.meta.disk.persistence.type;
+in {
     disko.devices = {
-	    nodev."/" = {
+
+        # tmpfs if persistence is enabled.
+	    nodev."/" = mkIf (persistence_type == "tmpfs") {
 	        fsType = "tmpfs";
-	        mountOptions = [ 
-                "size=2G"
-		        "defaults"
-		        "mode=0755"
-	        ];
+	        mountOptions = [ "size=2G" "defaults" "mode=0755" ];
 	    };
 
         disk.main = {
-            device = "${device}";
+            device = config.meta.disk.device;
             type = "disk";
 
             content = {
@@ -31,6 +30,7 @@
 			        content.mountpoint = "/boot";
 		        };
 
+                # Main partition
 		        data = {
 		            size = "100%";
 			        content.type = "btrfs";
@@ -57,9 +57,4 @@
 	    };
         };
     };
-
-    security.sudo.extraConfig = ''
-      # rollback results in sudo lectures after each reboot
-      Defaults lecture = never
-    '';
 }

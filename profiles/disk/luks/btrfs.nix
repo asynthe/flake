@@ -1,7 +1,4 @@
-{ config, ... }: {
-
-    # -------------------------------------------------
-    # Other configuration
+{ config, lib, ... }: {
 
     boot = {
         supportedFilesystems = [ "btrfs" "vfat" ];
@@ -9,28 +6,14 @@
         initrd.luks.devices."encrypted".allowDiscards = true;
     };
 
+    # MOVE TO IMPERMANENCE
     security.sudo.extraConfig = ''
       # rollback results in sudo lectures after each reboot
       Defaults lecture = never
     '';
 
-    # Specific banner or message on decryption.
-    imports = [ ./banner/cat.nix ];
-    boot.initrd.luks.devices."encrypted".preLVM = true; # encrypted <- Make it be an option !!!
-
     # -------------------------------------------------
-    # Hibernation mode test
-
-    # To hibernate the PC using the created swap, add the next to boot configuration.
-    # Check how to calculate the swap file offset.
-    # https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Acquire_swap_file_offset
-    #boot = {
-        #kernelParams = [ "resume_offset=533760" ];
-        #resumeDevice = "/dev/disk/by-label/nixos";
-    #};
-
-    # -------------------------------------------------
-    # Snapshots configuration
+    # IMPERMANENCE - disk.persistence.type = "snapshots";
 
     # This didn't seem to work (with nixos-anywhere)
     # as you have to manually create the first snapshot.
@@ -48,21 +31,16 @@
     # -------------------------------------------------
     # Disko configuration
 
-    # THIS SETS UP [DISKO] THE SYSTEM FOR IMPERMANENCE   
-    # BUT IT DOESNT SET UP SNAPSHOTS NOR ROOT TMPFS
-    # THOSE WILL BE ADDED AS OPTIONS IN THE FUTURE
-
-    disko.devices = {
+    disko.devices = lib.mkForce {
 
         # Root tmpfs for Impermanence.
-        #nodev."/" = {
-	        #fsType = "tmpfs";
-	        #mountOptions = [ 
-                #"size=4G"
-		        #"defaults"
-		        #"mode=0755"
-	        #];
-	    #};
+        nodev =
+        if (config.meta.disk.persistence.type == "tmpfs") then { 
+            "/" = { fsType = "tmpfs"; mountOptions = [ "size=4G" "defaults" "mode=755" ]; }; 
+        }
+        else { 
+            "/tmp" = { fsType = "tmpfs"; mountOptions = [ "size=2G" ]; }; 
+        };
 
         # Main disk
         disk.main = {
@@ -89,7 +67,7 @@
                         size = "100%";
                         label = "luks";
                         content.type = "luks";
-                        content.name = "encrypted"; # OPTION !
+                        content.name = config.meta.disk.encryption.device_name;
                         content.settings = {
                             allowDiscards = true; # SSD optimization
                             bypassWorkqueues = true; # SSD optimization

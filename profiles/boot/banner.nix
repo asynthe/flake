@@ -9,10 +9,10 @@ in {
         description = "Enable and specify a banner on device login.";
     };
 
-    #users.motd = "Today is leg day.";
     config = mkIf (cfg.banner != null) {
+        #users.motd = "Today is leg day.";
         environment.etc."issue".source = lib.mkForce (
-            if cfg.banner == "simple_cat" then ./banner/simple_cat
+            if cfg.banner == "simple_cat" then ../banner/login/simple_cat
             #else if cfg.banner == "" then ./banner/.
             #else if cfg.banner == "" then ./banner/.
             #else if cfg.banner == "" then ./banner/.

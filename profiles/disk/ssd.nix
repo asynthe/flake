@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 with lib; with types;
 let
-    cfg = config.meta.system.disk;
+    cfg = config.meta.disk;
 in {
-    options.meta.system.disk.ssd = mkOption {
+    options.meta.disk.ssd = mkOption {
         type = bool;
         default = false;
         description = "Enable drivers and optimizations for SSD-type drives.";

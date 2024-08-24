@@ -38,13 +38,17 @@ in {
             (mkIf (cfg.configuration == "laptop") { 
                 allowSFTP = true;
                 #startWhenNeeded = true; # Socket-activated.
+                extraConfig = ''
+                  PrintlastLog no
+                  PrintMotd no
+                '';
             })
 
             # Server
             (mkIf (cfg.configuration == "server") {
 	            allowSFTP = true;
                 #startWhenNeeded = true; # Socket-activated.
-                banner = builtins.readFile ./banner/server;
+                banner = builtins.readFile ../banner/ssh/server;
                 settings = {
                     #PermitRootLogin = "no"; # Messes up with nixos-anywhere.
                     PasswordAuthentication = false;

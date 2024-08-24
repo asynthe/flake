@@ -12,7 +12,8 @@ in {
         disk.device = mkOption { type = str; };
     };
     config = {
+        # ENABLE
         # I'll probably use a wm of some kind.
-        hardware.graphics.enable = mkIf (cfg.type == "laptop") true;
+        #hardware.graphics.enable = mkIf (cfg.type == "laptop") true;
     };
 }
