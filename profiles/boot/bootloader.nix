@@ -16,6 +16,8 @@ in {
         };
     };
     config = mkMerge [
+
+        # systemd-boot
         (mkIf (cfg.bootloader == "systemd-boot") { 
             boot.loader = {
                 efi.canTouchEfiVariables = true;
@@ -24,6 +26,8 @@ in {
                 systemd-boot.configurationLimit = cfg.generations;
             };
         })
+
+        # Grub
         #(mkIf (cfg.bootloader == "grub") { 
             #boot.loader = {
                 #...

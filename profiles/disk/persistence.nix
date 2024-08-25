@@ -4,13 +4,7 @@ let
     cfg = config.meta.disk.persistence;
 in {
     options.meta.disk.persistence = {
-
-        enable = mkOption {
-            type = bool;
-            default = false;
-            description = "Enable persistence. (requires persistence type)";
-        };
-
+        enable = mkEnableOption "Enable system persistence.";
         #type = mkOption {
             #type = str;
             #default = "tmpfs";
@@ -19,7 +13,6 @@ in {
     };
 
     config = mkIf cfg.enable {
-
         #assertions = [
             #{
                 #assertion = cfg.enable -> cfg.type;

@@ -3,11 +3,6 @@
     meta.system.virtualization = [ "libvirt" "virtualbox" "vmware" ];
     */
 
-    # To move
-    # IS THIS SET UP ANYWHERE ???
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-
     networking.hostName = "raider";
     system.stateVersion = "24.11";
     nixpkgs.config.allowUnfree = true;
@@ -30,8 +25,9 @@
         #system.users = "laptop";
 
         # -------------- Boot --------------
-        boot.banner = "simple_cat"; # simple_cat, hentai
         boot.bootloader = "systemd-boot";
+        boot.banner = "simple_cat"; # simple_cat, hentai
+        boot.generations = 3;
         #boot.cleantmp = true;
         #boot.silent = false;
         #boot.secure = false;

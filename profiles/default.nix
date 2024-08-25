@@ -5,7 +5,6 @@
     */
 
     imports = [ 
-
         # -------------- Audio --------------
         ./audio/bluetooth.nix
         ./audio/musnix.nix
@@ -26,9 +25,8 @@
         # -------------- Disk configuration --------------
         ./disk/device.nix
         ./disk/encryption.nix
-        #./disk/filesystem.nix
+        ./disk/filesystem.nix
         ./disk/persistence.nix
-        #./disk/ssd.nix
 
         # -------------- Gaming --------------
         ./gaming/controller.nix

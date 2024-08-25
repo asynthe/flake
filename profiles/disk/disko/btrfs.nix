@@ -1,8 +1,5 @@
-{ config, lib, ... }:
-with lib;
-let
-    cfg = config.meta.disk;
-in {
+{ config, lib, ... }: {
+
     #config = mkIf (cfg.filesystem == "btrfs") {
     boot = {
         supportedFilesystems = [ "btrfs" "vfat" ];
@@ -16,16 +13,19 @@ in {
 
         # Impermanent main tmpfs partition.
         # tmpfs if persistence is enabled.
-        #nodev."/" = mkIf cfg.persistence.enable {
-        nodev."/" = mkIf config.meta.disk.persistence.enable {
+        #nodev."/" = lib.mkIf cfg.persistence.enable {
+        nodev."/" = lib.mkIf config.meta.disk.persistence.enable {
 	        fsType = "tmpfs";
 	        mountOptions = [ "size=2G" "defaults" "mode=0755" ];
 	    };
 
         # Main disk
         disk.main = {
+
             #device = cfg.device;
-            device = config.meta.disk.device;
+            #device = "${config.meta.disk.device}";
+            device = "/dev/vda";
+
             type = "disk";
             content = {
                 type = "gpt";
@@ -45,7 +45,7 @@ in {
 		        };
 
                 # Main partition - non-encrypted Impermanence
-		        #data = mkIf cfg.persistence.enable {
+		        #data = lib.mkIf cfg.persistence.enable {
 		        #    size = "100%";
 			    #    content.type = "btrfs";
 			    #    content.subvolumes = {
@@ -69,8 +69,8 @@ in {
 		        #};
 
                 # Main partition - Impermanence + LUKS encrypted
-                #main = mkIf cfg.persistence.enable {
-                main = mkIf config.meta.disk.encryption.enable {
+                #main = lib.mkIf cfg.persistence.enable {
+                main = lib.mkIf config.meta.disk.encryption.enable {
                     size = "100%";
                     label = "luks";
                     content.type = "luks";
@@ -108,10 +108,10 @@ in {
                             #};
 
                             # Subvolumes
-                            "/" = {
-                                mountpoint = "/btr_pool";
-                                mountOptions = [ "subvolid=5" ];
-                            };
+                            #"/" = {
+                                #mountpoint = "/btr_pool";
+                                #mountOptions = [ "subvolid=5" ];
+                            #};
 
                             "/nix" = {
                                 mountpoint = "/nix";

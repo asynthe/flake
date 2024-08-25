@@ -8,8 +8,7 @@
 
 	    # Other
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-        nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-        disko.url = "github:nix-community/disko";
+        nixos-wsl.url = "github:nix-community/NixOS-WSL/main"; disko.url = "github:nix-community/disko";
         disko.inputs.nixpkgs.follows = "nixpkgs";
         impermanence.url = "github:nix-community/impermanence";
         lanzaboote.url = "github:nix-community/lanzaboote";
@@ -130,7 +129,7 @@
             raider = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit inputs outputs pkgs-stable; };
                 modules = [
-                    ./hosts/thinkpad
+                    ./hosts/raider
 	                sops-nix.nixosModules.sops
                     disko.nixosModules.disko
                     impermanence.nixosModules.impermanence

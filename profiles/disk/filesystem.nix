@@ -4,14 +4,21 @@ let
     cfg = config.meta.disk;
 in {
     options.meta.disk.filesystem = {
-        type = str;
-        default = "btrfs";
+        type = nullOr str;
+        default = null;
         description = "Filesystem to be used.";
     };
-
-    config = { };
 
     imports = [
         ./disko/btrfs.nix
     ];
+
+    config = {
+        assertions = [
+            {
+                assertion = cfg.filesystem == null;
+                message = "You must specify a filesystem for disko.";
+            }
+        ];
+    };
 }
