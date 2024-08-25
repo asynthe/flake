@@ -4,8 +4,7 @@
         # Main Inputs
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
         nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-        home-manager.url = "github:nix-community/home-manager";
-        home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
+        home-manager.url = "github:nix-community/home-manager"; home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
 
 	    # Other
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -127,25 +126,11 @@
                 #];
             #};
 
-	        # Server
-            server = nixpkgs-stable.lib.nixosSystem {
-                specialArgs = { inherit inputs outputs pkgs-stable; };
-                modules = [
-                    ./hosts/server
-	                sops-nix.nixosModules.sops
-                    disko.nixosModules.disko
-                    impermanence.nixosModules.impermanence
-                    lanzaboote.nixosModules.lanzaboote
-                    musnix.nixosModules.musnix # Just for testing, remove
-                ];
-            };
-
-            # Thinkpad
-            thinkpad = nixpkgs.lib.nixosSystem {
+            # Raider
+            raider = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit inputs outputs pkgs-stable; };
                 modules = [
                     ./hosts/thinkpad
-                    nixos-hardware.nixosModules.lenovo-thinkpad-t480
 	                sops-nix.nixosModules.sops
                     disko.nixosModules.disko
                     impermanence.nixosModules.impermanence
@@ -154,20 +139,50 @@
                 ];
             };
 
-            # WSL
-            wsl = nixpkgs.lib.nixosSystem {
-                specialArgs = { inherit inputs outputs pkgs-stable;
-                    user = "missingno";
-                };
-                modules = [
-                    ./hosts/wsl
-                    nixos-wsl.nixosModules.default
-                ];
-            };
+	        # Server
+            #server = nixpkgs-stable.lib.nixosSystem {
+                #specialArgs = { inherit inputs outputs pkgs-stable; };
+                #modules = [
+                    #./hosts/server
+	                #sops-nix.nixosModules.sops
+                    #disko.nixosModules.disko
+                    #impermanence.nixosModules.impermanence
+                    #lanzaboote.nixosModules.lanzaboote
+                #];
+            #};
+
+            # Thinkpad
+            #thinkpad = nixpkgs.lib.nixosSystem {
+                #specialArgs = { inherit inputs outputs pkgs-stable; };
+                #modules = [
+                    #./hosts/thinkpad
+                    #nixos-hardware.nixosModules.lenovo-thinkpad-t480
+	                #sops-nix.nixosModules.sops
+                    #disko.nixosModules.disko
+                    #impermanence.nixosModules.impermanence
+                    #lanzaboote.nixosModules.lanzaboote
+                    #musnix.nixosModules.musnix
+                #];
+            #};
 	    };
 
         # Home Manager configurations
         homeConfigurations = {
+
+            # meow
+            meow = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages.x86_64-linux; # Required by Home Manager.
+                extraSpecialArgs = { inherit inputs outputs pkgs-stable;
+	                user = "meow";
+                };
+                modules = [ 
+	                ./home/meow 
+	                nixvim.homeManagerModules.nixvim
+	                sops-nix.homeManagerModules.sops
+                    hyprland.homeManagerModules.default
+                    stylix.homeManagerModules.stylix
+	            ];
+            };
 
             # ben
             ben = home-manager.lib.homeManagerConfiguration {

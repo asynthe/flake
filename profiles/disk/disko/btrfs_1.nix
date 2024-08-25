@@ -1,17 +1,5 @@
 { config, lib, ... }: {
 
-    boot = {
-        supportedFilesystems = [ "btrfs" "vfat" ];
-        #resumeDevice = "/dev/disk/by-label/nixos";
-        initrd.luks.devices."encrypted".allowDiscards = true;
-    };
-
-    # MOVE TO IMPERMANENCE
-    security.sudo.extraConfig = ''
-      # rollback results in sudo lectures after each reboot
-      Defaults lecture = never
-    '';
-
     # -------------------------------------------------
     # IMPERMANENCE - disk.persistence.type = "snapshots";
 

@@ -24,10 +24,11 @@
         ./driver/nvidia.nix
 
         # -------------- Disk configuration --------------
-        #./disk/encryption.nix
-        ./disk/filesystem.nix
+        ./disk/device.nix
+        ./disk/encryption.nix
+        #./disk/filesystem.nix
         ./disk/persistence.nix
-        ./disk/ssd.nix
+        #./disk/ssd.nix
 
         # -------------- Gaming --------------
         ./gaming/controller.nix

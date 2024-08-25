@@ -11,14 +11,21 @@ in {
             description = "Enable persistence. (requires persistence type)";
         };
 
-        type = mkOption {
-            type = str;
-            default = "tmpfs";
-            description = "Type of persistence to be enabled.";
-        };
+        #type = mkOption {
+            #type = str;
+            #default = "tmpfs";
+            #description = "Type of persistence to be enabled.";
+        #};
     };
 
     config = mkIf cfg.enable {
+
+        #assertions = [
+            #{
+                #assertion = cfg.enable -> cfg.type;
+                #message = "meta.disk.persistence.enable requires meta.disk.persistence.type to be specified";
+            #}
+        #];
 
         security.sudo.extraConfig = ''
           # rollback results in sudo lectures after each reboot

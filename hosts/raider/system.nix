@@ -1,32 +1,30 @@
 {
-    networking.hostName = "thinkpad";
-    system.stateVersion = "23.11";
-    nixpkgs.config.allowUnfree = true;
-    time.timeZone = "Australia/Perth";
-
     /* Options to create
     meta.system.virtualization = [ "libvirt" "virtualbox" "vmware" ];
-
-    meta.system.persistent = true;
-    meta.system.diskconfig = "btrfs" # btrfs, zfs,
-
-    If persisten is set and btrfs is chosen,
-    persistence configuration is enabled on btrfs.
     */
+
+    # To move
+    # IS THIS SET UP ANYWHERE ???
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
+
+    networking.hostName = "raider";
+    system.stateVersion = "24.11";
+    nixpkgs.config.allowUnfree = true;
+    networking.networkmanager.enable = true;
+    i18n.defaultLocale = "en_US.UTF-8";
+    time.timeZone = "Australia/Perth";
 
     meta = {
         # -------------- System - Main --------------
-        system.user = "ben";
+        system.user = "meow";
         system.type = "laptop"; # laptop, server
         system.language = "both"; # english, japanese, both
         #system.keyboard = true;
-        #system.disk.device = "/dev/nvme0n1";
-        #system.disk.ssd = true;
-        #system.disk.configuration = true;
-        #system.disk.persistence = true;
-        #system.disk.swap = "16G";
         
-        # Set up by `meta.system.type`, options: laptop, server
+        # Set up by `meta.system.type`, but can be edited.
+        # options: laptop, server
+
         #system.nix.settings = "laptop";
         #system.networking.type = "laptop";
         #system.users = "laptop";
@@ -34,8 +32,8 @@
         # -------------- Boot --------------
         boot.banner = "simple_cat"; # simple_cat, hentai
         boot.bootloader = "systemd-boot";
-        boot.cleantmp = true;
-        boot.silent = false;
+        #boot.cleantmp = true;
+        #boot.silent = false;
         #boot.secure = false;
 
         # -------------- Driver --------------
@@ -44,10 +42,10 @@
         #driver.nvidia.cache = true;
 
         # -------------- Audio --------------
-        audio.bluetooth = true;
-        audio.musnix = false;
-        audio.pipewire.enable = true;
-        audio.pipewire.lowlatency = false;
+        #audio.bluetooth = true;
+        #audio.musnix = false;
+        #audio.pipewire.enable = true;
+        #audio.pipewire.lowlatency = false;
 
         # -------------- Gaming --------------
         #gaming.steam = true;
@@ -55,18 +53,18 @@
         #gaming.controller = true;
 
         # -------------- Services --------------
-        services.android.enable = true;
+        #services.android.enable = true;
         #services.docker.enable = true;
         #services.endlessh.enable = true;
         #services.flatpak.enable = true;
         #services.grafana.enable = true;
         #services.i2pd.enable = true;
         #services.locate.enable = true;
-        services.qbittorrent-nox.enable = true;
+        #services.qbittorrent-nox.enable = true;
         #services.sql.enable = true;
-        services.ssh.configuration = "laptop"; # laptop, server
-        services.ssh.enable = true;
-        services.sshfs.enable = true;
+        #services.ssh.enable = true;
+        #services.ssh.configuration = "laptop"; # laptop, server
+        #services.sshfs.enable = true;
         #services.syncthing.enable = true;
         #services.wine.enable = true;
         #services.xmr.enable = true;

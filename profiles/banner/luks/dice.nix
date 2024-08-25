@@ -1,4 +1,10 @@
-{
+{ config, lib, ... }: {
+#with lib;
+#let
+    #cfg = config.meta.disk.encryption;
+#in {
+    boot.initrd.luks.devices.encrypted.preLVM = true;
+    #boot.initrd.preLVMCommands = mkIf (cfg.message == "dice") ''
     boot.initrd.preLVMCommands = ''
 echo '    _______             '
 echo '  /\       \            '

@@ -1,7 +1,10 @@
 {
     imports = [
         ../../profiles # Import all the custom options.
-        ./hardware/libvirt-hardware.nix # Import hardware scan.
+
+        ./disk.nix # Import disk configuration.
+        ./hardware.nix # Import hardware scan.
+        ./system.nix # Import custom configuration.
 
 	    # Server
         ../../modules/srv/shell.nix
