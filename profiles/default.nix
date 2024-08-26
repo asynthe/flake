@@ -57,6 +57,7 @@
         ./system/keyboard.nix
         ./system/language.nix
         ./system/networking.nix
+        ./system/pkgs.nix
         ./system/user.nix
 
         # !!! Not yet optionized.

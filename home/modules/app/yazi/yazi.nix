@@ -37,7 +37,7 @@ function yy() {
                 tab_size = 2;
                 max_width = 600;
                 max_height = 900;
-		        cache_dir = "/home/ben/.cache";
+		        cache_dir = "/home/${config.home.username}/.cache";
                 #cache_dir = "${config.xdg.cacheHome}";
 	        };
 	    };

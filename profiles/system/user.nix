@@ -11,15 +11,35 @@ in {
 
     config = mkMerge [
 
+        # KEEP HERE FOR SOPS-FICATION
         # Laptop configuration
+       #(mkIf (cfg.users == "laptop") {
+       #    sops.secrets."password/thinkpad".neededForUsers = true;
+       #    users.mutableUsers = false; # Required for passwords set by sops.
+       #    users.users.${config.meta.system.user} = {
+       #        shell = pkgs.zsh;
+       #        isNormalUser = true;
+       #        description = "にゃ！";
+	   #        hashedPasswordFile = config.sops.secrets."password/thinkpad".path;
+       #        extraGroups = [ "audio" "networkmanager" "input" "wheel" ];
+       #    };
+       #    programs.zsh.enable = true;
+       #    security.sudo.extraConfig = ''
+       #      Defaults timestamp_timeout=120 # Ask for password every 2 hours.
+       #    '';
+       #})
+
         (mkIf (cfg.users == "laptop") {
-            sops.secrets."password/thinkpad".neededForUsers = true;
-            users.mutableUsers = false; # Required for passwords set by sops.
+
+            # SSH for nixos-anywhere
+            services.openssh.enable = mkForce true;
+            users.users.root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8tUQ59AvWkt0pTSMz2bf3O7emcO37IaA8vZCnXisk bendunstan@protonmail.com" ];     
+
             users.users.${config.meta.system.user} = {
                 shell = pkgs.zsh;
                 isNormalUser = true;
                 description = "にゃ！";
-	            hashedPasswordFile = config.sops.secrets."password/thinkpad".path;
+                initialPassword = "meows123";
                 extraGroups = [ "audio" "networkmanager" "input" "wheel" ];
             };
             programs.zsh.enable = true;
@@ -31,26 +51,19 @@ in {
         # Server configuration
         (mkIf (cfg.users == "server") {
 
-            # We obviously need a SSH server if we are connect to it.
+            # SSH for nixos-anywhere
             services.openssh.enable = mkForce true;
-            users.users = {
-	            root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8tUQ59AvWkt0pTSMz2bf3O7emcO37IaA8vZCnXisk bendunstan@protonmail.com" ];     
-                data = {
-	                description = "User that can modify data";
-                    initialPassword = "meows123";
-                    isNormalUser = true;
-	                extraGroups = [ "networkmanager" "wheel" "shared" ];
-                    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8tUQ59AvWkt0pTSMz2bf3O7emcO37IaA8vZCnXisk bendunstan@protonmail.com" ];
-	            };
-                ${config.meta.system.user} = {
-                    home = "/home/data";
-                    createHome = false;
-	                description = "User with access-only";
-                    isNormalUser = true;
-	                extraGroups = [ "networkmanager" "wheel" "shared" ];
-                    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8tUQ59AvWkt0pTSMz2bf3O7emcO37IaA8vZCnXisk bendunstan@protonmail.com" ];
-	            };
-            };
+            users.users.root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8tUQ59AvWkt0pTSMz2bf3O7emcO37IaA8vZCnXisk bendunstan@protonmail.com" ];
+
+            users.users.data = {
+	            description = "User that can modify data";
+                initialPassword = "meows123";
+                isNormalUser = true;
+	            extraGroups = [ "networkmanager" "wheel" "shared" ];
+
+                # Authorized SSH key.
+                openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY8tUQ59AvWkt0pTSMz2bf3O7emcO37IaA8vZCnXisk bendunstan@protonmail.com" ];
+	        };
         })
     ]; 
 }

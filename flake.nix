@@ -151,18 +151,18 @@
             #};
 
             # Thinkpad
-            #thinkpad = nixpkgs.lib.nixosSystem {
-                #specialArgs = { inherit inputs outputs pkgs-stable; };
-                #modules = [
-                    #./hosts/thinkpad
-                    #nixos-hardware.nixosModules.lenovo-thinkpad-t480
-	                #sops-nix.nixosModules.sops
-                    #disko.nixosModules.disko
-                    #impermanence.nixosModules.impermanence
-                    #lanzaboote.nixosModules.lanzaboote
-                    #musnix.nixosModules.musnix
-                #];
-            #};
+            thinkpad = nixpkgs.lib.nixosSystem {
+                specialArgs = { inherit inputs outputs pkgs-stable; };
+                modules = [
+                    ./hosts/thinkpad
+                    nixos-hardware.nixosModules.lenovo-thinkpad-t480
+	                sops-nix.nixosModules.sops
+                    disko.nixosModules.disko
+                    impermanence.nixosModules.impermanence
+                    lanzaboote.nixosModules.lanzaboote
+                    musnix.nixosModules.musnix
+                ];
+            };
 	    };
 
         # Home Manager configurations
@@ -173,21 +173,6 @@
                 pkgs = nixpkgs.legacyPackages.x86_64-linux; # Required by Home Manager.
                 extraSpecialArgs = { inherit inputs outputs pkgs-stable;
 	                user = "meow";
-                };
-                modules = [ 
-	                ./home/meow 
-	                nixvim.homeManagerModules.nixvim
-	                sops-nix.homeManagerModules.sops
-                    hyprland.homeManagerModules.default
-                    stylix.homeManagerModules.stylix
-	            ];
-            };
-
-            # ben
-            ben = home-manager.lib.homeManagerConfiguration {
-                pkgs = nixpkgs.legacyPackages.x86_64-linux; # Required by Home Manager.
-                extraSpecialArgs = { inherit inputs outputs pkgs-stable;
-	                user = "ben";
                 };
                 modules = [ 
 	                ./home/ben 

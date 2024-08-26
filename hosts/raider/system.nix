@@ -15,19 +15,18 @@
         system.user = "meow";
         system.type = "laptop"; # laptop, server
         system.language = "both"; # english, japanese, both
+        system.packages = "minimal"; # minimal, minimal_stable
         #system.keyboard = true;
         
-        # Set up by `meta.system.type`, but can be edited.
-        # options: laptop, server
-
+        # Next options are set up by `meta.system.type`, but can be edited.
         #system.nix.settings = "laptop";
         #system.networking.type = "laptop";
         #system.users = "laptop";
 
         # -------------- Boot --------------
         boot.bootloader = "systemd-boot";
-        boot.banner = "simple_cat"; # simple_cat, hentai
-        boot.generations = 3;
+        #boot.banner = "simple_cat"; # simple_cat, hentai
+        boot.generations = 4;
         #boot.cleantmp = true;
         #boot.silent = false;
         #boot.secure = false;

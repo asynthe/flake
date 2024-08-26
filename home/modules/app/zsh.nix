@@ -52,9 +52,9 @@
 	        rickroll = "${pkgs.curl}/bin/curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master.roll.sh | ${pkgs.bash}/bin/bash";
 
 	        # Nix
-	        #update = "nix flake update '${config.home.homeDirectory}/yuugen' && home-manager switch --flake '${config.home.homeDirectory}/yuugen#ben' && sudo nixos-rebuild switch --flake '${config.home.homeDirectory}/yuugen#thinkpad'";
+	        #update = "nix flake update '${config.home.homeDirectory}/yuugen' && home-manager switch --flake '${config.home.homeDirectory}/yuugen#meow' && sudo nixos-rebuild switch --flake '${config.home.homeDirectory}/yuugen#thinkpad'";
 	        #upgrade = "sudo nixos-rebuild switch --flake ${config.xdg.configHome}/yuugen#thinkpad"; 
-	        #upgrade-home = "home-manager switch --flake ${config.xdg.configHome}/yuugen#ben"; 
+	        #upgrade-home = "home-manager switch --flake ${config.xdg.configHome}/yuugen#meow"; 
 	        #gc = "sudo nix-collect-garbage -d";
 	        #gc-home = "nix-env --delete-generations 7d && nix-store --gc";
         };

@@ -1,39 +1,28 @@
 {
     networking.hostName = "thinkpad";
-    system.stateVersion = "23.11";
+    system.stateVersion = "24.11";
     nixpkgs.config.allowUnfree = true;
+    networking.networkmanager.enable = true;
+    i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "Australia/Perth";
-
-    /* Options to create
-    meta.system.virtualization = [ "libvirt" "virtualbox" "vmware" ];
-
-    meta.system.persistent = true;
-    meta.system.diskconfig = "btrfs" # btrfs, zfs,
-
-    If persisten is set and btrfs is chosen,
-    persistence configuration is enabled on btrfs.
-    */
 
     meta = {
         # -------------- System - Main --------------
         system.user = "ben";
         system.type = "laptop"; # laptop, server
         system.language = "both"; # english, japanese, both
+        system.packages = "minimal"; # minimal, minimal_stable
         #system.keyboard = true;
-        #system.disk.device = "/dev/nvme0n1";
-        #system.disk.ssd = true;
-        #system.disk.configuration = true;
-        #system.disk.persistence = true;
-        #system.disk.swap = "16G";
-        
+
         # Set up by `meta.system.type`, options: laptop, server
         #system.nix.settings = "laptop";
         #system.networking.type = "laptop";
         #system.users = "laptop";
 
         # -------------- Boot --------------
-        boot.banner = "simple_cat"; # simple_cat, hentai
         boot.bootloader = "systemd-boot";
+        boot.banner = "simple_cat"; # simple_cat, hentai
+        boot.generations = 4;
         boot.cleantmp = true;
         boot.silent = false;
         #boot.secure = false;

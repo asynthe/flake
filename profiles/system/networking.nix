@@ -21,6 +21,5 @@ in {
                 wifi.macAddress = "random"; # permanent, preserve, random, stable.
             };
         })
-
     ];
 }

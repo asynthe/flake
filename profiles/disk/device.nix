@@ -15,14 +15,10 @@ in {
     config = {
         assertions = [
             {
-                assertion = cfg.device == null;
+                assertion = cfg.device != null;
                 message = "You must specify a system device for disko.";
             }
         ];
-
         services.fstrim.enable = cfg.ssd;
-        environment.systemPackages = mkIf cfg.ssd [
-            pkgs.fio
-        ];
     };
 }

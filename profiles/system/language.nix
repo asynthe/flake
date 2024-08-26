@@ -5,7 +5,7 @@ let
 in {
     options.meta.system.language = mkOption {
         type = str;
-        default = config.meta.system.language;
+        default = "english";
     };
     config = let
         choices = {
