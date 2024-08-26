@@ -175,7 +175,7 @@
 	                user = "meow";
                 };
                 modules = [ 
-	                ./home/ben 
+	                ./home/meow 
 	                nixvim.homeManagerModules.nixvim
 	                sops-nix.homeManagerModules.sops
                     hyprland.homeManagerModules.default
