@@ -13,34 +13,41 @@ in {
         ];
 
         env = [
-            # NOT FROM THIS CONFIG
-            # Prioritise first card (which for me is the amd iGPU)
-            #"WLR_DRM_DEVICES,/dev/dri/card0"
-            #"LIBVA_DRIVER_NAME,nvidia"
-            #"__GLX_VENDOR_LIBRARY_NAME,nvidia"
 
+            # ENABLE WHEN NVIDIA IS CONFIGURED
+            # MAKES HYPRLAND WORK ON NVIDIA TEST
+            "LIBVA_DRIVER_NAME,nvidia"
+            "GBM_BACKEND,nvidia-drm"
+            "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+            #"WLR_NO_HARDWARE_CURSORS, 1" # Fix for cursor not appearing on nvidia drivers.
+
+            # XDG and Portal
             "XDG_SESSION_TYPE,wayland"
             "XDG_CURRENT_DESKTOP,Hyprland"
             "XDG_SESSION_DESKTOP,Hyprland"
 
-            "MOZ_ENABLE_WAYLAND, 1" # Firefox in Wayland.
+            # Vars for Electron
             "NIXOS_OZONE_WL, 1"
+            "MOZ_ENABLE_WAYLAND, 1" # Firefox in Wayland.
 
             # Cursor
-            "WLR_NO_HARDWARE_CURSORS, 1" # Fix for cursor not appearing when using nvidia drivers.
+            # CHECK IF PROBLEM EXISTS AND ENABLE cursor:no_hardware_cursors
             "HYPRCURSOR_SIZE,32"
             "XCURSOR_SIZE,32"
         ];
 
         monitor = [
 
+            # eDP-1
+            "${monitor1}, 3840x2400@120, 0x0, 2"
+
             # eDP-1 on the left
             #"${monitor1}, 1920x1080@60, 0x0, 1" # Last one is scaling, I use 1.20 sometimes.
             #"${monitor2}, 1920x1080@60, 1920x0, 1"
 
             # eDP-1 on the right
-            "${monitor1}, 1920x1080@60, 1920x0, 1"
-            "${monitor2}, 1920x1080@60, 0x0, 1"
+            #"${monitor1}, 1920x1080@60, 1920x0, 1"
+            #"${monitor2}, 1920x1080@60, 0x0, 1"
 
             # Disable eDP-1
             #"${monitor1}, disable"
@@ -51,7 +58,7 @@ in {
 
         workspace = [
             "special, border: 0"
-            "1,monitor:HDMI-A-2" # Make monitor take wksp 1 when connected
+            #"1,monitor:HDMI-A-2" # Make monitor take wksp 1 when connected
         ];
 
         device = {

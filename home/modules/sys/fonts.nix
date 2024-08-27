@@ -14,10 +14,10 @@
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
-            corefonts
+            #corefonts
             etBook # https://edwardtufte.github.io/et-book/
             font-awesome
-            nerdfonts
+            #nerdfonts
             office-code-pro
             source-sans-pro
 

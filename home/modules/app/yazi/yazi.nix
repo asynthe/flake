@@ -46,7 +46,7 @@ function yy() {
     home.packages = builtins.attrValues {
         inherit (pkgs)
 	    file
-	    nerdfonts
+	    #nerdfonts
 	    ffmpegthumbnailer
 	    unar
 	    jq

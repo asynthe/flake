@@ -33,32 +33,37 @@
 
         # -------------- Driver --------------
         #driver.displaylink = true;
-        #driver.nvidia.enable = true;
-        #driver.nvidia.cache = true;
+        driver.nvidia.enable = true;
+        driver.nvidia.cache = true;
+        #driver.nvidia.mode = "offload"; # offload, sync
+
+        #driver.nvidia.bus_id.intel_cpu = "PCI:1:0:0";
+        #driver.nvidia.bus_id.nvidia_gpu = "PCI:0:2:0";
+        #driver.nvidia.specialisation = true; # gaming mode and portable mode.
 
         # -------------- Audio --------------
-        #audio.bluetooth = true;
+        audio.bluetooth = true;
         #audio.musnix = false;
-        #audio.pipewire.enable = true;
+        audio.pipewire.enable = true;
         #audio.pipewire.lowlatency = false;
 
         # -------------- Gaming --------------
-        #gaming.steam = true;
-        #gaming.gamemode = true;
-        #gaming.controller = true;
+        gaming.steam = true;
+        gaming.gamemode = true;
+        gaming.controller = true;
 
         # -------------- Services --------------
-        #services.android.enable = true;
+        services.android.enable = true;
         #services.docker.enable = true;
         #services.endlessh.enable = true;
         #services.flatpak.enable = true;
         #services.grafana.enable = true;
         #services.i2pd.enable = true;
         #services.locate.enable = true;
-        #services.qbittorrent-nox.enable = true;
+        services.qbittorrent-nox.enable = true;
         #services.sql.enable = true;
-        #services.ssh.enable = true;
-        #services.ssh.configuration = "laptop"; # laptop, server
+        services.ssh.enable = true;
+        services.ssh.configuration = "laptop"; # laptop, server
         #services.sshfs.enable = true;
         #services.syncthing.enable = true;
         #services.wine.enable = true;

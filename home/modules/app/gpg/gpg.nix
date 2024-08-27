@@ -6,7 +6,7 @@
 
     programs.gpg = {
         enable = true;
-	    homedir = config.xdg.configHome;
+	    homedir = "${config.xdg.configHome}/gnupg";
     };
 
     home.packages = builtins.attrValues {

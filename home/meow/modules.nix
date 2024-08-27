@@ -2,7 +2,7 @@
     imports = [
 
         # Test
-        ../../secrets/secrets_home.nix
+        #../../secrets/secrets_home.nix
         ../modules/pkgs/pkgs_test.nix
 
 	    # Game -> Moved to option
@@ -30,7 +30,7 @@
         ../modules/pkgs/cli.nix
         ../modules/pkgs/gui.nix
         ../modules/pkgs/minimal.nix
-        ../modules/pkgs/sec.nix
+        #../modules/pkgs/sec.nix
 
         # Apps - Single Files
 	    ../modules/app/alacritty.nix

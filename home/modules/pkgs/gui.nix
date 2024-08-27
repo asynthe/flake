@@ -4,7 +4,7 @@
         inherit (pkgs)
 
             # Non-free
-            spotify
+            #spotify
 
 	        # Terminal
 	        kitty
