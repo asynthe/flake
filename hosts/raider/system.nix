@@ -34,12 +34,12 @@
         # -------------- Driver --------------
         #driver.displaylink = true;
         driver.nvidia.enable = true;
+        driver.nvidia.mode = "offload"; # offload, sync
         driver.nvidia.cache = true;
-        #driver.nvidia.mode = "offload"; # offload, sync
+        driver.nvidia.specialisation = true; # gaming mode and portable mode.
 
         #driver.nvidia.bus_id.intel_cpu = "PCI:1:0:0";
         #driver.nvidia.bus_id.nvidia_gpu = "PCI:0:2:0";
-        #driver.nvidia.specialisation = true; # gaming mode and portable mode.
 
         # -------------- Audio --------------
         audio.bluetooth = true;
@@ -68,6 +68,9 @@
         #services.syncthing.enable = true;
         #services.wine.enable = true;
         #services.xmr.enable = true;
+
+        # -------------- VPN --------------
+        vpn.mullvad.enable = true;
 
         # -------------- Services - Ports --------------
         #services.ssh.port = 2001;

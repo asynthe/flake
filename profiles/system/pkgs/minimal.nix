@@ -16,11 +16,11 @@ in {
                 killall
                 ncdu
                 neovim tmux
-                ntfs3g
                 testdisk testdisk-qt
                 tree
                 usbutils
                 wget curl
+                ntfs3g # Windows Support
             ;
         };
     };

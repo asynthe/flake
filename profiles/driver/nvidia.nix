@@ -5,17 +5,13 @@ let
 in {
     options.meta.driver.nvidia = {
         enable = mkEnableOption "Enable nvidia driver and configuration";
-        #specialisation = mkEnableOption "Enable specialisation modes";
-        cache = mkOption {
-            type = bool;
-            default = false;
-            description = "Enable cuda mantainers cachix repository.";
+        specialisation = mkEnableOption "Enable specialisation modes";
+        cache = mkEnableOption "Enable cuda mantainers cachix repository.";
+        mode = mkOption {
+            type = nullOr str;
+            default = null;
+            description = "Mode for Nvidia PRIME.";
         };
-        #mode = mkOption {
-            #type = nullOr str;
-            #default = null;
-            #description = "Mode for Nvidia PRIME.";
-        #};
         #bus_id = {
             #nvidia_gpu = mkOption {
                 #type = nullOr str;
@@ -32,15 +28,15 @@ in {
 
     config = mkIf cfg.enable {
 
-        #assertions = [
-        #    {
-        #        assertion = cfg.enable -> cfg.mode;
-        #        message = "Enabling nvidia drivers requires a mode to be enabled.";
-        #    }
-        #    {
-        #        assertion = cfg.mode != null;
-        #        message = "Please specify a mode (offload/sync) for PRIME.";
-        #    }
+        assertions = [
+            #{
+            #    assertion = cfg.enable -> cfg.mode;
+            #    message = "Enabling nvidia drivers requires a mode to be enabled.";
+            #}
+            {
+                assertion = cfg.mode != null;
+                message = "Please specify a mode (offload/sync) for PRIME.";
+            }
         #    {
         #        assertion = cfg.bus_id.nvidia_gpu != null;
         #        message = "Please specify the Bus ID of your Nvidia GPU.";
@@ -49,7 +45,7 @@ in {
         #        assertion = cfg.bus_id.intel_cpu != null;
         #        message = "Please specify the Bus ID of your Intel CPU.";
         #    }
-        #];
+        ];
 
         # Completely disable NVIDIA graphics and use integrated.
         #hardware.nvidiaOptimus.disable = true;
@@ -107,41 +103,41 @@ in {
         };
 
         # -------------- Prime - Offload Mode --------------
-        #hardware.nvidia.prime.offload = mkIf (cfg.mode == "offload") {
         #hardware.nvidia.prime.offload = {
-            #enable = true;
-            #enableOffloadCmd = true;
-        #};
+        hardware.nvidia.prime.offload = mkIf (cfg.mode == "offload") {
+            enable = true;
+            enableOffloadCmd = true;
+        };
 
         # -------------- Prime - Sync Mode --------------
-        hardware.nvidia.prime.sync.enable = true;
-        #hardware.nvidia.prime.sync.enable = mkIf (cfg.mode == "sync") true;
+        #hardware.nvidia.prime.sync.enable = true;
+        hardware.nvidia.prime.sync.enable = mkIf (cfg.mode == "sync") true;
         
         # -------------- Specialisation --------------
-        # specialisation = {
-        # 
-        #     # Portable - Offload
-        #     portable.configuration = {
-        #         hardware.nvidia.prime = {
-        #             sync.enable = mkForce false;
-        #             offload = {
-        #                 enable = mkForce true;
-        #                 enableOffloadCmd = mkForce true;
-        #             };
-        #         };
-        #     };
-        # 
-        #     # Gaming - Sync
-        #     gaming.configuration = {
-        #         hardware.nvidia.prime = {
-        #             sync.enable = mkForce true;
-        #             offload = {
-        #                 enable = mkForce false;
-        #                 enableOffloadCmd = mkForce false;
-        #             };
-        #         };
-        #     };
-        # };
+        specialisation = mkIf cfg.specialisation {
+        
+            # Portable - Offload
+            #portable.configuration = {
+            #    hardware.nvidia.prime = {
+            #        sync.enable = mkForce false;
+            #        offload = {
+            #            enable = mkForce true;
+            #            enableOffloadCmd = mkForce true;
+            #        };
+            #    };
+            #};
+        
+            # Gaming - Sync
+            gaming.configuration = {
+                hardware.nvidia.prime = {
+                    sync.enable = mkForce true;
+                    offload = {
+                        enable = mkForce false;
+                        enableOffloadCmd = mkForce false;
+                    };
+                };
+            };
+        };
 
         # -------------- Packages --------------
         #environment.systemPackages = builtins.attrValues {
