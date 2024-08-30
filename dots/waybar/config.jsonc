@@ -47,15 +47,16 @@
       "separate-outputs": true,
       "max-length": 50,
       "rewrite": {
-        "(.*) - zsh": "> [$1]",
-        "(.*) - Mozilla Firefox": "$1",
-        "(.*) — Librewolf": "$1",
-        "(.*) - YouTube — Librewolf": "$1",
-        "(.*) - Tor Browser": "$1",
-        "(.*) on QEMU/KVM": "$1",
         "(.*) - GNU Emacs at server": "$1",
         "(.*) - GNU Emacs at thinknya": "$1",
+        "(.*) - Mozilla Firefox": "$1",
         "(.*) - QGIS": "$1"
+        "(.*) - Tor Browser": "$1",
+        "(.*) - YouTube — Librewolf": "$1",
+        "(.*) - mpv": "$1"
+        "(.*) - zsh": "> [$1]",
+        "(.*) on QEMU/KVM": "$1",
+        "(.*) — Librewolf": "$1",
       	/* "/home/asynthe/jp/N3JP.pdf -> N3JP */
       }
   },

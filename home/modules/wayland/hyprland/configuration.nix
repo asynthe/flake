@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }: let
     monitor1 = "eDP-1";
-    monitor2 = "HDMI-A-2";
+    monitor2 = "HDMI-A-3";
 in {
     wayland.windowManager.hyprland.settings = {
         xwayland.force_zero_scaling = true; # Xwayland apps look like shit when scaled.
@@ -37,17 +37,20 @@ in {
         ];
 
         monitor = [
+            # Last variable is scaling, I use 1.20 sometimes.
 
             # eDP-1
-            "${monitor1}, 3840x2400@120, 0x0, 2"
+            #"${monitor1}, 3840x2400@120, 0x0, 2"
+            #"${monitor1}, 2560x1600@120, 0x0, 1.25"
 
             # eDP-1 on the left
-            #"${monitor1}, 1920x1080@60, 0x0, 1" # Last one is scaling, I use 1.20 sometimes.
+            #"${monitor1}, 1920x1080@60, 0x0, 1" 
             #"${monitor2}, 1920x1080@60, 1920x0, 1"
 
             # eDP-1 on the right
             #"${monitor1}, 1920x1080@60, 1920x0, 1"
-            #"${monitor2}, 1920x1080@60, 0x0, 1"
+            "${monitor1}, 2560x1600@120, 1920x0, 1.25"
+            "${monitor2}, 1920x1080@60, 0x0, 1"
 
             # Disable eDP-1
             #"${monitor1}, disable"
@@ -58,7 +61,7 @@ in {
 
         workspace = [
             "special, border: 0"
-            #"1,monitor:HDMI-A-2" # Make monitor take wksp 1 when connected
+            "1,monitor:HDMI-A-3" # Make monitor take wksp 1 when connected
         ];
 
         device = {

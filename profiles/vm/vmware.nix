@@ -10,13 +10,13 @@
     virtualisation.vmware = {
         host = {
             enable = true;
-	        package = pkgs.vmware-workstation;
+	        #package = pkgs.vmware-workstation;
             #extraPackages = with pkgs; [ ntfs3g ];
 	        #extraConfig = ;
 	    };
-	    #guest = {
-            #enable = true;
+	    guest = {
+            enable = true; # Guest additions
 	        #headless = true;
-	    #};
+	    };
     };
 }

@@ -1,4 +1,17 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
+
+    # Making emacs be on the same repo
+    # Will editing the config.org change the config.el
+
+    # Do we need init.el? How to implement if it can change
+    # Try with it and without it
+
+    home.file = {
+        ".config/emacs/config.org".source = config.lib.file.mkOutOfStoreSymlink ../../../../dots/emacs/config.org;
+        ".config/emacs/README.org".source = config.lib.file.mkOutOfStoreSymlink ../../../../dots/emacs/README.org; # ???
+
+        #".config/emacs/init.el".source = config.lib.file.mkOutOfStoreSymlink ../../../../dots/emacs/init.el;
+    };
 
     home.packages = builtins.attrValues {
         inherit (pkgs)

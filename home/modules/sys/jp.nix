@@ -2,7 +2,7 @@
 with lib;
 {
     programs.zsh.shellAliases = lib.mkIf config.programs.zsh.enable {
-        jp = "${pkgs.mpv}/bin/mpv --no-resume-playback https://iptv-org.github.io/iptv/countries/jp.m3u";
+        jp = "${pkgs.mpv}/bin/mpv --no-resume-playback https://iptv-org.github.io/iptv/countries/jp.m3u > /dev/null 2>&1 & disown";
     };
 
     # If using Hyprland.

@@ -63,33 +63,20 @@ in {
         # -------------- Nvidia --------------
         services.xserver.videoDrivers = [ "nvidia" ];
 
-        # RENAMED TO hardware.graphics.enable and hardware.graphics.enable32Bit``
-
         hardware.graphics = {
             enable = mkForce true;
             enable32Bit = mkForce true;
         };
 
-        #hardware.opengl = {
-            #enable = true; # vulkan
-            #driSupport = true; # vulkan + wine
-            #driSupport32Bit = true;
-            #setLdLibraryPath = true; # gaming extra
-            #extraPackages32 = with pkgs.pkgsi686Linux; [libva]; # gaming extra
-        #};
-
         hardware.nvidia = {
             modesetting.enable = true; # Required
             nvidiaSettings = true;
+            open = false; # Open source kernel module
+            #package = config.boot.kernelPackages.nvidiaPackages.beta; # stable, beta...
 
             # Nvidia power management
             #powerManagement.enable = true;
             #powerManagement.finegrained = false;
-
-            # Driver version (stable, beta, production [install 535], vulkan_beta, legacy_390, legacy_340)
-            #package = config.boot.kernelPackages.nvidiaPackages.beta; # ???
-
-            #open = true; # Open source kernel module, not nouveau.
         };
 
         # -------------- Prime --------------

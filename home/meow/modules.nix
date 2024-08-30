@@ -24,6 +24,7 @@
 	    ../modules/app/yazi
         ../modules/app/emacs
         ../modules/app/gpg
+        ../modules/app/zsh
 
         # Packages
         ../modules/pkgs/audio.nix
@@ -48,7 +49,6 @@
         ../modules/app/vis.nix
         ../modules/app/zathura.nix
         ../modules/app/zoxide.nix
-        ../modules/app/zsh.nix
 
 	    # System
         ../modules/sys/fonts.nix
