@@ -39,7 +39,7 @@ in {
         programs = {
             nh = mkIf (cfg.settings == "laptop") {
                 enable = true;
-	            flake = "/home/${config.meta.system.user}/sync/yuugen";
+	            flake = "/home/${config.meta.system.user}/sync/flake";
 	            clean = {
                     enable = true;
 	                extraArgs = "--keep-since 4d --keep 3";

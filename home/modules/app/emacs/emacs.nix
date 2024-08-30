@@ -10,7 +10,7 @@
         ".config/emacs/config.org".source = config.lib.file.mkOutOfStoreSymlink ../../../../dots/emacs/config.org;
         ".config/emacs/README.org".source = config.lib.file.mkOutOfStoreSymlink ../../../../dots/emacs/README.org; # ???
 
-        #".config/emacs/init.el".source = config.lib.file.mkOutOfStoreSymlink ../../../../dots/emacs/init.el;
+        ".config/emacs/init.el".source = config.lib.file.mkOutOfStoreSymlink ../../../../dots/emacs/init.el;
     };
 
     home.packages = builtins.attrValues {

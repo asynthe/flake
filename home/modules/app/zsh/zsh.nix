@@ -22,7 +22,6 @@
 	        #TERM = "xterm-256color"; # ?
 	        EDITOR = "nvim";
 	        FILE = "lf";
-            FLAKE = "/home/${user}/sync/yuugen";
     	};
     };
 

@@ -15,7 +15,6 @@
             killall
             lsof
             #neovim # If enabled, disable the dots import version.
-            nh # Nix helper
             rsync
             tree
             wget

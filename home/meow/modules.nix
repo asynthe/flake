@@ -38,6 +38,7 @@
 	    ../modules/app/bat.nix
 	    ../modules/app/direnv.nix
 	    ../modules/app/mpv.nix
+        ../modules/app/nh.nix
 	    ../modules/app/obs.nix
         #../modules/app/bash.nix # bash shell.
         ../modules/app/fbterm.nix
