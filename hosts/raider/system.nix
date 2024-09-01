@@ -75,6 +75,11 @@
         #services.wine.enable = true;
         #services.xmr.enable = true;
 
+        # -------------- VM --------------
+        vm.libvirt.enable = true;
+        #vm.virtualbox.enable = true;
+        vm.vmware.enable = true;
+
         # -------------- VPN --------------
         vpn.mullvad.enable = true;
 

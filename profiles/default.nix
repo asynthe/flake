@@ -60,15 +60,14 @@
         ./system/pkgs.nix
         ./system/user.nix
 
+        # -------------- Virtual Machines --------------
+        ./vm/libvirt.nix
+        ./vm/virtualbox.nix
+        ./vm/vmware.nix
+
         # -------------- VPN --------------
         ./vpn/mullvad.nix
         #./vpn/openvpn.nix
         #./vpn/wireguard.nix
-
-        # -------------- Virtual Machines --------------
-        # !!! Not yet optionized.
-        #./vm/libvirt.nix
-        #./vm/virtualbox.nix
-        #./vm/vmware.nix
     ];
 }

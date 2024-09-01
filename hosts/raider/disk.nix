@@ -15,7 +15,7 @@
 
         # -------------- Encryption (luks) --------------
         disk.encryption.enable = true;
-        disk.encryption.message = "dice"; # cat, dice...
+        disk.encryption.message = "cat"; # cat, dice
         #disk.encryption.device_name = "encrypted";
     };
 }

@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, lib, pkgs, ... }: {
 
     programs.zsh.sessionVariables = lib.mkIf config.programs.zsh.enable { 
         BROWSER = "librewolf"; 
@@ -20,5 +20,12 @@
             "media.peerconnection.ice.no_host" = false; # WebRTC.
             "media.eme.enabled" = true; # DRM.
         };
+    };
+
+    home.packages = builtins.attrValues {
+        inherit (pkgs)
+            # Decompress bookmarks backup files
+            dejsonlz4
+        ;
     };
 }

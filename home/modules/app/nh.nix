@@ -7,6 +7,6 @@
         ;
     };
     programs.zsh.sessionVariables = lib.mkIf config.programs.zsh.enable {
-        FLAKE = "${config.home.homeDirectory}/flake";
+        FLAKE = "${config.home.homeDirectory}/sync/flake";
     };
 }
