@@ -66,6 +66,24 @@ in {
         hardware.graphics = {
             enable = mkForce true;
             enable32Bit = mkForce true;
+
+            # Accelerated Video Playback
+            extraPackages = with pkgs; [
+                nvidia-vaapi-driver
+                libvdpau-va-gl # VDPAU driver with OpenGL/VAAPI backend
+                libva
+
+                # Intel? ADD?
+                intel-media-driver # VA-API for Intel iHD Broadwell (2014) or newer
+                intel-vaapi-driver # VA-API for Intel i965 Broadwell (2014), better for Firefox?
+                vaapiVdpau # VDPAU driver for the VAAPI library
+            ];
+            # For 32-bit, lol. I don't think I'll ever need it.
+            #extraPackages32 = with pkgs.pkgsi686Linux; [
+                #intel-vaapi-driver
+                #vaapiVdpau
+                #libvdpau-va-gl
+            #];
         };
 
         hardware.nvidia = {
@@ -103,17 +121,6 @@ in {
         # -------------- Specialisation --------------
         specialisation = mkIf cfg.specialisation {
         
-            # Portable - Offload
-            #portable.configuration = {
-            #    hardware.nvidia.prime = {
-            #        sync.enable = mkForce false;
-            #        offload = {
-            #            enable = mkForce true;
-            #            enableOffloadCmd = mkForce true;
-            #        };
-            #    };
-            #};
-        
             # Gaming - Sync
             gaming.configuration = {
                 hardware.nvidia.prime = {
@@ -127,21 +134,23 @@ in {
         };
 
         # -------------- Packages --------------
-        #environment.systemPackages = builtins.attrValues {
-        #    inherit (pkgs)
-        #        glibc
-        #        glxinfo # Check if running on gpu.
-        #        zenith-nvidia
-        #        nvtop-nvidia
-        #        vulkan-tools
-        #        #virtualgl
-        #        #nvidia-offload
-        #        #linuxKernel.packages.linux_6_2.bbswitch
-        #        #libva
-        #        #libva-utils
-        #        #libdrm
-        #        #mesa #mesa-demos
-        #    ;
-        #};
+        environment.systemPackages = builtins.attrValues {
+            inherit (pkgs)
+                intel-gpu-tools
+                glxinfo # glxgears
+                #glibc
+                #glxinfo # Check if running on gpu.
+                #zenith-nvidia
+                #nvtop-nvidia
+                #vulkan-tools
+                #virtualgl
+                #nvidia-offload
+                #linuxKernel.packages.linux_6_2.bbswitch
+                #libva
+                #libva-utils
+                #libdrm
+                #mesa #mesa-demos
+            ;
+        };
     };
 }

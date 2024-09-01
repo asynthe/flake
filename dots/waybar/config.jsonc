@@ -56,7 +56,8 @@
         "(.*) - mpv": "$1",
         "(.*) - zsh": "> [$1]",
         "(.*) on QEMU/KVM": "$1",
-        "(.*) — Librewolf": "$1"
+        "(.*) — Librewolf": "$1",
+        "Yazi: (.*)": "$1"
       	/* "/home/asynthe/jp/N3JP.pdf -> N3JP */
       }
   },

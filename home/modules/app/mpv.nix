@@ -14,6 +14,13 @@
 	        visualizer
 	    ];
 	    config = {
+            
+            # Accelerated Video Playback
+            hwdec = "auto-safe";
+            #vo = "gpu";
+            #profile = "gpu-hq";
+            gpu-context = "wayland";
+
 	        volume-max = "100";
 	        save-position-on-quit = true;
 	        hls-bitrate = "max";
@@ -27,8 +34,6 @@
     	    #"extension.flac" = "";
     	    #"extension.mkv" = "";
     	    #"extension.gif" = "";
-
-	        #profile = "gpu-hq";
     	};
     	profiles = {
 	        norm = {
