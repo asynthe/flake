@@ -4,9 +4,12 @@
         # Main Inputs
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
         nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-        home-manager.url = "github:nix-community/home-manager"; home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
+        home-manager.url = "github:nix-community/home-manager";
+	home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
+	nix-darwin.url = "github:/lnl7/nix-darwin/master";
+	nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-	    # Other
+	# Other
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
         nixos-wsl.url = "github:nix-community/NixOS-WSL/main"; disko.url = "github:nix-community/disko";
         disko.inputs.nixpkgs.follows = "nixpkgs";
@@ -36,12 +39,12 @@
         # Main
         self,
         nixpkgs,
-	    nixpkgs-stable,
+	nixpkgs-stable,
         home-manager,
 
         # Other
+	nix-darwin,
         nixos-hardware,
-        nixos-wsl,
         disko,
         impermanence,
         lanzaboote,
@@ -98,33 +101,6 @@
         # NixOS configurations
         nixosConfigurations = {
 
-            # Burst
-            #burst = nixpkgs.lib.nixosSystem {
-                #specialArgs = { inherit inputs outputs pkgs-stable; };
-                #modules = [
-                    #./hosts/burst
-                    #nixos-hardware.nixosModules.lenovo-thinkpad-t480 -> FIND
-	                #sops-nix.nixosModules.sops
-                    #disko.nixosModules.disko
-                    #impermanence.nixosModules.impermanence
-                    #lanzaboote.nixosModules.lanzaboote
-                    #musnix.nixosModules.musnix
-                #];
-            #};
-
-            # Sakura - Raspberry Pi 5 (?)
-            #sakura = nixpkgs.lib.nixosSystem {
-                #specialArgs = { inherit inputs outputs pkgs-stable; };
-                #modules = [
-                    #./hosts/sakura
-	                #sops-nix.nixosModules.sops
-                    #disko.nixosModules.disko
-                    #impermanence.nixosModules.impermanence
-                    #lanzaboote.nixosModules.lanzaboote
-                    #musnix.nixosModules.musnix
-                #];
-            #};
-
             # Raider
             raider = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit inputs outputs pkgs-stable; };
@@ -163,7 +139,29 @@
                     musnix.nixosModules.musnix
                 ];
             };
+	};
+
+	# Nix Darwin configurations
+	darwinConfigurations = {
+
+	    # macbook + Home Manager
+	    macbook = nix-darwin.lib.darwinSystem {
+	        system = "aarch64-darwin";
+		specialArgs = { inherit inputs outputs pkgs-stable; };
+		modules =
+		let
+		    nixpkgsConfig = { config.allowUnfree = true; };
+		in [
+		    ./hosts/macbook
+		    inputs.home-manager.darwinModules.home-manager {
+		        nixpkgs = nixpkgsConfig;
+		        home-manager.useGlobalPkgs = true;
+		        home-manager.useUserPackages = true;
+		        home-manager.users.benjamindunstan = import ./hosts/macbook/home.nix
+		    };
+		];
 	    };
+	};
 
         # Home Manager configurations
         homeConfigurations = {
