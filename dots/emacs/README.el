@@ -1,104 +1,9 @@
-#+title: Asynthe's Emacs Config
-#+author: Benjamin Dunstan
-#+startup: overview
-#+property: header-args :tangle README.el
-#+auto_tangle: t
-
-Welcome to my custom Emacs configuration!
-
-[Cool Emacs logo with cat]
-
-* Table of Contents :toc:
-- [[#info][Info]]
-  - [[#keybinds][Keybinds]]
-- [[#main][Main]]
-  - [[#system][System]]
-  - [[#configuration][Configuration]]
-  - [[#ui][UI]]
-  - [[#font][Font]]
-  - [[#font-ligatures][Font Ligatures]]
-  - [[#auctex][AucTeX]]
-  - [[#buffer][Buffer]]
-  - [[#irc][IRC]]
-- [[#org][Org]]
-  - [[#configuration-1][Configuration]]
-  - [[#code-blocks][Code Blocks]]
-  - [[#roam][Roam]]
-  - [[#agenda][Agenda]]
-  - [[#journal][Journal]]
-  - [[#pomodoro][Pomodoro]]
-  - [[#latex-preview][Latex Preview]]
-  - [[#packages][Packages]]
-- [[#keybinds-1][Keybinds]]
-  - [[#main-1][Main]]
-  - [[#org-1][Org]]
-  - [[#temporarily-removed][Temporarily Removed]]
-- [[#packages-1][Packages]]
-  - [[#system-1][System]]
-  - [[#ui-1][UI]]
-  - [[#extra][Extra]]
-- [[#extra---configuration][Extra - Configuration]]
-  - [[#change-default-browser-for-urls][Change default browser for URLs]]
-  - [[#open-a-file-instead-of-scratch-buffer][Open a file instead of /Scratch/ buffer]]
-  - [[#ui---render-modeline-just-in-active-window][UI - Render Modeline just in active window]]
-  - [[#disable-yesno-when-cancelling-note-on-org-capture][Disable Yes/No when Cancelling Note on Org Capture]]
-  - [[#disable-follow-git-controlled-symbolic-link][Disable follow Git-controlled symbolic link]]
-- [[#delete--add-in-future][Delete / Add in Future]]
-  - [[#backups][Backups]]
-  - [[#eaf-emacs-application-framework][EAF (Emacs Application Framework)]]
-  - [[#ement][Ement]]
-  - [[#good-scroll][Good Scroll]]
-  - [[#keycast][Keycast]]
-  - [[#marginalia][Marginalia]]
-  - [[#org-gtd][ORG GTD]]
-  - [[#removed][Removed]]
-  - [[#vertico][Vertico]]
-  - [[#websocket-exists][websocket [EXISTS?]]]
-
-* Info
-
-My Emacs config.
-
-*EMACS TERMINOLOGY*
-|------------+----------------|
-| usual term | emacs term     |
-|------------+----------------|
-| open file  | buffer         |
-| window     | window / frame |
-|------------+----------------|
-
-** Keybinds
-
-#+CAPTION: My list of keybindings
-|----------+---------+--------------|
-| Keybinds | Command | What it does |
-|----------+---------+--------------|
-| SPC w c  |         |              |
-| ...      |         |              |
-| IN       | PRO     | GRESS        |
-| ...      |         |              |
-|----------+---------+--------------|
-
-* Main
-** System
-*** Native Compilation
-
-Silence compiler warnings as they can be pretty disruptive
-#+begin_src emacs-lisp
 (if (boundp 'comp-deferred-compilation)
     (setq comp-deferred-compilation nil)
     (setq native-comp-deferred-compilation nil))
-#+end_src
 
-In noninteractive sessions, prioritize non-byte-compiled source files to prevent the use of stale byte-code. Otherwise, it saves us a little IO time to skip the mtime checks on every *.elc file.
-
-#+begin_src emacs-lisp
 (setq load-prefer-newer noninteractive)
-#+end_src
 
-*** Garbage Collection
-
-#+begin_src emacs-lisp
 ;; Using garbage magic hack.
 ;;(use-package gcmh
   ;;:config
@@ -116,36 +21,13 @@ In noninteractive sessions, prioritize non-byte-compiled source files to prevent
                              ;;(time-subtract after-init-time before-init-time)))
                      ;;gcs-done)))
 
-#+end_src
-
-Silence compiler warnings as they can be pretty disruptive
-#+begin_src emacs-lisp
 ;;(setq comp-async-report-warnings-errors nil)
-#+end_src
 
-*** Runtime Performance
-
-#+begin_src emacs-lisp
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))
-#+end_src
 
-*** Auto-refresh buffer if buffer changes
-
-- [[https://stackoverflow.com/questions/1480572/how-to-have-emacs-auto-refresh-all-buffers-when-files-have-changed-on-disk][How to have Emacs auto-refresh all buffers when files have changed on disk? - StackOverflow]]
-
-#+begin_src emacs-lisp
 (global-auto-revert-mode t)
-#+end_src
 
-*** Package Manager / Sources
-
-Get working with the MELPA and ELPA repositories.
-
-+ [[https://menno.io/posts/use-package/][Better Emacs Config: use-package - menno i/o]]
-+ [[https://ianyepan.github.io/posts/setting-up-use-package/][A Quick Tutorial on Use-package for Emacs - Ian Y.E. Pan]]
-
-#+begin_src emacs-lisp
 ;; Initialize package sources
 (require 'package)
 
@@ -163,34 +45,13 @@ Get working with the MELPA and ELPA repositories.
 
 (require 'use-package)
 (setq use-package-always-ensure t)
-#+end_src
 
-** Configuration
-*** Daemon
-
-_note_: Doesn't work on Wayland.
-
-#+begin_src emacs-lisp
 ;;(server-start)
-#+end_src
 
-*** General
+(use-package general
+  :config
+  (general-evil-setup t))
 
-#+begin_src emacs-lisp
-  (use-package general
-    :config
-    (general-evil-setup t))
-#+end_src
-
-*** Evil Mode / Evil Collection
-
-It's vim, on emacs!
-
-+ [[https://github.com/noctuid/evil-guide][Evil Guide - github page]]
-+ [[https://github.com/emacs-evil/evil][Evil Mode - github page]]
-+ [[https://github.com/emacs-evil/evil-collection][Evil Collection - github page]] (Enables having the evil keybindings everywhere.)
-
-#+begin_src emacs-lisp
 (use-package evil
   :init
   (setq evil-want-integration t) ;; This is optional, set on by default
@@ -208,42 +69,21 @@ It's vim, on emacs!
 
 ;; Override pdf-tools mode
 ;;(evil-make-overriding-map pdf-view-mode-map 'normal)
-#+end_src
 
-*** Evil Surround
-
-+ [[https://github.com/emacs-evil/evil-surround][github page]]
-
-#+begin_src emacs-lisp
 (use-package evil-surround
   :config
   (global-evil-surround-mode 1))
-#+end_src
 
-*** Code - Language Support
-
-#+begin_src emacs-lisp
 (use-package haskell-mode)
 (use-package json-mode)
 (use-package lua-mode)
 (use-package markdown-mode)
 (use-package nix-mode
   :mode "\\.nix\\'")
-#+end_src
 
-*** Mouse Focus
-
-> [[https://stackoverflow.com/questions/1139124/emacs-mouse-focus-stuck-in-one-frame#1144476][Emacs mouse focus stuck in one frame - StackOverflow]]
-
-#+begin_src emacs-lisp
 (setq focus-follows-mouse t)
 (setq mouse-autoselect-window t)
-#+end_src
 
-** UI
-*** Minimalist Menu
-
-#+begin_src emacs-lisp
 (setq inhibit-startup-message t)
 
 (scroll-bar-mode -1)     ; Disable visible scrollbar
@@ -272,11 +112,6 @@ It's vim, on emacs!
 (setq make-backup-files nil)
 ;; (setq backup-directory-alist '((".*" . "~/.config/emacs/backup"))) ; Backups on a specific folder
 
-#+end_src
-
-*** Tabline
-
-#+begin_src emacs-lisp
 (global-tab-line-mode -1)
 ;;(setq tab-line-new-button-show nil) ;; do not show add-new button
 ;;(setq tab-line-close-button-show nil) ;; do not show close button
@@ -299,21 +134,11 @@ It's vim, on emacs!
       ;;:background "gray60" :foreground "black" :box nil)
 ;;(set-face-attribute 'tab-line-highlight nil ;; mouseover
       ;;:background "white" :foreground 'unspecified)
-#+end_src
 
-*** Modeline
-
-#+begin_src emacs-lisp
 (set-face-attribute 'mode-line-inactive nil
 		          :underline t
 			  :background (face-background 'default))
-#+end_src
 
-*** Line Numbering and Truncated Lines
-
-Disable line numbering in /Org/ or /Markdown/.
-
-#+begin_src emacs-lisp
 ;; Line numbers and truncated lines
 
 ;;(global-display-line-numbers-mode t)
@@ -329,14 +154,7 @@ Disable line numbering in /Org/ or /Markdown/.
 		shell-mode-hook
 		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
-#+end_src
 
-*** Transparency
-
-> [[https://kristofferbalintona.me/posts/202206071000/][True Emacs Transparency - Kristoffer Balintona]]
-_note_: Works on X windows with a compositor like [[id:a2042b5e-f0a2-4213-a8c8-2fd9cd9636d8][picom]], but in Wayland case, you will need pure GTK emacs.
-
-#+begin_src emacs-lisp
 (set-frame-parameter nil 'alpha-background 100) ; For current frame
 (add-to-list 'default-frame-alist '(alpha-background .100)) ; For all new frames henceforth
 
@@ -350,23 +168,7 @@ _note_: Works on X windows with a compositor like [[id:a2042b5e-f0a2-4213-a8c8-2
     ;;(pcase (frame-parameter nil 'alpha-background)
       ;;(alpha-transparency (set-frame-parameter nil 'alpha-background 100))
       ;;(t (set-frame-parameter nil 'alpha-background alpha-transparency)))))
-#+end_src
 
-*BACKGROUND*
-
-Is not possible at a glance, but it seems there's a /frame.c/ as mentioned in this stack question, in any case, i don't have enough time to check it. Here is the [[https://stackoverflow.com/questions/2010158/setting-an-emacs-background-image][link]].
-
-*** Scrolling
-
-Some natural scrolling, please.
-
-*PIXEL SCROLLING*
-There are two modes, /pixel-scroll-mode/ and /pixel-scroll-precision-mode/.
-/pixel-scroll-mode/ is not working well for me so i'll go for the second.
-
-Emacs seems to normally do a half-page scroll whenever you go down the buffer, this can be counter-intuitive.
-
-#+begin_src emacs-lisp
 (setq scroll-conservatively 101) ;; Value greater than 100 gets rid of half page jumping
 (setq scroll-step 1) ;; Keyboard scroll one line at a time
 
@@ -381,36 +183,18 @@ Emacs seems to normally do a half-page scroll whenever you go down the buffer, t
 (setq pixel-scroll-precision-use-momentum t) ;; Keep the momentum (notice on touchpad)
 (setq pixel-scroll-precision-large-scroll-height 40.0) ;; Scroll with mouse as smooth as touchpad
 ;; If it doesn't work, decrease by 5 until it works.
-#+end_src
 
-*** Zoom In/Out
-
-Zoom in/out like we do everywhere else.
-
-#+begin_src emacs-lisp
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 ;;(global-set-key (kbd "C-0") '(lambda () (interactive) (text-scale-adjust 0))) ;; return to default
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
-#+end_src
 
-*** Theme - Doom Themes
-
-#+begin_src emacs-lisp
 (use-package doom-themes)
 (load-theme 'doom-meltbus t)
 (setq doom-themes-enable-bold t)        ; if nil, bold is disabled
 (setq doom-themes-enable-italic t)      ; if nil, italics is disabled
-#+end_src
 
-** Font
-
-iosevka
-/iosevka/
-*iosevka*
-
-#+begin_src emacs-lisp
 (set-face-attribute 'default nil
 	  :font "JetBrainsMono Nerd Font 12"
 	  :weight 'regular)
@@ -434,13 +218,7 @@ iosevka
 
 ;; Needed if using emacs client. Otherwise, your fonts will be smaller than expected.
 (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font 12"))
-#+end_src
 
-** Font Ligatures
-
-+ [ligatures.el github link]
-
-#+begin_src emacs-lisp
 (use-package ligature
   :config
   (ligature-set-ligatures 'prog-mode '("<---" "<--"  "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<---->" "<!--"
@@ -452,37 +230,20 @@ iosevka
                                        "<~~" "<~" "~>" "~~>" "::" ":::" "==" "!=" "===" "!=="
                                        ":=" ":-" ":+" "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++" "+++"))
   (global-ligature-mode t))
-#+end_src
 
-** AucTeX
-
-This previews latex on latex files.
-
-#+begin_src emacs-lisp
 (use-package auctex
   :hook
   (LaTeX-mode . turn-on-prettify-symbols-mode)
   (LaTeX-mode . turn-on-flyspell))
 
 (require 'latex)
-#+end_src
 
-*** Tectonic backend
-
-#+begin_src emacs-lisp
 (setq TeX-engine-alist '((default
                           "Tectonic"
                           "tectonic -X compile -f plain %T"
                           "tectonic -X watch"
                           nil)))
-#+end_src
 
-** Buffer
-*** Rename file from Inside Buffer
-
-Change the file name from inside the same buffer.
-
-#+begin_src emacs-lisp
 ;; Changing a file name from the buffer
 (defun rename-current-buffer-file ()
   "Renames current buffer and the file it is visiting."
@@ -501,25 +262,14 @@ Change the file name from inside the same buffer.
 	     (set-buffer-modified-p nil)
 	     (message "File '%s' successfully renamed to '%s'"
 		      name (file-name-nondirectory new-name)))))))
-#+end_src
 
-*** Kill All Other Buffers
-
-Kill all other buffers except the current one.
-
-#+begin_src emacs-lisp
 (defun kill-other-buffers ()
   "Kill all other buffers."
   (interactive)
   (mapc 'kill-buffer
 	(delq (current-buffer)
 	      (remove-if-not 'buffer-file-name (buffer-list)))))
-#+end_src
-*** Maximize Buffer Window
 
-Maximize buffer to take the entire window.
-
-#+begin_src emacs-lisp
 (defun toggle-maximize-buffer ()
   "Toggle maximize buffer"
   (interactive)
@@ -530,11 +280,7 @@ Maximize buffer to take the entire window.
     (setq my-saved-window-configuration (current-window-configuration)
           my-saved-point (point))
     (delete-other-windows)))
-#+end_src
 
-** IRC
-
-#+begin_src emacs-lisp
 (setq erc-prompt (lambda () (concat "[" (buffer-name) "]"))
       erc-server "irc.libera.chat"
       erc-nick "meowtoo"
@@ -547,24 +293,7 @@ Maximize buffer to take the entire window.
       erc-fill-static-center 20
       ;; erc-auto-query 'bury
       )
-#+end_src
 
-* Org
-** Configuration
-
-+ [[https://stackoverflow.com/questions/64665754/is-there-a-way-to-hide-all-but-the-last-header-asterisk-in-emacs-org-mode][Is there a way to hide all but the last header asterisk in emacs org-mode? - StackOverflow]]
-
-If you want to mark a work of sentence with bold, you can do it with
-C-c C-x C-f * -> Mark as bold
-C-c C-x C-f / -> Mark as /italic/
-C-c C-x C-f _ -> Mark as _underline_
-C-c C-x C-f ~ -> Mark as code
-C-c C-x C-f = -> Mark as verbatim
-
-If you have a text which has the * character or /, and it bolds or italicizes where you don't want to.
-Use (= / =) -> delete the spaces,
-
-#+begin_src emacs-lisp
 ;; Directory and others
 (setq org-directory "~/sync/notes"
       org-id-track-globally t
@@ -629,11 +358,7 @@ Use (= / =) -> delete the spaces,
 ;; Start with display images
 (setq org-startup-with-inline-images t)
 (setq org-image-actual-width nil) ;; Set width as nil, enable attrs to edit width
-#+end_src
 
-*** Org Headers Size
-
-#+begin_src emacs-lisp
 ;; Headings Size
 ;(custom-set-faces
 ; '(org-level-1 ((t (:inherit outline-1 :height 1.0))))
@@ -661,45 +386,9 @@ Use (= / =) -> delete the spaces,
 ;;                 org-level-2
 ;;                 org-level-3))
 ;;(set-face-attribute face nil :height 1.0)))
-#+end_src
 
-*** Text Indentation
-
-+ [[https://emacs.stackexchange.com/questions/70228/why-does-org-mode-not-indent-content-under-headings-when-i-press-tab][Why does org-mode not indent content under headings when I press tab? - StackExchange]]
-  
-Org's indentation behaviour is controlled by the org-adapt-indentation variable. It can be set to three states:
-
-/t/: Adapt indentation for all lines
-/headline-data/: Adapt indentation for headline data lines
-/nil/: Do not adapt indentation at all
-
-If you want org-mode to indent heading content, do (setq org-adapt-indentation t).
-
-#+begin_src emacs-lisp
 (setq org-adapt-identation nil)
-#+end_src
 
-*** Don't follow/open org buffers in split window
-
-For this we need *org-link-frame-setup* to use _find-file_ instead of _find-file-other-window_
-
-To do this:
-- Open customize-variable, *M-x customize variable RET*
-- Go into *org-link-frame-setup RET*
-- Click Value Menu next to *find-file-other-window* and select *find-file*
-- Click *Apply and Save*.
-
-_note_: disable evil mode *(M-x turn-off-evil-mode RET*) if the menu doesn't appear.
-
-** Code Blocks
-
-> [[https://orgmode.org/worg/org-contrib/babel/languages/index.html][List of supported languages]]
-  
-Some of them: *awk, c, c++, emacs-lisp, elisp (preferred emacs-lisp for this config), haskell, java, python, latex, lisp, lua, shell, R, ruby, sass, scheme, sqlite...*
-
-*** Background color of Code Blocks
-
-#+begin_src emacs-lisp
 ;;(require 'color)
 ;;(set-face-attribute 'org-block nil :background
 ;;                    (color-darken-name
@@ -732,36 +421,17 @@ Some of them: *awk, c, c++, emacs-lisp, elisp (preferred emacs-lisp for this con
              ;; '(org-block-end-line
              ;;   ((t (:overline "#A7A6AA" :foreground "#008ED1" :background"EAEAFF" :extend t))))
              ;; )
-#+end_src
 
-*** Don't fold Code Blocks in Org mode
-
-#+begin_src emacs-lisp
 (setq org-hide-block-startup nil)
-#+end_src
 
-*** Block Tag (org-tempo)
+(use-package org-tempo
+  :ensure nil) ;; tell use-package not to try to install org-tempo since it's already there.
 
-This will allow us to create the code block just by typing ~<s~ then pressing ~TAB~.
+(setq org-src-fontify-natively t
+      org-src-tab-acts-natively t
+      org-confirm-babel-evaluate nil
+      org-edit-src-content-indentation 0)
 
- #+begin_src emacs-lisp
- (use-package org-tempo
-   :ensure nil) ;; tell use-package not to try to install org-tempo since it's already there.
- #+end_src
-
-*** Syntax Highlighting
- #+begin_src emacs-lisp
- (setq org-src-fontify-natively t
-       org-src-tab-acts-natively t
-       org-confirm-babel-evaluate nil
-       org-edit-src-content-indentation 0)
- #+end_src
-
-** Roam
-
-Remember to check for EmacSQL SQLite binary with *org-roam--sqlite-available-p*
-
-#+begin_src emacs-lisp
 (use-package org-roam
   :init
   (setq org-roam-v2-ack t)
@@ -797,61 +467,8 @@ Remember to check for EmacSQL SQLite binary with *org-roam--sqlite-available-p*
              :if-new
              (file+head "personal/notes/%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
              :unnarrowed t))))
-#+end_src
 
-,#+begin_src emacs-lisp
-             '(("a" "app" plain
-             (file "~/sync/notes/personal/templates/app.org")
-             :if-new
-             (file+head "not_ready/app/%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-             :unnarrowed t)
-
-	       
-            ("e" "blog" plain
-             (file "~/sync/notes/personal/templates/blog.org")
-             :if-new
-             (file+head "not_ready/blog/%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-             :unnarrowed t)
-
-
-            ("g" "guide" plain
-             (file "~/sync/notes/personal/templates/guide.org")
-             :if-new
-             (file+head "not_ready/guide/%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-             :unnarrowed t)
-
-
-            ("s" "study" plain
-             (file "~/sync/notes/personal/templates/study.org")
-             :if-new
-             (file+head "not_ready/study/%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-             :unnarrowed t)
-
-	        ;; PERSONAL
-
-            ("b" "book" plain
-             (file "~/sync/notes/personal/templates/booknote.org")
-             :if-new
-             (file+head "personal/book/%<%Y>-${slug}.org" "#+title: ${title}\n")
-             :unnarrowed t)
-
-	    
-            ("n" "note" plain
-             (file "~/sync/notes/personal/templates/note.org")
-             :if-new
-             (file+head "personal/notes/%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-             :unnarrowed t)
-
-	    
-            ("m" "media" plain
-             (file "~/sync/notes/personal/media.org")
-            :if-new
-            (file+head "personal/media/%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-            :unnarrowed t))))
-,#+end_src
-
-#+begin_src emacs-lisp
-            ;;("p" "project" plain "* Goals\n\n%?\n\n* ;;Tasks\n\n** TODO Add initial tasks\n\n* Dates\n\n"
+;;("p" "project" plain "* Goals\n\n%?\n\n* ;;Tasks\n\n** TODO Add initial tasks\n\n* Dates\n\n"
              ;;:if-new
              ;;(file+head "irl/project/%<%Y%m%d>-${slug}.org" "#+title: ${title}\n#+filetags: Project")
              ;;:unnarrowed t)
@@ -876,18 +493,7 @@ Remember to check for EmacSQL SQLite binary with *org-roam--sqlite-available-p*
 ;; Navigation in roam buffer
 ;;(define-key org-roam-mode-map [mouse-1] #'org-roam-visit-thing)
 (define-key org-roam-mode-map [mouse-1] #'org-roam-preview-visit)
-#+end_src
 
-*** Graph (org-roam-ui)
-
-- [[https://github.com/org-roam/org-roam-ui][github page]]
-
-A graphical frontend for exploring your org-roam Zettelkasten.
-Requires:
-- websocket
-- simple-httpd
-
-#+begin_src emacs-lisp
 (use-package org-roam-ui
   :config
   (setq org-roam-ui-sync-theme t
@@ -897,52 +503,7 @@ Requires:
 
 ;;(setq org-roam-graph-viewer nil) ;; use view-file by default
 ;;(setq org-roam-graph-viewer #'eww-open-file) ;; open the graph in eww.
-#+end_src
 
-** Agenda
-
-;;#+begin_src emacs-lisp
-(setq org-agenda-files '("~/sync/notes/1_personal/daily")
-      ;;org-agenda-include-diary t
-      org-agenda-block-separator 8411
-      org-agenda-start-on-weekday nil
-      org-agenda-start-day "-3d"
-      org-agenda-span 15
-      org-agenda-custom-commands
-      '(("v" "A better agenda view"
-	 ((tags "PRIORITY=\"A\""
-		((org-agenda-skip-function
-		  '(org-agenda-skip-entry-if 'todo 'done))
-		 (org-agenda-overriding-header "High-priority unfinished tasks:")))
-	  (tags "PRIORITY=\"C\""
-		((org-agenda-skip-function
-		  '(org-agenda-skip-entry-if 'todo 'done))
-		 (org-agenda-overriding-header
-		  "Medium-priority unfinished tasks:")))
-	  (tags "PRIORITY=\"D\""
-		((org-agenda-skip-function
-		  '(org-agenda-skip-entry-if 'todo 'done))
-		 (org-agenda-overriding-header "Low-priority
-unfinished tasks:")))
-	  (agenda "")
-	  (alltodo "")))))
-
-;; ORG-AGENDA from ORG-ROAM NOTES
-(defun my/org-roam-filter-by-tag (tag-name)
-  (lambda (node)
-    (member tag-name (org-roam-node-tags node))))
-
-(defun my/org-roam-list-notes-by-tag (tag-name)
-  (mapcar #'org-roam-node-file
-	  (seq-filter
-	   (lambda (node)
-	     (member tag-name (org-roam-node-tages node)
-		     (my/org-roam-filter-by-tag tag-name))))))
-;;#+end_src
-
-** Journal
-
-#+begin_src emacs-lisp
 (use-package org-journal
          :config
         (setq org-journal-dir "~/sync/notes/personal/journal"
@@ -950,116 +511,30 @@ unfinished tasks:")))
               org-journal-date-prefix "#+title: "
               org-journal-date-format "%a, %d-%m-%Y"
               org-journal-time-prefix "* "))
- #+end_src
 
-** Pomodoro
-
-[[https://en.wikipedia.org/wiki/Pomodoro_Technique][Pomodoro Technique - wikipedia page]]
-
-Run a timer with ~M-x org-pomodoro RET~
-
-#+begin_src emacs-lisp
 (use-package org-pomodoro)
-#+end_src
 
-** Latex Preview
-
-\begin{equation}                        % arbitrary environments,
-x=\sqrt{b}                              % even tables, figures
-\end{equation}                          % etc
-
-If $a^2=b$ and \( b=2 \), then the solution must be
-either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
-
-You can use *C-h v org-format-latex-options RET* to understand what can be changed in this variable.
-
-#+begin_src emacs-lisp
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
-#+end_src
 
-*** Automatic Fragment Preview (org-fragtog)
-
-+ [[https://github.com/io12/org-fragtog][org-fragtog - github page]]
-
-#+begin_src emacs-lisp
 (use-package org-fragtog)
 (add-hook 'org-mode-hook 'org-fragtog-mode)
-#+end_src
 
-** Packages
-*** Auto-tangle (org-auto-tangle)
-
-Enable it by specifying the ~#+auto_tangle: t~ property in org files.
-
-#+begin_src emacs-lisp
 (use-package org-auto-tangle
   :defer t
   :hook (org-mode . org-auto-tangle-mode))
-#+end_src
 
-*** Table of Contents (toc-org)
-
-Generate table of contents by using the *toc* package, then just add to the beggining of your file.
-
-*Table of Contents :toc:*
-
-It will be automatically updated while you save your file, so no worries.
-
-#+begin_src emacs-lisp
 (use-package toc-org
   :commands toc-org-enable
   :init (add-hook 'org-mode-hook 'toc-org-enable))
-#+end_src
 
-*** Org Superstar
-
-#+begin_src emacs-lisp
 (use-package org-superstar)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-#+end_src
 
-*** Org -> reveal.js (ox-reveal)
-
-+ [[https://github.com/hexmode/ox-reveal][ox-reveal - github page]]
-
-The original org-reveal has been abandoned, that why ox-reveal it's used instead.
-
-#+begin_src emacs-lisp
 (use-package ox-reveal)
-#+end_src
 
-*** Export to Manpage (ox-man)
-
-#+begin_src emacs-lisp
 (use-package ox-man
   :ensure nil)
-#+end_src
 
-* Keybinds
-** Main
-*** Main / Evil
-
-*Table of Keyboard Binds* (SPC)
-|---------+-----------------------------+---------------------------------|
-| Bind    | Command                     | Use                             |
-|---------+-----------------------------+---------------------------------|
-| SPC .   | counsel-find-file           | Change into another file.       |
-| SPC ,   | perps-counsel-switch-buffer | Switch buffer. (with preview)   |
-| SPC /   | persp-switch                | Change workspace. (perspective) |
-|         |                             |                                 |
-| SPC q q | kill-emacs                  | Exit emacs without saving.      |
-| SPC q s | save-buffers-kill-emacs     | Exit emacs saving all buffers.  |
-|---------+-----------------------------+---------------------------------|
-
-*Table of Keyboard Binds*
-|------+-----------------+----------------------------|
-| Bind | Command         | Use                        |
-|------+-----------------+----------------------------|
-| M-[  | previous-buffer | Change to previous buffer. |
-| M-]  | next-buffer     | Change to next buffer.     |
-|------+-----------------+----------------------------|
-
-#+begin_src emacs-lisp
 (nvmap :states '(normal) :keymaps 'override :prefix "SPC"
 
        ;; Perspective Binds (Find-file / Switch-buffer)
@@ -1074,24 +549,12 @@ The original org-reveal has been abandoned, that why ox-reveal it's used instead
        ;; Helpful
        "h v" '(counsel-describe-variable :which-key "Describe variable")
        "d f" '(describe-font :which-key "Describe font"))
-#+end_src
 
-Disable Space, Enter and Tab for use in other Keybinds such as the *General* ones.
-
-#+begin_src emacs-lisp
 (with-eval-after-load 'evil-maps
   (define-key evil-motion-state-map (kbd "SPC") nil)
   (define-key evil-motion-state-map (kbd "RET") nil))
   ;;(define-key evil-motion-state-map (kbd "TAB") nil))
 
-#+end_src
-
-Use TAB to fold block without having to go to header.
-
-+ [[https://stackoverflow.com/questions/8607656/emacs-org-mode-how-to-fold-block-without-going-to-block-header][Emacs Org-Mode: how to fold block without going to block header? - StackOverflow]]
-+ [[https://emacs.stackexchange.com/questions/28222/how-to-make-tab-work-in-org-mode-when-combined-with-evil-mode][How to make <tab> work in org mode when combined with evil mode? - StackExchange]]
-
-#+begin_src emacs-lisp
 ;; Keybinding for Evil Mode
 (evil-define-key 'normal org-mode-map (kbd "<tab>") #'zin/org-cycle-current-headline)
 
@@ -1104,14 +567,7 @@ Use TAB to fold block without having to go to header.
 (defun zin/org-cycle-current-headline ()
   (interactive)
   (org-cycle-internal-local))
-#+end_src
 
-*** WM Keybinds
-
-WM-like buffer management
-I use the super key and the vi row to move around windows.
-
-#+begin_src emacs-lisp
 ;; easy window swap
 (global-set-key (kbd "s-n") 'window-swap-states)
 
@@ -1139,14 +595,7 @@ I use the super key and the vi row to move around windows.
 
 ;; other
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-#+end_src
 
-*** Buffers and Files
-
-Moving through buffers and multitasking like a productivity machine.
-
-Change buffers with Alt + [ and ]
-#+begin_src emacs-lisp
 (global-set-key (kbd "M-[") 'previous-buffer)
 (global-set-key (kbd "M-]") 'next-buffer)
 
@@ -1164,9 +613,7 @@ Change buffers with Alt + [ and ]
       ;; With n / p
       "b n" '(next-buffer :which-key "Next buffer")
       "b p" '(previous-buffer :which-key "Previous buffer"))
-#+end_src
 
-#+begin_src emacs-lisp
 (nvmap :states '(normal visual) :keymaps 'override :prefix "SPC"
        "f f" '(find-file :which-key "Find file")
        "f r" '(rename-current-buffer-file :which-key "Rename current buffer filename")
@@ -1180,14 +627,7 @@ Change buffers with Alt + [ and ]
        "f R" '(rename-file :which-key "Rename file")
        "f S" '(write-file :which-key "Save file as...")
        "f U" '(sudo-edit :which-key "Sudo edit file"))
-#+end_src
 
-*** Shortcuts to files
-
-*Example of a shortcut with sudo*
-"1" '((lambda () (interactive (find-file "/su::/etc/nixos/configuration.nix"))) :which-key "Nix system configuration")
-
-#+begin_src emacs-lisp
 (nvmap :states '(normal) :keymaps 'override :prefix "SPC"
 
   ;;"c c" '(compile :which-key "Compile")
@@ -1211,13 +651,7 @@ Change buffers with Alt + [ and ]
 
   "c b" '((lambda () (interactive (find-file "~/.config/bash/README.org"))) :which-key "Bash configuration")
   "c z" '((lambda () (interactive (find-file "~/.config/zsh/README.org"))) :which-key "Zsh configuration"))
-#+end_src
 
-*** Splits and Windows
-
-Cool stuff, hacker mode.
-
-#+begin_src emacs-lisp
 (winner-mode 1)
 (nvmap :prefix "SPC"
        ;; Window splits
@@ -1234,28 +668,16 @@ Cool stuff, hacker mode.
        ;; winner mode
        "w <left>"  '(winner-undo :which-key "Winner undo")
        "w <right>" '(winner-redo :which-key "Winner redo"))
-#+end_src
 
-*** Workspaces (Perspective)
-
-Change Perspective
-#+begin_src emacs-lisp
 (global-set-key (kbd "s-{") 'persp-prev)
 (global-set-key (kbd "s-}") 'persp-next)
-#+end_src
 
-
-#+begin_src emacs-lisp
 (nvmap :states '(normal) :keymaps 'override :prefix "SPC"
        "p k" '(persp-kill :which-key "Kill workspace")
        "p r" '(persp-rename :which-key "Rename workspace")
        "p a" '(persp-add-buffer :which-key "Move a buffer to current workspace, no switching")
        "p m" '(persp-set-buffer :which-key "Move buffer to workspace and remove from all others"))
-#+end_src
 
-*** Apps
-
-#+begin_src emacs-lisp
 (nvmap :states '(normal) :keymaps 'override :prefix "SPC"
 
     ;; Open - Apps
@@ -1270,19 +692,7 @@ Change Perspective
     ;; Start log buffer
     "l s" '(global-command-log-mode :which-key "Turn on command log mode")
     "l b" '(clm/toggle-command-log-buffer :which-key "Open the command log buffer")
-#+end_src
 
-** Org
-
-[INSERT TABLE WITH KEYBINDINGS HERE]
-
-For the scroll lock (SPC t s), use C-l to put cursor on top, center or bottom.
-
-*** Keybinds
-
-+ [[https://stackoverflow.com/questions/17156595/in-emacs-org-mode-how-to-narrow-display-to-two-subtrees-in-two-separate-files][In Emacs org-mode, how to narrow display to two subtrees in two separate files? - StackOverflow]]
-
-#+begin_src emacs-lisp
 (nvmap :states '(normal) :keymaps 'override :prefix "SPC"
 
        ;; Org agenda
@@ -1337,56 +747,17 @@ For the scroll lock (SPC t s), use C-l to put cursor on top, center or bottom.
        "t t" '(org-narrow-to-subtree :which-key "Narrow to subtree.")
        "t b" '(org-narrow-to-block :which-key "Narrow to source block / block of text.")
        "t l" '(org-narrow-to-element :which-key "Narrow to line."))
-#+end_src
 
-** Temporarily Removed
-*** Random
-
-"m *" '(org-ctrl-c-star :which-key "Org-ctrl-c-star")
-"m +" '(org-ctrl-c-minus :which-key "Org-ctrl-c-minus")
-"m ." '(counsel-org-goto :which-key "Counsel org goto")
-"m e" '(org-export-dispatch :which-key "Org export dispatch")
-"m f" '(org-footnote-new :which-key "Org footnote new")
-"m n" '(org-store-link :which-key "Org store link")
-"m t" '(org-todo :which-key "Org todo")
-"m T" '(org-todo-list :which-key "Org todo list")
-"o a" '(org-agenda :which-key "Org agenda")
-
-"n r d" dailies file
-"n r z" agenda cal-fw?
-"n r x" tasks file
-
-"d i" '(org-toggle-item :which-key "Org toggle item")
-"d i" '(org-display-inline-images :which-key "Display images") ; How does this work?       
-"t h" '(org-toggle-heading :which-key "Org toggle heading")
-"t l" '(org-latex-preview :which-key "Toggle LaTeX fragment preview")
-
-*** PDF Tools
-
-#+begin_src emacs-lisp
 (nvmap :states '(normal) :keymaps 'override :prefix "SPC"
        "p i" '(pdf-view-midnight-minor-mode :which-key "Invert PDF colors"))
-#+end_src
- 
-*** Toggle
 
-#+begin_src emacs-lisp
 ;;(nvmap :states '(normal) :keymaps 'override :prefix "SPC"
        ;; T - toggle
        ;;"t c" '(centered-cursor-mode :which-key "Toggle centered cursor mode")
        ;;"t C" '(global-centered-cursor-mode :which-key "Toggle centered cursor mode on all buffers"))
        ;;"t s" '(scroll-lock-mode :which-key "Scroll lock mode") ;; Disabled for centered-cursor-mode
        ;;"t t" '(toggle-window-transparency :which-key "Toggle transparency")
-#+end_src
 
-* Packages
-** System
-*** Perspective (Workspaces)
-
-+ [[https://github.com/nex3/perspective-el][github page]]
-+ [[https://youtu.be/uyMdDzjQFMU][Declutter Your Buffer Lists in Emacs with Perspective.el - System Crafters]]
-
-#+begin_src emacs-lisp
 (use-package perspective
   :bind
   ("C-x C-b" . persp-list-buffers)
@@ -1395,34 +766,10 @@ For the scroll lock (SPC t s), use C-l to put cursor on top, center or bottom.
   (persp-state-default-file "~/.config/emacs/persp-save")
   :init
   (persp-mode))
-#+end_src
 
-Save the session to disk.
-
-You can save it with: *M-x persp-state-save*
-You can load with: *M-x persp-state-load*
-
-#+begin_src emacs-lisp
 (add-hook 'kill-emacs-hook #'persp-state-save)
-#+end_src
 
-:bind (("C-x k" . persp-kill-buffer*))
-
-_Note_: The default prefix for ~prespective.el~ bindings is ~C-x x~.
-
-The "main" perspective
-
-Listing buffers in the perspective
-persp-ivy-switch-buffer
-persp-counsel-switch-buffer
-persp-ibuffer
-
-works by default on vertico
-
-*** Counsel
-
-#+begin_src emacs-lisp
-    (use-package counsel
+(use-package counsel
       :bind (( "M-x" . counsel-M-x)
 	( "C-x b" . counsel-ibuffer)
 	( "C-x C-f" . counsel-find-file)
@@ -1430,11 +777,7 @@ works by default on vertico
 	( "C-r" . 'counsel-minibuffer-history)))
   ;;    :config
 (setq ivy-initial-inputs-alist nil) ;; Don't start searches with ^
-#+end_src
 
-*** Ivy
-
-#+begin_src emacs-lisp
 (ivy-mode)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
@@ -1477,30 +820,11 @@ works by default on vertico
 ;;(global-set-key (kbd "C-x l") 'counsel-locate)
 ;;(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 ;;(define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
-#+end_src
 
-*** Ivy-Rich
-
-with *Counsel-m-X*, get descriptions of what commands do.
-
-#+begin_src emacs-lisp
 (use-package ivy-rich
   :init
   (ivy-rich-mode 1))
-#+end_src
 
-*** Smex
-
-#+begin_src
-(use-package smex)
-(smex-initialize)
-#+end_src
-
-*** Dired
-
-This is the file manager.
-
-#+begin_src emacs-lisp
 (use-package all-the-icons-dired)
 (use-package dired-open)
 (use-package peep-dired)
@@ -1529,15 +853,7 @@ This is the file manager.
                               ("png" . "nsxiv")
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
-#+end_src
 
-*** Which Key
-
-"/Show me da commands./"
-
-[[https://github.com/justbur/emacs-which-key][github page]]
-
-#+begin_src emacs-lisp
 (use-package which-key
   :init (which-key-mode)
   :diminish which-key-mode
@@ -1554,38 +870,14 @@ This is the file manager.
         which-key-max-description-length 25
         which-key-allow-imprecise-window-fit t
         which-key-separator " → " ))
-#+end_src
 
-*** Valign
-
-Visual alignment for Org Mode, Markdown and table.el tables.
-
-+ [[https://github.com/casouri/valign][github page]]
-
-#+begin_src emacs-lisp
 (use-package valign)
 ;;(add-hook 'org-mode-hook #'valign-mode)
-#+end_src
 
-*** PROJECTILE (FIX)
-
-[[https://projectile.mx/][main page]]
-[[https://github.com/bbatsov/projectile][github page]]
-
-(define-key projectile-mode-map (kbd "C-x p" 'projectile-command-map)
-(projectile-mode +1))
-
-#+begin_src emacs-lisp
 (use-package projectile
   :config
   (projectile-global-mode 1))
-#+end_src
 
-*** Super-Save
-
-+ [[https://github.com/bbatsov/super-save][github page]]
-
-#+begin_src emacs-lisp
 (unless (package-installed-p 'super-save)
   (package-refresh-contents)
   (package-install 'super-save))
@@ -1593,59 +885,25 @@ Visual alignment for Org Mode, Markdown and table.el tables.
 (super-save-mode +1)
 (setq super-save-auto-save-when-idle t)
 (setq auto-save-default nil)
-#+end_src
 
-*** Helpful
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
 
-A better help buffer.
-
-[[https://github.com/Wilfred/helpful][github page]]
-
-#+begin_src emacs-lisp
-  (use-package helpful
-    :custom
-    (counsel-describe-function-function #'helpful-callable)
-    (counsel-describe-variable-function #'helpful-variable)
-    :bind
-    ([remap describe-function] . counsel-describe-function)
-    ([remap describe-command] . helpful-command)
-    ([remap describe-variable] . counsel-describe-variable)
-    ([remap describe-key] . helpful-key))
-#+end_src
-
-** UI
-*** Command Log Mode
-
-#+begin_src emacs-lisp
 (use-package command-log-mode)
-#+end_src
 
-*** All-The-Icons
+(use-package all-the-icons)
 
- remember to install them with /M-x all-the-icons-install/
-
- #+begin_src emacs-lisp
- (use-package all-the-icons)
- #+end_src
-
-*** Beacon - Cursor Blink
-
-+ [[https://github.com/Malabarba/beacon][github page]]
-
-#+begin_src emacs-lisp
 (use-package beacon
   :config
   (beacon-mode 1))
-#+end_src
 
-*** Doom Modeline
-
-> [[https://github.com/seagle0128/doom-modeline][github page - doom-modeline]]
-> [[https://github.com/hlissner/emacs-hide-mode-line][github page - hide-mode-line]]
- 
-The bar where you see on the bottom of the window.
-
-#+begin_src emacs-lisp
 (use-package doom-modeline)
 (doom-modeline-mode 1)
 ;; + BATTERY
@@ -1657,45 +915,16 @@ The bar where you see on the bottom of the window.
 ;; some hooks for stuff in which we don't want use modeline in
 ;;(add-hook 'completion-list-mode-hook #'hide-mode-line-mode)
 (add-hook 'neotree-mode-hook #'hide-mode-line-mode)
-#+end_src
 
-*** Emojify (display emojis)
-
-🙊🙈🙉
-
-#+begin_src emacs-lisp
 (use-package emojify
 :hook (after-init . global-emojify-mode))
-#+end_src
 
-*** Centered Cursor Mode
-
-+ [[https://github.com/andre-r/centered-cursor-mode.el][github page]]
-
-#+begin_src emacs-lisp
 (use-package centered-cursor-mode)
 (rassq-delete-all 'centered-cursor-mode auto-mode-alist) ;; Disables mode on all buffers unless started manually.
 
 ;; Keep the cursor centered to avoid sudden scroll jumps
 ;;(require 'centered-cursor-mode)
-#+end_src
 
-;; disable in terminal modes
-;; http://stackoverflow.com/a/6849467/519736
-;; also disable in Info mode, because it breaks going back with the backspace key
-;;(define-global-minor-mode my-global-centered-cursor-mode centered-cursor-mode
-;; (lambda ()
-;;    (when (not (memq major-mode
-;;                     (list 'Info-mode 'term-mode 'eshell-mode 'shell-mode 'erc-mode)))
-;;      (centered-cursor-mode))))
-;;(my-global-centered-cursor-mode 1)
-
-*** Neotree
-
-+ [[https://github.com/jaypei/emacs-neotree][github page]]
-+ [[https://www.emacswiki.org/emacs/NeoTree][emacswiki]]
-
-#+begin_src emacs-lisp
 (use-package neotree)
 (global-set-key [f8] 'neotree-toggle)
 
@@ -1703,11 +932,7 @@ The bar where you see on the bottom of the window.
 (setq neo-smart-open t) ;; Find current file and jump to node
 ;; TEST
 ;; (setq projectile-switch-project-action 'neotree-projectile-action)
-#+end_src
 
-*** calfw
-
-#+begin_src emacs-lisp
 ;;(use-package calfw-cal)
 ;;(use-package calfw-org)
 
@@ -1720,55 +945,18 @@ The bar where you see on the bottom of the window.
     ;;(cfw:org-create-file-source "Agenda" "~/sync/notes/org"
     ;;(cfw:org-create-file-source "Events" "~/sync/notes/org"
     ;;)))
-#+end_src
 
-*** Writeroom Mode
-
-Minor mode for emacs that implements distraction-free writing.
-
-#+begin_src emacs-lisp
 (use-package writeroom-mode)
-#+end_src
 
-*** password-store
-
-+ [[https://github.com/NicolasPetton/pass][github page]]
-_note_: Emacs implementation of [[id:4f81a52e-4000-4b93-9abc-e30d7920759c][pass]].
-
-#+begin_src emacs-lisp
 (use-package pass)
-#+end_src
 
-** Extra
-*** simple-httpd
-
-This will enable us to create a local web server, accesible with *http://localhost:8080*, we can also access the other files on the *content/* folder like this: *http://localhost:8080/<filename>.html*
-
-#+begin_src emacs-lisp
 (use-package simple-httpd)
-#+end_src
 
-* Extra - Configuration
-** Change default browser for URLs
-
-#+begin_src emacs-lisp
 (setq browse-url-browser-function 'browse-url-generic
           browse-url-generic-program "librewolf")
-#+end_src
 
-** Open a file instead of /Scratch/ buffer
-
-> [[https://superuser.com/questions/400457/how-to-automatically-open-a-file-when-emacs-start][How to automatically open a file when Emacs start? - StackExchange]]
-
-#+begin_src emacs-lisp
 (find-file "~/sync/notes/main.org")
-#+end_src
 
-** UI - Render Modeline just in active window
-
-This is more of a workaround, as we are just setting up the _inactive_ buffers modeline to black.
-
-#+begin_src emacs-lisp
 (set-face-attribute 'mode-line-inactive nil
 		        ;;:underline t
 			;;:background (face-background 'default)
@@ -1776,13 +964,7 @@ This is more of a workaround, as we are just setting up the _inactive_ buffers m
 			:foreground "black")
 
 ;;hide-mode-line-mode -1
-#+end_src
 
-** Disable Yes/No when Cancelling Note on Org Capture
-
-Function to disable "yes or no" confirmation when cancelling an org-capture note.
-
-#+begin_src emacs-lisp
 (defun my/return-t (orig-fun &rest args)
     t)
 (defun my/disable-yornp (orig-fun &rest args)
@@ -1793,23 +975,10 @@ Function to disable "yes or no" confirmation when cancelling an org-capture note
     (advice-remove 'y-or-n-p #'my/return-t)
     res))
 (advice-add 'org-roam-capture--finalize :around #'my/disable-yornp)
-#+end_src
 
-** Disable follow Git-controlled symbolic link
-
-> [[https://emacs.stackexchange.com/questions/3673/how-to-make-vc-and-magit-treat-a-symbolic-link-to-a-real-file-in-git-repo-just?rq=1][How to make vc-* and magit treat a symbolic link to a real file in git repo just like the original file? - StackExchange]]
-
-When opening a file that is a symbolic link, don't ask whether I want to follow the link. Just do it.
-
-#+begin_src emacs-lisp
 (setq find-file-visit-truename t)
 ;(setq vc-follow-symlinks t) ; What does this do?
-#+end_src
 
-* Delete / Add in Future
-** Backups
-
-#+begin_src emacs-lisp
 ;; Make all backups be in the same directory.
 ;;(setq backup-directory-alist '(("." . "~/.saves")))
 
@@ -1825,11 +994,7 @@ When opening a file that is a symbolic link, don't ask whether I want to follow 
 
 ;; Enable this if you don't want backup files
 ;;(setq make-backup-files nil)
-#+end_src
 
-** EAF (Emacs Application Framework)
-
-#+begin_src emacs-lisp
 ;;(use-package eaf
   ;;:load-path ;;"~/.emacs.d/site-lisp/emacs-application-framework"
   ;;:custom
@@ -1846,92 +1011,24 @@ When opening a file that is a symbolic link, don't ask whether I want to follow 
 
 ;;(require 'eaf-browser)
 ;;(require 'eaf-pdf-viewer)
-#+end_src
 
-** Ement
-
-- [[https://github.com/alphapapa/ement.el][github page]]
-- [[https://github.com/matrix-org/pantalaimon/][pantalaimon github page]]
-** Good Scroll
-
-NOT SET UP FOR NOW
-
-[[https://github.com/emacsmirror/good-scroll][github page]]
-
-#+begin_src emacs-lisp
 ;;(good-scroll-mode 1)
 ;;(global-set-key [next] #'good-scroll-up)
 ;;(global-set-key [prior] #'good-scroll-down)
-#+end_src
 
-** Keycast
-** Marginalia
-** ORG GTD
+(use-package org-gtd
+  :after org
+  :init
+  (setq org-gtd-update-ack "3.0.0"))
 
-[[https://www.youtube.com/watch?v=YNqFZ4VBppA][Introducing Org GTD v3 - Loki Consulting (youtube video)]]
-[[https://github.com/Trevoke/org-gtd.el][github page]]
+(setq org-edna-use-inheritance t)
+(org-edna-mode t)
 
-#+begin_src emacs-lisp
-        (use-package org-gtd
-          :after org
-          :init
-          (setq org-gtd-update-ack "3.0.0"))
+(setq org-gtd-organize-hooks nil) ;; Decorate each item, i put it to skip adding tags to tasks.
 
-        (setq org-edna-use-inheritance t)
-        (org-edna-mode t)
+(setq org-agenda-files '("~/sync/notes/1_personal/gtd/next.org"
+                             "~/sync/notes/1_personal/gtd/projects.org"))
 
-        (setq org-gtd-organize-hooks nil) ;; Decorate each item, i put it to skip adding tags to tasks.
-
-        (setq org-agenda-files '("~/sync/notes/1_personal/gtd/next.org"
-                                     "~/sync/notes/1_personal/gtd/projects.org"))
-#+end_src
-
-** Removed
-*** Aggresive Indent Mode
-
-Keep your code *always* indented.
-
-;;#+begin_src emacs-lisp
-  (use-package aggressive-indent)
-
-  (global-aggressive-indent-mode 1)
-  (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
-;;#+end_src
-
-*** pdf-tools
-
-+ [[https://github.com/vedang/pdf-tools][github page]]
-+ [[https://pdftools.wiki][pdftools wiki]]
-+ [[https://github.com/noctuid/evil-guide#example-integration-with-pdf-tools][Evil guide, Example: Integration with Pdf Tools - github page]]
-
-Emacs support library for PDF files.
-After the install, run ~M-x pdf-tools-install RET~
-
-;;#+begin_src emacs-lisp
-(use-package pdf-tools
-  ;;:pin manual
-  :config
-  (pdf-tools-install)
-  (setq-default pdf-view-display-size 'fit-width))
-  ;;(define-key pdf-view-mode-map (kbd "C-s") ;;'isearch-forward)
-  ;;:custom
-  ;;(pdf-annot-activate-created-annotations t ;;"automatically annotate highlights"))
-
-;; Start in midnight-mode, inverted colors
-(add-hook 'pdf-tools-enabled-hook 'pdf-view-midnight-minor-mode)
-
-;; Hide cursor, so file doesn't blink
-(add-hook 'pdf-view-mode-hook
-          (lambda ()
-        (set (make-local-variable 'evil-normal-state-cursor) (list nil))
-        (internal-show-cursor nil nil)))
-;;#+end_src
-
-*** LLM (ellama)
-
-- [[https://github.com/s-kostyaev/ellama][github page]]
-
-#+begin_src emacs-lisp
 ;(use-package ellama)
   ;:init
   ;(setopt ellama-language "German")
@@ -1952,12 +1049,5 @@ After the install, run ~M-x pdf-tools-install RET~
 			;("mixtral" . (make-llm-ollama
 						  ;:chat-model "mixtral:8x7b-instruct-v0.1-q3_K_M-4k"
 						  ;:embedding-model "mixtral:8x7b-instruct-v0.1-q3_K_M-4k")))))
-#+end_src
 
-** Vertico
-** websocket [EXISTS?]
-
-#+begin_src emacs-lisp
 (use-package websocket)
-#+end_src
-

@@ -89,8 +89,8 @@ in {
         hardware.nvidia = {
             modesetting.enable = true; # Required
             nvidiaSettings = true;
-            open = false; # Open source kernel module
-            #package = config.boot.kernelPackages.nvidiaPackages.beta; # stable, beta...
+            open = true; # Open source kernel module
+            package = config.boot.kernelPackages.nvidiaPackages.beta; # stable, beta...
 
             # Nvidia power management
             #powerManagement.enable = true;

@@ -3,9 +3,9 @@ eln-cache
 elpa
 emojis
 ltximg
-transient
-init.el
+org-persist
 org-roam.db
 persp-save
 projectile-bookmarks.eld
 recentf
+transient

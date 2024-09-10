@@ -12,6 +12,14 @@ in {
     };
 
     config = mkIf cfg.silent {
+
+        # ???
+        #boot.bootspec.enable = true;
+        #boot.kernelPackages = pkgs.linuxPackages_zen;
+        #boot.loader.systemd-boot.editor = false;
+        #boot.loader.systemd-boot.enable = true;
+        #boot.loader.systemd-boot.efi.canTouchEfiVariables = true;
+
         boot = {
             consoleLogLevel = 0;
             initrd.verbose = false;
@@ -22,10 +30,11 @@ in {
                 "rd.systemd.show_status=false"
                 "rd.udev.log_level=3"
                 "udev.log_priority=3"
-                "boot.shell_on_fail"
-                "rd.udev.log_priority=3"
-                "button.lid_init_state=open"
-                "log_level=3"
+
+                #"boot.shell_on_fail"
+                #"rd.udev.log_priority=3"
+                #"button.lid_init_state=open"
+                #"log_level=3"
             ];
         };
     };

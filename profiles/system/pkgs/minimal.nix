@@ -6,6 +6,7 @@ in {
     config = mkIf (cfg.packages == "minimal") {
         environment.systemPackages = builtins.attrValues {
             inherit (pkgs)
+                acpi
 	            fzf skim
 	            lf
                 alacritty kitty # Always good to have some extra terminals.

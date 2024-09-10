@@ -1,15 +1,9 @@
 { config, lib, ... }: 
 with lib; with types;
 let
-    cfg = config.framework.services.docker;
+    cfg = config.meta.services.docker;
 in {
-    options.framework.services.docker.enable = mkOption {
-        type = bool;
-        default = false;
-        description = ''
-          Enable and set up Docker.
-        '';
-    };
+    options.meta.services.docker.enable = mkEnableOption "Enable and set up Docker.";
 
     config = mkIf cfg.enable {
 

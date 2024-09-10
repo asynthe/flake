@@ -6,6 +6,7 @@ in {
     config = mkIf (cfg.packages == "minimal_stable") {
         environment.systemPackages = builtins.attrValues {
             inherit (pkgs-stable)
+                acpi
                 usbutils
 	            fzf skim
 	            lf

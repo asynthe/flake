@@ -6,10 +6,11 @@
     # 2. Uncomment and build system with Hyprland, it should now take the binaries from the cache.
 
     imports = [
+        # Enable this first.
         ./cache.nix
-        ./configuration.nix
+
+        # Enable this second.
+        #./configuration.nix
         ./hyprland.nix
-        ./keybinds.nix
-        ./windowrules.nix
     ];
 }

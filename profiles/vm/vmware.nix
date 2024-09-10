@@ -1,4 +1,5 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
+
 with lib; with types;
 let
     cfg = config.meta.vm.vmware;
@@ -9,7 +10,7 @@ in {
     config = mkIf cfg.enable {
 
         # -------------- vmware --------------
-        #services.xserver.videoDrivers = [ "vmware" ];
+        services.xserver.videoDrivers = [ "vmware" ];
         virtualisation.vmware = {
             host = {
                 enable = true;
@@ -22,6 +23,10 @@ in {
 	            #headless = true;
 	        };
         };
+
+        environment.systemPackages = with pkgs; [
+            open-vm-tools
+        ];
  
         # `vmware-vmx` will cause kcompactd0 due to `Transparent Hugepages` feature in kernel.
         # Apply the next to disable it.

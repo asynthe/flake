@@ -10,12 +10,6 @@
     i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "Australia/Perth";
 
-    imports = [
-        # Modules that haven't been option-nized yet.
-        ../../profiles/vm/vmware.nix
-        #../../profiles/vpn/libvirt.nix
-    ];
-
     meta = {
         # -------------- System - Main --------------
         system.user = "meow";
@@ -32,10 +26,10 @@
         # -------------- Boot --------------
         boot.bootloader = "systemd-boot";
         #boot.banner = "simple_cat"; # simple_cat, hentai
-        boot.generations = 4;
+        boot.generations = 3;
         #boot.cleantmp = true;
-        #boot.silent = false;
-        #boot.secure = false;
+        boot.silent = false;
+        boot.secure = true; # Secure Boot (lanzaboote)
 
         # -------------- Driver --------------
         #driver.displaylink = true;
@@ -60,7 +54,7 @@
 
         # -------------- Services --------------
         services.android.enable = true;
-        #services.docker.enable = true;
+        services.docker.enable = true;
         #services.endlessh.enable = true;
         #services.flatpak.enable = true;
         #services.grafana.enable = true;
@@ -76,7 +70,7 @@
         #services.xmr.enable = true;
 
         # -------------- VM --------------
-        vm.libvirt.enable = true;
+        #vm.libvirt.enable = true;
         #vm.virtualbox.enable = true;
         vm.vmware.enable = true;
 

@@ -4,6 +4,7 @@
         # Test
         #../../secrets/secrets_home.nix
         ../modules/pkgs/pkgs_test.nix
+        ../modules/pkgs/sec2.nix
 
 	    # Game -> Moved to option
         #../modules/game/emulators.nix

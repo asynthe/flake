@@ -5,13 +5,14 @@
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
         nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
         home-manager.url = "github:nix-community/home-manager";
-	home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
-	nix-darwin.url = "github:/lnl7/nix-darwin/master";
-	nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+	    home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
 
-	# Other
+	    # Other
+	    nix-darwin.url = "github:/lnl7/nix-darwin/master";
+	    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-        nixos-wsl.url = "github:nix-community/NixOS-WSL/main"; disko.url = "github:nix-community/disko";
+        nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+        disko.url = "github:nix-community/disko";
         disko.inputs.nixpkgs.follows = "nixpkgs";
         impermanence.url = "github:nix-community/impermanence";
         lanzaboote.url = "github:nix-community/lanzaboote";
@@ -33,17 +34,16 @@
         #};
     };
 
-    #outputs = inputs @ {
     outputs = {
 
         # Main
         self,
         nixpkgs,
-	nixpkgs-stable,
+        nixpkgs-stable,
         home-manager,
 
         # Other
-	nix-darwin,
+	    nix-darwin,
         nixos-hardware,
         disko,
         impermanence,
@@ -81,6 +81,7 @@
         #pkgs = nixpkgs.legacyPackages.${system};
 	    system = "x86_64-linux";
         pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+
     in {
         # Custom packages
         # `nix-build`, `nix shell nixpkgs#<custompkg>`, etc.
@@ -139,29 +140,29 @@
                     musnix.nixosModules.musnix
                 ];
             };
-	};
+        };
 
-	# Nix Darwin configurations
-	darwinConfigurations = {
-
-	    # macbook + Home Manager
-	    macbook = nix-darwin.lib.darwinSystem {
-	        system = "aarch64-darwin";
-		specialArgs = { inherit inputs outputs pkgs-stable; };
-		modules =
-		let
-		    nixpkgsConfig = { config.allowUnfree = true; };
-		in [
-		    ./hosts/macbook
-		    inputs.home-manager.darwinModules.home-manager {
-		        nixpkgs = nixpkgsConfig;
-		        home-manager.useGlobalPkgs = true;
-		        home-manager.useUserPackages = true;
-		        home-manager.users.benjamindunstan = import ./hosts/macbook/home.nix
-		    };
-		];
-	    };
-	};
+        # Nix Darwin configurations
+        #darwinConfigurations = {
+        #
+        #    # macbook + Home Manager
+        #    macbook = nix-darwin.lib.darwinSystem {
+        #        system = "aarch64-darwin";
+        #	    specialArgs = { inherit inputs outputs pkgs-stable; };
+        #        modules =
+        #	    let
+        #	        nixpkgsConfig = { config.allowUnfree = true; };
+        #	    in [
+        #	        ./hosts/macbook
+        #	        inputs.home-manager.darwinModules.home-manager {
+        #	            nixpkgs = nixpkgsConfig;
+        #	            home-manager.useGlobalPkgs = true;
+        #	            home-manager.useUserPackages = true;
+        #	            home-manager.users.benjamindunstan = import ./hosts/macbook/home.nix;
+        #	        };
+        #	    ];
+        #    };
+        #};
 
         # Home Manager configurations
         homeConfigurations = {
