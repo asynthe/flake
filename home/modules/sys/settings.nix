@@ -18,5 +18,6 @@
     nixpkgs.config = {
         allowUnfree = true;
         allowUnfreePredicate = _: true;
+        permittedInsecurePackages = [ "nix-2.24.5" ]; # REMOVE
     };
 }
