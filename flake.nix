@@ -20,6 +20,7 @@
         musnix.url = "github:musnix/musnix";
         sops-nix.url = "github:Mic92/sops-nix";
         stylix.url = "github:danth/stylix";
+        wezterm.url = "github:wez/wezterm?dir=nix";
 
         # Apps
 	    nixvim = {
@@ -28,10 +29,6 @@
         };
         hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
         swww.url = "github:LGFae/swww";
-        #nixos-06cb-009a-fingerprint-sensor = {
-            #url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
-            #inputs.nixpkgs.follows = "nixpkgs";
-        #};
     };
 
     outputs = {
@@ -56,7 +53,7 @@
 	    nixvim,
         hyprland,
         swww,
-        #nixos-06cb-009a-fingerprint-sensor,
+        wezterm,
         ...
     
     #}: let

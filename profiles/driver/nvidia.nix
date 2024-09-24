@@ -62,7 +62,6 @@ in {
 
         # -------------- Nvidia --------------
         services.xserver.videoDrivers = [ "nvidia" ];
-
         hardware.graphics = {
             enable = mkForce true;
             enable32Bit = mkForce true;
@@ -73,7 +72,6 @@ in {
                 libvdpau-va-gl # VDPAU driver with OpenGL/VAAPI backend
                 libva
 
-                # Intel? ADD?
                 intel-media-driver # VA-API for Intel iHD Broadwell (2014) or newer
                 intel-vaapi-driver # VA-API for Intel i965 Broadwell (2014), better for Firefox?
                 vaapiVdpau # VDPAU driver for the VAAPI library
@@ -133,24 +131,34 @@ in {
             };
         };
 
-        # -------------- Packages --------------
-        environment.systemPackages = builtins.attrValues {
-            inherit (pkgs)
-                intel-gpu-tools
-                glxinfo # glxgears
-                #glibc
-                #glxinfo # Check if running on gpu.
-                #zenith-nvidia
-                #nvtop-nvidia
-                #vulkan-tools
-                #virtualgl
-                #nvidia-offload
-                #linuxKernel.packages.linux_6_2.bbswitch
-                #libva
-                #libva-utils
-                #libdrm
-                #mesa #mesa-demos
-            ;
+        # -------------- Variables and Packages --------------
+        environment = {
+            #variables = {
+                #GBM_BACKEND = "nvidia-drm";
+                #LIBVA_DRIVER_NAME = "nvidia";
+                #VDPAU_DRIVER = "va_gl";
+                #WLR_NO_HARDWARE_CURSORS = "1";
+                #__GLX_VENDOR_LIBRARY_NAME = "nvidia";
+            #};
+
+            systemPackages = builtins.attrValues {
+                inherit (pkgs)
+                    intel-gpu-tools
+                    glxinfo # glxgears
+                    #glibc
+                    #glxinfo # Check if running on gpu.
+                    #zenith-nvidia
+                    #nvtop-nvidia
+                    #vulkan-tools
+                    #virtualgl
+                    #nvidia-offload
+                    #linuxKernel.packages.linux_6_2.bbswitch
+                    #libva
+                    #libva-utils
+                    #libdrm
+                    #mesa #mesa-demos
+                ;
+            };
         };
     };
 }

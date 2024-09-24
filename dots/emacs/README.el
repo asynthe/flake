@@ -155,8 +155,8 @@
 		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(set-frame-parameter nil 'alpha-background 100) ; For current frame
-(add-to-list 'default-frame-alist '(alpha-background .100)) ; For all new frames henceforth
+(set-frame-parameter nil 'alpha-background 80) ; For current frame
+(add-to-list 'default-frame-alist '(alpha-background .80)) ; For all new frames henceforth
 
 ;;(set-frame-parameter nil 'alpha-background 0.7) ; For current frame
 ;;(add-to-list 'default-frame-alist '(alpha-background .70)) ; For all new frames henceforth

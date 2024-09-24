@@ -4,6 +4,7 @@
         # UI
 	    lightline.enable = true;
         transparent.enable = true;
+        web-devicons.enable = true;
         
         # Plugins
         oil.enable = true; # `nvim .` will open oil instead of netrw

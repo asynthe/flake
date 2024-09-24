@@ -29,14 +29,14 @@
         boot.generations = 3;
         #boot.cleantmp = true;
         boot.silent = false;
-        boot.secure = true; # Secure Boot (lanzaboote)
+        #boot.secure = true; # Secure Boot (lanzaboote)
 
         # -------------- Driver --------------
         #driver.displaylink = true;
         driver.nvidia.enable = true;
         driver.nvidia.mode = "offload"; # offload, sync
         driver.nvidia.cache = true;
-        driver.nvidia.specialisation = true; # gaming mode and portable mode.
+        #driver.nvidia.specialisation = true; # gaming mode and portable mode.
 
         #driver.nvidia.bus_id.intel_cpu = "PCI:1:0:0";
         #driver.nvidia.bus_id.nvidia_gpu = "PCI:0:2:0";

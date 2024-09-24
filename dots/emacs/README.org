@@ -1,12 +1,9 @@
-#+title: Asynthe's Emacs Config
-#+author: Benjamin Dunstan
+#+title: Emacs Config
 #+startup: overview
 #+property: header-args :tangle README.el
 #+auto_tangle: t
 
 Welcome to my custom Emacs configuration!
-
-[Cool Emacs logo with cat]
 
 * Table of Contents :toc:
 - [[#info][Info]]
@@ -337,8 +334,8 @@ Disable line numbering in /Org/ or /Markdown/.
 _note_: Works on X windows with a compositor like [[id:a2042b5e-f0a2-4213-a8c8-2fd9cd9636d8][picom]], but in Wayland case, you will need pure GTK emacs.
 
 #+begin_src emacs-lisp
-(set-frame-parameter nil 'alpha-background 100) ; For current frame
-(add-to-list 'default-frame-alist '(alpha-background .100)) ; For all new frames henceforth
+(set-frame-parameter nil 'alpha-background 80) ; For current frame
+(add-to-list 'default-frame-alist '(alpha-background .80)) ; For all new frames henceforth
 
 ;;(set-frame-parameter nil 'alpha-background 0.7) ; For current frame
 ;;(add-to-list 'default-frame-alist '(alpha-background .70)) ; For all new frames henceforth

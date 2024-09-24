@@ -1,7 +1,7 @@
 {
     imports = [
 	    ./swww
-	    ./hyprland.nix
+	    ./hyprland
         #./swayidle.nix
         #./swayosd.nix
         ./mako.nix
