@@ -17,7 +17,7 @@ in {
             "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"
             "mullvad-gui &"
             "qbittorrent &"
-            "waybar &"
+            #"waybar &"
         ];
     
         env = [

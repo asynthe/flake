@@ -1,10 +1,12 @@
 {
     imports = [
 
+        # Check yazi vs lf, maybe with a mkForce
+
         # Test
         #../../secrets/secrets_home.nix
-        ../modules/pkgs/pkgs_test.nix
-        ../modules/pkgs/sec2.nix
+        #../modules/pkgs/pkgs_test.nix
+        #../modules/pkgs/sec2.nix
 
 	    # Game -> Moved to option
         #../modules/game/emulators.nix
@@ -21,7 +23,7 @@
 	    ../modules/app/ncmpcpp
 	    ../modules/app/nvim
 	    ../modules/app/vscode
-	    ../modules/app/wezterm
+	    #../modules/app/wezterm
 	    ../modules/app/yazi
         ../modules/app/emacs
         ../modules/app/gpg
@@ -34,6 +36,8 @@
         ../modules/pkgs/minimal.nix
         #../modules/pkgs/sec.nix
 
+        # PROBLEM HERE !!!!
+	# FIND PROBLEM with sql rust thing !!!
         # Apps - Single Files
 	    ../modules/app/alacritty.nix
 	    ../modules/app/bat.nix

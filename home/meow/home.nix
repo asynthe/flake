@@ -5,7 +5,7 @@
     home = {
         username = user;
         homeDirectory = "/home/${user}";
-        stateVersion = "23.11";
+        stateVersion = "24.05";
         sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
     };
 

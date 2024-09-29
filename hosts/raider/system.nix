@@ -35,7 +35,7 @@
         #driver.displaylink = true;
         driver.nvidia.enable = true;
         driver.nvidia.mode = "offload"; # offload, sync
-        driver.nvidia.cache = true;
+        #driver.nvidia.cache = true;
         #driver.nvidia.specialisation = true; # gaming mode and portable mode.
 
         #driver.nvidia.bus_id.intel_cpu = "PCI:1:0:0";

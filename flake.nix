@@ -27,7 +27,7 @@
             url = "github:nix-community/nixvim";
 	        #inputs.nixpkgs.follows = "nixpkgs";
         };
-        hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+        #hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
         swww.url = "github:LGFae/swww";
     };
 
@@ -51,7 +51,7 @@
 
         # Apps
 	    nixvim,
-        hyprland,
+        #hyprland,
         swww,
         wezterm,
         ...
@@ -174,7 +174,7 @@
 	                ./home/meow 
 	                nixvim.homeManagerModules.nixvim
 	                sops-nix.homeManagerModules.sops
-                    hyprland.homeManagerModules.default
+                    #hyprland.homeManagerModules.default
                     stylix.homeManagerModules.stylix
 	            ];
             };
