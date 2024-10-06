@@ -2,7 +2,7 @@
 
     programs.wezterm = {
         enable = true;
-        package = inputs.wezterm.packages.${pkgs.system}.default;
+        #package = inputs.wezterm.packages.${pkgs.system}.default;
         enableBashIntegration = config.programs.bash.enable;
         enableZshIntegration = config.programs.zsh.enable;
         extraConfig = builtins.readFile ../../../../dots/wezterm/config.lua;

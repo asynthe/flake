@@ -3,6 +3,9 @@
     meta.system.virtualization = [ "libvirt" "virtualbox" "vmware" ];
     */
 
+    # Temporary import to test before making options.
+    imports = [ ../../modules ];
+
     networking.hostName = "raider";
     system.stateVersion = "24.11";
     nixpkgs.config.allowUnfree = true;

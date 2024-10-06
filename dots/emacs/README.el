@@ -535,12 +535,14 @@
 (use-package ox-man
   :ensure nil)
 
+(add-hook 'org-mode-hook 'turn-on-flyspell)
+
 (nvmap :states '(normal) :keymaps 'override :prefix "SPC"
 
        ;; Perspective Binds (Find-file / Switch-buffer)
        "."   '(counsel-find-file :which-key "Find file")
-       ","   '(persp-counsel-switch-buffer :which-key "Switch buffer")
-       "/"   '(persp-switch :which-key "Change workspace")
+       ;","   '(persp-counsel-switch-buffer :which-key "Switch buffer")
+       ;"/"   '(persp-switch :which-key "Change workspace")
 
        ;; Exit emacs
        "q q" '(kill-emacs :which-key "Exit emacs without saving")
@@ -669,14 +671,14 @@
        "w <left>"  '(winner-undo :which-key "Winner undo")
        "w <right>" '(winner-redo :which-key "Winner redo"))
 
-(global-set-key (kbd "s-{") 'persp-prev)
-(global-set-key (kbd "s-}") 'persp-next)
+;(global-set-key (kbd "s-{") 'persp-prev)
+;(global-set-key (kbd "s-}") 'persp-next)
 
-(nvmap :states '(normal) :keymaps 'override :prefix "SPC"
-       "p k" '(persp-kill :which-key "Kill workspace")
-       "p r" '(persp-rename :which-key "Rename workspace")
-       "p a" '(persp-add-buffer :which-key "Move a buffer to current workspace, no switching")
-       "p m" '(persp-set-buffer :which-key "Move buffer to workspace and remove from all others"))
+;(nvmap :states '(normal) :keymaps 'override :prefix "SPC"
+       ;"p k" '(persp-kill :which-key "Kill workspace")
+       ;"p r" '(persp-rename :which-key "Rename workspace")
+       ;"p a" '(persp-add-buffer :which-key "Move a buffer to current workspace, no switching")
+       ;"p m" '(persp-set-buffer :which-key "Move buffer to workspace and remove from all others"))
 
 (nvmap :states '(normal) :keymaps 'override :prefix "SPC"
 
@@ -758,16 +760,16 @@
        ;;"t s" '(scroll-lock-mode :which-key "Scroll lock mode") ;; Disabled for centered-cursor-mode
        ;;"t t" '(toggle-window-transparency :which-key "Toggle transparency")
 
-(use-package perspective
-  :bind
-  ("C-x C-b" . persp-list-buffers)
-  :custom
-  (persp-mode-prefix-key (kbd "C-c M-p"))
-  (persp-state-default-file "~/.config/emacs/persp-save")
-  :init
-  (persp-mode))
+;(use-package perspective
+;  :bind
+;  ("C-x C-b" . persp-list-buffers)
+;  :custom
+;  (persp-mode-prefix-key (kbd "C-c M-p"))
+;  (persp-state-default-file "~/.config/emacs/persp-save")
+;  :init
+;  (persp-mode))
 
-(add-hook 'kill-emacs-hook #'persp-state-save)
+;(add-hook 'kill-emacs-hook #'persp-state-save)
 
 (use-package counsel
       :bind (( "M-x" . counsel-M-x)

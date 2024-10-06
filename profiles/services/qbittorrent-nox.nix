@@ -25,8 +25,7 @@ in {
         environment.systemPackages = builtins.attrValues {
             inherit (pkgs) 
                 #qbittorrent-nox
-                #qbittorrent
-                qbittorrent-qt5
+                qbittorrent
             ;
         };
 

@@ -11,7 +11,7 @@
     home.packages = builtins.attrValues {
         inherit (pkgs)
             emacs29-pgtk
-            #hunspell
+            hunspell
         ;
 
         # Emacs Packages
@@ -21,16 +21,16 @@
         #;
 
         # Hunspell dictionaries
-        #inherit (pkgs.hunspellDicts)
+        inherit (pkgs.hunspellDicts)
             #fr-moderne # French (modern) from Dicollecte
             #es_MX # Spanish (Mexico) from rla
             #es_mx # Spanish (Mexico) from rla
             #es_CL # Spanish (Chile) from rla ?
             #es_cl
-            #en_US # English (United States) from Wordlist
-            #en_us
-            #en_AU # English (Australia) from Wordlist
-            #en_au
-        #;
+            en_US # English (United States) from Wordlist
+            #en-us
+            en_AU # English (Australia) from Wordlist
+            #en-au
+        ;
     };
 }

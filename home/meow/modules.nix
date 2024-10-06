@@ -23,7 +23,7 @@
 	    ../modules/app/ncmpcpp
 	    ../modules/app/nvim
 	    ../modules/app/vscode
-	    #../modules/app/wezterm
+	    ../modules/app/wezterm
 	    ../modules/app/yazi
         ../modules/app/emacs
         ../modules/app/gpg
