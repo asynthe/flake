@@ -1,8 +1,4 @@
 {
-    /* Options to create
-    meta.system.virtualization = [ "libvirt" "virtualbox" "vmware" ];
-    */
-
     # Temporary import to test before making options.
     imports = [ ../../modules ];
 
@@ -74,7 +70,7 @@
         #services.xmr.enable = true;
 
         # -------------- VM --------------
-        #vm.libvirt.enable = true;
+        vm.libvirt.enable = true;
         #vm.virtualbox.enable = true;
         vm.vmware.enable = true;
 

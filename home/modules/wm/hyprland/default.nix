@@ -6,11 +6,11 @@
     # 2. Uncomment and build system with Hyprland, it should now take the binaries from the cache.
 
     imports = [
-        # Enable this first.
-        ./cache.nix
-
-        # Enable this second.
-        ./configuration.nix
         ./hyprland.nix
+
+        # Module ver
+        #./module/cache.nix # Enable this first.
+        #./configuration.nix  # Enable this second.
+        #./hyprland.nix # Enable this second.
     ];
 }

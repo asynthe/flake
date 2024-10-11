@@ -1,25 +1,39 @@
-{ config, inputs, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
 
-    # I tried bro
-    #home.file.".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink ../../../../dots/hypr/hyprland.conf;
+    # -------------- Hyprland --------------
+    xdg.configFile."hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink ../../../../dots/hypr/hyprland.conf;
 
-    wayland.windowManager.hyprland = {
-        enable = true;
-        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-        #xwayland.enable = true;
-        #systemd = {
-            #enable = true;
-            #variables = [ "--all" ];
-            #extraCommands = lib.mkBefore [
-                #"systemctl --user stop graphical-session.target"
-                #"systemctl --user start hyprland-session.target"
-            #];
-        #};
+    # Packages
+    home.packages = builtins.attrValues {
+        inherit (pkgs)
+            hyprland
+            wofi
+            pavucontrol
+            hyprshot
+            swappy
+            brightnessctl
+        ;
+        inherit (pkgs.libsForQt5)
+            polkit-kde-agent
+        ;
     };
-    
-    xdg.portal = {
-        xdgOpenUsePortal = true;
-        configPackages = [ inputs.hyprland.packages.${pkgs.system}.hyprland ];
-        extraPortals = [ inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
+
+    # Create a target session for hyprland
+    systemd.user.targets.hyprland-session = {
+        Unit = {
+            Description = "Hyprland compositor Session";
+            Documentation = [ "man:systemd.special(7)" ];
+            BindsTo = [ "graphical-session.target" ];
+            Wants = [ "graphical-session-pre.target" ];
+            After = [ "graphical-session-pre.target" ];
+        };
+    };
+
+    # Home-Manager system tray
+    systemd.user.targets.tray = {
+        Unit = {
+            Description = "Home Manager System Tray";
+            Requires = [ "graphical-session-pre.target" ];
+        };
     };
 }
