@@ -21,7 +21,6 @@ in {
                 tree
                 usbutils
                 wget curl
-                ntfs3g # Windows Support
             ;
         };
     };

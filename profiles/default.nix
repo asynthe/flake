@@ -59,6 +59,7 @@
         ./system/networking.nix
         ./system/pkgs.nix
         ./system/user.nix
+        ./system/windows.nix
 
         # -------------- Virtual Machines --------------
         ./vm/libvirt.nix

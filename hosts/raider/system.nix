@@ -20,6 +20,7 @@
         system.language = "both"; # english, japanese, both
         system.packages = "minimal"; # minimal, minimal_stable
         system.keyboard = true;
+        system.windows = true; # Option for dual-boot, fix System time
         
         # Next options are set up by `meta.system.type`, but can be edited.
         #system.nix.settings = "laptop";

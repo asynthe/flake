@@ -16,7 +16,6 @@ in {
                 git # Git must be for flakes.
                 htop btop
                 neovim tmux
-                ntfs3g
                 testdisk testdisk-qt
                 wget curl
                 killall
