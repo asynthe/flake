@@ -5,7 +5,7 @@
     # ln -sf $HOME/sync/flake/dots/emacs/README.el $HOME/.config/emacs/README.el
 
     home.file = {
-        ".config/emacs/README.org".source = config.lib.file.mkOutOfStoreSymlink ../../../../dots/emacs/README.org;
+        ".config/emacs/README.org".source = config.lib.file.mkOutOfStoreSymlink ./README.org;
     };
 
     home.packages = builtins.attrValues {

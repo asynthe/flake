@@ -11,6 +11,14 @@
         #../modules/game/games.nix
         #../modules/game/tools.nix
 
+        # Dots
+        ../../dots/emacs
+        ../../dots/hypr # Hyprland
+        ../../dots/waybar
+        ../../dots/wayfire
+        # Soon
+        #../modules/wm/xmonad
+
         # Package Set
         ../modules/pkgs/audio.nix
         ../modules/pkgs/cli.nix
@@ -20,7 +28,6 @@
         ../modules/pkgs/pkgs.nix
 
 	    # Apps
-        ../modules/app/emacs
         ../modules/app/gpg
 	    #../modules/app/lf
 	    ../modules/app/librewolf
@@ -48,7 +55,6 @@
         ../modules/app/swayidle.nix
         #../modules/app/swayosd.nix
         ../modules/app/vis.nix
-        ../modules/app/waybar.nix
         ../modules/app/wofi.nix
         ../modules/app/zathura.nix
 
@@ -72,10 +78,5 @@
         
         # systemd services + timers
         ../modules/sysd/backup_web.nix
-
-        # Window Manager
-        ../modules/wm/hyprland
-        #../modules/wm/xmonad
-        #../modules/wm/wayfire.nix
     ];
 }

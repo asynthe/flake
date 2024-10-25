@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: {
 
     # -------------- Hyprland --------------
-    xdg.configFile."hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink ../../../../dots/hypr/hyprland.conf;
+    xdg.configFile."hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland.conf;
 
     # Packages
     home.packages = builtins.attrValues {

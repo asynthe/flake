@@ -1,0 +1,3 @@
+{
+    imports = [ ./waybar.nix ];
+}

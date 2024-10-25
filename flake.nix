@@ -137,6 +137,19 @@
                     musnix.nixosModules.musnix
                 ];
             };
+
+            # MacOS VM (VMware)
+            macos-vm = nixpkgs.lib.nixosSystem {
+                specialArgs = { inherit inputs outputs pkgs-stable; };
+                modules = [
+                    ./hosts/vm-macos
+	                sops-nix.nixosModules.sops
+                    disko.nixosModules.disko
+                    impermanence.nixosModules.impermanence
+                    lanzaboote.nixosModules.lanzaboote
+                    musnix.nixosModules.musnix
+                ];
+            };
         };
 
         # Nix Darwin configurations

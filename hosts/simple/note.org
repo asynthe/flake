@@ -1,0 +1,4 @@
+create simple as template for systems, all files here and specify disko layout
+it's a jumping point to laptop or server
+
+server -> sakura
