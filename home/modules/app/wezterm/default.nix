@@ -1,6 +1,6 @@
 {
     imports = [
-        ./cache.nix
         ./wezterm.nix
+        #./cache.nix
     ];
 }

@@ -20,6 +20,7 @@
         musnix.url = "github:musnix/musnix";
         sops-nix.url = "github:Mic92/sops-nix";
         stylix.url = "github:danth/stylix";
+        yazi.url = "github:sxyazi/yazi";
         wezterm.url = "github:wez/wezterm?dir=nix";
 
         # Apps
@@ -53,6 +54,7 @@
 	    nixvim,
         hyprland,
         swww,
+        yazi,
         wezterm,
         ...
     

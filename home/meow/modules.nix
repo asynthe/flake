@@ -1,6 +1,15 @@
 {
     imports = [
 
+        # Substituters and Binary Cache
+        ../modules/sys/substituters.nix
+        # - Hyprland
+        # - Wezterm
+        # - Yazi
+        # Remember to first rebuild home manager with 
+        # the specified cache then enable the dotfile .
+
+        # -------------- Other [REMOVE] --------------
         # Check yazi vs lf, maybe with a mkForce
         # Test - REMOVE LATER
         #../../secrets/secrets_home.nix
@@ -10,6 +19,7 @@
         #../modules/game/emulators.nix
         #../modules/game/games.nix
         #../modules/game/tools.nix
+        # --------------------------------------------
 
         # Dots
         ../../dots/emacs

@@ -1,11 +1,11 @@
-{ config, inputs, lib, pkgs, ... }: {
+{ config, inputs, lib, pkgs, pkgs-stable, ... }: {
 
     programs.wezterm = {
         enable = true;
         #package = inputs.wezterm.packages.${pkgs.system}.default;
         enableBashIntegration = config.programs.bash.enable;
         enableZshIntegration = config.programs.zsh.enable;
-        extraConfig = builtins.readFile ../../../../dots/wezterm/config.lua;
+        #extraConfig = builtins.readFile ../../../../dots/wezterm/config.lua;
 
         # This disables as nix writes into the file.
 	    #extraConfig = config.lib.file.mkOutOfStoreSymlink ./config.lua;

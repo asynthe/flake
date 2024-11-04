@@ -1,5 +1,5 @@
 {
     imports = [
-        ./services/ollama.nix
+        #./services/ollama.nix
     ];
 }

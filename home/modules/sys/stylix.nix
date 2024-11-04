@@ -24,6 +24,7 @@
         targets = {
             nixvim.transparentBackground.main = true;
             #nixvim.transparent_bg.sign_column = true;
+            wezterm.enable = false;
         };
 
         # -------------- Colorscheme --------------

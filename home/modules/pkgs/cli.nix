@@ -4,7 +4,7 @@
 
             # DevOps
             #ollama
-            pulumi
+            #pulumi
             opentofu #terraform
             ansible
 

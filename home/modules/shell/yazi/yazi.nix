@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{ config, inputs, lib, pkgs, ... }: {
+
+    #nix.settings = {
+        #substituters = "https://yazi.cachix.org";
+        #trusted-public-keys = [  "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k=" ];
+    #};
 
     programs.zsh = lib.mkIf config.programs.zsh.enable {
         initExtra = ''
@@ -20,6 +25,7 @@ function yy() {
 
     programs.yazi = {
         enable = true;
+        package = inputs.yazi.packages.${pkgs.system}.default;
 	    enableBashIntegration = config.programs.bash.enable;
 	    enableZshIntegration = config.programs.zsh.enable;
 	    settings = {

@@ -9,8 +9,8 @@ in {
     nix.settings = {
         warn-dirty = false;
         extra-experimental-features = [ "nix-command" "flakes" ];
-        substituters = lib.mkBefore [ "https://cache.nixos.org" ];
-        trusted-public-keys = lib.mkBefore [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+        #substituters = lib.mkBefore [ "https://cache.nixos.org" ];
+        #trusted-public-keys = lib.mkBefore [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
     };
 
     # Fix for nixpkgs.allowUnfree = true
