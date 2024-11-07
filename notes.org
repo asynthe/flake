@@ -1,1 +1,7 @@
-** nix-darwin
+** NixOS
+** macOS
+** Windows
+
+Setting up dots on Windows Powershell.
+
+...
