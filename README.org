@@ -1,1 +1,12 @@
 Hewlo.
+
+#+ATTR_HTML: :align center :width 50px
+[[file:other/img/readme_cats.jpg]]
+
+** NixOS
+** macOS
+** Windows
+
+Setting up dots on Windows Powershell.
+
+...
