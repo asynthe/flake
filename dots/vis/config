@@ -89,3 +89,19 @@ visualizer.spectrum.falloff.mode=fill
 
 ##Specifies the color scheme. The color scheme must be in ~/.config/vis/colors/ directory. The default scheme is "colors".
 colors.scheme=white,rainbow,deepblue,deepblue-inverted,dreamy,sakura,cyberpunk,cyanred,red,red-thunderbird
+
+# -----------------------------------------------------------------------------------------
+
+visualizer.fps=30 # default is 20.
+audio.stereo.enabled=true
+
+##Specifies how often the visualizer will change in seconds. 0 means do not rotate. Default is 0.
+#visualizer.rotation.secs=10
+
+visualizer.spectrum.bar.width=3
+visualizer.spectrum.bar.spacing=1
+visualizer.spectrum.smoothing.mode=monstercat # monstercat, sgs, none
+visualizer.spectrum.falloff.mode=fill # default `fill`, options: fill, top, none
+
+##Specifies the color scheme. The color scheme must be in ~/.config/vis/colors/ directory. The default scheme is "colors".
+colors.scheme=blue,cyanred,cyberpunk,deepblue,deepblue-inverted,dreamy,rainbow,sakura,sakura-inverted,white

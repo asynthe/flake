@@ -10,14 +10,25 @@
         # - Wezterm
         # - Yazi
 
+        # mkOutOfStoreSymlink
         ../../../dots/emacs
-        ../../../dots/mpv
         ../../../dots/waybar
-        ../../../dots/wezterm
+        #../../../dots/wezterm
 
         # wm
         ../../../dots/wayfire
         ../../../dots/hypr # Hyprland
+
+        # non-mkOutOfStoreSymlink (modified by stylix)
+	    ../../../dots/alacritty
+
+        # testing
+        ../../../dots/mpv
+        ../../../dots/starship
+        ../../../dots/tmux
+        ../../../dots/vis
+        ../../../dots/yazi
+        ../../../dots/zathura
 
         # -------------- Other [REMOVE] --------------
         # Check yazi vs lf, maybe with a mkForce
@@ -51,13 +62,11 @@
 
 	    # FIND PROBLEM with sql rust thing !!!
         # Apps - Single Files
-	    ../modules/app/alacritty.nix
 	    ../modules/app/bat.nix
 	    ../modules/app/direnv.nix
         ../modules/app/fbterm.nix
         ../modules/app/git.nix
 	    ../modules/app/mako.nix
-	    ../modules/app/mpv.nix
 	    ../modules/app/mpvpaper.nix
         ../modules/app/nh.nix
 	    ../modules/app/obs.nix
@@ -65,9 +74,7 @@
         ../modules/app/swappy.nix
         ../modules/app/swayidle.nix
         #../modules/app/swayosd.nix
-        ../modules/app/vis.nix
         ../modules/app/wofi.nix
-        ../modules/app/zathura.nix
 
 	    # System
         ../modules/sys/fonts.nix
@@ -77,13 +84,10 @@
         ../modules/sys/xdg.nix
 
         # Shell
-        ../modules/shell/yazi
         ../modules/shell/aliases.nix
         ../modules/shell/bash.nix
         ../modules/shell/eza.nix
         ../modules/shell/plugins.nix
-        ../modules/shell/starship.nix
-        ../modules/shell/tmux.nix
         ../modules/shell/zoxide.nix
         ../modules/shell/zsh.nix
         

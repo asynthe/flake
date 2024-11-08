@@ -1,22 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
 
     home.packages = builtins.attrValues { inherit (pkgs) cli-visualizer; };
     home.file = {
-        "${config.xdg.configHome}/vis/config".text = ''
-visualizer.fps=30 # default is 20.
-audio.stereo.enabled=true
-
-##Specifies how often the visualizer will change in seconds. 0 means do not rotate. Default is 0.
-#visualizer.rotation.secs=10
-
-visualizer.spectrum.bar.width=3
-visualizer.spectrum.bar.spacing=1
-visualizer.spectrum.smoothing.mode=monstercat # monstercat, sgs, none
-visualizer.spectrum.falloff.mode=fill # default `fill`, options: fill, top, none
-
-##Specifies the color scheme. The color scheme must be in ~/.config/vis/colors/ directory. The default scheme is "colors".
-colors.scheme=blue,cyanred,cyberpunk,deepblue,deepblue-inverted,dreamy,rainbow,sakura,sakura-inverted,white
-            '';
+        "${config.xdg.configHome}/vis/config".source = config.lib.file.mkOutOfStoreSymlink ./config;
         "${config.xdg.configHome}/vis/colors/blue".text = "blue";
         "${config.xdg.configHome}/vis/colors/cyanred".text = "#0099ff\n#ff3399";
         "${config.xdg.configHome}/vis/colors/cyberpunk".text = "#BCECEO\n#36EEEO\n#F652AO\n#4C527O";
