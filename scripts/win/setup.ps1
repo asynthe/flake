@@ -1,3 +1,7 @@
+# Other programs to install:
+# - DaVinci Resolve
+
+
 Write-Output "Welcome to meow's windows setup script!"
 # Write-Output "ようこそ！"
 Start-Sleep -Milliseconds 700
@@ -29,19 +33,22 @@ $programs = @(
     "Gyan.FFmpeg"
     "KeePassXCTeam.KeePassXC"
     "LibreWolf.LibreWolf"
+    "Malwarebytes.Malwarebytes"
+    "Microsoft.VisualStudioCode"
     "Microsoft.VisualStudioCode",
     "MullvadVPN.MullvadVPN"
     "Neovim.Neovim"
     "Notepad++.Notepad++"
+    "OBSProject.OBSStudio"
+    "Obsidian.Obsidian"
+    "PuTTY.PuTTY"
     "RARLab.WinRAR"
+    "Spotify.Spotify"
     "VLC.VLC",
+    "VMware.WorkstationPro"
     "Valve.Steam"
     "qBittorrent.qBittorrent"
     "wez.wezterm"
-    "Spotify.Spotify"
-    "PuTTY.PuTTY"
-    "Microsoft.VisualStudioCode"
-    "Malwarebytes.Malwarebytes"
 
     # CPU-Z
     #"CPUID.CPU-Z"
@@ -63,13 +70,15 @@ $installedPrograms = winget list
 # Check for missing programs and install them
 foreach ($program in $programs) {
 
+    $programName = ($program -split '\.')[-1]
+
     # Check if the program is already installed
     if ($installedPrograms -notcontains $program) {
         Write-Output "Installing $program"
         winget install --id $program --exact --silent
-        Write-Output "$program installation complete."
+        Write-Output "$programName installation complete."
     } else {
-        Write-Output "$program is already installed."
+        Write-Output "$programName is already installed."
     }
 }
 
