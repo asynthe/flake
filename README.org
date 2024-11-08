@@ -1,5 +1,8 @@
 Hewlo.
 
+#+ATTR_HTML: :align center :width 400px
+[[file:other/img/readme_cats.jpg]]
+
 ** NixOS
 ** macOS
 ** Windows
