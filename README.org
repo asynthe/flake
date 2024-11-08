@@ -1,6 +1,6 @@
 Hewlo.
 
-#+ATTR_HTML: :align center :width 400px
+#+ATTR_HTML: :align center :width 200px
 [[file:other/img/readme_cats.jpg]]
 
 ** NixOS
