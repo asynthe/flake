@@ -105,7 +105,7 @@
             raider = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit inputs outputs pkgs-stable; };
                 modules = [
-                    ./hosts/raider
+                    ./nix/hosts/raider
 	                sops-nix.nixosModules.sops
                     disko.nixosModules.disko
                     impermanence.nixosModules.impermanence
@@ -130,7 +130,7 @@
             thinkpad = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit inputs outputs pkgs-stable; };
                 modules = [
-                    ./hosts/thinkpad
+                    ./nix/hosts/thinkpad
                     nixos-hardware.nixosModules.lenovo-thinkpad-t480
 	                sops-nix.nixosModules.sops
                     disko.nixosModules.disko
@@ -144,7 +144,7 @@
             macos-vm = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit inputs outputs pkgs-stable; };
                 modules = [
-                    ./hosts/vm-macos
+                    ./nix/hosts/vm-macos
 	                sops-nix.nixosModules.sops
                     disko.nixosModules.disko
                     impermanence.nixosModules.impermanence
@@ -186,7 +186,7 @@
 	                user = "meow";
                 };
                 modules = [ 
-	                ./home/meow 
+	                ./nix/home/meow 
 	                nixvim.homeManagerModules.nixvim
 	                sops-nix.homeManagerModules.sops
                     hyprland.homeManagerModules.default
@@ -204,7 +204,7 @@
                     ;
 	            };
 	            modules = [
-	                ./home/missingno
+	                ./nix/home/missingno
 	                nixvim.homeManagerModules.nixvim
                     stylix.homeManagerModules.stylix
 	            ];
