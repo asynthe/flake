@@ -2,12 +2,22 @@
     imports = [
 
         # Substituters and Binary Cache
+        # -------------------------------------------------
+        # Remember to first rebuild home manager with 
+        # the specified cache then enable the dotfile .
         ../modules/sys/substituters.nix
         # - Hyprland
         # - Wezterm
         # - Yazi
-        # Remember to first rebuild home manager with 
-        # the specified cache then enable the dotfile .
+
+        ../../../dots/emacs
+        ../../../dots/mpv
+        ../../../dots/waybar
+        ../../../dots/wezterm
+
+        # wm
+        ../../../dots/wayfire
+        ../../../dots/hypr # Hyprland
 
         # -------------- Other [REMOVE] --------------
         # Check yazi vs lf, maybe with a mkForce
@@ -20,14 +30,6 @@
         #../modules/game/games.nix
         #../modules/game/tools.nix
         # --------------------------------------------
-
-        # Dots
-        ../../dots/emacs
-        ../../dots/hypr # Hyprland
-        ../../dots/waybar
-        ../../dots/wayfire
-        # Soon
-        #../modules/wm/xmonad
 
         # Package Set
         ../modules/pkgs/audio.nix
@@ -46,7 +48,6 @@
 	    ../modules/app/nvim
 	    ../modules/app/swww
 	    ../modules/app/vscode
-	    ../modules/app/wezterm
 
 	    # FIND PROBLEM with sql rust thing !!!
         # Apps - Single Files

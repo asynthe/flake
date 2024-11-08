@@ -1,0 +1,4 @@
+# dots
+dots/qBittorrent/*
+!dots/qBittorrent/themes/
+!dots/qBittorrent/themes/*
