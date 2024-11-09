@@ -47,6 +47,7 @@ $programs = @(
     "VLC.VLC",
     "VMware.WorkstationPro"
     "Valve.Steam"
+    "eloston.ungoogled-chromium"
     "qBittorrent.qBittorrent"
     "wez.wezterm"
 
