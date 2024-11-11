@@ -1,0 +1,168 @@
+
+
+typeset -U path cdpath fpath manpath
+
+for profile in ${(z)NIX_PROFILES}; do
+  fpath+=($profile/share/zsh/site-functions $profile/share/zsh/$ZSH_VERSION/functions $profile/share/zsh/vendor-completions)
+done
+
+HELPDIR="/nix/store/4z16nad9whssz7m41qqp9s2qhdxmbvp8-zsh-5.9/share/zsh/$ZSH_VERSION/help"
+
+# Use viins keymap as the default.
+bindkey -v
+
+
+
+path+="$HOME/.config/zsh/plugins/vi-mode"
+fpath+="$HOME/.config/zsh/plugins/vi-mode"
+
+# Oh-My-Zsh/Prezto calls compinit during initialization,
+# calling it twice causes slight start up slowdown
+# as all $fpath entries will be traversed again.
+autoload -U compinit && compinit
+source /nix/store/gjqjxfq3x2jp0s9rj5gywwbf264fqw2q-zsh-autosuggestions-0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_STRATEGY=(history)
+
+
+
+
+
+if [[ -f "$HOME/.config/zsh/plugins/vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh" ]]; then
+  source "$HOME/.config/zsh/plugins/vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+fi
+
+
+# History options should be set in .zshrc and after oh-my-zsh sourcing.
+# See https://github.com/nix-community/home-manager/issues/177.
+HISTSIZE="10000"
+SAVEHIST="10000"
+
+HISTFILE="/home/meow/.config/zsh/zsh_history"
+mkdir -p "$(dirname "$HISTFILE")"
+
+setopt HIST_FCNTL_LOCK
+unsetopt APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+unsetopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+unsetopt HIST_EXPIRE_DUPS_FIRST
+setopt SHARE_HISTORY
+unsetopt EXTENDED_HISTORY
+setopt autocd
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+eval "$(zoxide init --cmd cd zsh)"
+
+eval "$(starship init zsh)"
+
+# Keybinds
+zmodload zsh/complist
+bindkey -M menuselect '^[[Z' reverse-menu-complete
+
+# Run after 5 minutes of inactivity.
+TMOUT=300;
+TRAPALRM() { /nix/store/78mvlj524388k552f7fhfb9sb9is2p09-pipes-rs-1.6.3/bin/pipes-rs }
+#TRAPALRM() { unimatrix -s 93 }
+
+# ZSH options (setopt)
+while read -r option; do
+    setopt $option
+done <<-EOF
+APPEND_HISTORY
+HIST_IGNORE_DUPS
+HIST_IGNORE_SPACE
+INC_APPEND_HISTORY
+INTERACTIVE_COMMENTS
+NO_BEEP
+EOF
+
+# zsh-vi-mode configuration
+function zvm_config() {
+    ZVM_CURSOR_STYLE=true
+    ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL
+    #ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+    ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
+    ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
+    ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+    ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+} 
+
+	      eval "$(direnv hook zsh)"
+	      export DIRENV_LOG_FORMAT=""
+	    
+export GPG_TTY=$TTY
+/nix/store/wwfj0b0mbl9lcnd79xp3r9jxy6ylv2k8-gnupg-2.4.5/bin/gpg-connect-agent updatestartuptty /bye > /dev/null
+
+eval "$(/nix/store/129dfibbfvgp6gwy3wyvmhlis5m2b56f-zoxide-0.9.6/bin/zoxide init zsh )"
+
+function yy() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
+source "/nix/store/ps9ipfzjlp97v4kh4gdrcpnrqsrr80r4-wezterm-20240203-110809-5046fc22/etc/profile.d/wezterm.sh"
+
+if [[ $TERM != "dumb" ]]; then
+  eval "$(/home/meow/.nix-profile/bin/starship init zsh)"
+fi
+
+eval "$(/nix/store/vk7m83mq14whwjbhx0gx3934jz4a8gxk-direnv-2.35.0/bin/direnv hook zsh)"
+
+
+# Aliases
+alias -- book='/nix/store/j2x574lb7dxj7ksc3gfbzn917hs6g5nk-fd-10.2.0/bin/fd . ~/sync/archive/book/reading --type f -e '\''pdf'\'' -e '\''epub'\'' | /nix/store/c149zca9dxlhfxy184ylmmzdn8cja6g9-skim-0.10.4/bin/sk | xargs zathura'
+alias -- bt=/nix/store/468gyydmpxfgxiis4wbgdv8v6n43375f-bluetuith-0.2.3/bin/bluetuith
+alias -- cat=bat
+alias -- cl='mpv --no-resume-playback https://iptv-org.github.io/iptv/countries/cl.m3u'
+alias -- disk='(df -h | head -n 1; df -h | grep nvme)'
+alias -- f=yy
+alias -- ga='git add -A'
+alias -- img='wezterm imgcat'
+alias -- jp='/nix/store/3kwp65r18cm8ybsxkpkwcpkdr9j41gk4-mpv-with-scripts-0.39.0/bin/mpv --no-resume-playback https://iptv-org.github.io/iptv/countries/jp.m3u > /dev/null 2>&1 & disown'
+alias -- la='/nix/store/47wh1dn4b99sk3c40n9b011335q2i47n-eza-0.20.6/bin/eza -a --icons --group-directories-first'
+alias -- lf=yy
+alias -- lg='/nix/store/47wh1dn4b99sk3c40n9b011335q2i47n-eza-0.20.6/bin/eza --long --git --group-directories-first'
+alias -- ll='/nix/store/47wh1dn4b99sk3c40n9b011335q2i47n-eza-0.20.6/bin/eza --long --group-directories-first'
+alias -- lla='/nix/store/47wh1dn4b99sk3c40n9b011335q2i47n-eza-0.20.6/bin/eza -a --long --group-directories-first'
+alias -- ls='/nix/store/47wh1dn4b99sk3c40n9b011335q2i47n-eza-0.20.6/bin/eza --icons --group-directories-first'
+alias -- lt='eza --tree'
+alias -- m=ncmpcpp
+alias -- mpv='mpv --profile=norm'
+alias -- n=nvim
+alias -- off=poweroff
+alias -- p=ping
+alias -- pdf=zathura
+alias -- py=python3
+alias -- rickroll='/nix/store/rw1sbc7ya3abg2p2fbkpmijzn6ylna9d-curl-8.10.1-bin/bin/curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master.roll.sh | /nix/store/mm0pa3z7kk6jh1i9rkxqxjqmd8h1qpxf-bash-5.2p37/bin/bash'
+alias -- rm='rm -i'
+alias -- sl='/nix/store/47wh1dn4b99sk3c40n9b011335q2i47n-eza-0.20.6/bin/eza --icons --group-directories-first'
+alias -- t='/nix/store/1jfqrzzqqb0a9pzp1ymi9ny01134iirx-tty-clock-2.3+unstable=2021-04-07/bin/tty-clock -ScB'
+alias -- v=/nix/store/s288alrrfvrz9q604hsw348gg7mv5zsb-alsa-utils-1.2.12/bin/alsamixer
+alias -- video='/nix/store/j2x574lb7dxj7ksc3gfbzn917hs6g5nk-fd-10.2.0/bin/fd . /home/meow/sync/archive/wallpaper/video -e mp4 | /nix/store/c149zca9dxlhfxy184ylmmzdn8cja6g9-skim-0.10.4/bin/sk | xargs /nix/store/pl1qhfx36nzv669x0gmvf1vxv3saf1di-mpvpaper-1.7/bin/mpvpaper -v -p -o '\''loop-file=inf --no-resume-playback'\'' '\''*'\'''
+alias -- vv=/nix/store/xdql7jbyipg9z9mfl55vng495cp9a394-pulsemixer-1.5.1/bin/pulsemixer
+alias -- wall='fd . /home/meow/sync/archive/wallpaper/img -e jpg -e png | sk | xargs swww img'
+alias -- yazi=yy
+alias -- yt='/nix/store/vyjgzi6dw1xj9s4v1zw2r3gjznw00lmp-yt-dlp-2024.10.22/bin/yt-dlp -f  '\''bv[ext=mp4]+ba[ext=m4a]'\'' --merge-output-format mp4'
+alias -- yt-mp3='/nix/store/vyjgzi6dw1xj9s4v1zw2r3gjznw00lmp-yt-dlp-2024.10.22/bin/yt-dlp -f '\''ba'\'' -x --audio-format mp3'
+
+# Named Directory Hashes
+
+
+source /nix/store/9lrhlxsg2pd93ffz0g9gpcm2sw2k5hg9-zsh-syntax-highlighting-0.8.0/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=()
+
+
+
+
