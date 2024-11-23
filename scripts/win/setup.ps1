@@ -27,43 +27,45 @@ winget upgrade --id Microsoft.DesktopAppInstaller -e --silent
 
 $programs = @(
     "7zip.7zip",
-    "Discord.Discord"
-    "File-New-Project.EarTrumpet"
+    "Discord.Discord",
+    "File-New-Project.EarTrumpet",
     "Git.Git",
-    "Gyan.FFmpeg"
-    "KeePassXCTeam.KeePassXC"
-    "LibreWolf.LibreWolf"
-    "Malwarebytes.Malwarebytes"
-    "Microsoft.VisualStudioCode"
+    "Gyan.FFmpeg",
+    "KeePassXCTeam.KeePassXC",
+    "Malwarebytes.Malwarebytes",
+    "Microsoft.PowerToys",
     "Microsoft.VisualStudioCode",
-    "MullvadVPN.MullvadVPN"
-    "Neovim.Neovim"
-    "Notepad++.Notepad++"
-    "OBSProject.OBSStudio"
-    "Obsidian.Obsidian"
-    "PuTTY.PuTTY"
-    "RARLab.WinRAR"
-    "Spotify.Spotify"
+    "Microsoft.VisualStudioCode",
+    "MullvadVPN.MullvadVPN",
+    "Neovim.Neovim",
+    "Notepad++.Notepad++",
+    "Nushell.Nushell",
+    "OBSProject.OBSStudio",
+    "Obsidian.Obsidian",
+    "PuTTY.PuTTY",
+    "RARLab.WinRAR",
+    "Spotify.Spotify",
     "VLC.VLC",
-    "VMware.WorkstationPro"
-    "Valve.Steam"
-    "eloston.ungoogled-chromium"
-    "qBittorrent.qBittorrent"
-    "wez.wezterm"
-    "sxyazi.yazi"
+    "VMware.WorkstationPro",
+    "Valve.Steam",
+    "eloston.ungoogled-chromium",
+    "qBittorrent.qBittorrent",
+    "sxyazi.yazi",
+    "wez.wezterm",
+    #"LibreWolf.LibreWolf",
 
     # CPU-Z
-    #"CPUID.CPU-Z"
-    "CPUID.CPU-Z.MSI" # MSI Ver.
+    #"CPUID.CPU-Z",
+    "CPUID.CPU-Z.MSI", # MSI Ver.
 
     # CrystalDiskInfo
-    #"CrystalDewWorld.CrystalDiskInfo"
-    "CrystalDewWorld.CrystalDiskInfo.KureiKeiEdition"
-    #"CrystalDewWorld.CrystalDiskInfo.ShizukuEdition"
+    #"CrystalDewWorld.CrystalDiskInfo",
+    "CrystalDewWorld.CrystalDiskInfo.KureiKeiEdition",
+    #"CrystalDewWorld.CrystalDiskInfo.ShizukuEdition",
 
     # CrystalDiskMark
-    #"CrystalDewWorld.CrystalDiskMark"
-    #"CrystalDewWorld.CrystalDiskMark.ShizukuEdition"
+    #"CrystalDewWorld.CrystalDiskMark",
+    #"CrystalDewWorld.CrystalDiskMark.ShizukuEdition",
 )
 
 Write-Output "Listing installed programs..."
