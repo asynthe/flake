@@ -27,30 +27,28 @@ in {
 
         # Needed by Pipewire.
         #environment.systemPackages = builtins.attrValues { inherit (pkgs) pulseaudio; }; # pulsemixer?
-        hardware.pulseaudio.enable = false;
-        hardware.pulseaudio.support32Bit = true; # Gaming fix.
+        #hardware.pulseaudio.enable = false;
+        #hardware.pulseaudio.support32Bit = true; # Gaming fix.
 
         # Pipewirez
         services.pipewire = {
             enable = true;
             audio.enable = true; # Use as primary sound server.
-            wireplumber.enable = true;
+            alsa.enable = true;
+            alsa.support32Bit = true;
             pulse.enable = true;
             jack.enable = true; # Use JACK applications.
-            alsa = {
-                enable = true;
-                support32Bit = true;
-            };
+            wireplumber.enable = true;
         };
 
         # Low-latency setup
-        services.pipewire.extraConfig.pipewire."92-low-latency" = mkIf cfg.lowlatency {
-            context.properties = {
-                default.clock.rate = 48000;
-                default.clock.quantum = 32;
-                default.clock.min-quantum = 32;
-                default.clock.max-quantum = 32;
-            };
-        };
+        #services.pipewire.extraConfig.pipewire."92-low-latency" = mkIf cfg.lowlatency {
+            #context.properties = {
+                #default.clock.rate = 48000;
+                #default.clock.quantum = 32;
+                #default.clock.min-quantum = 32;
+                #default.clock.max-quantum = 32;
+            #};
+        #};
     };
 }

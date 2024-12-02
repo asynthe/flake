@@ -127,54 +127,19 @@
             #};
 
             # Thinkpad
-            thinkpad = nixpkgs.lib.nixosSystem {
-                specialArgs = { inherit inputs outputs pkgs-stable; };
-                modules = [
-                    ./nix/hosts/thinkpad
-                    nixos-hardware.nixosModules.lenovo-thinkpad-t480
-	                sops-nix.nixosModules.sops
-                    disko.nixosModules.disko
-                    impermanence.nixosModules.impermanence
-                    lanzaboote.nixosModules.lanzaboote
-                    musnix.nixosModules.musnix
-                ];
-            };
-
-            # MacOS VM (VMware)
-            macos-vm = nixpkgs.lib.nixosSystem {
-                specialArgs = { inherit inputs outputs pkgs-stable; };
-                modules = [
-                    ./nix/hosts/vm-macos
-	                sops-nix.nixosModules.sops
-                    disko.nixosModules.disko
-                    impermanence.nixosModules.impermanence
-                    lanzaboote.nixosModules.lanzaboote
-                    musnix.nixosModules.musnix
-                ];
-            };
+            #thinkpad = nixpkgs.lib.nixosSystem {
+                #specialArgs = { inherit inputs outputs pkgs-stable; };
+                #modules = [
+                    #./nix/hosts/thinkpad
+                    #nixos-hardware.nixosModules.lenovo-thinkpad-t480
+	                #sops-nix.nixosModules.sops
+                    #disko.nixosModules.disko
+                    #impermanence.nixosModules.impermanence
+                    #lanzaboote.nixosModules.lanzaboote
+                    #musnix.nixosModules.musnix
+                #];
+            #};
         };
-
-        # Nix Darwin configurations
-        #darwinConfigurations = {
-        #
-        #    # macbook + Home Manager
-        #    macbook = nix-darwin.lib.darwinSystem {
-        #        system = "aarch64-darwin";
-        #	    specialArgs = { inherit inputs outputs pkgs-stable; };
-        #        modules =
-        #	    let
-        #	        nixpkgsConfig = { config.allowUnfree = true; };
-        #	    in [
-        #	        ./hosts/macbook
-        #	        inputs.home-manager.darwinModules.home-manager {
-        #	            nixpkgs = nixpkgsConfig;
-        #	            home-manager.useGlobalPkgs = true;
-        #	            home-manager.useUserPackages = true;
-        #	            home-manager.users.benjamindunstan = import ./hosts/macbook/home.nix;
-        #	        };
-        #	    ];
-        #    };
-        #};
 
         # Home Manager configurations
         homeConfigurations = {
@@ -186,7 +151,7 @@
 	                user = "meow";
                 };
                 modules = [ 
-	                ./nix/home/meow 
+	                ./home/meow 
 	                nixvim.homeManagerModules.nixvim
 	                sops-nix.homeManagerModules.sops
                     hyprland.homeManagerModules.default
@@ -195,20 +160,20 @@
             };
             
             # missingno
-            missingno = home-manager.lib.homeManagerConfiguration {
-                pkgs = nixpkgs.legacyPackages.x86_64-linux;
-	            extraSpecialArgs = {
+            #missingno = home-manager.lib.homeManagerConfiguration {
+                #pkgs = nixpkgs.legacyPackages.x86_64-linux;
+	            #extraSpecialArgs = {
                     #inherit pkgs;
-                    inherit pkgs-stable inputs;
-	                    user = "missingno"
-                    ;
-	            };
-	            modules = [
-	                ./nix/home/missingno
-	                nixvim.homeManagerModules.nixvim
-                    stylix.homeManagerModules.stylix
-	            ];
-            };
+                    #inherit pkgs-stable inputs;
+	                    #user = "missingno"
+                    #;
+	            #};
+	            #modules = [
+	                #./home/missingno
+	                #nixvim.homeManagerModules.nixvim
+                    #stylix.homeManagerModules.stylix
+	            #];
+            #};
         };
     };
 }

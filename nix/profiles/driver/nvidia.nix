@@ -123,10 +123,8 @@ in {
             gaming.configuration = {
                 hardware.nvidia.prime = {
                     sync.enable = mkForce true;
-                    offload = {
-                        enable = mkForce false;
-                        enableOffloadCmd = mkForce false;
-                    };
+                    offload.enable = mkForce false;
+                    enableOffloadCmd = mkForce false;
                 };
             };
         };

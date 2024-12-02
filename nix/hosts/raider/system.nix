@@ -7,7 +7,7 @@
     nixpkgs.config.allowUnfree = true;
     networking.networkmanager.enable = true;
     i18n.defaultLocale = "en_US.UTF-8";
-    time.timeZone = "Australia/Perth";
+    time.timeZone = "America/Santiago";
 
     meta = {
         # -------------- System - Main --------------

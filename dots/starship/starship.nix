@@ -1,5 +1,8 @@
 { config, ... }: {
 
+    # Set up the starship location variable in bash / zsh / nu
+    # to ~/.config/starship/starship.toml
+
     programs.zsh.initExtra = ''
       eval "$(starship init zsh)"
     '';
