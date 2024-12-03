@@ -3,8 +3,6 @@
 :ROAM_ALIASES: zsh
 :END:
 #+title: Zsh configuration (zshrc)
-#+property: header-args :tangle .zshrc
-#+auto_tangle: t
 
 Relics from X11
 #+begin_src bash

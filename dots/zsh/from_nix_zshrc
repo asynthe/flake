@@ -163,6 +163,37 @@ alias -- yt-mp3='/nix/store/vyjgzi6dw1xj9s4v1zw2r3gjznw00lmp-yt-dlp-2024.10.22/b
 source /nix/store/9lrhlxsg2pd93ffz0g9gpcm2sw2k5hg9-zsh-syntax-highlighting-0.8.0/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS+=()
 
+# -------------------------------------------------------------------------------------------------
 
+alias waifu='nsxiv -t ~/main/ベンハミン/ero/3d_girls' # FIXING
+#alias waifu-irl='nsxiv -t ~/sync/sys/wallpapers/2d-girls' # FIXING
+#alias wall-anime-random=
 
+# Wallpaper - Nitrogen [X11]
+#alias xinit='nvim ~/.xinitrc'
+#alias xwall='fd . /home/asynthe/sync/system/wallpaper -e jpg -e png | fzf | xargs feh' # INSTALL FEH AND FIX
 
+# xrandr commands
+#alias hdmi='xrandr --output eDP-1 --mode 1920x1080 --rate 144.00 && xrandr --output HDMI-1-0 --primary --mode 1920x1080 --rate 60.00 --right-of eDP-1'
+#alias hdmi-bigtv='xrandr --output eDP-1 --primary --mode 1920x1080 --rate 144.00 --output HDMI-1-0 --mode 1920x1080 --rate 60.00 --right-of eDP-1'
+#alias hdmi-off='xrandr --output HDMI-1-0 --off'
+
+#(cat ~/.cache/wal/sequences &)
+#cat ~/.cache/wal/sequences # Alternative (blocks terminal for 0-3ms)
+
+#alias emerge='doas emerge --ask'
+#alias sync='doas emerge --sync'
+#alias update='doas emerge -auvDN --keep-going @world'
+#alias deselect='doas emerge --ask --deselect'
+#alias clean='doas emerge --ask --depclean'
+#alias makeconf='doas nvim /etc/portage/make.conf'
+#alias dispatch='doas dispatch-conf'
+#alias search='doas emerge --search'
+#alias list-repo='eselect list'
+#alias add-repo='doas eselect repository enable'
+#alias del-repo=''
+
+# Trash bin - trashy
+#alias tr='trash'
+#alias rm='echo "This is not the command you are looking for."; false'
+#alias nil-tr='trash empty'

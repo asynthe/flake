@@ -21,11 +21,11 @@
         image = ./img/grey.png;
 
         # -------------- Specific targets --------------
-        targets = {
-            nixvim.transparentBackground.main = true;
+        #targets = {
+            #nixvim.transparentBackground.main = true;
             #nixvim.transparent_bg.sign_column = true;
-            wezterm.enable = false;
-        };
+            #wezterm.enable = false;
+        #};
 
         # -------------- Colorscheme --------------
         # https://tinted-theming.github.io/base16-gallery/
@@ -119,7 +119,7 @@
             serif.package = pkgs.dejavu_fonts;
             sansSerif.name = "DejaVu Sans";
             sansSerif.package = pkgs.dejavu_fonts;
-            monospace.name = "JetBrainsMono NF";
+            monospace.name = "JetBrainsMono Nerd Font";
             monospace.package = pkgs.nerd-fonts.jetbrains-mono;
             emoji.name = "Noto Color Emoji";
             emoji.package = pkgs.noto-fonts-emoji;
