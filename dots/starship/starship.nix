@@ -6,14 +6,14 @@
 
     home.packages = builtins.attrValues { inherit (pkgs) starship; };
     programs.zsh = {
-        sessionVariables.STARSHIP_CONFIG = "$HOME/.config/starship/starship.toml";
+        #sessionVariables.STARSHIP_CONFIG = "$HOME/.config/starship/starship.toml";
         initExtra = ''
             eval "$(starship init zsh)"
         '';
     };
 
     xdg.configFile = {
-        "starship/starship.toml".source = config.lib.file.mkOutOfStoreSymlink ./starship.toml;
+        "starship.toml".source = config.lib.file.mkOutOfStoreSymlink ./starship.toml;
     };
 
     #programs.starship = {
