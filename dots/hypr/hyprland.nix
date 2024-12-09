@@ -18,6 +18,18 @@
         ;
     };
 
+    # XDG Portal for screensharing
+    xdg.portal = {
+        enable = true;
+        config.hyprland.default = [ "hyprland" "gtk" ];
+        xdgOpenUsePortal = true;
+        extraPortals = with pkgs; [ 
+            xdg-desktop-portal-hyprland
+            xdg-desktop-portal-gtk
+            xdg-desktop-portal-wlr
+        ];
+    };
+
     # Create a target session for hyprland
     systemd.user.targets.hyprland-session = {
         Unit = {

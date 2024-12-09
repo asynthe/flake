@@ -1,16 +1,21 @@
 # -------------- Environment Variables --------------
-export EDITOR = "nvim"
-export BROWSER = "librewolf"
-export FILE = "yazi"
-export FLAKE = "/home/meow/sync/flake"
-export READER = "zathura"
-export TERM = "xterm-256color"
-export QT_STYLE_OVERRIDE = adwaita-dark
+export EDITOR='nvim'
+export BROWSER='librewolf'
+export FILE='yazi'
+export FLAKE='/home/meow/sync/flake'
+export READER='zathura'
+export TERM='xterm-256color'
+export QT_STYLE_OVERRIDE=adwaita-dark
 
 export GNUPGHOME=$HOME/sync/pass/gpg # default `$HOME/.gnupg`
 export PASSWORD_STORE_DIR=$HOME/sync/pass/pass # default `$HOME/.password-store`
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml # default `$HOME/.config/starship.toml`, also $ZDOTDIR/starship/starship.toml to have inside zsh folder.
 export WAYFIRE_CONFIG_FILE=$HOME/.config/wayfire/wayfire.ini # Instead of $HOME/.config/wayfire.ini
+
+# NixOS and Hyprland specific
+NIXOS_XDG_OPEN_USE_PORTAL=1
+NIXOS_OZONE_WL=1
+XDG_CURRENT_DESKTOP='Hyprland'
 
 # -------------- Aliases --------------
 # Directories
@@ -39,7 +44,7 @@ alias ifconfig='echo "ipconfig is deprecated, use ip instead."; false'
 alias m='ncmpcpp'
 alias n='nvim'
 alias nm='doas nmtui'
-alias p='python'
+alias py='python'
 alias port='ss -naptu state listening'
 alias ports='ss -tulanp'
 alias v='pulsemixer'
@@ -69,7 +74,8 @@ alias -g nv='nvim'
 alias -g nvv='doas nvim'
 alias -g pdf='zathura'
 alias ani-on='hyprctl keyword animations:enabled 1'
-alias ani-off='hyprgame'
+alias ani-off='hyprctl keyword animations:enabled 0'
+#alias ani-off='hyprgame'
 
 # Books
 alias book='fd . ~/sync/study/book --type f -e "pdf" -e "epub" | sk | xargs zathura'

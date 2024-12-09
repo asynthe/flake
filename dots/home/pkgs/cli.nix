@@ -39,18 +39,19 @@
             tesseract easyocr # OCR
 
             # System
-            powershell
-            inxi
-            strace # System call monitoring
-            ltrace # Library call monitoring
-            iotop # IO monitoring
-            iftop # Network monitoring
-            lsof # List open files
-            lshw # List hardware details
-            sysstat
-            lm_sensors # for `sensors` command
             ethtool
+            iftop # Network monitoring
+            inxi
+            iotop # IO monitoring
+            lm_sensors # for `sensors` command
+            lshw # List hardware details
+            lsof # List open files
+            ltrace # Library call monitoring
+            parted
             pciutils # lspci
+            powershell
+            strace # System call monitoring
+            sysstat
             usbutils # lsusb
 
             # Networking

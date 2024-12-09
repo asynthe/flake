@@ -21,7 +21,7 @@
             #bitwig-studio # paid
     
             # DJ mixer
-            mixxx
+            #mixxx
 
             # Audio editors
             #ocenaudio #audacity

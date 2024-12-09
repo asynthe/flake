@@ -115,6 +115,8 @@
                 #;
             #};
 
+            # Alacritty wasn't able to find JetBrainsMono
+            # until I ran `fc-cache -fv`.
             serif.name = "DejaVu Serif";
             serif.package = pkgs.dejavu_fonts;
             sansSerif.name = "DejaVu Sans";
