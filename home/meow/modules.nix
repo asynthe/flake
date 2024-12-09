@@ -10,34 +10,38 @@
         # - Wezterm
         # - Yazi
 
-        # mkOutOfStoreSymlink
-        ../../dots/emacs
-        ../../dots/waybar
-        ../../dots/wezterm
-        ../../dots/wayfire
-        ../../dots/hypr # Hyprland
-
-        # testing
-	    ../../dots/ncmpcpp
-        ../../dots/rofi
-        ../../dots/zathura
-        ../../dots/direnv
-
         # testing - not yet
+        ../../dots/rofi
 	    ../../dots/mpd
         ../../dots/mpv
         ../../dots/nushell
+
+        # mkOutOfStoreSymlink
+	    ../../dots/ncmpcpp
+        ../../dots/direnv
+        ../../dots/emacs
+        ../../dots/hypr # Hyprland
+        ../../dots/nvim # Using nixvim so I'll leave it like that.
         ../../dots/starship
         ../../dots/tmux
         ../../dots/vis
-        ../../dots/yazi
+        ../../dots/waybar
+        ../../dots/wayfire
+        ../../dots/wezterm
+        ../../dots/wofi
+        ../../dots/zathura
 
-        # non-existent config file but appends to something 
-        ../../dots/eza
+        # Non-existent config file but appends to something 
 	    ../../dots/bat
+	    ../../dots/mpvpaper
+        ../../dots/eza
+        ../../dots/nh
+        ../../dots/zoxide
+	    ../../dots/swww # FIX
 
-        # non-mkOutOfStoreSymlink (modified by stylix)
+        # Stylix modified
 	    ../../dots/alacritty
+        ../../dots/yazi
 
         # -------------- Remove from here down !!! --------------
 
@@ -52,22 +56,15 @@
 	    # Apps
         ../../dots/home/app/gpg
 	    ../../dots/home/app/librewolf
-	    ../../dots/home/app/nvim
-	    ../../dots/home/app/swww
 	    ../../dots/home/app/vscode
-	    #../../dots/home/app/lf
 
 	    # FIND PROBLEM with sql rust thing !!!
         # Apps - Single Files
         ../../dots/home/app/fbterm.nix
         ../../dots/home/app/git.nix
 	    ../../dots/home/app/mako.nix
-	    ../../dots/home/app/mpvpaper.nix
-        ../../dots/home/app/nh.nix
-	    ../../dots/home/app/obs.nix
         ../../dots/home/app/swappy.nix
         #../../dots/home/app/swayidle.nix
-        ../../dots/home/app/wofi.nix
         #../../dots/home/app/swayosd.nix
         #../../dots/home/app/spotifyd.nix
 
@@ -82,7 +79,6 @@
         ../../dots/home/shell/aliases.nix
         ../../dots/home/shell/bash.nix
         ../../dots/home/shell/plugins.nix
-        ../../dots/home/shell/zoxide.nix
         ../../dots/home/shell/zsh.nix
         
         # systemd services + timers

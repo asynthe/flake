@@ -51,17 +51,17 @@ function yy() {
 
     home.packages = builtins.attrValues {
         inherit (pkgs)
-	    file
-	    #nerdfonts
+	    fd
 	    ffmpegthumbnailer
-	    unar
+	    file
+	    fzf
 	    jq
 	    poppler
-	    fd
 	    ripgrep
-	    fzf
-	    zoxide
+	    unar
 	    wl-clipboard
+	    zoxide
+        exiftool
 	    ;
     };
 }

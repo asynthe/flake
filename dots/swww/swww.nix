@@ -48,11 +48,11 @@ in {
         #pkgs.xargs
     ];
 
-    wayland.windowManager.hyprland.settings.exec-once = [
-        "sleep 1 && swww-daemon &"
+    #wayland.windowManager.hyprland.settings.exec-once = [
+        #"sleep 1 && swww-daemon &"
         #"sleep 1 && ${pkgs.swww}/bin/swww-daemon &"
         #"sleep 1 && ${wallpaper_script}/bin/sww-random-wallpaper &"
-    ];
+    #];
 
     programs.zsh.shellAliases = mkIf config.programs.zsh.enable {
         wall = "fd . ${config.home.homeDirectory}/sync/archive/wallpaper/img -e jpg -e png | sk | xargs swww img";

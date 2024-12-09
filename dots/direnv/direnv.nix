@@ -10,19 +10,4 @@
 	      export DIRENV_LOG_FORMAT=""
 	    '';
     };
-
-    #programs.direnv = {
-        #enable = true;
-	    #nix-direnv.enable = true;
-        #enableBashIntegration = config.programs.bash.enable;
-	    #enableFishIntegration = config.programs.fish.enable;
-	    #enableNushellIntegration = config.programs.nushell.enable;
-	    #enableZshIntegration = config.programs.zsh.enable;
-	    #config = {
-	        #global = {
-	            #warn_timeout = "2h";
-		        #hide_env_diff = true;
-	        #};
-	    #};
-    #};
 }

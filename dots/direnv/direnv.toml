@@ -1,1 +1,5 @@
-/nix/store/06bgj7fakqjxbj9xnp6rvzd4arnigggc-home-manager-files/.config/direnv/direnv.toml
+[global]
+hide_env_diff = true
+skip_dotenv = true
+warn_timeout = 0
+#warn_timeout = 2h

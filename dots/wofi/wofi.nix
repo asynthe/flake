@@ -1,34 +1,40 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
 
-    programs.wofi = {
-        enable = true;
-	    settings = {
+    home.packages = builtins.attrValues { inherit (pkgs) wofi; };
+    xdg.configFile = {
+        "wofi/config".source = config.lib.file.mkOutOfStoreSymlink ./config;
+        "wofi/style.css".source = config.lib.file.mkOutOfStoreSymlink ./style.css;
+    };
 
-	        # Configuration
-	        prompt = "「何を探しているのですか？」";
-	        #term = "alacritty";
-	        line_wrap = "word";
-
-	        #print_command = true;
-	        #display_generic = false;
-	        #gtk_dark = true;
-	        #layer = "overlay";
-	    
-	        key_expand = "Tab";
-	        insensitive = true;
-	        show = "drun";
-	        width = "30%";
-	        location = "top_right";
-	        lines = 30;
-	        sort_order = "alphabetical";
-	        hide_scroll = true;
-	        allow_markup = true;
-
-	        # Icons
-	        allow_images = true;
-	        image_size = 18;
-	    };
-
+   #programs.wofi = {
+   #    enable = true;
+   #    settings = {
+   #
+   #        # Configuration
+   #        prompt = "「何を探しているのですか？」";
+   #        #term = "alacritty";
+   #        line_wrap = "word";
+   #
+   #        #print_command = true;
+   #        #display_generic = false;
+   #        #gtk_dark = true;
+   #        #layer = "overlay";
+   #    
+   #        key_expand = "Tab";
+   #        insensitive = true;
+   #        show = "drun";
+   #        width = "30%";
+   #        location = "top_right";
+   #        lines = 30;
+   #        sort_order = "alphabetical";
+   #        hide_scroll = true;
+   #        allow_markup = true;
+   #
+   #        # Icons
+   #        allow_images = true;
+   #        image_size = 18;
+   #    };
+   #
 #       style = ''
 #       /* Font */
 #       * {
@@ -85,5 +91,5 @@
 #           background-color: black;
 #           }
 #       '';
-    };
+#};
 }

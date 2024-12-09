@@ -1,0 +1,3 @@
+{
+    imports = [ ./swww.nix ];
+}
